@@ -6,206 +6,222 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>B-2188 Kuchlanish Himoyachisi</title>
 <style>
-:root{--pr:#1a73e8;--pd:#1255cc;--ac:#f59e0b;--dk:#0f172a;--gr:#64748b;--lt:#f8fafc;--ok:#10b981;--er:#ef4444}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dk)}
+:root {
+  --pr: #1a73e8;
+  --pd: #1255cc;
+  --ac: #f59e0b;
+  --dk: #0f172a;
+  --gr: #64748b;
+  --lt: #f8fafc;
+  --ok: #10b981;
+  --er: #ef4444;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #fff; color: var(--dk); }
 
-/* ── ADMIN GATE ── */
-#aGate{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;align-items:center;justify-content:center}
-#aGate.on{display:flex}
-.gate{background:#fff;border-radius:20px;padding:40px 32px;width:340px;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.35)}
-.gate h3{font-size:22px;font-weight:800;margin-bottom:6px}
-.gate p.sub{font-size:13px;color:var(–gr);margin-bottom:24px}
-.gate input{width:100%;padding:14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:16px;text-align:center;letter-spacing:3px;outline:none;margin-bottom:12px}
-.gate input:focus{border-color:var(–pr)}
-.gate .gbtn{width:100%;background:var(–pr);color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer}
-.gate .gbtn:hover{background:var(–pd)}
-#gErr{color:var(–er);font-size:13px;margin-top:10px;display:none}
+/* ADMIN GATE */
+#aGate { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.8); z-index: 9999; align-items: center; justify-content: center; }
+#aGate.on { display: flex; }
+.gate { background: #fff; border-radius: 20px; padding: 40px 32px; width: 340px; text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,.35); }
+.gate h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+.gate p.sub { font-size: 13px; color: var(–gr); margin-bottom: 24px; }
+.gate input { width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 16px; text-align: center; letter-spacing: 3px; outline: none; margin-bottom: 12px; }
+.gate input:focus { border-color: var(–pr); }
+.gate .gbtn { width: 100%; background: var(–pr); color: #fff; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.gate .gbtn:hover { background: var(–pd); }
+#gErr { color: var(–er); font-size: 13px; margin-top: 10px; display: none; }
 
-/* ── ADMIN PANEL ── */
-#aPanel{display:none;position:fixed;inset:0;background:#f1f5f9;z-index:9000;overflow-y:auto}
-#aPanel.on{display:block}
-.ap-hd{background:var(–dk);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
-.ap-hd h1{font-size:17px;font-weight:800}
-.ap-hd-x{background:var(–er);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px}
-.ap-tabs{display:flex;padding:0 16px;background:#fff;border-bottom:2px solid #e2e8f0;position:sticky;top:53px;z-index:9;overflow-x:auto;gap:2px}
-.ap-tab{padding:12px 15px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(–gr);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
-.ap-tab.on{color:var(–pr);border-color:var(–pr)}
-.ap-bd{padding:20px;max-width:900px;margin:0 auto}
-.ap-sec{display:none}.ap-sec.on{display:block}
-.card{background:#fff;border-radius:14px;padding:22px;margin-bottom:14px;box-shadow:0 1px 6px rgba(0,0,0,.07)}
-.card h3{font-size:15px;font-weight:700;margin-bottom:16px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:560px){.row2{grid-template-columns:1fr}}
-.fg{margin-bottom:12px}
-.fg label{font-size:11px;font-weight:700;color:var(–gr);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
-.fg input,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;outline:none;font-family:inherit;transition:border .2s;background:#fff}
-.fg input:focus,.fg textarea:focus{border-color:var(–pr)}
-.fg textarea{resize:vertical;min-height:72px}
-.btn-ok{background:var(–ok);color:#fff;border:none;padding:11px 26px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
-.btn-pr{background:var(–pr);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
-.btn-dk{background:var(–dk);color:#fff;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
-.sm{display:none;font-size:13px;font-weight:600;margin-left:12px}
-.sm.ok{color:var(–ok)}.sm.er{color:var(–er)}
+/* ADMIN PANEL */
+#aPanel { display: none; position: fixed; inset: 0; background: #f1f5f9; z-index: 9000; overflow-y: auto; }
+#aPanel.on { display: block; }
+.ap-hd { background: var(–dk); color: #fff; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+.ap-hd h1 { font-size: 17px; font-weight: 800; }
+.ap-hd-x { background: var(–er); color: #fff; border: none; padding: 8px 18px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 14px; }
+.ap-tabs { display: flex; padding: 0 16px; background: #fff; border-bottom: 2px solid #e2e8f0; position: sticky; top: 53px; z-index: 9; overflow-x: auto; gap: 2px; }
+.ap-tab { padding: 12px 15px; border: none; background: none; cursor: pointer; font-size: 13px; font-weight: 600; color: var(–gr); border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; }
+.ap-tab.on { color: var(–pr); border-color: var(–pr); }
+.ap-bd { padding: 20px; max-width: 900px; margin: 0 auto; }
+.ap-sec { display: none; }
+.ap-sec.on { display: block; }
+.card { background: #fff; border-radius: 14px; padding: 22px; margin-bottom: 14px; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
+.card h3 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media(max-width: 560px) { .row2 { grid-template-columns: 1fr; } }
+.fg { margin-bottom: 12px; }
+.fg label { font-size: 11px; font-weight: 700; color: var(–gr); display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: .5px; }
+.fg input, .fg textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; font-family: inherit; transition: border .2s; background: #fff; }
+.fg input:focus, .fg textarea:focus { border-color: var(–pr); }
+.fg textarea { resize: vertical; min-height: 72px; }
+.btn-ok { background: var(–ok); color: #fff; border: none; padding: 11px 26px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+.btn-pr { background: var(–pr); color: #fff; border: none; padding: 11px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+.btn-dk { background: var(–dk); color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+.sm { display: none; font-size: 13px; font-weight: 600; margin-left: 12px; }
+.sm.ok { color: var(–ok); }
+.sm.er { color: var(–er); }
 
 /* Image manager */
-.img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px}
-.img-item{position:relative;border-radius:10px;overflow:hidden;border:2px solid #e2e8f0;background:#f8fafc}
-.img-item img{width:100%;height:100px;object-fit:contain;display:block;background:#fff}
-.img-lbl{font-size:10px;color:var(–gr);padding:4px 6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.img-x{position:absolute;top:4px;right:4px;background:var(–er);color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;font-weight:700}
-.itabs{display:flex;gap:6px;margin-bottom:14px}
-.itab{padding:7px 16px;border-radius:20px;border:1.5px solid #e2e8f0;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:var(–gr)}
-.itab.on{background:var(–pr);color:#fff;border-color:var(–pr)}
-.ipanel{display:none}.ipanel.on{display:block}
-.upload-area{border:2px dashed #cbd5e1;border-radius:10px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;background:#fff}
-.upload-area:hover{border-color:var(–pr);background:#eff6ff}
-.upload-area input{display:none}
-.upload-ico{font-size:36px;margin-bottom:8px}
-.upload-area p{font-size:13px;color:var(–gr);line-height:1.6}
-.upload-area strong{color:var(–pr)}
-.url-row{display:flex;gap:8px}
-.url-row input{flex:1;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:13px;outline:none}
-.url-row input:focus{border-color:var(–pr)}
-.url-prev{width:100%;max-height:110px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;display:none;margin-top:10px;background:#f8fafc}
+.img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.img-item { position: relative; border-radius: 10px; overflow: hidden; border: 2px solid #e2e8f0; background: #f8fafc; }
+.img-item img { width: 100%; height: 100px; object-fit: contain; display: block; background: #fff; }
+.img-lbl { font-size: 10px; color: var(–gr); padding: 4px 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.img-x { position: absolute; top: 4px; right: 4px; background: var(–er); color: #fff; border: none; border-radius: 50%; width: 22px; height: 22px; cursor: pointer; font-size: 13px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.itabs { display: flex; gap: 6px; margin-bottom: 14px; }
+.itab { padding: 7px 16px; border-radius: 20px; border: 1.5px solid #e2e8f0; background: #fff; font-size: 13px; font-weight: 600; cursor: pointer; color: var(–gr); }
+.itab.on { background: var(–pr); color: #fff; border-color: var(–pr); }
+.ipanel { display: none; }
+.ipanel.on { display: block; }
+.upload-area { border: 2px dashed #cbd5e1; border-radius: 10px; padding: 28px; text-align: center; cursor: pointer; transition: all .2s; background: #fff; }
+.upload-area:hover { border-color: var(–pr); background: #eff6ff; }
+.upload-area input { display: none; }
+.upload-ico { font-size: 36px; margin-bottom: 8px; }
+.upload-area p { font-size: 13px; color: var(–gr); line-height: 1.6; }
+.upload-area strong { color: var(–pr); }
+.url-row { display: flex; gap: 8px; }
+.url-row input { flex: 1; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 13px; outline: none; }
+.url-row input:focus { border-color: var(–pr); }
+.url-prev { width: 100%; max-height: 110px; object-fit: contain; border-radius: 8px; border: 1px solid #e2e8f0; display: none; margin-top: 10px; background: #f8fafc; }
 
 /* Groups */
-.g-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
-.g-item{display:flex;align-items:center;justify-content:space-between;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px}
-.g-name{font-size:14px;font-weight:700}
-.g-id{font-size:12px;color:var(–gr);font-family:monospace}
-.g-del{background:var(–er);color:#fff;border:none;border-radius:6px;padding:5px 12px;cursor:pointer;font-size:12px;font-weight:700}
-.g-add-row{display:flex;gap:8px;flex-wrap:wrap}
-.g-add-row input{flex:1;min-width:140px;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;outline:none}
-.g-add-row input:focus{border-color:var(–pr)}
-.note{font-size:12px;color:var(–gr);margin-top:12px;padding:12px 14px;background:#eff6ff;border-radius:8px;line-height:1.7;border:1px solid #bfdbfe}
-.note code{background:#dbeafe;padding:1px 5px;border-radius:4px;font-size:11px}
+.g-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.g-item { display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px; }
+.g-name { font-size: 14px; font-weight: 700; }
+.g-id { font-size: 12px; color: var(–gr); font-family: monospace; }
+.g-del { background: var(–er); color: #fff; border: none; border-radius: 6px; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; }
+.g-add-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.g-add-row input { flex: 1; min-width: 140px; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; }
+.g-add-row input:focus { border-color: var(–pr); }
+.note { font-size: 12px; color: var(–gr); margin-top: 12px; padding: 12px 14px; background: #eff6ff; border-radius: 8px; line-height: 1.7; border: 1px solid #bfdbfe; }
+.note code { background: #dbeafe; padding: 1px 5px; border-radius: 4px; font-size: 11px; }
 
 /* GitHub */
-.gh-step-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-.gh-step{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(–gr);background:#f8fafc;padding:10px 12px;border-radius:8px;line-height:1.6}
-.gh-n{min-width:22px;height:22px;border-radius:50%;background:var(–pr);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.gh-st{font-size:13px;margin-top:12px;padding:12px 14px;border-radius:8px;display:none;line-height:1.6}
-.gh-st.ok{display:block;background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
-.gh-st.er{display:block;background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
-.gh-st.ld{display:block;background:#eff6ff;color:var(–pr);border:1px solid #bfdbfe}
+.gh-step-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.gh-step { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(–gr); background: #f8fafc; padding: 10px 12px; border-radius: 8px; line-height: 1.6; }
+.gh-n { min-width: 22px; height: 22px; border-radius: 50%; background: var(–pr); color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.gh-st { font-size: 13px; margin-top: 12px; padding: 12px 14px; border-radius: 8px; display: none; line-height: 1.6; }
+.gh-st.ok { display: block; background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+.gh-st.er { display: block; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+.gh-st.ld { display: block; background: #eff6ff; color: var(–pr); border: 1px solid #bfdbfe; }
 
 /* Orders */
-.ord-wrap{overflow-x:auto}
-.ord-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:620px}
-.ord-tbl th{background:var(–dk);color:#fff;padding:10px 12px;text-align:left;font-weight:600}
-.ord-tbl td{padding:10px 12px;border-bottom:1px solid #f1f5f9;vertical-align:top}
-.ord-tbl tr:hover td{background:#f8fafc}
-.no-ord{text-align:center;padding:48px;color:var(–gr)}
+.ord-wrap { overflow-x: auto; }
+.ord-tbl { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 620px; }
+.ord-tbl th { background: var(–dk); color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+.ord-tbl td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+.ord-tbl tr:hover td { background: #f8fafc; }
+.no-ord { text-align: center; padding: 48px; color: var(–gr); }
 
-/* ── LANDING ── */
-.lang-bar{background:var(–dk);padding:9px 20px;display:flex;justify-content:flex-end;gap:8px}
-.lb{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;padding:5px 16px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s}
-.lb.on{background:var(–pr);border-color:var(–pr)}
+/* LANDING */
+.lang-bar { background: var(–dk); padding: 9px 20px; display: flex; justify-content: flex-end; gap: 8px; }
+.lb { background: transparent; border: 1px solid rgba(255,255,255,.25); color: #fff; padding: 5px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .2s; }
+.lb.on { background: var(–pr); border-color: var(–pr); }
 
-.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 55%,#1a73e8 100%);padding:52px 20px 60px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.badge{display:inline-block;background:var(–ac);color:#000;font-size:12px;font-weight:700;padding:5px 16px;border-radius:20px;margin-bottom:18px}
-.hero h1{font-size:clamp(22px,5vw,42px);font-weight:800;line-height:1.2;margin-bottom:16px}
-.hero h1 em{color:var(–ac);font-style:normal}
-.hero-p{font-size:clamp(14px,2vw,17px);opacity:.85;max-width:540px;margin:0 auto 30px;line-height:1.6}
-.hcta{background:var(–ac);color:#000;font-weight:800;font-size:16px;padding:15px 40px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 22px rgba(245,158,11,.45);transition:transform .2s,box-shadow .2s}
-.hcta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,158,11,.5)}
+.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #1a73e8 100%); padding: 52px 20px 60px; text-align: center; color: #fff; position: relative; overflow: hidden; }
+.badge { display: inline-block; background: var(–ac); color: #000; font-size: 12px; font-weight: 700; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; }
+.hero h1 { font-size: clamp(22px, 5vw, 42px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+.hero h1 em { color: var(–ac); font-style: normal; }
+.hero-p { font-size: clamp(14px, 2vw, 17px); opacity: .85; max-width: 540px; margin: 0 auto 30px; line-height: 1.6; }
+.hcta { background: var(–ac); color: #000; font-weight: 800; font-size: 16px; padding: 15px 40px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 22px rgba(245,158,11,.45); transition: transform .2s; }
+.hcta:hover { transform: translateY(-2px); }
 
-.sl-wrap{max-width:380px;margin:38px auto 0;position:relative}
-.sl-track{overflow:hidden;border-radius:14px;box-shadow:0 20px 56px rgba(0,0,0,.5);background:#fff}
-.sl-inner{display:flex;transition:transform .45s ease}
-.sl-slide{min-width:100%;flex-shrink:0}
-.sl-slide img{width:100%;height:264px;object-fit:contain;display:block;background:#fff}
-.sl-dots{display:flex;justify-content:center;gap:8px;margin-top:12px}
-.sl-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:background .2s}
-.sl-dot.on{background:#fff}
-.sl-btn{position:absolute;top:132px;background:rgba(0,0,0,.42);color:#fff;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s}
-.sl-btn:hover{background:rgba(0,0,0,.7)}
-#slL{left:6px}#slR{right:6px}
+.sl-wrap { max-width: 380px; margin: 38px auto 0; position: relative; }
+.sl-track { overflow: hidden; border-radius: 14px; box-shadow: 0 20px 56px rgba(0,0,0,.5); background: #fff; }
+.sl-inner { display: flex; transition: transform .45s ease; }
+.sl-slide { min-width: 100%; flex-shrink: 0; }
+.sl-slide img { width: 100%; height: 264px; object-fit: contain; display: block; background: #fff; }
+.sl-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
+.sl-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.3); cursor: pointer; transition: background .2s; }
+.sl-dot.on { background: #fff; }
+.sl-btn { position: absolute; top: 132px; background: rgba(0,0,0,.42); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background .2s; }
+.sl-btn:hover { background: rgba(0,0,0,.7); }
+#slL { left: 6px; }
+#slR { right: 6px; }
 
-.section{padding:54px 20px}
-.ctr{max-width:720px;margin:0 auto}
-.sec-title{font-size:clamp(20px,3.5vw,28px);font-weight:800;text-align:center;margin-bottom:8px}
-.sec-sub{text-align:center;color:var(–gr);margin-bottom:34px;font-size:14px}
-.bg-prob{background:#fff5f5}
-.bg-sol{background:var(–lt)}
-.bg-spec{background:#f0f7ff}
-.bg-price{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff}
+.section { padding: 54px 20px; }
+.ctr { max-width: 720px; margin: 0 auto; }
+.sec-title { font-size: clamp(20px, 3.5vw, 28px); font-weight: 800; text-align: center; margin-bottom: 8px; }
+.sec-sub { text-align: center; color: var(–gr); margin-bottom: 34px; font-size: 14px; }
+.bg-prob { background: #fff5f5; }
+.bg-sol { background: var(–lt); }
+.bg-spec { background: #f0f7ff; }
+.bg-price { background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff; }
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-.prob-card{background:#fff;border:1px solid #fecaca;border-radius:13px;padding:18px;text-align:center}
-.prob-card .ic{font-size:30px;margin-bottom:8px}
-.prob-card h3{font-size:14px;font-weight:700;color:var(–er);margin-bottom:5px}
-.prob-card p{font-size:13px;color:var(–gr);line-height:1.5}
-.sol-card{background:#fff;border:1px solid #bbf7d0;border-radius:13px;padding:18px;text-align:center}
-.sol-card .ic{font-size:30px;margin-bottom:8px}
-.sol-card h3{font-size:14px;font-weight:700;color:var(–ok);margin-bottom:5px}
-.sol-card p{font-size:13px;color:var(–gr);line-height:1.5}
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+.prob-card { background: #fff; border: 1px solid #fecaca; border-radius: 13px; padding: 18px; text-align: center; }
+.prob-card .ic { font-size: 30px; margin-bottom: 8px; }
+.prob-card h3 { font-size: 14px; font-weight: 700; color: var(–er); margin-bottom: 5px; }
+.prob-card p { font-size: 13px; color: var(–gr); line-height: 1.5; }
+.sol-card { background: #fff; border: 1px solid #bbf7d0; border-radius: 13px; padding: 18px; text-align: center; }
+.sol-card .ic { font-size: 30px; margin-bottom: 8px; }
+.sol-card h3 { font-size: 14px; font-weight: 700; color: var(–ok); margin-bottom: 5px; }
+.sol-card p { font-size: 13px; color: var(–gr); line-height: 1.5; }
 
-.steps-list{display:flex;flex-direction:column;gap:14px}
-.step-item{display:flex;align-items:flex-start;gap:14px;background:var(–lt);border-radius:13px;padding:16px}
-.step-num{min-width:34px;height:34px;border-radius:50%;background:var(–pr);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.step-txt h3{font-size:14px;font-weight:700;margin-bottom:4px}
-.step-txt p{font-size:13px;color:var(–gr);line-height:1.5}
+.steps-list { display: flex; flex-direction: column; gap: 14px; }
+.step-item { display: flex; align-items: flex-start; gap: 14px; background: var(–lt); border-radius: 13px; padding: 16px; }
+.step-num { min-width: 34px; height: 34px; border-radius: 50%; background: var(–pr); color: #fff; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-txt h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.step-txt p { font-size: 13px; color: var(–gr); line-height: 1.5; }
 
-.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
-.spec-item{background:#fff;border-radius:11px;padding:14px;text-align:center;border:1px solid #bfdbfe}
-.spec-val{font-size:20px;font-weight:800;color:var(–pr)}
-.spec-lbl{font-size:11px;color:var(–gr);margin-top:3px}
+.spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.spec-item { background: #fff; border-radius: 11px; padding: 14px; text-align: center; border: 1px solid #bfdbfe; }
+.spec-val { font-size: 20px; font-weight: 800; color: var(–pr); }
+.spec-lbl { font-size: 11px; color: var(–gr); margin-top: 3px; }
 
-.price-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:34px;text-align:center;max-width:440px;margin:0 auto}
-.old-pr{font-size:16px;text-decoration:line-through;opacity:.4;margin-bottom:4px}
-.new-pr{font-size:50px;font-weight:900;color:var(–ac);line-height:1}
-.new-pr span{font-size:18px}
-.pr-note{font-size:13px;opacity:.6;margin:8px 0 22px;line-height:1.5}
-.bcta{display:block;width:100%;background:var(–ac);color:#000;font-weight:800;font-size:17px;padding:16px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 22px rgba(245,158,11,.4);transition:transform .2s}
-.bcta:hover{transform:translateY(-2px)}
-.del-badges{display:flex;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap}
-.del-badge{background:rgba(255,255,255,.1);border-radius:20px;padding:5px 14px;font-size:12px}
+.price-box { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 34px; text-align: center; max-width: 440px; margin: 0 auto; }
+.old-pr { font-size: 16px; text-decoration: line-through; opacity: .4; margin-bottom: 4px; }
+.new-pr { font-size: 50px; font-weight: 900; color: var(–ac); line-height: 1; }
+.new-pr span { font-size: 18px; }
+.pr-note { font-size: 13px; opacity: .6; margin: 8px 0 22px; line-height: 1.5; }
+.bcta { display: block; width: 100%; background: var(–ac); color: #000; font-weight: 800; font-size: 17px; padding: 16px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 22px rgba(245,158,11,.4); transition: transform .2s; }
+.bcta:hover { transform: translateY(-2px); }
+.del-badges { display: flex; justify-content: center; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+.del-badge { background: rgba(255,255,255,.1); border-radius: 20px; padding: 5px 14px; font-size: 12px; }
 
-footer{background:var(–dk);color:#fff;padding:24px 20px;text-align:center}
-footer p{font-size:13px;opacity:.4}
+footer { background: var(–dk); color: #fff; padding: 24px 20px; text-align: center; }
+footer p { font-size: 13px; opacity: .4; }
 
-/* ── ORDER MODAL ── */
-.mov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:5000;align-items:center;justify-content:center;padding:16px}
-.mov.on{display:flex}
-.mod{background:#fff;border-radius:18px;padding:28px;width:100%;max-width:420px;position:relative;max-height:92vh;overflow-y:auto}
-.mod h2{font-size:18px;font-weight:800;margin-bottom:5px}
-.mod-sub{font-size:13px;color:var(–gr);margin-bottom:18px}
-.mod-x{position:absolute;top:12px;right:14px;background:none;border:none;font-size:24px;cursor:pointer;color:var(–gr);line-height:1}
-.fst{display:none}.fst.on{display:block}
-.del-opts{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
-.del-opt{border:2px solid #e2e8f0;border-radius:11px;padding:13px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .2s}
-.del-opt:hover{border-color:var(–pr);background:#f0f7ff}
-.del-opt.on{border-color:var(–pr);background:#eff6ff}
-.del-ic{font-size:22px}
-.del-opt h4{font-size:13px;font-weight:700}
-.del-opt p{font-size:12px;color:var(–gr)}
-.mfg{margin-bottom:12px}
-.mfg label{font-size:13px;font-weight:600;display:block;margin-bottom:5px}
-.mfg input{width:100%;padding:12px 13px;border:1.5px solid #e2e8f0;border-radius:9px;font-size:14px;outline:none;font-family:inherit;transition:border .2s}
-.mfg input:focus{border-color:var(–pr)}
-.qty-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.qty-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid #e2e8f0;background:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;transition:all .2s}
-.qty-btn:hover{border-color:var(–pr);color:var(–pr)}
-.qty-val{font-size:17px;font-weight:800;min-width:24px;text-align:center}
-.total-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid #e2e8f0;margin-bottom:14px}
-.total-val{font-size:21px;font-weight:800;color:var(–pr)}
-.msb{width:100%;background:var(–pr);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:50px;border:none;cursor:pointer;transition:background .2s}
-.msb:hover{background:var(–pd)}
-.msb:disabled{background:#94a3b8;cursor:not-allowed}
-.succ-box{text-align:center;padding:20px 0}
-.succ-box .ck{font-size:54px;margin-bottom:12px}
-.succ-box h3{font-size:19px;font-weight:800;margin-bottom:8px}
-.succ-box p{color:var(–gr);font-size:13px;line-height:1.7}
+/* ORDER MODAL */
+.mov { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.62); z-index: 5000; align-items: center; justify-content: center; padding: 16px; }
+.mov.on { display: flex; }
+.mod { background: #fff; border-radius: 18px; padding: 28px; width: 100%; max-width: 420px; position: relative; max-height: 92vh; overflow-y: auto; }
+.mod h2 { font-size: 18px; font-weight: 800; margin-bottom: 5px; }
+.mod-sub { font-size: 13px; color: var(–gr); margin-bottom: 18px; }
+.mod-x { position: absolute; top: 12px; right: 14px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(–gr); line-height: 1; }
+.fst { display: none; }
+.fst.on { display: block; }
+.del-opts { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+.del-opt { border: 2px solid #e2e8f0; border-radius: 11px; padding: 13px; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: all .2s; }
+.del-opt:hover { border-color: var(–pr); background: #f0f7ff; }
+.del-opt.on { border-color: var(–pr); background: #eff6ff; }
+.del-ic { font-size: 22px; }
+.del-opt h4 { font-size: 13px; font-weight: 700; }
+.del-opt p { font-size: 12px; color: var(–gr); }
+.mfg { margin-bottom: 12px; }
+.mfg label { font-size: 13px; font-weight: 600; display: block; margin-bottom: 5px; }
+.mfg input { width: 100%; padding: 12px 13px; border: 1.5px solid #e2e8f0; border-radius: 9px; font-size: 14px; outline: none; font-family: inherit; transition: border .2s; }
+.mfg input:focus { border-color: var(–pr); }
+.qty-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.qty-btn { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid #e2e8f0; background: #fff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700; transition: all .2s; }
+.qty-btn:hover { border-color: var(–pr); color: var(–pr); }
+.qty-val { font-size: 17px; font-weight: 800; min-width: 24px; text-align: center; }
+.total-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid #e2e8f0; margin-bottom: 14px; }
+.total-val { font-size: 21px; font-weight: 800; color: var(–pr); }
+.msb { width: 100%; background: var(–pr); color: #fff; font-weight: 700; font-size: 15px; padding: 14px; border-radius: 50px; border: none; cursor: pointer; transition: background .2s; }
+.msb:hover { background: var(–pd); }
+.msb:disabled { background: #94a3b8; cursor: not-allowed; }
+.succ-box { text-align: center; padding: 20px 0; }
+.succ-box .ck { font-size: 54px; margin-bottom: 12px; }
+.succ-box h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+.succ-box p { color: var(–gr); font-size: 13px; line-height: 1.7; }
 
-/* ── TIL — to’g’ri ishlaydigan usul ── */
-.uz{display:block}.ru{display:none}
-span.uz{display:inline}span.ru{display:none}
-body.lang-ru .uz{display:none}
-body.lang-ru .ru{display:block}
-body.lang-ru span.uz{display:none}
-body.lang-ru span.ru{display:inline}
+/* TIL */
+.uz { display: block; }
+.ru { display: none; }
+span.uz { display: inline; }
+span.ru { display: none; }
+body.lang-ru .uz { display: none; }
+body.lang-ru .ru { display: block; }
+body.lang-ru span.uz { display: none; }
+body.lang-ru span.ru { display: inline; }
 </style>
 
 </head>
@@ -232,16 +248,15 @@ body.lang-ru span.ru{display:inline}
   </div>
   <div class="ap-tabs">
     <button class="ap-tab on" onclick="apTab(0)">📦 Mahsulot</button>
-    <button class="ap-tab"    onclick="apTab(1)">📝 Matnlar</button>
-    <button class="ap-tab"    onclick="apTab(2)">🖼️ Rasmlar</button>
-    <button class="ap-tab"    onclick="apTab(3)">💬 Guruhlar</button>
-    <button class="ap-tab"    onclick="apTab(4)">🛒 Buyurtmalar</button>
-    <button class="ap-tab"    onclick="apTab(5)">🐙 GitHub</button>
+    <button class="ap-tab"   onclick="apTab(1)">📝 Matnlar</button>
+    <button class="ap-tab"   onclick="apTab(2)">🖼️ Rasmlar</button>
+    <button class="ap-tab"   onclick="apTab(3)">💬 Guruhlar</button>
+    <button class="ap-tab"   onclick="apTab(4)">🛒 Buyurtmalar</button>
+    <button class="ap-tab"   onclick="apTab(5)">🐙 GitHub</button>
   </div>
   <div class="ap-bd">
 
 ```
-<!-- 0: MAHSULOT -->
 <div class="ap-sec on" id="s0">
   <div class="card">
     <h3>💰 Narh va Mahsulot</h3>
@@ -255,7 +270,7 @@ body.lang-ru span.ru{display:inline}
     </div>
     <div class="row2">
       <div class="fg"><label>Qo'qon delivery narhi</label><input id="f-lf" type="number"></div>
-      <div class="fg"><label>Hero badge matni</label><input id="f-bg"></div>
+      <div class="fg"><label>Hero badge</label><input id="f-bg"></div>
     </div>
   </div>
   <div class="card">
@@ -273,7 +288,6 @@ body.lang-ru span.ru{display:inline}
   <span class="sm" id="sm0"></span>
 </div>
 
-<!-- 1: MATNLAR -->
 <div class="ap-sec" id="s1">
   <div class="card">
     <h3>🦸 Hero sektsiya</h3>
@@ -289,7 +303,6 @@ body.lang-ru span.ru{display:inline}
   <span class="sm" id="sm1"></span>
 </div>
 
-<!-- 2: RASMLAR -->
 <div class="ap-sec" id="s2">
   <div class="card">
     <h3>🖼️ Slider rasmlari</h3>
@@ -301,7 +314,7 @@ body.lang-ru span.ru{display:inline}
     <div class="ipanel on" id="ip0">
       <div class="upload-area"
         onclick="document.getElementById('fInp').click()"
-        ondragover="event.preventDefault();this.style.borderColor='var(--pr)'"
+        ondragover="event.preventDefault();this.style.borderColor='#1a73e8'"
         ondragleave="this.style.borderColor=''"
         ondrop="event.preventDefault();this.style.borderColor='';doFiles(event.dataTransfer.files)">
         <input type="file" id="fInp" accept="image/*" multiple onchange="doFiles(this.files)">
@@ -323,14 +336,13 @@ body.lang-ru span.ru{display:inline}
   </div>
 </div>
 
-<!-- 3: GURUHLAR -->
 <div class="ap-sec" id="s3">
   <div class="card">
     <h3>💬 Telegram guruhlar</h3>
-    <p style="font-size:13px;color:var(--gr);margin-bottom:14px">Buyurtma kelganda quyidagi barcha guruhlarga xabar yuboriladi.</p>
+    <p style="font-size:13px;color:#64748b;margin-bottom:14px">Buyurtma kelganda quyidagi barcha guruhlarga xabar yuboriladi.</p>
     <div class="g-list" id="gList"></div>
     <div class="g-add-row">
-      <input id="gId"   placeholder="Guruh ID: -1001234567890">
+      <input id="gId" placeholder="Guruh ID: -1001234567890">
       <input id="gName" placeholder="Guruh nomi">
       <button class="btn-pr" onclick="addGroup()">➕ Qo'shish</button>
     </div>
@@ -338,9 +350,9 @@ body.lang-ru span.ru{display:inline}
       💡 <strong>Guruh ID sini qanday topish:</strong><br>
       1. Botni guruhga qo'shing va <strong>admin</strong> qiling<br>
       2. Guruhga <code>/start</code> yozing<br>
-      3. Brauzerda oching: <code>api.telegram.org/bot<b>TOKEN</b>/getUpdates</code><br>
+      3. Brauzerda: <code>api.telegram.org/botTOKEN/getUpdates</code><br>
       4. <code>"chat":{"id":-100xxxxxxxxx}</code> — shu raqam<br>
-      ⚠️ Guruh IDlari odatda <strong>manfiy</strong> raqam bo'ladi
+      ⚠️ Guruh IDlari odatda <strong>manfiy</strong> raqam
     </div>
     <div style="margin-top:14px">
       <button class="btn-ok" onclick="saveSec(3)">💾 Saqlash</button>
@@ -349,25 +361,23 @@ body.lang-ru span.ru{display:inline}
   </div>
 </div>
 
-<!-- 4: BUYURTMALAR -->
 <div class="ap-sec" id="s4">
   <div class="card">
     <h3>🛒 Buyurtmalar ro'yxati</h3>
-    <p style="font-size:13px;color:var(--gr);margin-bottom:14px" id="ordCnt">Jami: 0 ta buyurtma</p>
+    <p style="font-size:13px;color:#64748b;margin-bottom:14px" id="ordCnt">Jami: 0 ta buyurtma</p>
     <div class="ord-wrap" id="ordWr"></div>
   </div>
 </div>
 
-<!-- 5: GITHUB -->
 <div class="ap-sec" id="s5">
   <div class="card">
     <h3>🐙 GitHub ga saqlash</h3>
-    <p style="font-size:13px;color:var(--gr);margin-bottom:16px">O'zgartirishlarni GitHub ga yuklang — sayt 1–2 daqiqada yangilanadi.</p>
+    <p style="font-size:13px;color:#64748b;margin-bottom:16px">O'zgartirishlarni GitHub ga yuklang — sayt 1–2 daqiqada yangilanadi.</p>
     <div class="gh-step-list">
-      <div class="gh-step"><div class="gh-n">1</div><span><a href="https://github.com/settings/tokens/new" target="_blank" style="color:var(--pr);font-weight:600">github.com/settings/tokens/new</a> — yangi token oching</span></div>
-      <div class="gh-step"><div class="gh-n">2</div><span>Note: <code>landing-editor</code> · Expiration: <strong>No expiration</strong></span></div>
-      <div class="gh-step"><div class="gh-n">3</div><span>✅ <strong>repo</strong> → <strong>Generate token</strong> → tokenni nusxalang</span></div>
-      <div class="gh-step"><div class="gh-n">4</div><span>Quyidagi maydonlarni to'ldiring va "Yuklash" tugmasini bosing</span></div>
+      <div class="gh-step"><div class="gh-n">1</div><span><a href="https://github.com/settings/tokens/new" target="_blank" style="color:#1a73e8;font-weight:600">github.com/settings/tokens/new</a> — yangi token oching</span></div>
+      <div class="gh-step"><div class="gh-n">2</div><span>Note: <code style="background:#e2e8f0;padding:1px 5px;border-radius:3px">landing-editor</code> · Expiration: <strong>No expiration</strong></span></div>
+      <div class="gh-step"><div class="gh-n">3</div><span>✅ <strong>repo</strong> ni belgilang → <strong>Generate token</strong> → nusxalang</span></div>
+      <div class="gh-step"><div class="gh-n">4</div><span>Quyidagi maydonlarni to'ldiring va yuklash tugmasini bosing</span></div>
     </div>
     <div class="row2">
       <div class="fg"><label>GitHub Username</label><input id="ghUser" placeholder="aztechref-pro"></div>
@@ -383,12 +393,12 @@ body.lang-ru span.ru{display:inline}
   </div>
 </div>
 
-<!-- ═══════════ LANDING ═══════════ -->
+<!-- LANDING -->
 
 <div id="land">
   <div class="lang-bar">
     <button class="lb on" onclick="setLang('uz')">🇺🇿 O'zbek</button>
-    <button class="lb"    onclick="setLang('ru')">🇷🇺 Русский</button>
+    <button class="lb"   onclick="setLang('ru')">🇷🇺 Русский</button>
   </div>
 
   <div class="hero">
@@ -515,7 +525,7 @@ body.lang-ru span.ru{display:inline}
       <div class="mfg"><label><span class="uz">Telefon *</span><span class="ru">Телефон *</span></label><input id="fPh" type="tel" placeholder="+998 90 123 45 67"></div>
       <div class="mfg" id="fAdW" style="display:none"><label><span class="uz">Manzil *</span><span class="ru">Адрес *</span></label><input id="fAd"></div>
       <div class="total-row">
-        <span style="font-size:14px;color:var(--gr)"><span class="uz">Jami:</span><span class="ru">Итого:</span></span>
+        <span style="font-size:14px;color:#64748b"><span class="uz">Jami:</span><span class="ru">Итого:</span></span>
         <span class="total-val" id="tV"></span>
       </div>
       <button class="msb" id="subBtn" onclick="doOrder()">
@@ -533,12 +543,10 @@ body.lang-ru span.ru{display:inline}
 </div>
 
 <script>
-/* ─── CONSTANTS ─── */
 const BOT_TOKEN = '8727881862:AAHMxPRYVpG9R8ldB5T2az3q1_1T_nuXccM';
 const ADMIN_PW  = 'aztech2025';
-const MAX_IMG   = 800 * 1024; // 800 KB
+const MAX_IMG   = 800 * 1024;
 
-/* ─── CONFIG ─── */
 /* __CONFIG_START__ */
 let C = {
   nUz:'Kuchlanish Himoyachisi B-2188', nRu:'Протектор напряжения B-2188',
@@ -553,166 +561,100 @@ let C = {
   imgs:[],
   groups:[{id:'47115138', name:'Shaxsiy (default)'}],
   probs:[
-    {ic:'⚡', tu:"To'satdan kuchlanish sakrashi", tr:'Скачки напряжения', pu:"Elektr tarmog'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi", pr:'Резкие колебания в сети мгновенно выводят технику из строя'},
-    {ic:'🔌', tu:"Svet o'chib yonishi", tr:'Отключения электричества', pu:'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi', pr:'При восстановлении питания компрессор получает удар'},
-    {ic:'💸', tu:"Qimmat ta'mirlash", tr:'Дорогостоящий ремонт', pu:"Muzlatgich ta'miri 500,000–2,000,000 so'm. Oldini olish atigi 65,000 so'm", pr:'Ремонт холодильника от 500 000 сум. Защита стоит 65 000 сум'}
+    {ic:'⚡',tu:"To'satdan kuchlanish sakrashi",tr:'Скачки напряжения',pu:"Elektr tarmog'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi",pr:'Резкие колебания в сети мгновенно выводят технику из строя'},
+    {ic:'🔌',tu:"Svet o'chib yonishi",tr:'Отключения электричества',pu:'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi',pr:'При восстановлении питания компрессор получает удар'},
+    {ic:'💸',tu:"Qimmat ta'mirlash",tr:'Дорогостоящий ремонт',pu:"Muzlatgich ta'miri 500,000–2,000,000 so'm. Oldini olish atigi 65,000 so'm",pr:'Ремонт холодильника от 500 000 сум. Защита стоит 65 000 сум'}
   ],
   sols:[
-    {ic:'🛡️', tu:'Avtomatik uzish', tr:'Авто-отключение', pu:"175V pastga tushsa yoki 260V dan oshsa — darhol uzilib qoladi", pr:'При выходе за 175–260V мгновенно отключает питание'},
-    {ic:'⏱️', tu:"Aqlli kechiktirish", tr:'Умная задержка', pu:"Svet kelgandan 4–5 daqiqa o'tib ulaydi — kompressor uchun xavfsiz", pr:'Подключает питание через 4–5 мин — безопасно для компрессора'},
-    {ic:'💡', tu:"LED ko'rsatkichlar", tr:'LED индикаторы', pu:"3 rangli LED: himoya, kechiktirish, normal ishlash", pr:'3 цвета LED: защита, задержка, нормальная работа'},
-    {ic:'🔧', tu:'Kuchli quvvat', tr:'Высокая мощность', pu:'16A / 2500W — muzlatgich, konditsioner, suv pompasi uchun', pr:'16A / 2500W — для холодильника, кондиционера, насоса'}
+    {ic:'🛡️',tu:'Avtomatik uzish',tr:'Авто-отключение',pu:"175V pastga tushsa yoki 260V dan oshsa — darhol uzilib qoladi",pr:'При выходе за 175–260V мгновенно отключает питание'},
+    {ic:'⏱️',tu:"Aqlli kechiktirish",tr:'Умная задержка',pu:"Svet kelgandan 4–5 daqiqa o'tib ulaydi — kompressor uchun xavfsiz",pr:'Подключает питание через 4–5 мин — безопасно для компрессора'},
+    {ic:'💡',tu:"LED ko'rsatkichlar",tr:'LED индикаторы',pu:"3 rangli LED: himoya, kechiktirish, normal ishlash",pr:'3 цвета LED: защита, задержка, нормальная работа'},
+    {ic:'🔧',tu:'Kuchli quvvat',tr:'Высокая мощность',pu:'16A / 2500W — muzlatgich, konditsioner, suv pompasi uchun',pr:'16A / 2500W — для холодильника, кондиционера, насоса'}
   ],
   stps:[
-    {tu:'Rozetkaga ulang', tr:'Вставьте в розетку', pu:"B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang", pr:'Вставьте B-2188 напрямую в стандартную розетку 220V'},
-    {tu:'Texnikani ulang', tr:'Подключите технику', pu:"Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang", pr:'Вилку холодильника или другого устройства подключите к B-2188'},
-    {tu:"Ishlatavering — himoya avtomatik!", tr:'Пользуйтесь — защита автоматическая!', pu:"Yashil LED — normal ishlayapti. Qizil LED — himoya ishga tushgan", pr:'Зелёный LED — норма. Красный LED — защита активирована'}
+    {tu:'Rozetkaga ulang',tr:'Вставьте в розетку',pu:"B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang",pr:'Вставьте B-2188 напрямую в стандартную розетку 220V'},
+    {tu:'Texnikani ulang',tr:'Подключите технику',pu:"Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang",pr:'Вилку холодильника или другого устройства подключите к B-2188'},
+    {tu:"Ishlatavering — himoya avtomatik!",tr:'Пользуйтесь — защита автоматическая!',pu:"Yashil LED — normal ishlayapti. Qizil LED — himoya ishga tushgan",pr:'Зелёный LED — норма. Красный LED — защита активирована'}
   ]
 };
 /* __CONFIG_END__ */
 
-/* ─── STATE ─── */
-let orders = [];
-let curLang = 'uz';
-let curSlide = 0;
-let slTimer;
-let chosenDel = null;
-let qty = 1;
+let orders=[], curLang='uz', curSlide=0, slTimer, chosenDel=null, qty=1;
 
-/* ─── HELPERS ─── */
 function x(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function gv(id){ return (document.getElementById(id)||{}).value || ''; }
-function flash(id, msg, cls){
-  const el = document.getElementById(id);
-  if(!el) return;
-  el.textContent = msg;
-  el.className = 'sm ' + cls;
-  el.style.display = 'inline';
-  setTimeout(()=>{ el.style.display='none'; }, 3500);
-}
+function gv(id){ return (document.getElementById(id)||{}).value||''; }
+function flash(id,msg,cls){ const el=document.getElementById(id); if(!el)return; el.textContent=msg; el.className='sm '+cls; el.style.display='inline'; setTimeout(()=>el.style.display='none',3500); }
 
-/* ─── LANG ─── */
 function setLang(l){
-  curLang = l;
-  document.body.classList.toggle('lang-ru', l === 'ru');
-  document.querySelectorAll('.lb').forEach((b,i)=> b.classList.toggle('on', (i===0&&l==='uz')||(i===1&&l==='ru')));
+  curLang=l;
+  document.body.classList.toggle('lang-ru',l==='ru');
+  document.querySelectorAll('.lb').forEach((b,i)=>b.classList.toggle('on',(i===0&&l==='uz')||(i===1&&l==='ru')));
 }
 
-/* ─── RENDER ─── */
 function render(){
-  // Badge
-  document.getElementById('ldBadge').textContent = C.badge;
+  document.getElementById('ldBadge').textContent=C.badge;
+  document.querySelector('#ldH1 .uz').innerHTML=x(C.hHuz).replace(/(kuchlanish zarbasidan)/,'<em>$1</em>');
+  document.querySelector('#ldH1 .ru').innerHTML=x(C.hHru).replace(/(скачков напряжения!?)/,'<em>$1</em>');
+  document.querySelector('#ldP .uz').textContent=C.hPuz;
+  document.querySelector('#ldP .ru').textContent=C.hPru;
+  document.getElementById('ldOP').textContent='Bozor narxi: '+C.oldP.toLocaleString()+" so'm";
+  document.getElementById('ldNP').innerHTML=C.price.toLocaleString()+" <span>so'm</span>";
+  document.getElementById('mPN').textContent=C.nUz+' — '+C.price.toLocaleString()+" so'm";
+  document.getElementById('dShUz').textContent=C.shUz;
+  document.getElementById('dShRu').textContent=C.shRu;
+  document.getElementById('dLcUz').textContent=C.lcUz;
+  document.getElementById('dLcRu').textContent=C.lcRu;
 
-  // Hero text — update span contents directly (keep structure)
-  document.querySelector('#ldH1 .uz').innerHTML = x(C.hHuz).replace(/(kuchlanish zarbasidan)/,'<em>$1</em>');
-  document.querySelector('#ldH1 .ru').innerHTML = x(C.hHru).replace(/(скачков напряжения!?)/,'<em>$1</em>');
-  document.querySelector('#ldP .uz').textContent = C.hPuz;
-  document.querySelector('#ldP .ru').textContent = C.hPru;
-
-  // Price
-  document.getElementById('ldOP').textContent = 'Bozor narxi: ' + C.oldP.toLocaleString() + " so'm";
-  document.getElementById('ldNP').innerHTML    = C.price.toLocaleString() + ' <span>so\'m</span>';
-
-  // Modal
-  document.getElementById('mPN').textContent  = C.nUz + ' — ' + C.price.toLocaleString() + " so'm";
-  document.getElementById('dShUz').textContent = C.shUz;
-  document.getElementById('dShRu').textContent = C.shRu;
-  document.getElementById('dLcUz').textContent = C.lcUz;
-  document.getElementById('dLcRu').textContent = C.lcRu;
-
-  // Problems
-  document.getElementById('ldProb').innerHTML = C.probs.map(p=>
+  document.getElementById('ldProb').innerHTML=C.probs.map(p=>
     `<div class="prob-card"><div class="ic">${p.ic}</div>
      <h3><span class="uz">${x(p.tu)}</span><span class="ru">${x(p.tr)}</span></h3>
-     <p><span class="uz">${x(p.pu)}</span><span class="ru">${x(p.pr)}</span></p></div>`
-  ).join('');
+     <p><span class="uz">${x(p.pu)}</span><span class="ru">${x(p.pr)}</span></p></div>`).join('');
 
-  // Solutions
-  document.getElementById('ldSol').innerHTML = C.sols.map(s=>
+  document.getElementById('ldSol').innerHTML=C.sols.map(s=>
     `<div class="sol-card"><div class="ic">${s.ic}</div>
      <h3><span class="uz">${x(s.tu)}</span><span class="ru">${x(s.tr)}</span></h3>
-     <p><span class="uz">${x(s.pu)}</span><span class="ru">${x(s.pr)}</span></p></div>`
-  ).join('');
+     <p><span class="uz">${x(s.pu)}</span><span class="ru">${x(s.pr)}</span></p></div>`).join('');
 
-  // Steps
-  document.getElementById('ldStep').innerHTML = C.stps.map((s,i)=>
+  document.getElementById('ldStep').innerHTML=C.stps.map((s,i)=>
     `<div class="step-item"><div class="step-num">${i+1}</div>
      <div class="step-txt"><h3><span class="uz">${x(s.tu)}</span><span class="ru">${x(s.tr)}</span></h3>
-     <p><span class="uz">${x(s.pu)}</span><span class="ru">${x(s.pr)}</span></p></div></div>`
-  ).join('');
+     <p><span class="uz">${x(s.pu)}</span><span class="ru">${x(s.pr)}</span></p></div></div>`).join('');
 
-  buildSlider();
-  setLang(curLang);
-  calcTotal();
+  buildSlider(); setLang(curLang); calcTotal();
 }
 
-/* ─── SLIDER ─── */
 function buildSlider(){
   clearInterval(slTimer);
-  const si = document.getElementById('slI');
-  const sd = document.getElementById('slD');
+  const si=document.getElementById('slI'), sd=document.getElementById('slD');
   if(!C.imgs.length){
-    si.innerHTML = '<div class="sl-slide"><img src="https://via.placeholder.com/380x264/eff6ff/1a73e8?text=B-2188" alt="B-2188"></div>';
-    sd.innerHTML = '<div class="sl-dot on"></div>';
-    return;
+    si.innerHTML='<div class="sl-slide"><img src="https://via.placeholder.com/380x264/eff6ff/1a73e8?text=B-2188" alt="B-2188"></div>';
+    sd.innerHTML='<div class="sl-dot on"></div>'; return;
   }
-  si.innerHTML = C.imgs.map(u=>
-    `<div class="sl-slide"><img src="${u}" alt="B-2188" onerror="this.src='https://via.placeholder.com/380x264/eff6ff/1a73e8?text=Rasm'"></div>`
-  ).join('');
-  sd.innerHTML = C.imgs.map((_,i)=>
-    `<div class="sl-dot${i===0?' on':''}" onclick="gSl(${i})"></div>`
-  ).join('');
-  curSlide = 0; apSl();
-  if(C.imgs.length > 1) slTimer = setInterval(()=>sNav(1), 3500);
+  si.innerHTML=C.imgs.map(u=>`<div class="sl-slide"><img src="${u}" alt="B-2188" onerror="this.src='https://via.placeholder.com/380x264/eff6ff/1a73e8?text=Rasm'"></div>`).join('');
+  sd.innerHTML=C.imgs.map((_,i)=>`<div class="sl-dot${i===0?' on':''}" onclick="gSl(${i})"></div>`).join('');
+  curSlide=0; apSl();
+  if(C.imgs.length>1) slTimer=setInterval(()=>sNav(1),3500);
 }
-function apSl(){
-  document.getElementById('slI').style.transform = `translateX(-${curSlide*100}%)`;
-  document.querySelectorAll('.sl-dot').forEach((d,i)=> d.classList.toggle('on', i===curSlide));
-}
+function apSl(){ document.getElementById('slI').style.transform=`translateX(-${curSlide*100}%)`; document.querySelectorAll('.sl-dot').forEach((d,i)=>d.classList.toggle('on',i===curSlide)); }
 function gSl(n){ curSlide=(n+C.imgs.length)%C.imgs.length; apSl(); }
 function sNav(d){ gSl(curSlide+d); }
 
-/* ─── ADMIN GATE ─── */
-function openGate(){
-  document.getElementById('pwIn').value = '';
-  document.getElementById('gErr').style.display = 'none';
-  document.getElementById('aGate').classList.add('on');
-  setTimeout(()=> document.getElementById('pwIn').focus(), 120);
-}
-function doPw(){
-  if(document.getElementById('pwIn').value === ADMIN_PW){
-    document.getElementById('aGate').classList.remove('on');
-    openAP();
-  } else {
-    document.getElementById('gErr').style.display = 'block';
-  }
-}
+function openGate(){ document.getElementById('pwIn').value=''; document.getElementById('gErr').style.display='none'; document.getElementById('aGate').classList.add('on'); setTimeout(()=>document.getElementById('pwIn').focus(),120); }
+function doPw(){ if(document.getElementById('pwIn').value===ADMIN_PW){ document.getElementById('aGate').classList.remove('on'); openAP(); } else { document.getElementById('gErr').style.display='block'; } }
 
-/* ─── ADMIN PANEL ─── */
-function openAP(){
-  loadFields(); renderIgrid(); renderGList(); renderOrders();
-  document.getElementById('aPanel').classList.add('on');
-}
+function openAP(){ loadFields(); renderIgrid(); renderGList(); renderOrders(); document.getElementById('aPanel').classList.add('on'); }
 function closeAP(){ document.getElementById('aPanel').classList.remove('on'); }
-function apTab(i){
-  document.querySelectorAll('.ap-tab').forEach((b,j)=> b.classList.toggle('on', j===i));
-  document.querySelectorAll('.ap-sec').forEach((s,j)=> s.classList.toggle('on', j===i));
-  if(i===4) renderOrders();
-}
+function apTab(i){ document.querySelectorAll('.ap-tab').forEach((b,j)=>b.classList.toggle('on',j===i)); document.querySelectorAll('.ap-sec').forEach((s,j)=>s.classList.toggle('on',j===i)); if(i===4)renderOrders(); }
 
-/* ─── LOAD FIELDS ─── */
 function loadFields(){
-  const sv=(id,v)=>{ const e=document.getElementById(id); if(e) e.value=v; };
-  sv('f-nUz',C.nUz); sv('f-nRu',C.nRu);
-  sv('f-pr',C.price); sv('f-op',C.oldP); sv('f-lf',C.locFee); sv('f-bg',C.badge);
-  sv('f-shUz',C.shUz); sv('f-shRu',C.shRu);
-  sv('f-lcUz',C.lcUz); sv('f-lcRu',C.lcRu);
-  sv('f-hHuz',C.hHuz); sv('f-hHru',C.hHru);
-  sv('f-hPuz',C.hPuz); sv('f-hPru',C.hPru);
+  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v;};
+  sv('f-nUz',C.nUz);sv('f-nRu',C.nRu);sv('f-pr',C.price);sv('f-op',C.oldP);sv('f-lf',C.locFee);sv('f-bg',C.badge);
+  sv('f-shUz',C.shUz);sv('f-shRu',C.shRu);sv('f-lcUz',C.lcUz);sv('f-lcRu',C.lcRu);
+  sv('f-hHuz',C.hHuz);sv('f-hHru',C.hHru);sv('f-hPuz',C.hPuz);sv('f-hPru',C.hPru);
 
-  document.getElementById('probEd').innerHTML = C.probs.map((p,i)=>`
+  document.getElementById('probEd').innerHTML=C.probs.map((p,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:var(--gr);margin-bottom:8px">KARTA #${i+1} ${p.ic}</div>
+      <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">KARTA #${i+1} ${p.ic}</div>
       <div class="row2">
         <div class="fg"><label>Sarlavha UZ</label><input id="pt${i}" value="${x(p.tu)}"></div>
         <div class="fg"><label>Sarlavha RU</label><input id="pr${i}" value="${x(p.tr)}"></div>
@@ -723,9 +665,9 @@ function loadFields(){
       </div>
     </div>`).join('');
 
-  document.getElementById('solEd').innerHTML = C.sols.map((s,i)=>`
+  document.getElementById('solEd').innerHTML=C.sols.map((s,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:var(--gr);margin-bottom:8px">KARTA #${i+1} ${s.ic}</div>
+      <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">KARTA #${i+1} ${s.ic}</div>
       <div class="row2">
         <div class="fg"><label>Sarlavha UZ</label><input id="st${i}" value="${x(s.tu)}"></div>
         <div class="fg"><label>Sarlavha RU</label><input id="sr${i}" value="${x(s.tr)}"></div>
@@ -736,9 +678,9 @@ function loadFields(){
       </div>
     </div>`).join('');
 
-  document.getElementById('stepEd').innerHTML = C.stps.map((s,i)=>`
+  document.getElementById('stepEd').innerHTML=C.stps.map((s,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:var(--gr);margin-bottom:8px">QADAM #${i+1}</div>
+      <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">QADAM #${i+1}</div>
       <div class="row2">
         <div class="fg"><label>Sarlavha UZ</label><input id="stu${i}" value="${x(s.tu)}"></div>
         <div class="fg"><label>Sarlavha RU</label><input id="str${i}" value="${x(s.tr)}"></div>
@@ -750,299 +692,81 @@ function loadFields(){
     </div>`).join('');
 }
 
-/* ─── SAVE SECTION ─── */
 function saveSec(n){
-  if(n===0){
-    C.nUz=gv('f-nUz'); C.nRu=gv('f-nRu');
-    C.price=+gv('f-pr')||65000; C.oldP=+gv('f-op')||90000;
-    C.locFee=+gv('f-lf')||10000; C.badge=gv('f-bg');
-    C.shUz=gv('f-shUz'); C.shRu=gv('f-shRu');
-    C.lcUz=gv('f-lcUz'); C.lcRu=gv('f-lcRu');
-  }
-  if(n===1){
-    C.hHuz=gv('f-hHuz'); C.hHru=gv('f-hHru');
-    C.hPuz=gv('f-hPuz'); C.hPru=gv('f-hPru');
-    C.probs.forEach((_,i)=>{ C.probs[i]={...C.probs[i],tu:gv(`pt${i}`),tr:gv(`pr${i}`),pu:gv(`pp${i}`),pr:gv(`pq${i}`)}; });
-    C.sols.forEach((_,i)=>{  C.sols[i]={...C.sols[i],tu:gv(`st${i}`),tr:gv(`sr${i}`),pu:gv(`sp${i}`),pr:gv(`sq${i}`)}; });
-    C.stps.forEach((_,i)=>{ C.stps[i]={...C.stps[i],tu:gv(`stu${i}`),tr:gv(`str${i}`),pu:gv(`spu${i}`),pr:gv(`spr${i}`)}; });
-  }
+  if(n===0){ C.nUz=gv('f-nUz');C.nRu=gv('f-nRu');C.price=+gv('f-pr')||65000;C.oldP=+gv('f-op')||90000;C.locFee=+gv('f-lf')||10000;C.badge=gv('f-bg');C.shUz=gv('f-shUz');C.shRu=gv('f-shRu');C.lcUz=gv('f-lcUz');C.lcRu=gv('f-lcRu'); }
+  if(n===1){ C.hHuz=gv('f-hHuz');C.hHru=gv('f-hHru');C.hPuz=gv('f-hPuz');C.hPru=gv('f-hPru'); C.probs.forEach((_,i)=>{C.probs[i]={...C.probs[i],tu:gv(`pt${i}`),tr:gv(`pr${i}`),pu:gv(`pp${i}`),pr:gv(`pq${i}`)}}); C.sols.forEach((_,i)=>{C.sols[i]={...C.sols[i],tu:gv(`st${i}`),tr:gv(`sr${i}`),pu:gv(`sp${i}`),pr:gv(`sq${i}`)}}); C.stps.forEach((_,i)=>{C.stps[i]={...C.stps[i],tu:gv(`stu${i}`),tr:gv(`str${i}`),pu:gv(`spu${i}`),pr:gv(`spr${i}`)}}); }
   render();
-  flash(`sm${n}`, '✅ Saqlandi! GitHub ga yuklashni unutmang.', 'ok');
+  flash(`sm${n}`,'✅ Saqlandi! GitHub ga yuklashni unutmang.','ok');
 }
 
-/* ─── IMAGE MANAGER ─── */
 function renderIgrid(){
-  const g = document.getElementById('igrid');
-  g.innerHTML = C.imgs.length
-    ? C.imgs.map((u,i)=>`
-        <div class="img-item">
-          <img src="${u}" onerror="this.style.opacity='.2'">
-          <div class="img-lbl">${u.startsWith('data:') ? '📁 Yuklangan' : '🔗 '+u.split('/').pop().slice(0,18)}</div>
-          <button class="img-x" onclick="delImg(${i})">×</button>
-        </div>`).join('')
-    : '<p style="color:var(--gr);font-size:13px">Hali rasm yo\'q</p>';
+  const g=document.getElementById('igrid');
+  g.innerHTML=C.imgs.length?C.imgs.map((u,i)=>`<div class="img-item"><img src="${u}" onerror="this.style.opacity='.2'"><div class="img-lbl">${u.startsWith('data:')? '📁 Yuklangan':'🔗 '+u.split('/').pop().slice(0,18)}</div><button class="img-x" onclick="delImg(${i})">×</button></div>`).join(''):'<p style="color:#64748b;font-size:13px">Hali rasm yo\'q</p>';
 }
-function iTab(i){
-  document.querySelectorAll('.itab').forEach((b,j)=>b.classList.toggle('on',j===i));
-  document.querySelectorAll('.ipanel').forEach((p,j)=>p.classList.toggle('on',j===i));
-}
-function doFiles(files){
-  Array.from(files).forEach(f=>{
-    if(!f.type.startsWith('image/')){ alert(f.name + ' — rasm fayli emas'); return; }
-    if(f.size > MAX_IMG){ alert(f.name + ' — hajmi 800KB dan katta. Iltimos kichraytiring.'); return; }
-    const r = new FileReader();
-    r.onload = e => { C.imgs.push(e.target.result); renderIgrid(); buildSlider(); };
-    r.readAsDataURL(f);
-  });
-}
-function prevUrl(){
-  const u = document.getElementById('urlIn').value.trim();
-  const p = document.getElementById('urlPrev');
-  const ok = /^https?:\/\/.+\.(jpe?g|png|webp|gif)(\?.*)?$/i.test(u);
-  p.style.display = ok ? 'block' : 'none';
-  if(ok){ p.src=u; p.onerror=()=>{ p.style.display='none'; }; }
-}
-function addUrl(){
-  const u = document.getElementById('urlIn').value.trim();
-  if(!u.startsWith('http')){ alert("To'g'ri URL kiriting (https://...)"); return; }
-  C.imgs.push(u);
-  document.getElementById('urlIn').value = '';
-  document.getElementById('urlPrev').style.display = 'none';
-  renderIgrid(); buildSlider();
-}
-function delImg(i){
-  if(C.imgs.length <= 1){ alert("Kamida 1 ta rasm bo'lishi kerak!"); return; }
-  C.imgs.splice(i,1); renderIgrid(); buildSlider();
-}
+function iTab(i){ document.querySelectorAll('.itab').forEach((b,j)=>b.classList.toggle('on',j===i)); document.querySelectorAll('.ipanel').forEach((p,j)=>p.classList.toggle('on',j===i)); }
+function doFiles(files){ Array.from(files).forEach(f=>{ if(!f.type.startsWith('image/')){alert(f.name+' — rasm fayli emas');return;} if(f.size>MAX_IMG){alert(f.name+' — 800KB dan katta');return;} const r=new FileReader(); r.onload=e=>{C.imgs.push(e.target.result);renderIgrid();buildSlider();}; r.readAsDataURL(f); }); }
+function prevUrl(){ const u=document.getElementById('urlIn').value.trim(),p=document.getElementById('urlPrev'),ok=/^https?:\/\/.+\.(jpe?g|png|webp|gif)(\?.*)?$/i.test(u); p.style.display=ok?'block':'none'; if(ok){p.src=u;p.onerror=()=>p.style.display='none';} }
+function addUrl(){ const u=document.getElementById('urlIn').value.trim(); if(!u.startsWith('http')){alert("To'g'ri URL kiriting");return;} C.imgs.push(u); document.getElementById('urlIn').value=''; document.getElementById('urlPrev').style.display='none'; renderIgrid();buildSlider(); }
+function delImg(i){ if(C.imgs.length<=1){alert("Kamida 1 ta rasm!");return;} C.imgs.splice(i,1);renderIgrid();buildSlider(); }
 
-/* ─── GROUPS ─── */
-function renderGList(){
-  const el = document.getElementById('gList');
-  el.innerHTML = C.groups.length
-    ? C.groups.map((g,i)=>`
-        <div class="g-item">
-          <div><div class="g-name">💬 ${x(g.name)}</div><div class="g-id">${g.id}</div></div>
-          <button class="g-del" onclick="delGrp(${i})">O'chirish</button>
-        </div>`).join('')
-    : '<p style="font-size:13px;color:var(--gr)">Guruh qo\'shilmagan</p>';
-}
-function addGroup(){
-  const id = document.getElementById('gId').value.trim();
-  const nm = document.getElementById('gName').value.trim() || 'Guruh';
-  if(!id){ alert('Guruh ID sini kiriting'); return; }
-  if(C.groups.find(g=>g.id===id)){ alert('Bu guruh allaqachon mavjud'); return; }
-  C.groups.push({id, name:nm});
-  document.getElementById('gId').value = '';
-  document.getElementById('gName').value = '';
-  renderGList();
-}
-function delGrp(i){
-  if(!confirm("Guruhni o'chirishni tasdiqlaysizmi?")) return;
-  C.groups.splice(i,1); renderGList();
-}
+function renderGList(){ const el=document.getElementById('gList'); el.innerHTML=C.groups.length?C.groups.map((g,i)=>`<div class="g-item"><div><div class="g-name">💬 ${x(g.name)}</div><div class="g-id">${g.id}</div></div><button class="g-del" onclick="delGrp(${i})">O'chirish</button></div>`).join(''):'<p style="font-size:13px;color:#64748b">Guruh qo\'shilmagan</p>'; }
+function addGroup(){ const id=document.getElementById('gId').value.trim(),nm=document.getElementById('gName').value.trim()||'Guruh'; if(!id){alert('ID kiriting');return;} if(C.groups.find(g=>g.id===id)){alert('Allaqachon mavjud');return;} C.groups.push({id,name:nm}); document.getElementById('gId').value=''; document.getElementById('gName').value=''; renderGList(); }
+function delGrp(i){ if(!confirm("O'chirishni tasdiqlaysizmi?"))return; C.groups.splice(i,1);renderGList(); }
 
-/* ─── ORDERS ─── */
-function renderOrders(){
-  const w = document.getElementById('ordWr');
-  document.getElementById('ordCnt').textContent = 'Jami: ' + orders.length + ' ta buyurtma';
-  if(!orders.length){ w.innerHTML='<div class="no-ord">📭 Hali buyurtmalar yo\'q</div>'; return; }
-  const dn = {pickup:"Do'kondan olib ketish", local:"Qo'qon ichida", region:"Viloyatlarga"};
-  w.innerHTML = `<table class="ord-tbl">
-    <thead><tr><th>#</th><th>Ism</th><th>Telefon</th><th>Yetkazib berish</th><th>Manzil</th><th>Miqdor</th><th>Jami</th><th>Vaqt</th></tr></thead>
-    <tbody>${orders.map((o,i)=>`<tr>
-      <td>${i+1}</td><td>${x(o.name)}</td><td>${x(o.phone)}</td>
-      <td>${dn[o.del]||o.del}</td><td>${x(o.addr||'—')}</td>
-      <td>${o.qty} dona</td><td><strong>${o.total.toLocaleString()} so'm</strong></td>
-      <td style="font-size:11px;color:var(--gr)">${new Date(o.time).toLocaleString('uz-UZ')}</td>
-    </tr>`).join('')}</tbody></table>`;
-}
+function renderOrders(){ const w=document.getElementById('ordWr'); document.getElementById('ordCnt').textContent='Jami: '+orders.length+' ta buyurtma'; if(!orders.length){w.innerHTML='<div class="no-ord">📭 Hali buyurtmalar yo\'q</div>';return;} const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida",region:"Viloyatlarga"}; w.innerHTML=`<table class="ord-tbl"><thead><tr><th>#</th><th>Ism</th><th>Telefon</th><th>Yetkazib berish</th><th>Manzil</th><th>Miqdor</th><th>Jami</th><th>Vaqt</th></tr></thead><tbody>${orders.map((o,i)=>`<tr><td>${i+1}</td><td>${x(o.name)}</td><td>${x(o.phone)}</td><td>${dn[o.del]||o.del}</td><td>${x(o.addr||'—')}</td><td>${o.qty} dona</td><td><strong>${o.total.toLocaleString()} so'm</strong></td><td style="font-size:11px;color:#64748b">${new Date(o.time).toLocaleString('uz-UZ')}</td></tr>`).join('')}</tbody></table>`; }
 
-/* ─── GITHUB PUSH ─── */
 async function pushGH(){
-  const tok  = document.getElementById('ghTok').value.trim();
-  const user = document.getElementById('ghUser').value.trim();
-  const repo = document.getElementById('ghRepo').value.trim();
-  const btn  = document.getElementById('ghBtn');
-
-  if(!tok||!user||!repo){
-    setGhSt('er','❌ Token, username va repository nomini to\'ldiring'); return;
-  }
-
-  btn.disabled = true;
-  setGhSt('ld','⏳ GitHub dan fayl o\'qilmoqda...');
-
+  const tok=document.getElementById('ghTok').value.trim(),user=document.getElementById('ghUser').value.trim(),repo=document.getElementById('ghRepo').value.trim(),btn=document.getElementById('ghBtn');
+  if(!tok||!user||!repo){setGhSt('er',"❌ Barcha maydonlarni to'ldiring");return;}
+  btn.disabled=true; setGhSt('ld',"⏳ GitHub dan o'qilmoqda...");
   try{
-    const url = `https://api.github.com/repos/${user}/${repo}/contents/index.html`;
-    const hdr = {
-      'Authorization': `Bearer ${tok}`,
-      'Accept': 'application/vnd.github.v3+json',
-      'Content-Type': 'application/json'
-    };
-
-    // 1. Hozirgi faylni olish
-    const getR = await fetch(url, {headers:hdr});
-    if(!getR.ok && getR.status !== 404) throw new Error('Fayl o\'qilmadi: HTTP ' + getR.status);
-    const getD = getR.ok ? await getR.json() : {};
-    const sha  = getD.sha || null;
-
+    const url=`https://api.github.com/repos/${user}/${repo}/contents/index.html`;
+    const hdr={'Authorization':`Bearer ${tok}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
+    const getR=await fetch(url,{headers:hdr});
+    if(!getR.ok&&getR.status!==404) throw new Error('Fayl o\'qilmadi: '+getR.status);
+    const getD=getR.ok?await getR.json():{};
+    const sha=getD.sha||null;
     setGhSt('ld','⏳ Konfiguratsiya yangilanmoqda...');
-
-    // 2. GitHub dagi HTML ni olish va faqat C ob'ektini almashtirish
-    let html;
-    if(getD.content){
-      html = decodeURIComponent(escape(atob(getD.content.replace(/\n/g,''))));
-    } else {
-      html = document.documentElement.outerHTML;
-    }
-
-    // C ob'ektini __CONFIG_START__ va __CONFIG_END__ orasida almashtirish
-    const newBlock = '/* __CONFIG_START__ */\nlet C = '
-      + JSON.stringify(C, null, 2)
-      + ';\n/* __CONFIG_END__ */';
-    html = html.replace(
-      /\/\* __CONFIG_START__ \*\/[\s\S]*?\/\* __CONFIG_END__ \*\//,
-      newBlock
-    );
-
-    // 3. UTF-8 xavfsiz Base64 encode
-    const encoded = btoa(
-      Array.from(new TextEncoder().encode(html))
-        .map(b => String.fromCharCode(b)).join('')
-    );
-
-    // 4. GitHub ga yuklash
-    const putR = await fetch(url, {
-      method: 'PUT', headers: hdr,
-      body: JSON.stringify({
-        message: '🔧 Admin panel yangiladi — ' + new Date().toLocaleString('uz-UZ'),
-        content: encoded,
-        ...(sha ? {sha} : {})
-      })
-    });
-
-    if(putR.ok){
-      setGhSt('ok','✅ Muvaffaqiyatli yuklandi! Sayt 1–2 daqiqada yangilanadi.');
-    } else {
-      const e = await putR.json();
-      throw new Error(e.message || 'HTTP ' + putR.status);
-    }
-  } catch(e){
-    setGhSt('er','❌ Xatolik: ' + e.message);
-  } finally {
-    btn.disabled = false;
-  }
+    let html=getD.content?decodeURIComponent(escape(atob(getD.content.replace(/\n/g,'')))):document.documentElement.outerHTML;
+    const newBlock='/* __CONFIG_START__ */\nlet C = '+JSON.stringify(C,null,2)+';\n/* __CONFIG_END__ */';
+    html=html.replace(/\/\* __CONFIG_START__ \*\/[\s\S]*?\/\* __CONFIG_END__ \*\//,newBlock);
+    const encoded=btoa(Array.from(new TextEncoder().encode(html)).map(b=>String.fromCharCode(b)).join(''));
+    const putR=await fetch(url,{method:'PUT',headers:hdr,body:JSON.stringify({message:'Admin panel — '+new Date().toLocaleString('uz-UZ'),content:encoded,...(sha?{sha}:{})})});
+    if(putR.ok){ setGhSt('ok','✅ Yuklandi! Sayt 1–2 daqiqada yangilanadi.'); }
+    else{ const e=await putR.json(); throw new Error(e.message||'HTTP '+putR.status); }
+  }catch(e){ setGhSt('er','❌ Xatolik: '+e.message); }
+  finally{ btn.disabled=false; }
 }
-function setGhSt(cls, msg){
-  const el = document.getElementById('ghSt');
-  el.className = 'gh-st ' + cls;
-  el.textContent = msg;
-}
+function setGhSt(cls,msg){ const el=document.getElementById('ghSt'); el.className='gh-st '+cls; el.textContent=msg; }
 
-/* ─── ORDER MODAL ─── */
-function openM(){
-  document.getElementById('mOv').classList.add('on');
-  goMs(1);
-  chosenDel = null; qty = 1;
-  document.getElementById('qV').textContent = 1;
-  document.querySelectorAll('.del-opt').forEach(d=>d.classList.remove('on'));
-  document.getElementById('nBtn').disabled = true;
-  ['fNm','fPh','fAd'].forEach(id=>{ const e=document.getElementById(id); if(e) e.value=''; });
-}
+function openM(){ document.getElementById('mOv').classList.add('on'); goMs(1); chosenDel=null;qty=1; document.getElementById('qV').textContent=1; document.querySelectorAll('.del-opt').forEach(d=>d.classList.remove('on')); document.getElementById('nBtn').disabled=true; ['fNm','fPh','fAd'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';}); }
 function closeM(){ document.getElementById('mOv').classList.remove('on'); }
 function goMs(n){ document.querySelectorAll('.fst').forEach((s,i)=>s.classList.toggle('on',i===n-1)); }
+function selDel(t){ chosenDel=t; document.querySelectorAll('.del-opt').forEach(d=>d.classList.remove('on')); document.getElementById({pickup:'d1',local:'d2',region:'d3'}[t]).classList.add('on'); document.getElementById('nBtn').disabled=false; calcTotal(); }
+function goMs2(){ if(!chosenDel)return; qty=1;document.getElementById('qV').textContent=1; const lb={uz:{pickup:"🏪 Do'kondan olib ketish",local:"🛵 Qo'qon ichida",region:"📦 Viloyatlarga"},ru:{pickup:"🏪 Самовывоз",local:"🛵 По Коканду",region:"📦 По регионам"}}; document.getElementById('mDL').textContent=lb[curLang][chosenDel]; const na=chosenDel!=='pickup'; document.getElementById('fAdW').style.display=na?'block':'none'; document.getElementById('fAd').placeholder=chosenDel==='local'?(curLang==='uz'?"Ko'cha, uy raqami":'Улица, дом'):(curLang==='uz'?"Shahar, ko'cha, uy":'Город, улица, дом'); calcTotal();goMs(2); }
+function chQ(d){ qty=Math.max(1,qty+d);document.getElementById('qV').textContent=qty;calcTotal(); }
+function calcTotal(){ if(!chosenDel)return; const fee={pickup:0,local:C.locFee,region:0}[chosenDel]||0; document.getElementById('tV').textContent=((C.price*qty)+fee).toLocaleString()+" so'm"; }
 
-function selDel(t){
-  chosenDel = t;
-  document.querySelectorAll('.del-opt').forEach(d=>d.classList.remove('on'));
-  document.getElementById({pickup:'d1',local:'d2',region:'d3'}[t]).classList.add('on');
-  document.getElementById('nBtn').disabled = false;
-  calcTotal();
-}
-
-function goMs2(){
-  if(!chosenDel) return;
-  qty = 1; document.getElementById('qV').textContent = 1;
-  const lb = {
-    uz: {pickup:"🏪 Do'kondan olib ketish", local:"🛵 Qo'qon ichida", region:"📦 Viloyatlarga"},
-    ru: {pickup:"🏪 Самовывоз", local:"🛵 По Коканду", region:"📦 По регионам"}
-  };
-  document.getElementById('mDL').textContent = lb[curLang][chosenDel];
-  const na = chosenDel !== 'pickup';
-  document.getElementById('fAdW').style.display = na ? 'block' : 'none';
-  document.getElementById('fAd').placeholder =
-    chosenDel === 'local'
-      ? (curLang==='uz' ? "Ko'cha, uy raqami" : 'Улица, дом')
-      : (curLang==='uz' ? "Shahar, ko'cha, uy" : 'Город, улица, дом');
-  calcTotal(); goMs(2);
-}
-
-function chQ(d){ qty=Math.max(1,qty+d); document.getElementById('qV').textContent=qty; calcTotal(); }
-
-function calcTotal(){
-  if(!chosenDel) return;
-  const fee = {pickup:0, local:C.locFee, region:0}[chosenDel] || 0;
-  document.getElementById('tV').textContent = ((C.price*qty)+fee).toLocaleString() + " so'm";
-}
-
-async function sendAll(txt){
-  const targets = C.groups.length ? C.groups : [{id:'47115138'}];
-  await Promise.allSettled(targets.map(g=>
-    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({chat_id:g.id, text:txt, parse_mode:'Markdown'})
-    })
-  ));
-}
+async function sendAll(txt){ const targets=C.groups.length?C.groups:[{id:'47115138'}]; await Promise.allSettled(targets.map(g=>fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:g.id,text:txt,parse_mode:'Markdown'})}))); }
 
 async function doOrder(){
-  const name  = document.getElementById('fNm').value.trim();
-  const phone = document.getElementById('fPh').value.trim();
-  const addr  = document.getElementById('fAd').value.trim();
-  const na    = chosenDel !== 'pickup';
-  if(!name || !phone || (na && !addr)){
-    alert(curLang==='uz' ? "Iltimos, barcha maydonlarni to'ldiring" : "Пожалуйста, заполните все поля");
-    return;
-  }
-  const btn = document.getElementById('subBtn');
-  btn.disabled = true;
-  btn.innerHTML = curLang==='uz' ? '⏳ Yuborilmoqda...' : '⏳ Отправка...';
-
-  const fee   = {pickup:0, local:C.locFee, region:0}[chosenDel] || 0;
-  const total = (C.price * qty) + fee;
-  const dn    = {pickup:"Do'kondan olib ketish", local:"Qo'qon ichida yetkazib berish", region:"Viloyatlarga yetkazib berish"};
-
-  const msg = `🛒 *YANGI BUYURTMA!*\n\n`
-    + `📦 *Mahsulot:* ${C.nUz}\n`
-    + `🔢 *Miqdor:* ${qty} dona\n`
-    + `🚚 *Yetkazib berish:* ${dn[chosenDel]}\n`
-    + `👤 *Ism:* ${name}\n`
-    + `📱 *Telefon:* ${phone}\n`
-    + (addr ? `📍 *Manzil:* ${addr}\n` : '')
-    + `💰 *Jami:* ${total.toLocaleString()} so'm\n`
-    + `⏰ ${new Date().toLocaleString('uz-UZ')}`;
-
+  const name=document.getElementById('fNm').value.trim(),phone=document.getElementById('fPh').value.trim(),addr=document.getElementById('fAd').value.trim(),na=chosenDel!=='pickup';
+  if(!name||!phone||(na&&!addr)){alert(curLang==='uz'?"Barcha maydonlarni to'ldiring":"Заполните все поля");return;}
+  const btn=document.getElementById('subBtn'); btn.disabled=true; btn.innerHTML=curLang==='uz'?'⏳ Yuborilmoqda...':'⏳ Отправка...';
+  const fee={pickup:0,local:C.locFee,region:0}[chosenDel]||0,total=(C.price*qty)+fee;
+  const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida yetkazib berish",region:"Viloyatlarga yetkazib berish"};
+  const msg=`🛒 *YANGI BUYURTMA!*\n\n📦 *Mahsulot:* ${C.nUz}\n🔢 *Miqdor:* ${qty} dona\n🚚 *Yetkazib berish:* ${dn[chosenDel]}\n👤 *Ism:* ${name}\n📱 *Telefon:* ${phone}\n${addr?`📍 *Manzil:* ${addr}\n`:''}💰 *Jami:* ${total.toLocaleString()} so'm\n⏰ ${new Date().toLocaleString('uz-UZ')}`;
   await sendAll(msg);
-
-  orders.push({id:Date.now(), name, phone, addr:addr||'', del:chosenDel, qty, total, time:new Date().toISOString()});
-
-  const ok = {
-    uz: `Hurmatli ${name}, buyurtmangiz qabul qilindi! 🎉\nTez orada siz bilan bog'lanamiz.\n📱 ${phone}`,
-    ru: `Уважаемый(ая) ${name}, заказ принят! 🎉\nМы свяжемся с вами в ближайшее время.\n📱 ${phone}`
-  };
-  document.getElementById('sucMsg').textContent = ok[curLang];
-  goMs(3);
-  btn.disabled = false;
-  btn.innerHTML = curLang==='uz' ? '✅ Buyurtma Berish' : '✅ Оформить заказ';
+  orders.push({id:Date.now(),name,phone,addr:addr||'',del:chosenDel,qty,total,time:new Date().toISOString()});
+  const ok={uz:`Hurmatli ${name}, buyurtmangiz qabul qilindi! 🎉\nTez orada siz bilan bog'lanamiz.\n📱 ${phone}`,ru:`Уважаемый(ая) ${name}, заказ принят! 🎉\nСвяжемся в ближайшее время.\n📱 ${phone}`};
+  document.getElementById('sucMsg').textContent=ok[curLang];
+  goMs(3); btn.disabled=false; btn.innerHTML=curLang==='uz'?'✅ Buyurtma Berish':'✅ Оформить заказ';
 }
 
-/* ─── INIT ─── */
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded',function(){
   render();
-  const p = new URLSearchParams(window.location.search);
-  if(p.get('admin') === 'kirish'){
-    window.history.replaceState({}, '', window.location.pathname);
-    openGate();
-  }
+  const p=new URLSearchParams(window.location.search);
+  if(p.get('admin')==='kirish'){ window.history.replaceState({},'',window.location.pathname); openGate(); }
 });
 </script>
 
