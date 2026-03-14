@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B-2188 Kuchlanish Himoyachisi</title>
+<style>
+:root{--primary:#1a73e8;--pd:#1557b0;--accent:#f59e0b;--dark:#0f172a;--gray:#64748b;--light:#f8fafc;--ok:#10b981;--err:#ef4444}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dark)}
+
+/* ADMIN GATE */
+#adminGate{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9000;align-items:center;justify-content:center}
+#adminGate.open{display:flex}
+.gate-box{background:#fff;border-radius:18px;padding:36px 28px;width:340px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.gate-box h3{font-size:20px;font-weight:800;margin-bottom:6px}
+.gate-box p{font-size:13px;color:var(--gray);margin-bottom:20px}
+.gate-box input{width:100%;padding:13px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;margin-bottom:12px;outline:none;text-align:center;letter-spacing:2px}
+.gate-box input:focus{border-color:var(--primary)}
+.gate-btn{width:100%;background:var(--primary);color:#fff;border:none;padding:13px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s}
+.gate-btn:hover{background:var(--pd)}
+#pwErr{color:var(--err);font-size:13px;margin-top:10px;display:none}
+
+/* ADMIN PANEL */
+#adminPanel{display:none;position:fixed;inset:0;background:#f1f5f9;z-index:8000;overflow-y:auto}
+#adminPanel.open{display:block}
+.ap-header{background:var(--dark);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.ap-header h1{font-size:17px;font-weight:800}
+.ap-close{background:var(--err);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px}
+.ap-tabs{display:flex;gap:2px;padding:0 16px;background:#fff;border-bottom:2px solid #e2e8f0;position:sticky;top:53px;z-index:9;overflow-x:auto}
+.ap-tab{padding:12px 18px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--gray);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.ap-tab.active{color:var(--primary);border-color:var(--primary)}
+.ap-body{padding:20px;max-width:860px;margin:0 auto}
+.ap-section{display:none}.ap-section.active{display:block}
+.ap-card{background:#fff;border-radius:14px;padding:22px;margin-bottom:14px;box-shadow:0 1px 6px rgba(0,0,0,.07)}
+.ap-card h3{font-size:15px;font-weight:700;margin-bottom:14px}
+.ap-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.ap-row{grid-template-columns:1fr}}
+.ap-group{margin-bottom:12px}
+.ap-group label{font-size:11px;font-weight:700;color:var(--gray);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
+.ap-group input,.ap-group textarea{width:100%;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;outline:none;font-family:inherit;transition:border .2s}
+.ap-group input:focus,.ap-group textarea:focus{border-color:var(--primary)}
+.ap-group textarea{resize:vertical;min-height:72px}
+.save-btn{background:var(--ok);color:#fff;border:none;padding:11px 26px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
+.save-btn:hover{opacity:.88}
+.save-msg{display:none;color:var(--ok);font-size:13px;font-weight:600;margin-left:12px;vertical-align:middle}
+
+/* Image manager */
+.img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.img-item{position:relative;border-radius:10px;overflow:hidden;border:2px solid #e2e8f0;background:#f8fafc}
+.img-item img{width:100%;height:100px;object-fit:contain;display:block;background:#fff}
+.img-item-url{font-size:10px;color:var(--gray);padding:4px 6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.img-del{position:absolute;top:4px;right:4px;background:var(--err);color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:13px;line-height:1;display:flex;align-items:center;justify-content:center;font-weight:700}
+.img-add-box{border:2px dashed #cbd5e1;border-radius:10px;padding:16px;background:#f8fafc}
+.img-add-box h4{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--dark)}
+.img-url-row{display:flex;gap:8px;margin-bottom:10px}
+.img-url-row input{flex:1;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:13px;outline:none}
+.img-url-row input:focus{border-color:var(--primary)}
+.add-btn{background:var(--primary);color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;white-space:nowrap}
+.img-preview{width:100%;max-height:120px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;background:#f8fafc;display:none;margin-top:8px}
+.img-note{font-size:12px;color:var(--gray);margin-top:8px;line-height:1.5;padding:10px 12px;background:#fffbeb;border-radius:8px;border:1px solid #fde68a}
+
+/* Orders */
+.orders-wrap{overflow-x:auto}
+.orders-table{width:100%;border-collapse:collapse;font-size:13px;min-width:600px}
+.orders-table th{background:var(--dark);color:#fff;padding:10px 12px;text-align:left;font-weight:600}
+.orders-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+.orders-table tr:hover td{background:#f8fafc}
+.no-orders{text-align:center;padding:40px;color:var(--gray)}
+.orders-count{font-size:13px;color:var(--gray);margin-bottom:12px}
+
+/* LANDING */
+.lang-bar{background:var(--dark);padding:8px 20px;display:flex;justify-content:space-between;align-items:center}
+.lang-right{display:flex;gap:8px}
+.lang-btn{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 14px;border-radius:20px;cursor:pointer;font-size:13px;transition:all .2s}
+.lang-btn.active{background:var(--primary);border-color:var(--primary)}
+.admin-link{color:rgba(255,255,255,.45);font-size:12px;cursor:pointer;padding:4px 10px;border:1px solid rgba(255,255,255,.15);border-radius:20px;transition:all .2s}
+.admin-link:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+
+.hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#1a73e8 100%);padding:48px 20px 56px;text-align:center;color:#fff;overflow:hidden;position:relative}
+.badge{display:inline-block;background:var(--accent);color:#000;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+.hero h1{font-size:clamp(22px,5vw,40px);font-weight:800;line-height:1.2;margin-bottom:14px}
+.hero h1 em{color:var(--accent);font-style:normal}
+.hero>p{font-size:clamp(14px,2vw,17px);opacity:.85;max-width:540px;margin:0 auto 28px}
+.hero-cta{display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:16px;padding:14px 36px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(245,158,11,.4);transition:transform .2s}
+.hero-cta:hover{transform:translateY(-2px)}
+
+/* Slider */
+.slider-wrap{max-width:380px;margin:36px auto 0;position:relative}
+.slider-track{overflow:hidden;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#fff}
+.slider-inner{display:flex;transition:transform .45s ease}
+.slide{min-width:100%;flex-shrink:0}
+.slide img{width:100%;height:260px;object-fit:contain;display:block;background:#fff}
+.slider-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s}
+.dot.active{background:#fff}
+.snav{position:absolute;top:130px;background:rgba(0,0,0,.45);color:#fff;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s}
+.snav:hover{background:rgba(0,0,0,.7)}
+#snav-l{left:6px}#snav-r{right:6px}
+
+section{padding:52px 20px}
+.container{max-width:720px;margin:0 auto}
+.section-title{font-size:clamp(20px,3.5vw,28px);font-weight:800;text-align:center;margin-bottom:8px}
+.section-sub{text-align:center;color:var(--gray);margin-bottom:32px;font-size:14px}
+.problem-bg{background:#fff5f5}
+.solution-bg{background:var(--light)}
+.specs-bg{background:#f0f7ff}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.prob-card{background:#fff;border:1px solid #fecaca;border-radius:13px;padding:18px;text-align:center}
+.prob-card .ic,.sol-card .ic{font-size:30px;margin-bottom:8px}
+.prob-card h3{font-size:14px;font-weight:700;color:var(--err);margin-bottom:5px}
+.prob-card p{font-size:13px;color:var(--gray);line-height:1.5}
+.sol-card{background:#fff;border:1px solid #bbf7d0;border-radius:13px;padding:18px;text-align:center}
+.sol-card h3{font-size:14px;font-weight:700;color:var(--ok);margin-bottom:5px}
+.sol-card p{font-size:13px;color:var(--gray);line-height:1.5}
+
+.steps{display:flex;flex-direction:column;gap:14px}
+.step{display:flex;align-items:flex-start;gap:14px;background:var(--light);border-radius:13px;padding:16px}
+.step-num{min-width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-text h3{font-size:14px;font-weight:700;margin-bottom:4px}
+.step-text p{font-size:13px;color:var(--gray);line-height:1.5}
+
+.specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.spec-item{background:#fff;border-radius:11px;padding:14px;text-align:center;border:1px solid #bfdbfe}
+.spec-val{font-size:20px;font-weight:800;color:var(--primary)}
+.spec-label{font-size:11px;color:var(--gray);margin-top:3px}
+
+.price-bg{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff}
+.price-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:32px;text-align:center;max-width:440px;margin:0 auto}
+.old-price{font-size:16px;text-decoration:line-through;opacity:.45;margin-bottom:4px}
+.new-price{font-size:48px;font-weight:900;color:var(--accent);line-height:1}
+.new-price span{font-size:18px}
+.price-note{font-size:13px;opacity:.6;margin:8px 0 22px}
+.buy-btn{display:block;width:100%;background:var(--accent);color:#000;font-weight:800;font-size:17px;padding:15px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 22px rgba(245,158,11,.4);transition:transform .2s}
+.buy-btn:hover{transform:translateY(-2px)}
+.dbadges{display:flex;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap}
+.dbadge{background:rgba(255,255,255,.1);border-radius:20px;padding:5px 12px;font-size:12px}
+
+footer{background:var(--dark);color:#fff;padding:24px 20px;text-align:center}
+footer p{font-size:13px;opacity:.45}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:5000;align-items:center;justify-content:center;padding:16px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:18px;padding:28px;width:100%;max-width:420px;position:relative;max-height:92vh;overflow-y:auto}
+.modal h2{font-size:18px;font-weight:800;margin-bottom:5px}
+.modal .sub{font-size:13px;color:var(--gray);margin-bottom:18px}
+.modal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--gray)}
+.del-opts{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+.del-opt{border:2px solid #e2e8f0;border-radius:11px;padding:12px;cursor:pointer;display:flex;align-items:center;gap:11px;transition:all .2s}
+.del-opt:hover{border-color:var(--primary);background:#f0f7ff}
+.del-opt.selected{border-color:var(--primary);background:#eff6ff}
+.del-opt-ic{font-size:22px}
+.del-opt h4{font-size:13px;font-weight:700}
+.del-opt p{font-size:12px;color:var(--gray)}
+.form-step{display:none}.form-step.active{display:block}
+.fg{margin-bottom:12px}
+.fg label{font-size:13px;font-weight:600;display:block;margin-bottom:5px}
+.fg input{width:100%;padding:11px 13px;border:1.5px solid #e2e8f0;border-radius:9px;font-size:14px;outline:none;transition:border .2s;font-family:inherit}
+.fg input:focus{border-color:var(--primary)}
+.qty-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.qty-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid #e2e8f0;background:#fff;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700}
+.qty-btn:hover{border-color:var(--primary);color:var(--primary)}
+.qty-val{font-size:17px;font-weight:800;min-width:22px;text-align:center}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid #e2e8f0;margin-bottom:14px}
+.total-val{font-size:20px;font-weight:800;color:var(--primary)}
+.submit-btn{width:100%;background:var(--primary);color:#fff;font-weight:700;font-size:15px;padding:13px;border-radius:50px;border:none;cursor:pointer}
+.submit-btn:hover{background:var(--pd)}
+.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
+.success-box{text-align:center;padding:16px 0}
+.success-box .ck{font-size:52px;margin-bottom:10px}
+.success-box h3{font-size:18px;font-weight:800;margin-bottom:7px}
+.success-box p{color:var(--gray);font-size:13px;line-height:1.6}
+
+/* lang */
+[data-lang="ru"]{display:none}
+body.ru [data-lang="uz"]{display:none}
+body.ru [data-lang="ru"]{display:block}
+body.ru span[data-lang="ru"]{display:inline}
+body.ru span[data-lang="uz"]{display:none}
+span[data-lang="ru"]{display:none}
+</style>
+</head>
+<body>
+
+<!-- ADMIN GATE -->
+<div id="adminGate">
+  <div class="gate-box">
+    <h3>🔐 Admin Panel</h3>
+    <p>AZTECH REF boshqaruv paneli</p>
+    <input type="password" id="pwInput" placeholder="Parol" onkeydown="if(event.key==='Enter')checkPw()">
+    <button class="gate-btn" onclick="checkPw()">Kirish →</button>
+    <p id="pwErr">❌ Parol noto'g'ri</p>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPanel">
+  <div class="ap-header">
+    <h1>⚙️ Admin Panel — B-2188</h1>
+    <button class="ap-close" onclick="closeAdmin()">✕ Yopish</button>
+  </div>
+  <div class="ap-tabs">
+    <button class="ap-tab active" onclick="apTab(0)">📦 Mahsulot</button>
+    <button class="ap-tab" onclick="apTab(1)">📝 Matnlar</button>
+    <button class="ap-tab" onclick="apTab(2)">🖼️ Rasmlar</button>
+    <button class="ap-tab" onclick="apTab(3)">🛒 Buyurtmalar</button>
+  </div>
+  <div class="ap-body">
+
+    <!-- TAB 0: PRODUCT -->
+    <div class="ap-section active" id="aTab0">
+      <div class="ap-card">
+        <h3>💰 Narh va Mahsulot nomi</h3>
+        <div class="ap-row">
+          <div class="ap-group"><label>Nomi (UZ)</label><input id="c-nameUz"></div>
+          <div class="ap-group"><label>Nomi (RU)</label><input id="c-nameRu"></div>
+        </div>
+        <div class="ap-row">
+          <div class="ap-group"><label>Narhi (so'm)</label><input id="c-price" type="number"></div>
+          <div class="ap-group"><label>Eski narhi (so'm)</label><input id="c-oldPrice" type="number"></div>
+        </div>
+        <div class="ap-row">
+          <div class="ap-group"><label>Qo'qon delivery narhi (so'm)</label><input id="c-localFee" type="number"></div>
+          <div class="ap-group"><label>Hero badge (UZ)</label><input id="c-badge"></div>
+        </div>
+      </div>
+      <div class="ap-card">
+        <h3>🏪 Yetkazib berish ma'lumotlari</h3>
+        <div class="ap-row">
+          <div class="ap-group"><label>Do'kon tavsifi (UZ)</label><input id="c-shopUz"></div>
+          <div class="ap-group"><label>Do'kon tavsifi (RU)</label><input id="c-shopRu"></div>
+        </div>
+        <div class="ap-row">
+          <div class="ap-group"><label>Qo'qon delivery tavsifi (UZ)</label><input id="c-localUz"></div>
+          <div class="ap-group"><label>Qo'qon delivery tavsifi (RU)</label><input id="c-localRu"></div>
+        </div>
+      </div>
+      <button class="save-btn" onclick="saveTab(0)">💾 Saqlash</button>
+      <span class="save-msg" id="sm0">✅ Saqlandi!</span>
+    </div>
+
+    <!-- TAB 1: TEXTS -->
+    <div class="ap-section" id="aTab1">
+      <div class="ap-card">
+        <h3>🦸 Hero Sektsiya</h3>
+        <div class="ap-group"><label>Sarlavha (UZ)</label><input id="c-heroHuz"></div>
+        <div class="ap-group"><label>Sarlavha (RU)</label><input id="c-heroHru"></div>
+        <div class="ap-group"><label>Tavsif (UZ)</label><textarea id="c-heroPuz"></textarea></div>
+        <div class="ap-group"><label>Tavsif (RU)</label><textarea id="c-heroPru"></textarea></div>
+      </div>
+      <div class="ap-card">
+        <h3>😰 Muammo kartalari</h3>
+        <div id="probEditor"></div>
+      </div>
+      <div class="ap-card">
+        <h3>✅ Yechim kartalari</h3>
+        <div id="solEditor"></div>
+      </div>
+      <div class="ap-card">
+        <h3>📋 Foydalanish qadamlari</h3>
+        <div id="stepEditor"></div>
+      </div>
+      <button class="save-btn" onclick="saveTab(1)">💾 Saqlash</button>
+      <span class="save-msg" id="sm1">✅ Saqlandi!</span>
+    </div>
+
+    <!-- TAB 2: IMAGES -->
+    <div class="ap-section" id="aTab2">
+      <div class="ap-card">
+        <h3>🖼️ Slider rasmlari</h3>
+        <div class="img-grid" id="imgGrid"></div>
+
+        <div class="img-add-box">
+          <h4>➕ Yangi rasm qo'shish (URL orqali)</h4>
+          <div class="img-url-row">
+            <input id="newImgUrl" placeholder="https://i.ibb.co/... yoki boshqa URL" oninput="previewImg()">
+            <button class="add-btn" onclick="addImg()">Qo'shish</button>
+          </div>
+          <img id="imgPreview" class="img-preview" alt="Preview">
+          <div class="img-note">
+            💡 <strong>Rasmni qanday yuklash kerak?</strong><br>
+            1. <a href="https://imgbb.com" target="_blank" style="color:var(--primary)">imgbb.com</a> saytiga kiring (bepul, hisob kerak emas)<br>
+            2. Rasmingizni yuklang → "Direct link" ni nusxalang<br>
+            3. Yuqoridagi maydonga joylashtiring va "Qo'shish" ni bosing
+          </div>
+        </div>
+
+        <div style="margin-top:16px">
+          <button class="save-btn" onclick="saveTab(2)">💾 Saqlash</button>
+          <span class="save-msg" id="sm2">✅ Saqlandi!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: ORDERS -->
+    <div class="ap-section" id="aTab3">
+      <div class="ap-card">
+        <h3>🛒 Buyurtmalar</h3>
+        <p class="orders-count" id="ordersCount"></p>
+        <div class="orders-wrap" id="ordersWrap"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LANDING -->
+<div id="landing">
+<div class="lang-bar">
+  <span class="admin-link" onclick="openAdminGate()">⚙️ Admin</span>
+  <div class="lang-right">
+    <button class="lang-btn active" onclick="setLang('uz')">🇺🇿 O'zbek</button>
+    <button class="lang-btn" onclick="setLang('ru')">🇷🇺 Русский</button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="badge" id="ld-badge"></div>
+  <h1 id="ld-heroH"></h1>
+  <p id="ld-heroP"></p>
+  <button class="hero-cta" onclick="openModal()">
+    <span data-lang="uz">🛒 Hozir Xarid Qilish</span>
+    <span data-lang="ru">🛒 Купить Сейчас</span>
+  </button>
+  <div class="slider-wrap">
+    <div class="slider-track"><div class="slider-inner" id="sliderInner"></div></div>
+    <button class="snav" id="snav-l" onclick="slideNav(-1)">‹</button>
+    <button class="snav" id="snav-r" onclick="slideNav(1)">›</button>
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+</div>
+
+<section class="problem-bg">
+  <div class="container">
+    <h2 class="section-title"><span data-lang="uz">😰 Bu muammolardan aziyat chekdingizmi?</span><span data-lang="ru">😰 Знакомые проблемы?</span></h2>
+    <p class="section-sub"><span data-lang="uz">O'zbekistonda kuchlanish muammolari — kundalik hol</span><span data-lang="ru">Перепады напряжения — обычное явление</span></p>
+    <div class="cards" id="ld-problems"></div>
+  </div>
+</section>
+
+<section class="solution-bg">
+  <div class="container">
+    <h2 class="section-title"><span data-lang="uz">✅ B-2188 qanday himoya qiladi?</span><span data-lang="ru">✅ Как защищает B-2188?</span></h2>
+    <p class="section-sub"><span data-lang="uz">4 qatlamli intellektual himoya tizimi</span><span data-lang="ru">4-уровневая система защиты</span></p>
+    <div class="cards" id="ld-solutions"></div>
+  </div>
+</section>
+
+<section class="specs-bg">
+  <div class="container">
+    <h2 class="section-title"><span data-lang="uz">📊 Texnik xususiyatlar</span><span data-lang="ru">📊 Характеристики</span></h2>
+    <p class="section-sub"><span data-lang="uz">Sertifikatlangan sifat — CCC</span><span data-lang="ru">Сертифицированное качество — CCC</span></p>
+    <div class="specs-grid">
+      <div class="spec-item"><div class="spec-val">16A</div><div class="spec-label"><span data-lang="uz">Nominal tok</span><span data-lang="ru">Ток</span></div></div>
+      <div class="spec-item"><div class="spec-val">2500W</div><div class="spec-label"><span data-lang="uz">Max quvvat</span><span data-lang="ru">Мощность</span></div></div>
+      <div class="spec-item"><div class="spec-val">220V</div><div class="spec-label"><span data-lang="uz">Kuchlanish</span><span data-lang="ru">Напряжение</span></div></div>
+      <div class="spec-item"><div class="spec-val">175–260V</div><div class="spec-label"><span data-lang="uz">Himoya oralig'i</span><span data-lang="ru">Диапазон</span></div></div>
+      <div class="spec-item"><div class="spec-val">4–5 daq</div><div class="spec-label"><span data-lang="uz">Kechiktirish</span><span data-lang="ru">Задержка</span></div></div>
+      <div class="spec-item"><div class="spec-val">CCC</div><div class="spec-label"><span data-lang="uz">Sertifikat</span><span data-lang="ru">Сертификат</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title"><span data-lang="uz">📋 Qanday ishlatiladi?</span><span data-lang="ru">📋 Как использовать?</span></h2>
+    <p class="section-sub"><span data-lang="uz">3 qadamda — asbob-uskunasiz</span><span data-lang="ru">3 шага — без инструментов</span></p>
+    <div class="steps" id="ld-steps"></div>
+  </div>
+</section>
+
+<section class="price-bg">
+  <div class="container">
+    <h2 class="section-title" style="color:#fff"><span data-lang="uz">💰 Narhi</span><span data-lang="ru">💰 Цена</span></h2>
+    <p class="section-sub" style="color:rgba(255,255,255,.6)"><span data-lang="uz">Muzlatgich ta'miridan 10–30x arzon himoya</span><span data-lang="ru">В 10–30 раз дешевле ремонта холодильника</span></p>
+    <div class="price-box">
+      <div class="old-price" id="ld-oldPrice"></div>
+      <div class="new-price" id="ld-price"></div>
+      <div class="price-note"><span data-lang="uz">🎁 Bugun buyurtma bering — maxsus narxda!</span><span data-lang="ru">🎁 Закажите сегодня — по спеццене!</span></div>
+      <button class="buy-btn" onclick="openModal()"><span data-lang="uz">🛒 Harid Qilish</span><span data-lang="ru">🛒 Купить</span></button>
+      <div class="dbadges">
+        <span class="dbadge"><span data-lang="uz">🏪 Olib ketish</span><span data-lang="ru">🏪 Самовывоз</span></span>
+        <span class="dbadge"><span data-lang="uz">🛵 Qo'qon ichida</span><span data-lang="ru">🛵 По Коканду</span></span>
+        <span class="dbadge"><span data-lang="uz">📦 Viloyatlarga</span><span data-lang="ru">📦 По регионам</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><p>© 2025 AZTECH REF — Qo'qon, O'zbekiston</p></footer>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="form-step active" id="ms1">
+      <h2><span data-lang="uz">Yetkazib berish turini tanlang</span><span data-lang="ru">Способ доставки</span></h2>
+      <p class="sub" id="modalProdName"></p>
+      <div class="del-opts">
+        <div class="del-opt" id="dopt1" onclick="selDel('pickup')">
+          <div class="del-opt-ic">🏪</div>
+          <div><h4><span data-lang="uz">Do'kondan olib ketish</span><span data-lang="ru">Самовывоз</span></h4><p id="shopDescUz" data-lang="uz"></p><p id="shopDescRu" data-lang="ru"></p></div>
+        </div>
+        <div class="del-opt" id="dopt2" onclick="selDel('local')">
+          <div class="del-opt-ic">🛵</div>
+          <div><h4><span data-lang="uz">Qo'qon ichida yetkazib berish</span><span data-lang="ru">Доставка по Коканду</span></h4><p id="localDescUz" data-lang="uz"></p><p id="localDescRu" data-lang="ru"></p></div>
+        </div>
+        <div class="del-opt" id="dopt3" onclick="selDel('region')">
+          <div class="del-opt-ic">📦</div>
+          <div><h4><span data-lang="uz">Viloyatlarga yetkazib berish</span><span data-lang="ru">По регионам</span></h4><p><span data-lang="uz">O'zbekiston bo'ylab • 1–3 kun</span><span data-lang="ru">По Узбекистану • 1–3 дня</span></p></div>
+        </div>
+      </div>
+      <button class="submit-btn" id="nextBtn" onclick="mStep2()" disabled><span data-lang="uz">Davom etish →</span><span data-lang="ru">Продолжить →</span></button>
+    </div>
+    <div class="form-step" id="ms2">
+      <h2><span data-lang="uz">Buyurtma ma'lumotlari</span><span data-lang="ru">Данные заказа</span></h2>
+      <p class="sub" id="mDelivLabel"></p>
+      <div class="qty-row">
+        <span style="font-size:14px;font-weight:600"><span data-lang="uz">Miqdor:</span><span data-lang="ru">Кол-во:</span></span>
+        <button class="qty-btn" onclick="chQty(-1)">−</button>
+        <span class="qty-val" id="qtyVal">1</span>
+        <button class="qty-btn" onclick="chQty(1)">+</button>
+      </div>
+      <div class="fg"><label><span data-lang="uz">Ism Familiya *</span><span data-lang="ru">Имя Фамилия *</span></label><input id="fname" placeholder="Abdullayev Jasur"></div>
+      <div class="fg"><label><span data-lang="uz">Telefon *</span><span data-lang="ru">Телефон *</span></label><input id="fphone" type="tel" placeholder="+998 90 123 45 67"></div>
+      <div class="fg" id="addrGrp" style="display:none"><label><span data-lang="uz">Manzil *</span><span data-lang="ru">Адрес *</span></label><input id="faddr"></div>
+      <div class="total-row">
+        <span style="font-size:14px;color:var(--gray)"><span data-lang="uz">Jami:</span><span data-lang="ru">Итого:</span></span>
+        <span class="total-val" id="totalVal"></span>
+      </div>
+      <button class="submit-btn" id="submitBtn" onclick="submitOrder()"><span data-lang="uz">✅ Buyurtma Berish</span><span data-lang="ru">✅ Оформить заказ</span></button>
+    </div>
+    <div class="form-step" id="ms3">
+      <div class="success-box"><div class="ck">✅</div><h3><span data-lang="uz">Buyurtmangiz qabul qilindi!</span><span data-lang="ru">Заказ принят!</span></h3><p id="successMsg"></p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BOT_TOKEN = '8727881862:AAHMxPRYVpG9R8ldB5T2az3q1_1T_nuXccM';
+const CHAT_ID   = '47115138';
+const ADMIN_PW  = 'aztech2025';
+
+// ── DEFAULT CONFIG ──
+let C = {
+  nameUz:'Kuchlanish Himoyachisi B-2188', nameRu:'Протектор напряжения B-2188',
+  badge:'⚡ #1 Himoyachi',
+  price:65000, oldPrice:90000, localFee:10000,
+  shopUz:"Qo'qon, AZTECH REF do'koni • Bepul", shopRu:'Коканд, магазин AZTECH REF • Бесплатно',
+  localUz:"Bugun yoki ertaga • 10,000 so'm", localRu:'Сегодня или завтра • 10 000 сум',
+  heroHuz:"Texnikangizni kuchlanish zarbasidan himoya qiling!",
+  heroHru:"Защитите технику от скачков напряжения!",
+  heroPuz:"B-2188 — Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.",
+  heroPru:"B-2188 — умный протектор напряжения для холодильника, телевизора, компьютера и всей бытовой техники.",
+  images:[
+    'https://i.ibb.co/placeholder1/b2188-front.jpg',
+    'https://i.ibb.co/placeholder2/b2188-side.jpg',
+    'https://i.ibb.co/placeholder3/b2188-info.jpg'
+  ],
+  problems:[
+    {ic:'⚡',tuz:"To'satdan kuchlanish sakrashi",tru:'Скачки напряжения',puz:"Elektr tarmog'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi",pru:'Резкие колебания в сети мгновенно выводят технику из строя'},
+    {ic:'🔌',tuz:"Svet o'chib yonishi",tru:'Отключения электричества',puz:'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi',pru:'При восстановлении питания компрессор получает удар и изнашивается'},
+    {ic:'💸',tuz:"Qimmat ta'mirlash",tru:'Дорогостоящий ремонт',puz:"Muzlatgich ta'miri 500,000–2,000,000 so'm. Oldini olish atigi 65,000 so'm",pru:'Ремонт холодильника — от 500 000 сум. Защита стоит 65 000 сум'}
+  ],
+  solutions:[
+    {ic:'🛡️',tuz:'Avtomatik uzish',tru:'Авто-отключение',puz:"175V pastga tushsa yoki 260V dan oshsa — darhol uzilib qoladi",pru:'При выходе за 175–260V мгновенно отключает питание'},
+    {ic:'⏱️',tuz:"Aqlli kechiktirish",tru:'Умная задержка',puz:"Svet kelgandan 4–5 daqiqa o'tib ulaydi — kompressor gazlari tinchlangandan keyin",pru:'Подключает питание через 4–5 мин — после стабилизации газов'},
+    {ic:'💡',tuz:"LED ko'rsatkichlar",tru:'LED индикаторы',puz:"3 rangli LED: himoya, kechiktirish, normal ishlash",pru:'3 цвета LED: защита, задержка, нормальная работа'},
+    {ic:'🔧',tuz:'Kuchli quvvat',tru:'Высокая мощность',puz:'16A / 2500W — muzlatgich, konditsioner, suv pompasi uchun',pru:'16A / 2500W — для холодильника, кондиционера, насоса'}
+  ],
+  steps:[
+    {tuz:'Rozetkaga ulang',tru:'Вставьте в розетку',puz:"B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang",pru:'Вставьте B-2188 напрямую в стандартную розетку 220V'},
+    {tuz:'Texnikani ulang',tru:'Подключите технику',puz:"Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang",pru:'Вилку холодильника подключите к B-2188'},
+    {tuz:"Ishlatavering — himoya avtomatik!",tru:'Пользуйтесь — защита автоматическая!',puz:"Yashil LED — normal ishlayapti. Qizil LED — himoya ishga tushgan",pru:'Зелёный LED — нормальная работа. Красный LED — защита активирована'}
+  ]
+};
+
+let orders = [];
+let lang = 'uz';
+let curSlide = 0;
+let sliderTimer;
+
+// ─── LANG ───
+function setLang(l){
+  lang=l;
+  document.body.classList.toggle('ru',l==='ru');
+  document.querySelectorAll('.lang-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&l==='uz')||(i===1&&l==='ru')));
+}
+
+// ─── RENDER LANDING ───
+function render(){
+  // badge & hero
+  document.getElementById('ld-badge').textContent = C.badge;
+
+  const hUz = C.heroHuz.replace(/(kuchlanish zarbasidan)/g,'<em>$1</em>');
+  const hRu = C.heroHru.replace(/(скачков напряжения!?)/g,'<em>$1</em>');
+  document.getElementById('ld-heroH').innerHTML =
+    `<span data-lang="uz">${hUz}</span><span data-lang="ru">${hRu}</span>`;
+  document.getElementById('ld-heroP').innerHTML =
+    `<span data-lang="uz">${C.heroPuz}</span><span data-lang="ru">${C.heroPru}</span>`;
+
+  // price
+  document.getElementById('ld-oldPrice').textContent = `Bozor narxi: ${C.oldPrice.toLocaleString()} so'm`;
+  document.getElementById('ld-price').innerHTML = `${C.price.toLocaleString()} <span>so'm</span>`;
+
+  // modal
+  document.getElementById('modalProdName').textContent = `${C.nameUz} — ${C.price.toLocaleString()} so'm`;
+  document.getElementById('shopDescUz').textContent = C.shopUz;
+  document.getElementById('shopDescRu').textContent = C.shopRu;
+  document.getElementById('localDescUz').textContent = C.localUz;
+  document.getElementById('localDescRu').textContent = C.localRu;
+
+  // problems
+  document.getElementById('ld-problems').innerHTML = C.problems.map(p=>`
+    <div class="prob-card">
+      <div class="ic">${p.ic}</div>
+      <h3><span data-lang="uz">${p.tuz}</span><span data-lang="ru">${p.tru}</span></h3>
+      <p><span data-lang="uz">${p.puz}</span><span data-lang="ru">${p.pru}</span></p>
+    </div>`).join('');
+
+  // solutions
+  document.getElementById('ld-solutions').innerHTML = C.solutions.map(s=>`
+    <div class="sol-card">
+      <div class="ic">${s.ic}</div>
+      <h3><span data-lang="uz">${s.tuz}</span><span data-lang="ru">${s.tru}</span></h3>
+      <p><span data-lang="uz">${s.puz}</span><span data-lang="ru">${s.pru}</span></p>
+    </div>`).join('');
+
+  // steps
+  document.getElementById('ld-steps').innerHTML = C.steps.map((s,i)=>`
+    <div class="step">
+      <div class="step-num">${i+1}</div>
+      <div class="step-text">
+        <h3><span data-lang="uz">${s.tuz}</span><span data-lang="ru">${s.tru}</span></h3>
+        <p><span data-lang="uz">${s.puz}</span><span data-lang="ru">${s.pru}</span></p>
+      </div>
+    </div>`).join('');
+
+  buildSlider();
+  setLang(lang);
+  updateTotal();
+}
+
+// ─── SLIDER ───
+function buildSlider(){
+  clearInterval(sliderTimer);
+  const si = document.getElementById('sliderInner');
+  const sd = document.getElementById('sliderDots');
+  si.innerHTML = C.images.map(u=>`
+    <div class="slide"><img src="${u}" alt="product"
+      onerror="this.src='https://via.placeholder.com/380x260/f0f7ff/1a73e8?text=B-2188'"></div>`).join('');
+  sd.innerHTML = C.images.map((_,i)=>`
+    <div class="dot${i===0?' active':''}" onclick="goSlide(${i})"></div>`).join('');
+  curSlide=0; applySlide();
+  sliderTimer = setInterval(()=>slideNav(1), 3500);
+}
+function applySlide(){
+  document.getElementById('sliderInner').style.transform=`translateX(-${curSlide*100}%)`;
+  document.querySelectorAll('#sliderDots .dot').forEach((d,i)=>d.classList.toggle('active',i===curSlide));
+}
+function goSlide(n){ curSlide=(n+C.images.length)%C.images.length; applySlide(); }
+function slideNav(d){ goSlide(curSlide+d); }
+
+// ─── ADMIN GATE ───
+function openAdminGate(){
+  document.getElementById('adminGate').classList.add('open');
+  document.getElementById('pwInput').value='';
+  document.getElementById('pwErr').style.display='none';
+  setTimeout(()=>document.getElementById('pwInput').focus(),100);
+}
+function checkPw(){
+  if(document.getElementById('pwInput').value===ADMIN_PW){
+    document.getElementById('adminGate').classList.remove('open');
+    openAdmin();
+  } else {
+    document.getElementById('pwErr').style.display='block';
+  }
+}
+
+// ─── ADMIN PANEL ───
+function openAdmin(){
+  loadAdminFields();
+  renderImgGrid();
+  renderOrders();
+  document.getElementById('adminPanel').classList.add('open');
+}
+function closeAdmin(){ document.getElementById('adminPanel').classList.remove('open'); }
+
+function apTab(idx){
+  document.querySelectorAll('.ap-tab').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  document.querySelectorAll('.ap-section').forEach((s,i)=>s.classList.toggle('active',i===idx));
+  if(idx===3) renderOrders();
+}
+
+function loadAdminFields(){
+  const s = (id,val)=>{ const el=document.getElementById(id); if(el) el.value=val; };
+  s('c-nameUz',C.nameUz); s('c-nameRu',C.nameRu);
+  s('c-price',C.price); s('c-oldPrice',C.oldPrice);
+  s('c-localFee',C.localFee); s('c-badge',C.badge);
+  s('c-shopUz',C.shopUz); s('c-shopRu',C.shopRu);
+  s('c-localUz',C.localUz); s('c-localRu',C.localRu);
+  s('c-heroHuz',C.heroHuz); s('c-heroHru',C.heroHru);
+  s('c-heroPuz',C.heroPuz); s('c-heroPru',C.heroPru);
+
+  document.getElementById('probEditor').innerHTML = C.problems.map((p,i)=>`
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-size:11px;font-weight:700;color:var(--gray);margin-bottom:8px">KARTA #${i+1} ${p.ic}</div>
+      <div class="ap-row">
+        <div class="ap-group"><label>Sarlavha UZ</label><input id="p-tuz${i}" value="${p.tuz}"></div>
+        <div class="ap-group"><label>Sarlavha RU</label><input id="p-tru${i}" value="${p.tru}"></div>
+      </div>
+      <div class="ap-row">
+        <div class="ap-group"><label>Matn UZ</label><input id="p-puz${i}" value="${p.puz}"></div>
+        <div class="ap-group"><label>Matn RU</label><input id="p-pru${i}" value="${p.pru}"></div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('solEditor').innerHTML = C.solutions.map((s,i)=>`
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-size:11px;font-weight:700;color:var(--gray);margin-bottom:8px">KARTA #${i+1} ${s.ic}</div>
+      <div class="ap-row">
+        <div class="ap-group"><label>Sarlavha UZ</label><input id="s-tuz${i}" value="${s.tuz}"></div>
+        <div class="ap-group"><label>Sarlavha RU</label><input id="s-tru${i}" value="${s.tru}"></div>
+      </div>
+      <div class="ap-row">
+        <div class="ap-group"><label>Matn UZ</label><input id="s-puz${i}" value="${s.puz}"></div>
+        <div class="ap-group"><label>Matn RU</label><input id="s-pru${i}" value="${s.pru}"></div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('stepEditor').innerHTML = C.steps.map((s,i)=>`
+    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
+      <div style="font-size:11px;font-weight:700;color:var(--gray);margin-bottom:8px">QADAM #${i+1}</div>
+      <div class="ap-row">
+        <div class="ap-group"><label>Sarlavha UZ</label><input id="st-tuz${i}" value="${s.tuz}"></div>
+        <div class="ap-group"><label>Sarlavha RU</label><input id="st-tru${i}" value="${s.tru}"></div>
+      </div>
+      <div class="ap-row">
+        <div class="ap-group"><label>Matn UZ</label><input id="st-puz${i}" value="${s.puz}"></div>
+        <div class="ap-group"><label>Matn RU</label><input id="st-pru${i}" value="${s.pru}"></div>
+      </div>
+    </div>`).join('');
+}
+
+// ─── IMAGE MANAGER ───
+function renderImgGrid(){
+  document.getElementById('imgGrid').innerHTML = C.images.length
+    ? C.images.map((u,i)=>`
+        <div class="img-item">
+          <img src="${u}" onerror="this.style.opacity='.3'">
+          <div class="img-item-url">${u.split('/').pop()}</div>
+          <button class="img-del" onclick="delImg(${i})" title="O'chirish">×</button>
+        </div>`).join('')
+    : '<p style="color:var(--gray);font-size:13px">Hali rasm yo\'q. Quyidan qo\'shing.</p>';
+}
+
+function previewImg(){
+  const url = document.getElementById('newImgUrl').value.trim();
+  const prev = document.getElementById('imgPreview');
+  if(url.match(/^https?:\/\/.+\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i)){
+    prev.src = url;
+    prev.style.display = 'block';
+    prev.onerror = ()=>{ prev.style.display='none'; };
+  } else {
+    prev.style.display = 'none';
+  }
+}
+
+function addImg(){
+  const url = document.getElementById('newImgUrl').value.trim();
+  if(!url){ alert("Iltimos, rasm URL sini kiriting"); return; }
+  if(!url.startsWith('http')){ alert("URL https:// bilan boshlanishi kerak"); return; }
+  C.images.push(url);
+  document.getElementById('newImgUrl').value='';
+  document.getElementById('imgPreview').style.display='none';
+  renderImgGrid();
+}
+
+function delImg(i){
+  if(C.images.length<=1){ alert("Kamida 1 ta rasm bo'lishi kerak!"); return; }
+  C.images.splice(i,1);
+  renderImgGrid();
+}
+
+// ─── SAVE TABS ───
+function saveTab(tab){
+  const g = id => (document.getElementById(id)||{}).value||'';
+  if(tab===0){
+    C.nameUz=g('c-nameUz'); C.nameRu=g('c-nameRu');
+    C.price=parseInt(g('c-price'))||65000;
+    C.oldPrice=parseInt(g('c-oldPrice'))||90000;
+    C.localFee=parseInt(g('c-localFee'))||10000;
+    C.badge=g('c-badge');
+    C.shopUz=g('c-shopUz'); C.shopRu=g('c-shopRu');
+    C.localUz=g('c-localUz'); C.localRu=g('c-localRu');
+  }
+  if(tab===1){
+    C.heroHuz=g('c-heroHuz'); C.heroHru=g('c-heroHru');
+    C.heroPuz=g('c-heroPuz'); C.heroPru=g('c-heroPru');
+    C.problems.forEach((_,i)=>{
+      C.problems[i]={...C.problems[i],tuz:g(`p-tuz${i}`),tru:g(`p-tru${i}`),puz:g(`p-puz${i}`),pru:g(`p-pru${i}`)};
+    });
+    C.solutions.forEach((_,i)=>{
+      C.solutions[i]={...C.solutions[i],tuz:g(`s-tuz${i}`),tru:g(`s-tru${i}`),puz:g(`s-puz${i}`),pru:g(`s-pru${i}`)};
+    });
+    C.steps.forEach((_,i)=>{
+      C.steps[i]={...C.steps[i],tuz:g(`st-tuz${i}`),tru:g(`st-tru${i}`),puz:g(`st-puz${i}`),pru:g(`st-pru${i}`)};
+    });
+  }
+  // tab 2: images already in C.images
+  render();
+  const m = document.getElementById(`sm${tab}`);
+  m.style.display='inline'; setTimeout(()=>m.style.display='none',2500);
+}
+
+// ─── ORDERS TABLE ───
+function renderOrders(){
+  const w = document.getElementById('ordersWrap');
+  const cnt = document.getElementById('ordersCount');
+  cnt.textContent = `Jami: ${orders.length} ta buyurtma`;
+  if(!orders.length){
+    w.innerHTML='<div class="no-orders">📭 Hali buyurtmalar yo\'q</div>'; return;
+  }
+  const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida",region:"Viloyatlarga"};
+  w.innerHTML=`<table class="orders-table">
+    <thead><tr><th>#</th><th>Ism</th><th>Telefon</th><th>Yetkazib berish</th><th>Manzil</th><th>Miqdor</th><th>Jami</th><th>Vaqt</th></tr></thead>
+    <tbody>${orders.map((o,i)=>`
+      <tr>
+        <td><strong>${i+1}</strong></td>
+        <td>${o.name}</td>
+        <td>${o.phone}</td>
+        <td>${dn[o.delivery]||o.delivery}</td>
+        <td>${o.addr||'—'}</td>
+        <td>${o.qty} dona</td>
+        <td><strong>${o.total.toLocaleString()} so'm</strong></td>
+        <td style="font-size:11px;color:var(--gray)">${new Date(o.time).toLocaleString('uz-UZ')}</td>
+      </tr>`).join('')}
+    </tbody></table>`;
+}
+
+// ─── ORDER MODAL ───
+let selD=null, qty=1;
+
+function openModal(){
+  document.getElementById('modalOverlay').classList.add('open');
+  showMS(1); selD=null; qty=1;
+  document.getElementById('qtyVal').textContent=1;
+  document.querySelectorAll('.del-opt').forEach(o=>o.classList.remove('selected'));
+  document.getElementById('nextBtn').disabled=true;
+  document.getElementById('fname').value='';
+  document.getElementById('fphone').value='';
+  document.getElementById('faddr').value='';
+}
+function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); }
+function showMS(n){ document.querySelectorAll('.form-step').forEach((s,i)=>s.classList.toggle('active',i===n-1)); }
+
+function selDel(t){
+  selD=t;
+  document.querySelectorAll('.del-opt').forEach(o=>o.classList.remove('selected'));
+  document.getElementById({pickup:'dopt1',local:'dopt2',region:'dopt3'}[t]).classList.add('selected');
+  document.getElementById('nextBtn').disabled=false;
+  updateTotal();
+}
+
+function mStep2(){
+  if(!selD) return;
+  qty=1; document.getElementById('qtyVal').textContent=1;
+  const lbl={uz:{pickup:"🏪 Do'kondan olib ketish",local:"🛵 Qo'qon ichida yetkazib berish",region:"📦 Viloyatlarga yetkazib berish"},ru:{pickup:"🏪 Самовывоз",local:"🛵 Доставка по Коканду",region:"📦 Доставка по регионам"}};
+  document.getElementById('mDelivLabel').textContent = lbl[lang][selD];
+  const showA = selD!=='pickup';
+  document.getElementById('addrGrp').style.display = showA?'block':'none';
+  document.getElementById('faddr').placeholder = selD==='local'?(lang==='uz'?"Ko'cha, uy raqami":'Улица, дом'):(lang==='uz'?"Shahar, ko'cha, uy":'Город, улица, дом');
+  updateTotal();
+  showMS(2);
+}
+
+function chQty(d){ qty=Math.max(1,qty+d); document.getElementById('qtyVal').textContent=qty; updateTotal(); }
+
+function updateTotal(){
+  if(!selD) return;
+  const fee = {pickup:0,local:C.localFee,region:0}[selD]||0;
+  document.getElementById('totalVal').textContent = ((C.price*qty)+fee).toLocaleString()+' so\'m';
+}
+
+async function submitOrder(){
+  const name=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('fphone').value.trim();
+  const addr=document.getElementById('faddr').value.trim();
+  const needAddr = selD!=='pickup';
+  if(!name||!phone||(needAddr&&!addr)){
+    alert(lang==='uz'?"Iltimos, barcha maydonlarni to'ldiring":"Пожалуйста, заполните все поля");
+    return;
+  }
+  const btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  btn.innerHTML=lang==='uz'?'⏳ Yuborilmoqda...':'⏳ Отправка...';
+
+  const fee={pickup:0,local:C.localFee,region:0}[selD]||0;
+  const total=(C.price*qty)+fee;
+  const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida yetkazib berish",region:"Viloyatlarga yetkazib berish"};
+
+  const tgMsg =
+    `🛒 *YANGI BUYURTMA!*\n\n`+
+    `📦 *Mahsulot:* ${C.nameUz}\n`+
+    `🔢 *Miqdor:* ${qty} dona\n`+
+    `🚚 *Yetkazib berish:* ${dn[selD]}\n`+
+    `👤 *Ism:* ${name}\n`+
+    `📱 *Telefon:* ${phone}\n`+
+    (addr?`📍 *Manzil:* ${addr}\n`:'')+
+    `💰 *Jami:* ${total.toLocaleString()} so'm\n`+
+    `⏰ *Vaqt:* ${new Date().toLocaleString('uz-UZ')}`;
+
+  try{
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:CHAT_ID, text:tgMsg, parse_mode:'Markdown'})
+    });
+  }catch(e){ console.warn('Telegram xato:',e); }
+
+  orders.push({id:Date.now(),name,phone,addr,delivery:selD,qty,total,time:new Date().toISOString()});
+
+  const sm={uz:`Hurmatli ${name}, buyurtmangiz qabul qilindi! 🎉\nTez orada siz bilan bog'lanamiz.\n📱 ${phone}`,ru:`Уважаемый(ая) ${name}, заказ принят! 🎉\nМы свяжемся с вами в ближайшее время.\n📱 ${phone}`};
+  document.getElementById('successMsg').textContent=sm[lang];
+  showMS(3);
+  btn.disabled=false;
+  btn.innerHTML=lang==='uz'?'✅ Buyurtma Berish':'✅ Оформить заказ';
+}
+
+// ── INIT ──
+render();
+</script>
+</body>
+</html>
