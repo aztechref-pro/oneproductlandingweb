@@ -18,7 +18,8 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dar
 .gate-box p{font-size:13px;color:var(–gray);margin-bottom:20px}
 .gate-box input{width:100%;padding:13px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;margin-bottom:12px;outline:none;text-align:center;letter-spacing:2px}
 .gate-box input:focus{border-color:var(–primary)}
-.gate-btn{width:100%;background:var(–primary);color:#fff;border:none;padding:13px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer}
+.gate-btn{width:100%;background:var(–primary);color:#fff;border:none;padding:13px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s;-webkit-tap-highlight-color:transparent}
+.gate-btn:hover,.gate-btn:active{background:var(–pd)}
 #pwErr{color:var(–err);font-size:13px;margin-top:10px;display:none}
 
 /* ADMIN PANEL */
@@ -208,8 +209,10 @@ span[data-lang=“ru”]{display:none}
   <div class="gate-box">
     <h3>🔐 Admin Panel</h3>
     <p>AZTECH REF boshqaruv paneli</p>
-    <input type="password" id="pwInput" placeholder="Parol" onkeydown="if(event.key==='Enter')checkPw()">
-    <button class="gate-btn" onclick="checkPw()">Kirish →</button>
+    <input type="password" id="pwInput" placeholder="Parol" 
+      onkeydown="if(event.key==='Enter'){event.preventDefault();checkPw()}"
+      oninput="document.getElementById('pwErr').style.display='none'">
+    <button class="gate-btn" type="button" onclick="checkPw()">Kirish →</button>
     <p id="pwErr">❌ Parol noto'g'ri</p>
   </div>
 </div>
@@ -632,11 +635,15 @@ function slideNav(d){goSlide(curSlide+d);}
 
 // ── ADMIN GATE ──
 function checkPw(){
-  if(document.getElementById('pwInput').value===ADMIN_PW){
+  const entered = document.getElementById('pwInput').value.trim();
+  if(entered === ADMIN_PW){
     document.getElementById('adminGate').classList.remove('open');
+    document.getElementById('pwErr').style.display='none';
     openAdmin();
   } else {
     document.getElementById('pwErr').style.display='block';
+    document.getElementById('pwInput').value='';
+    document.getElementById('pwInput').focus();
   }
 }
 
