@@ -17,8 +17,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dar
 .gate-box p{font-size:13px;color:var(--gray);margin-bottom:20px}
 .gate-box input{width:100%;padding:13px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;margin-bottom:12px;outline:none;text-align:center;letter-spacing:2px}
 .gate-box input:focus{border-color:var(--primary)}
-.gate-btn{width:100%;background:var(--primary);color:#fff;border:none;padding:13px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s}
-.gate-btn:hover{background:var(--pd)}
+.gate-btn{width:100%;background:var(--primary);color:#fff;border:none;padding:13px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer}
 #pwErr{color:var(--err);font-size:13px;margin-top:10px;display:none}
 
 /* ADMIN PANEL */
@@ -28,7 +27,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dar
 .ap-header h1{font-size:17px;font-weight:800}
 .ap-close{background:var(--err);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px}
 .ap-tabs{display:flex;gap:2px;padding:0 16px;background:#fff;border-bottom:2px solid #e2e8f0;position:sticky;top:53px;z-index:9;overflow-x:auto}
-.ap-tab{padding:12px 18px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--gray);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.ap-tab{padding:12px 16px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--gray);border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap}
 .ap-tab.active{color:var(--primary);border-color:var(--primary)}
 .ap-body{padding:20px;max-width:860px;margin:0 auto}
 .ap-section{display:none}.ap-section.active{display:block}
@@ -42,23 +41,47 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dar
 .ap-group input:focus,.ap-group textarea:focus{border-color:var(--primary)}
 .ap-group textarea{resize:vertical;min-height:72px}
 .save-btn{background:var(--ok);color:#fff;border:none;padding:11px 26px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
-.save-btn:hover{opacity:.88}
 .save-msg{display:none;color:var(--ok);font-size:13px;font-weight:600;margin-left:12px;vertical-align:middle}
+
+/* Guruhlar */
+.group-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.group-item{display:flex;align-items:center;justify-content:space-between;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px}
+.group-info{display:flex;flex-direction:column;gap:2px}
+.group-name{font-size:14px;font-weight:700}
+.group-id{font-size:12px;color:var(--gray);font-family:monospace}
+.group-del{background:var(--err);color:#fff;border:none;border-radius:6px;padding:5px 12px;cursor:pointer;font-size:12px;font-weight:700}
+.group-add-row{display:flex;gap:8px}
+.group-add-row input{flex:1;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;outline:none}
+.group-add-row input:focus{border-color:var(--primary)}
+.add-btn{background:var(--primary);color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;white-space:nowrap}
+.group-note{font-size:12px;color:var(--gray);margin-top:10px;padding:10px 12px;background:#eff6ff;border-radius:8px;line-height:1.6}
 
 /* Image manager */
 .img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px}
 .img-item{position:relative;border-radius:10px;overflow:hidden;border:2px solid #e2e8f0;background:#f8fafc}
 .img-item img{width:100%;height:100px;object-fit:contain;display:block;background:#fff}
 .img-item-url{font-size:10px;color:var(--gray);padding:4px 6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.img-del{position:absolute;top:4px;right:4px;background:var(--err);color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:13px;line-height:1;display:flex;align-items:center;justify-content:center;font-weight:700}
+.img-del{position:absolute;top:4px;right:4px;background:var(--err);color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;font-weight:700}
 .img-add-box{border:2px dashed #cbd5e1;border-radius:10px;padding:16px;background:#f8fafc}
-.img-add-box h4{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--dark)}
+.img-add-box h4{font-size:13px;font-weight:700;margin-bottom:12px}
+.img-tabs{display:flex;gap:6px;margin-bottom:14px}
+.img-tab{padding:7px 16px;border-radius:20px;border:1.5px solid #e2e8f0;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:var(--gray)}
+.img-tab.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.img-panel{display:none}.img-panel.active{display:block}
 .img-url-row{display:flex;gap:8px;margin-bottom:10px}
 .img-url-row input{flex:1;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:13px;outline:none}
 .img-url-row input:focus{border-color:var(--primary)}
-.add-btn{background:var(--primary);color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;white-space:nowrap}
 .img-preview{width:100%;max-height:120px;object-fit:contain;border-radius:8px;border:1px solid #e2e8f0;background:#f8fafc;display:none;margin-top:8px}
-.img-note{font-size:12px;color:var(--gray);margin-top:8px;line-height:1.5;padding:10px 12px;background:#fffbeb;border-radius:8px;border:1px solid #fde68a}
+.upload-area{border:2px dashed #cbd5e1;border-radius:10px;padding:24px;text-align:center;cursor:pointer;transition:all .2s;background:#fff}
+.upload-area:hover{border-color:var(--primary);background:#eff6ff}
+.upload-area input{display:none}
+.upload-icon{font-size:32px;margin-bottom:8px}
+.upload-text{font-size:13px;color:var(--gray);line-height:1.5}
+.upload-text strong{color:var(--primary);cursor:pointer}
+.upload-preview{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.up-prev-item{position:relative;border-radius:8px;overflow:hidden;border:1px solid #e2e8f0}
+.up-prev-item img{width:80px;height:60px;object-fit:contain;background:#f8fafc;display:block}
+.up-prev-del{position:absolute;top:2px;right:2px;background:var(--err);color:#fff;border:none;border-radius:50%;width:18px;height:18px;font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
 /* Orders */
 .orders-wrap{overflow-x:auto}
@@ -67,15 +90,12 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dar
 .orders-table td{padding:10px 12px;border-bottom:1px solid #f1f5f9;vertical-align:top}
 .orders-table tr:hover td{background:#f8fafc}
 .no-orders{text-align:center;padding:40px;color:var(--gray)}
-.orders-count{font-size:13px;color:var(--gray);margin-bottom:12px}
 
 /* LANDING */
-.lang-bar{background:var(--dark);padding:8px 20px;display:flex;justify-content:space-between;align-items:center}
+.lang-bar{background:var(--dark);padding:8px 20px;display:flex;justify-content:flex-end;align-items:center}
 .lang-right{display:flex;gap:8px}
 .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 14px;border-radius:20px;cursor:pointer;font-size:13px;transition:all .2s}
 .lang-btn.active{background:var(--primary);border-color:var(--primary)}
-.admin-link{color:rgba(255,255,255,.45);font-size:12px;cursor:pointer;padding:4px 10px;border:1px solid rgba(255,255,255,.15);border-radius:20px;transition:all .2s}
-.admin-link:hover{color:#fff;border-color:rgba(255,255,255,.4)}
 
 .hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#1a73e8 100%);padding:48px 20px 56px;text-align:center;color:#fff;overflow:hidden;position:relative}
 .badge{display:inline-block;background:var(--accent);color:#000;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;margin-bottom:16px}
@@ -85,7 +105,6 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dar
 .hero-cta{display:inline-block;background:var(--accent);color:#000;font-weight:700;font-size:16px;padding:14px 36px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(245,158,11,.4);transition:transform .2s}
 .hero-cta:hover{transform:translateY(-2px)}
 
-/* Slider */
 .slider-wrap{max-width:380px;margin:36px auto 0;position:relative}
 .slider-track{overflow:hidden;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:#fff}
 .slider-inner{display:flex;transition:transform .45s ease}
@@ -94,8 +113,7 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dar
 .slider-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
 .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s}
 .dot.active{background:#fff}
-.snav{position:absolute;top:130px;background:rgba(0,0,0,.45);color:#fff;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s}
-.snav:hover{background:rgba(0,0,0,.7)}
+.snav{position:absolute;top:130px;background:rgba(0,0,0,.45);color:#fff;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:2}
 #snav-l{left:6px}#snav-r{right:6px}
 
 section{padding:52px 20px}
@@ -110,10 +128,9 @@ section{padding:52px 20px}
 .prob-card{background:#fff;border:1px solid #fecaca;border-radius:13px;padding:18px;text-align:center}
 .prob-card .ic,.sol-card .ic{font-size:30px;margin-bottom:8px}
 .prob-card h3{font-size:14px;font-weight:700;color:var(--err);margin-bottom:5px}
-.prob-card p{font-size:13px;color:var(--gray);line-height:1.5}
+.prob-card p,.sol-card p{font-size:13px;color:var(--gray);line-height:1.5}
 .sol-card{background:#fff;border:1px solid #bbf7d0;border-radius:13px;padding:18px;text-align:center}
 .sol-card h3{font-size:14px;font-weight:700;color:var(--ok);margin-bottom:5px}
-.sol-card p{font-size:13px;color:var(--gray);line-height:1.5}
 
 .steps{display:flex;flex-direction:column;gap:14px}
 .step{display:flex;align-items:flex-start;gap:14px;background:var(--light);border-radius:13px;padding:16px}
@@ -173,7 +190,6 @@ footer p{font-size:13px;opacity:.45}
 .success-box h3{font-size:18px;font-weight:800;margin-bottom:7px}
 .success-box p{color:var(--gray);font-size:13px;line-height:1.6}
 
-/* lang */
 [data-lang="ru"]{display:none}
 body.ru [data-lang="uz"]{display:none}
 body.ru [data-lang="ru"]{display:block}
@@ -205,7 +221,8 @@ span[data-lang="ru"]{display:none}
     <button class="ap-tab active" onclick="apTab(0)">📦 Mahsulot</button>
     <button class="ap-tab" onclick="apTab(1)">📝 Matnlar</button>
     <button class="ap-tab" onclick="apTab(2)">🖼️ Rasmlar</button>
-    <button class="ap-tab" onclick="apTab(3)">🛒 Buyurtmalar</button>
+    <button class="ap-tab" onclick="apTab(3)">💬 Guruhlar</button>
+    <button class="ap-tab" onclick="apTab(4)">🛒 Buyurtmalar</button>
   </div>
   <div class="ap-body">
 
@@ -222,19 +239,19 @@ span[data-lang="ru"]{display:none}
           <div class="ap-group"><label>Eski narhi (so'm)</label><input id="c-oldPrice" type="number"></div>
         </div>
         <div class="ap-row">
-          <div class="ap-group"><label>Qo'qon delivery narhi (so'm)</label><input id="c-localFee" type="number"></div>
-          <div class="ap-group"><label>Hero badge (UZ)</label><input id="c-badge"></div>
+          <div class="ap-group"><label>Qo'qon delivery narhi</label><input id="c-localFee" type="number"></div>
+          <div class="ap-group"><label>Hero badge</label><input id="c-badge"></div>
         </div>
       </div>
       <div class="ap-card">
-        <h3>🏪 Yetkazib berish ma'lumotlari</h3>
+        <h3>🏪 Yetkazib berish</h3>
         <div class="ap-row">
-          <div class="ap-group"><label>Do'kon tavsifi (UZ)</label><input id="c-shopUz"></div>
-          <div class="ap-group"><label>Do'kon tavsifi (RU)</label><input id="c-shopRu"></div>
+          <div class="ap-group"><label>Do'kon (UZ)</label><input id="c-shopUz"></div>
+          <div class="ap-group"><label>Do'kon (RU)</label><input id="c-shopRu"></div>
         </div>
         <div class="ap-row">
-          <div class="ap-group"><label>Qo'qon delivery tavsifi (UZ)</label><input id="c-localUz"></div>
-          <div class="ap-group"><label>Qo'qon delivery tavsifi (RU)</label><input id="c-localRu"></div>
+          <div class="ap-group"><label>Qo'qon delivery (UZ)</label><input id="c-localUz"></div>
+          <div class="ap-group"><label>Qo'qon delivery (RU)</label><input id="c-localRu"></div>
         </div>
       </div>
       <button class="save-btn" onclick="saveTab(0)">💾 Saqlash</button>
@@ -244,24 +261,15 @@ span[data-lang="ru"]{display:none}
     <!-- TAB 1: TEXTS -->
     <div class="ap-section" id="aTab1">
       <div class="ap-card">
-        <h3>🦸 Hero Sektsiya</h3>
+        <h3>🦸 Hero</h3>
         <div class="ap-group"><label>Sarlavha (UZ)</label><input id="c-heroHuz"></div>
         <div class="ap-group"><label>Sarlavha (RU)</label><input id="c-heroHru"></div>
         <div class="ap-group"><label>Tavsif (UZ)</label><textarea id="c-heroPuz"></textarea></div>
         <div class="ap-group"><label>Tavsif (RU)</label><textarea id="c-heroPru"></textarea></div>
       </div>
-      <div class="ap-card">
-        <h3>😰 Muammo kartalari</h3>
-        <div id="probEditor"></div>
-      </div>
-      <div class="ap-card">
-        <h3>✅ Yechim kartalari</h3>
-        <div id="solEditor"></div>
-      </div>
-      <div class="ap-card">
-        <h3>📋 Foydalanish qadamlari</h3>
-        <div id="stepEditor"></div>
-      </div>
+      <div class="ap-card"><h3>😰 Muammolar</h3><div id="probEditor"></div></div>
+      <div class="ap-card"><h3>✅ Yechimlar</h3><div id="solEditor"></div></div>
+      <div class="ap-card"><h3>📋 Qadamlar</h3><div id="stepEditor"></div></div>
       <button class="save-btn" onclick="saveTab(1)">💾 Saqlash</button>
       <span class="save-msg" id="sm1">✅ Saqlandi!</span>
     </div>
@@ -271,22 +279,36 @@ span[data-lang="ru"]{display:none}
       <div class="ap-card">
         <h3>🖼️ Slider rasmlari</h3>
         <div class="img-grid" id="imgGrid"></div>
-
         <div class="img-add-box">
-          <h4>➕ Yangi rasm qo'shish (URL orqali)</h4>
-          <div class="img-url-row">
-            <input id="newImgUrl" placeholder="https://i.ibb.co/... yoki boshqa URL" oninput="previewImg()">
-            <button class="add-btn" onclick="addImg()">Qo'shish</button>
+          <h4>➕ Yangi rasm qo'shish</h4>
+          <div class="img-tabs">
+            <button class="img-tab active" onclick="imgTab(0)">📁 Qurilmadan yuklash</button>
+            <button class="img-tab" onclick="imgTab(1)">🔗 URL orqali</button>
           </div>
-          <img id="imgPreview" class="img-preview" alt="Preview">
-          <div class="img-note">
-            💡 <strong>Rasmni qanday yuklash kerak?</strong><br>
-            1. <a href="https://imgbb.com" target="_blank" style="color:var(--primary)">imgbb.com</a> saytiga kiring (bepul, hisob kerak emas)<br>
-            2. Rasmingizni yuklang → "Direct link" ni nusxalang<br>
-            3. Yuqoridagi maydonga joylashtiring va "Qo'shish" ni bosing
+
+          <!-- Qurilmadan yuklash -->
+          <div class="img-panel active" id="imgPanel0">
+            <div class="upload-area" onclick="document.getElementById('fileInput').click()" ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+              <input type="file" id="fileInput" accept="image/*" multiple onchange="handleFiles(this.files)">
+              <div class="upload-icon">📸</div>
+              <div class="upload-text">
+                <strong>Rasm tanlash uchun bosing</strong><br>
+                yoki rasmni shu yerga tashlang<br>
+                <span style="font-size:11px;opacity:.6">JPG, PNG, WEBP — max 5MB</span>
+              </div>
+            </div>
+            <div class="upload-preview" id="uploadPreview"></div>
+          </div>
+
+          <!-- URL orqali -->
+          <div class="img-panel" id="imgPanel1">
+            <div class="img-url-row">
+              <input id="newImgUrl" placeholder="https://i.ibb.co/...jpg" oninput="previewImg()">
+              <button class="add-btn" onclick="addImgUrl()">Qo'shish</button>
+            </div>
+            <img id="imgPreview" class="img-preview" alt="Preview">
           </div>
         </div>
-
         <div style="margin-top:16px">
           <button class="save-btn" onclick="saveTab(2)">💾 Saqlash</button>
           <span class="save-msg" id="sm2">✅ Saqlandi!</span>
@@ -294,11 +316,36 @@ span[data-lang="ru"]{display:none}
       </div>
     </div>
 
-    <!-- TAB 3: ORDERS -->
+    <!-- TAB 3: GURUHLAR -->
     <div class="ap-section" id="aTab3">
       <div class="ap-card">
+        <h3>💬 Telegram guruhlar</h3>
+        <div class="group-list" id="groupList"></div>
+        <div class="group-add-row">
+          <input id="newGroupId" placeholder="Guruh ID: -1001234567890" type="text">
+          <input id="newGroupName" placeholder="Guruh nomi (ixtiyoriy)" type="text">
+          <button class="add-btn" onclick="addGroup()">➕ Qo'shish</button>
+        </div>
+        <div class="group-note">
+          💡 <strong>Guruh ID sini qanday topish:</strong><br>
+          1. Botingizni guruhga qo'shing va admin qiling<br>
+          2. Guruhga <code>/start</code> yozing<br>
+          3. Brauzerda oching: <code>https://api.telegram.org/bot<b>TOKEN</b>/getUpdates</code><br>
+          4. <code>"chat":{"id":-100XXXXXXX}</code> — shu raqam guruh ID si<br>
+          Guruh IDlari odatda <strong>manfiy</strong> raqam bo'ladi (masalan: -1001234567890)
+        </div>
+        <div style="margin-top:14px">
+          <button class="save-btn" onclick="saveTab(3)">💾 Saqlash</button>
+          <span class="save-msg" id="sm3">✅ Saqlandi!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: ORDERS -->
+    <div class="ap-section" id="aTab4">
+      <div class="ap-card">
         <h3>🛒 Buyurtmalar</h3>
-        <p class="orders-count" id="ordersCount"></p>
+        <p style="font-size:13px;color:var(--gray);margin-bottom:12px" id="ordersCount"></p>
         <div class="orders-wrap" id="ordersWrap"></div>
       </div>
     </div>
@@ -309,7 +356,6 @@ span[data-lang="ru"]{display:none}
 <!-- LANDING -->
 <div id="landing">
 <div class="lang-bar">
-  <span class="admin-link" onclick="openAdminGate()">⚙️ Admin</span>
   <div class="lang-right">
     <button class="lang-btn active" onclick="setLang('uz')">🇺🇿 O'zbek</button>
     <button class="lang-btn" onclick="setLang('ru')">🇷🇺 Русский</button>
@@ -339,7 +385,6 @@ span[data-lang="ru"]{display:none}
     <div class="cards" id="ld-problems"></div>
   </div>
 </section>
-
 <section class="solution-bg">
   <div class="container">
     <h2 class="section-title"><span data-lang="uz">✅ B-2188 qanday himoya qiladi?</span><span data-lang="ru">✅ Как защищает B-2188?</span></h2>
@@ -347,7 +392,6 @@ span[data-lang="ru"]{display:none}
     <div class="cards" id="ld-solutions"></div>
   </div>
 </section>
-
 <section class="specs-bg">
   <div class="container">
     <h2 class="section-title"><span data-lang="uz">📊 Texnik xususiyatlar</span><span data-lang="ru">📊 Характеристики</span></h2>
@@ -362,7 +406,6 @@ span[data-lang="ru"]{display:none}
     </div>
   </div>
 </section>
-
 <section>
   <div class="container">
     <h2 class="section-title"><span data-lang="uz">📋 Qanday ishlatiladi?</span><span data-lang="ru">📋 Как использовать?</span></h2>
@@ -370,11 +413,10 @@ span[data-lang="ru"]{display:none}
     <div class="steps" id="ld-steps"></div>
   </div>
 </section>
-
 <section class="price-bg">
   <div class="container">
     <h2 class="section-title" style="color:#fff"><span data-lang="uz">💰 Narhi</span><span data-lang="ru">💰 Цена</span></h2>
-    <p class="section-sub" style="color:rgba(255,255,255,.6)"><span data-lang="uz">Muzlatgich ta'miridan 10–30x arzon himoya</span><span data-lang="ru">В 10–30 раз дешевле ремонта холодильника</span></p>
+    <p class="section-sub" style="color:rgba(255,255,255,.6)"><span data-lang="uz">Muzlatgich ta'miridan 10–30x arzon</span><span data-lang="ru">В 10–30 раз дешевле ремонта</span></p>
     <div class="price-box">
       <div class="old-price" id="ld-oldPrice"></div>
       <div class="new-price" id="ld-price"></div>
@@ -388,7 +430,6 @@ span[data-lang="ru"]{display:none}
     </div>
   </div>
 </section>
-
 <footer><p>© 2025 AZTECH REF — Qo'qon, O'zbekiston</p></footer>
 </div>
 
@@ -441,10 +482,9 @@ span[data-lang="ru"]{display:none}
 
 <script>
 const BOT_TOKEN = '8727881862:AAHMxPRYVpG9R8ldB5T2az3q1_1T_nuXccM';
-const CHAT_ID   = '47115138';
 const ADMIN_PW  = 'aztech2025';
 
-// ── DEFAULT CONFIG ──
+// ── CONFIG ──
 let C = {
   nameUz:'Kuchlanish Himoyachisi B-2188', nameRu:'Протектор напряжения B-2188',
   badge:'⚡ #1 Himoyachi',
@@ -455,26 +495,25 @@ let C = {
   heroHru:"Защитите технику от скачков напряжения!",
   heroPuz:"B-2188 — Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.",
   heroPru:"B-2188 — умный протектор напряжения для холодильника, телевизора, компьютера и всей бытовой техники.",
-  images:[
-    'https://i.ibb.co/placeholder1/b2188-front.jpg',
-    'https://i.ibb.co/placeholder2/b2188-side.jpg',
-    'https://i.ibb.co/placeholder3/b2188-info.jpg'
+  images:[], // base64 yoki URL
+  groups:[ // Telegram guruhlar { id, name }
+    { id:'47115138', name:'Shaxsiy (default)' }
   ],
   problems:[
     {ic:'⚡',tuz:"To'satdan kuchlanish sakrashi",tru:'Скачки напряжения',puz:"Elektr tarmog'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi",pru:'Резкие колебания в сети мгновенно выводят технику из строя'},
-    {ic:'🔌',tuz:"Svet o'chib yonishi",tru:'Отключения электричества',puz:'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi',pru:'При восстановлении питания компрессор получает удар и изнашивается'},
+    {ic:'🔌',tuz:"Svet o'chib yonishi",tru:'Отключения электричества',puz:'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi',pru:'При восстановлении питания компрессор получает удар'},
     {ic:'💸',tuz:"Qimmat ta'mirlash",tru:'Дорогостоящий ремонт',puz:"Muzlatgich ta'miri 500,000–2,000,000 so'm. Oldini olish atigi 65,000 so'm",pru:'Ремонт холодильника — от 500 000 сум. Защита стоит 65 000 сум'}
   ],
   solutions:[
     {ic:'🛡️',tuz:'Avtomatik uzish',tru:'Авто-отключение',puz:"175V pastga tushsa yoki 260V dan oshsa — darhol uzilib qoladi",pru:'При выходе за 175–260V мгновенно отключает питание'},
-    {ic:'⏱️',tuz:"Aqlli kechiktirish",tru:'Умная задержка',puz:"Svet kelgandan 4–5 daqiqa o'tib ulaydi — kompressor gazlari tinchlangandan keyin",pru:'Подключает питание через 4–5 мин — после стабилизации газов'},
+    {ic:'⏱️',tuz:"Aqlli kechiktirish",tru:'Умная задержка',puz:"Svet kelgandan 4–5 daqiqa o'tib ulaydi — kompressor uchun xavfsiz",pru:'Подключает питание через 4–5 мин — безопасно для компрессора'},
     {ic:'💡',tuz:"LED ko'rsatkichlar",tru:'LED индикаторы',puz:"3 rangli LED: himoya, kechiktirish, normal ishlash",pru:'3 цвета LED: защита, задержка, нормальная работа'},
     {ic:'🔧',tuz:'Kuchli quvvat',tru:'Высокая мощность',puz:'16A / 2500W — muzlatgich, konditsioner, suv pompasi uchun',pru:'16A / 2500W — для холодильника, кондиционера, насоса'}
   ],
   steps:[
     {tuz:'Rozetkaga ulang',tru:'Вставьте в розетку',puz:"B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang",pru:'Вставьте B-2188 напрямую в стандартную розетку 220V'},
     {tuz:'Texnikani ulang',tru:'Подключите технику',puz:"Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang",pru:'Вилку холодильника подключите к B-2188'},
-    {tuz:"Ishlatavering — himoya avtomatik!",tru:'Пользуйтесь — защита автоматическая!',puz:"Yashil LED — normal ishlayapti. Qizil LED — himoya ishga tushgan",pru:'Зелёный LED — нормальная работа. Красный LED — защита активирована'}
+    {tuz:"Ishlatavering — himoya avtomatik!",tru:'Пользуйтесь — автоматически!',puz:"Yashil LED — normal. Qizil LED — himoya ishga tushgan",pru:'Зелёный LED — норма. Красный LED — защита активирована'}
   ]
 };
 
@@ -483,94 +522,82 @@ let lang = 'uz';
 let curSlide = 0;
 let sliderTimer;
 
-// ─── LANG ───
+// ── URL dan admin ochish ──
+function checkAdminUrl(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('admin') === 'kirish'){
+    // URL dan parametrni tozalash (ko'rinmasin)
+    window.history.replaceState({}, document.title, window.location.pathname);
+    document.getElementById('adminGate').classList.add('open');
+    setTimeout(()=>document.getElementById('pwInput').focus(), 100);
+  }
+}
+
+// ── LANG ──
 function setLang(l){
   lang=l;
   document.body.classList.toggle('ru',l==='ru');
   document.querySelectorAll('.lang-btn').forEach((b,i)=>b.classList.toggle('active',(i===0&&l==='uz')||(i===1&&l==='ru')));
 }
 
-// ─── RENDER LANDING ───
+// ── RENDER ──
 function render(){
-  // badge & hero
   document.getElementById('ld-badge').textContent = C.badge;
-
   const hUz = C.heroHuz.replace(/(kuchlanish zarbasidan)/g,'<em>$1</em>');
   const hRu = C.heroHru.replace(/(скачков напряжения!?)/g,'<em>$1</em>');
-  document.getElementById('ld-heroH').innerHTML =
-    `<span data-lang="uz">${hUz}</span><span data-lang="ru">${hRu}</span>`;
-  document.getElementById('ld-heroP').innerHTML =
-    `<span data-lang="uz">${C.heroPuz}</span><span data-lang="ru">${C.heroPru}</span>`;
+  document.getElementById('ld-heroH').innerHTML=`<span data-lang="uz">${hUz}</span><span data-lang="ru">${hRu}</span>`;
+  document.getElementById('ld-heroP').innerHTML=`<span data-lang="uz">${C.heroPuz}</span><span data-lang="ru">${C.heroPru}</span>`;
+  document.getElementById('ld-oldPrice').textContent=`Bozor narxi: ${C.oldPrice.toLocaleString()} so'm`;
+  document.getElementById('ld-price').innerHTML=`${C.price.toLocaleString()} <span>so'm</span>`;
+  document.getElementById('modalProdName').textContent=`${C.nameUz} — ${C.price.toLocaleString()} so'm`;
+  document.getElementById('shopDescUz').textContent=C.shopUz;
+  document.getElementById('shopDescRu').textContent=C.shopRu;
+  document.getElementById('localDescUz').textContent=C.localUz;
+  document.getElementById('localDescRu').textContent=C.localRu;
 
-  // price
-  document.getElementById('ld-oldPrice').textContent = `Bozor narxi: ${C.oldPrice.toLocaleString()} so'm`;
-  document.getElementById('ld-price').innerHTML = `${C.price.toLocaleString()} <span>so'm</span>`;
+  document.getElementById('ld-problems').innerHTML=C.problems.map(p=>`
+    <div class="prob-card"><div class="ic">${p.ic}</div>
+    <h3><span data-lang="uz">${p.tuz}</span><span data-lang="ru">${p.tru}</span></h3>
+    <p><span data-lang="uz">${p.puz}</span><span data-lang="ru">${p.pru}</span></p></div>`).join('');
 
-  // modal
-  document.getElementById('modalProdName').textContent = `${C.nameUz} — ${C.price.toLocaleString()} so'm`;
-  document.getElementById('shopDescUz').textContent = C.shopUz;
-  document.getElementById('shopDescRu').textContent = C.shopRu;
-  document.getElementById('localDescUz').textContent = C.localUz;
-  document.getElementById('localDescRu').textContent = C.localRu;
+  document.getElementById('ld-solutions').innerHTML=C.solutions.map(s=>`
+    <div class="sol-card"><div class="ic">${s.ic}</div>
+    <h3><span data-lang="uz">${s.tuz}</span><span data-lang="ru">${s.tru}</span></h3>
+    <p><span data-lang="uz">${s.puz}</span><span data-lang="ru">${s.pru}</span></p></div>`).join('');
 
-  // problems
-  document.getElementById('ld-problems').innerHTML = C.problems.map(p=>`
-    <div class="prob-card">
-      <div class="ic">${p.ic}</div>
-      <h3><span data-lang="uz">${p.tuz}</span><span data-lang="ru">${p.tru}</span></h3>
-      <p><span data-lang="uz">${p.puz}</span><span data-lang="ru">${p.pru}</span></p>
-    </div>`).join('');
-
-  // solutions
-  document.getElementById('ld-solutions').innerHTML = C.solutions.map(s=>`
-    <div class="sol-card">
-      <div class="ic">${s.ic}</div>
-      <h3><span data-lang="uz">${s.tuz}</span><span data-lang="ru">${s.tru}</span></h3>
-      <p><span data-lang="uz">${s.puz}</span><span data-lang="ru">${s.pru}</span></p>
-    </div>`).join('');
-
-  // steps
-  document.getElementById('ld-steps').innerHTML = C.steps.map((s,i)=>`
-    <div class="step">
-      <div class="step-num">${i+1}</div>
-      <div class="step-text">
-        <h3><span data-lang="uz">${s.tuz}</span><span data-lang="ru">${s.tru}</span></h3>
-        <p><span data-lang="uz">${s.puz}</span><span data-lang="ru">${s.pru}</span></p>
-      </div>
-    </div>`).join('');
+  document.getElementById('ld-steps').innerHTML=C.steps.map((s,i)=>`
+    <div class="step"><div class="step-num">${i+1}</div>
+    <div class="step-text"><h3><span data-lang="uz">${s.tuz}</span><span data-lang="ru">${s.tru}</span></h3>
+    <p><span data-lang="uz">${s.puz}</span><span data-lang="ru">${s.pru}</span></p></div></div>`).join('');
 
   buildSlider();
   setLang(lang);
   updateTotal();
 }
 
-// ─── SLIDER ───
+// ── SLIDER ──
 function buildSlider(){
   clearInterval(sliderTimer);
-  const si = document.getElementById('sliderInner');
-  const sd = document.getElementById('sliderDots');
-  si.innerHTML = C.images.map(u=>`
-    <div class="slide"><img src="${u}" alt="product"
-      onerror="this.src='https://via.placeholder.com/380x260/f0f7ff/1a73e8?text=B-2188'"></div>`).join('');
-  sd.innerHTML = C.images.map((_,i)=>`
-    <div class="dot${i===0?' active':''}" onclick="goSlide(${i})"></div>`).join('');
+  const si=document.getElementById('sliderInner');
+  const sd=document.getElementById('sliderDots');
+  if(!C.images.length){
+    si.innerHTML=`<div class="slide"><img src="https://via.placeholder.com/380x260/f0f7ff/1a73e8?text=B-2188+Rasm+Yuklanmagan" alt="B-2188"></div>`;
+    sd.innerHTML=`<div class="dot active"></div>`;
+    return;
+  }
+  si.innerHTML=C.images.map(u=>`<div class="slide"><img src="${u}" alt="product" onerror="this.src='https://via.placeholder.com/380x260/f0f7ff/1a73e8?text=B-2188'"></div>`).join('');
+  sd.innerHTML=C.images.map((_,i)=>`<div class="dot${i===0?' active':''}" onclick="goSlide(${i})"></div>`).join('');
   curSlide=0; applySlide();
-  sliderTimer = setInterval(()=>slideNav(1), 3500);
+  if(C.images.length>1) sliderTimer=setInterval(()=>slideNav(1),3500);
 }
 function applySlide(){
   document.getElementById('sliderInner').style.transform=`translateX(-${curSlide*100}%)`;
   document.querySelectorAll('#sliderDots .dot').forEach((d,i)=>d.classList.toggle('active',i===curSlide));
 }
-function goSlide(n){ curSlide=(n+C.images.length)%C.images.length; applySlide(); }
-function slideNav(d){ goSlide(curSlide+d); }
+function goSlide(n){curSlide=(n+C.images.length)%C.images.length;applySlide();}
+function slideNav(d){goSlide(curSlide+d);}
 
-// ─── ADMIN GATE ───
-function openAdminGate(){
-  document.getElementById('adminGate').classList.add('open');
-  document.getElementById('pwInput').value='';
-  document.getElementById('pwErr').style.display='none';
-  setTimeout(()=>document.getElementById('pwInput').focus(),100);
-}
+// ── ADMIN GATE ──
 function checkPw(){
   if(document.getElementById('pwInput').value===ADMIN_PW){
     document.getElementById('adminGate').classList.remove('open');
@@ -580,32 +607,32 @@ function checkPw(){
   }
 }
 
-// ─── ADMIN PANEL ───
+// ── ADMIN PANEL ──
 function openAdmin(){
   loadAdminFields();
   renderImgGrid();
+  renderGroupList();
   renderOrders();
   document.getElementById('adminPanel').classList.add('open');
 }
-function closeAdmin(){ document.getElementById('adminPanel').classList.remove('open'); }
-
+function closeAdmin(){document.getElementById('adminPanel').classList.remove('open');}
 function apTab(idx){
   document.querySelectorAll('.ap-tab').forEach((b,i)=>b.classList.toggle('active',i===idx));
   document.querySelectorAll('.ap-section').forEach((s,i)=>s.classList.toggle('active',i===idx));
-  if(idx===3) renderOrders();
+  if(idx===4) renderOrders();
 }
 
 function loadAdminFields(){
-  const s = (id,val)=>{ const el=document.getElementById(id); if(el) el.value=val; };
-  s('c-nameUz',C.nameUz); s('c-nameRu',C.nameRu);
-  s('c-price',C.price); s('c-oldPrice',C.oldPrice);
-  s('c-localFee',C.localFee); s('c-badge',C.badge);
-  s('c-shopUz',C.shopUz); s('c-shopRu',C.shopRu);
-  s('c-localUz',C.localUz); s('c-localRu',C.localRu);
-  s('c-heroHuz',C.heroHuz); s('c-heroHru',C.heroHru);
-  s('c-heroPuz',C.heroPuz); s('c-heroPru',C.heroPru);
+  const s=(id,val)=>{const el=document.getElementById(id);if(el)el.value=val;};
+  s('c-nameUz',C.nameUz);s('c-nameRu',C.nameRu);
+  s('c-price',C.price);s('c-oldPrice',C.oldPrice);
+  s('c-localFee',C.localFee);s('c-badge',C.badge);
+  s('c-shopUz',C.shopUz);s('c-shopRu',C.shopRu);
+  s('c-localUz',C.localUz);s('c-localRu',C.localRu);
+  s('c-heroHuz',C.heroHuz);s('c-heroHru',C.heroHru);
+  s('c-heroPuz',C.heroPuz);s('c-heroPru',C.heroPru);
 
-  document.getElementById('probEditor').innerHTML = C.problems.map((p,i)=>`
+  document.getElementById('probEditor').innerHTML=C.problems.map((p,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
       <div style="font-size:11px;font-weight:700;color:var(--gray);margin-bottom:8px">KARTA #${i+1} ${p.ic}</div>
       <div class="ap-row">
@@ -618,7 +645,7 @@ function loadAdminFields(){
       </div>
     </div>`).join('');
 
-  document.getElementById('solEditor').innerHTML = C.solutions.map((s,i)=>`
+  document.getElementById('solEditor').innerHTML=C.solutions.map((s,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
       <div style="font-size:11px;font-weight:700;color:var(--gray);margin-bottom:8px">KARTA #${i+1} ${s.ic}</div>
       <div class="ap-row">
@@ -631,7 +658,7 @@ function loadAdminFields(){
       </div>
     </div>`).join('');
 
-  document.getElementById('stepEditor').innerHTML = C.steps.map((s,i)=>`
+  document.getElementById('stepEditor').innerHTML=C.steps.map((s,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
       <div style="font-size:11px;font-weight:700;color:var(--gray);margin-bottom:8px">QADAM #${i+1}</div>
       <div class="ap-row">
@@ -645,108 +672,161 @@ function loadAdminFields(){
     </div>`).join('');
 }
 
-// ─── IMAGE MANAGER ───
+// ── IMAGE MANAGER ──
 function renderImgGrid(){
-  document.getElementById('imgGrid').innerHTML = C.images.length
+  document.getElementById('imgGrid').innerHTML=C.images.length
     ? C.images.map((u,i)=>`
         <div class="img-item">
-          <img src="${u}" onerror="this.style.opacity='.3'">
-          <div class="img-item-url">${u.split('/').pop()}</div>
-          <button class="img-del" onclick="delImg(${i})" title="O'chirish">×</button>
+          <img src="${u}" onerror="this.style.opacity='.2'">
+          <div class="img-item-url">${u.startsWith('data:')? '📁 Yuklangan rasm' : u.split('/').pop()}</div>
+          <button class="img-del" onclick="delImg(${i})">×</button>
         </div>`).join('')
-    : '<p style="color:var(--gray);font-size:13px">Hali rasm yo\'q. Quyidan qo\'shing.</p>';
+    : '<p style="color:var(--gray);font-size:13px;grid-column:1/-1">Hali rasm yo\'q</p>';
 }
 
+function imgTab(idx){
+  document.querySelectorAll('.img-tab').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  document.querySelectorAll('.img-panel').forEach((p,i)=>p.classList.toggle('active',i===idx));
+}
+
+// Qurilmadan yuklash
+function handleFiles(files){
+  Array.from(files).forEach(file=>{
+    if(!file.type.startsWith('image/')){alert('Faqat rasm fayllari!');return;}
+    if(file.size>5*1024*1024){alert('Fayl 5MB dan katta!');return;}
+    const reader=new FileReader();
+    reader.onload=e=>{
+      C.images.push(e.target.result);
+      renderImgGrid();
+      buildSlider();
+      addUploadPreview(e.target.result, C.images.length-1);
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function handleDrop(e){
+  e.preventDefault();
+  handleFiles(e.dataTransfer.files);
+}
+
+function addUploadPreview(src, idx){
+  const wrap=document.getElementById('uploadPreview');
+  const div=document.createElement('div');
+  div.className='up-prev-item';
+  div.id=`uprev-${idx}`;
+  div.innerHTML=`<img src="${src}"><button class="up-prev-del" onclick="delImg(${idx})">×</button>`;
+  wrap.appendChild(div);
+}
+
+// URL orqali
 function previewImg(){
-  const url = document.getElementById('newImgUrl').value.trim();
-  const prev = document.getElementById('imgPreview');
+  const url=document.getElementById('newImgUrl').value.trim();
+  const prev=document.getElementById('imgPreview');
   if(url.match(/^https?:\/\/.+\.(jpg|jpeg|png|webp|gif)(\?.*)?$/i)){
-    prev.src = url;
-    prev.style.display = 'block';
-    prev.onerror = ()=>{ prev.style.display='none'; };
-  } else {
-    prev.style.display = 'none';
-  }
+    prev.src=url; prev.style.display='block';
+    prev.onerror=()=>prev.style.display='none';
+  } else prev.style.display='none';
 }
 
-function addImg(){
-  const url = document.getElementById('newImgUrl').value.trim();
-  if(!url){ alert("Iltimos, rasm URL sini kiriting"); return; }
-  if(!url.startsWith('http')){ alert("URL https:// bilan boshlanishi kerak"); return; }
+function addImgUrl(){
+  const url=document.getElementById('newImgUrl').value.trim();
+  if(!url){alert('URL kiriting');return;}
+  if(!url.startsWith('http')){alert('URL https:// bilan boshlanishi kerak');return;}
   C.images.push(url);
   document.getElementById('newImgUrl').value='';
   document.getElementById('imgPreview').style.display='none';
-  renderImgGrid();
+  renderImgGrid(); buildSlider();
 }
 
 function delImg(i){
-  if(C.images.length<=1){ alert("Kamida 1 ta rasm bo'lishi kerak!"); return; }
+  if(C.images.length<=1){alert('Kamida 1 ta rasm bo\'lishi kerak!');return;}
   C.images.splice(i,1);
-  renderImgGrid();
+  renderImgGrid(); buildSlider();
+  document.getElementById('uploadPreview').innerHTML='';
 }
 
-// ─── SAVE TABS ───
+// ── GROUPS ──
+function renderGroupList(){
+  const el=document.getElementById('groupList');
+  if(!C.groups.length){
+    el.innerHTML='<p style="color:var(--gray);font-size:13px">Guruh qo\'shilmagan — buyurtmalar shaxsiy chatga keladi</p>';
+    return;
+  }
+  el.innerHTML=C.groups.map((g,i)=>`
+    <div class="group-item">
+      <div class="group-info">
+        <span class="group-name">💬 ${g.name||'Guruh'}</span>
+        <span class="group-id">${g.id}</span>
+      </div>
+      <button class="group-del" onclick="delGroup(${i})">O'chirish</button>
+    </div>`).join('');
+}
+
+function addGroup(){
+  const id=document.getElementById('newGroupId').value.trim();
+  const name=document.getElementById('newGroupName').value.trim()||'Guruh';
+  if(!id){alert('Guruh ID sini kiriting');return;}
+  if(C.groups.find(g=>g.id===id)){alert('Bu guruh allaqachon qo\'shilgan');return;}
+  C.groups.push({id,name});
+  document.getElementById('newGroupId').value='';
+  document.getElementById('newGroupName').value='';
+  renderGroupList();
+}
+
+function delGroup(i){
+  if(confirm('Guruhni o\'chirishni tasdiqlaysizmi?')){
+    C.groups.splice(i,1);
+    renderGroupList();
+  }
+}
+
+// ── SAVE TABS ──
 function saveTab(tab){
-  const g = id => (document.getElementById(id)||{}).value||'';
+  const g=id=>(document.getElementById(id)||{}).value||'';
   if(tab===0){
-    C.nameUz=g('c-nameUz'); C.nameRu=g('c-nameRu');
+    C.nameUz=g('c-nameUz');C.nameRu=g('c-nameRu');
     C.price=parseInt(g('c-price'))||65000;
     C.oldPrice=parseInt(g('c-oldPrice'))||90000;
     C.localFee=parseInt(g('c-localFee'))||10000;
     C.badge=g('c-badge');
-    C.shopUz=g('c-shopUz'); C.shopRu=g('c-shopRu');
-    C.localUz=g('c-localUz'); C.localRu=g('c-localRu');
+    C.shopUz=g('c-shopUz');C.shopRu=g('c-shopRu');
+    C.localUz=g('c-localUz');C.localRu=g('c-localRu');
   }
   if(tab===1){
-    C.heroHuz=g('c-heroHuz'); C.heroHru=g('c-heroHru');
-    C.heroPuz=g('c-heroPuz'); C.heroPru=g('c-heroPru');
-    C.problems.forEach((_,i)=>{
-      C.problems[i]={...C.problems[i],tuz:g(`p-tuz${i}`),tru:g(`p-tru${i}`),puz:g(`p-puz${i}`),pru:g(`p-pru${i}`)};
-    });
-    C.solutions.forEach((_,i)=>{
-      C.solutions[i]={...C.solutions[i],tuz:g(`s-tuz${i}`),tru:g(`s-tru${i}`),puz:g(`s-puz${i}`),pru:g(`s-pru${i}`)};
-    });
-    C.steps.forEach((_,i)=>{
-      C.steps[i]={...C.steps[i],tuz:g(`st-tuz${i}`),tru:g(`st-tru${i}`),puz:g(`st-puz${i}`),pru:g(`st-pru${i}`)};
-    });
+    C.heroHuz=g('c-heroHuz');C.heroHru=g('c-heroHru');
+    C.heroPuz=g('c-heroPuz');C.heroPru=g('c-heroPru');
+    C.problems.forEach((_,i)=>{C.problems[i]={...C.problems[i],tuz:g(`p-tuz${i}`),tru:g(`p-tru${i}`),puz:g(`p-puz${i}`),pru:g(`p-pru${i}`)};});
+    C.solutions.forEach((_,i)=>{C.solutions[i]={...C.solutions[i],tuz:g(`s-tuz${i}`),tru:g(`s-tru${i}`),puz:g(`s-puz${i}`),pru:g(`s-pru${i}`)};});
+    C.steps.forEach((_,i)=>{C.steps[i]={...C.steps[i],tuz:g(`st-tuz${i}`),tru:g(`st-tru${i}`),puz:g(`st-puz${i}`),pru:g(`st-pru${i}`)};});
   }
-  // tab 2: images already in C.images
+  // tab 2 & 3: already live
   render();
-  const m = document.getElementById(`sm${tab}`);
-  m.style.display='inline'; setTimeout(()=>m.style.display='none',2500);
+  const m=document.getElementById(`sm${tab}`);
+  m.style.display='inline';setTimeout(()=>m.style.display='none',2500);
 }
 
-// ─── ORDERS TABLE ───
+// ── ORDERS ──
 function renderOrders(){
-  const w = document.getElementById('ordersWrap');
-  const cnt = document.getElementById('ordersCount');
-  cnt.textContent = `Jami: ${orders.length} ta buyurtma`;
-  if(!orders.length){
-    w.innerHTML='<div class="no-orders">📭 Hali buyurtmalar yo\'q</div>'; return;
-  }
+  const w=document.getElementById('ordersWrap');
+  document.getElementById('ordersCount').textContent=`Jami: ${orders.length} ta buyurtma`;
+  if(!orders.length){w.innerHTML='<div class="no-orders">📭 Hali buyurtmalar yo\'q</div>';return;}
   const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida",region:"Viloyatlarga"};
   w.innerHTML=`<table class="orders-table">
     <thead><tr><th>#</th><th>Ism</th><th>Telefon</th><th>Yetkazib berish</th><th>Manzil</th><th>Miqdor</th><th>Jami</th><th>Vaqt</th></tr></thead>
-    <tbody>${orders.map((o,i)=>`
-      <tr>
-        <td><strong>${i+1}</strong></td>
-        <td>${o.name}</td>
-        <td>${o.phone}</td>
-        <td>${dn[o.delivery]||o.delivery}</td>
-        <td>${o.addr||'—'}</td>
-        <td>${o.qty} dona</td>
-        <td><strong>${o.total.toLocaleString()} so'm</strong></td>
-        <td style="font-size:11px;color:var(--gray)">${new Date(o.time).toLocaleString('uz-UZ')}</td>
-      </tr>`).join('')}
-    </tbody></table>`;
+    <tbody>${orders.map((o,i)=>`<tr>
+      <td>${i+1}</td><td>${o.name}</td><td>${o.phone}</td>
+      <td>${dn[o.delivery]||o.delivery}</td><td>${o.addr||'—'}</td>
+      <td>${o.qty} dona</td><td><strong>${o.total.toLocaleString()} so'm</strong></td>
+      <td style="font-size:11px;color:var(--gray)">${new Date(o.time).toLocaleString('uz-UZ')}</td>
+    </tr>`).join('')}</tbody></table>`;
 }
 
-// ─── ORDER MODAL ───
-let selD=null, qty=1;
-
+// ── ORDER MODAL ──
+let selD=null,qty=1;
 function openModal(){
   document.getElementById('modalOverlay').classList.add('open');
-  showMS(1); selD=null; qty=1;
+  showMS(1);selD=null;qty=1;
   document.getElementById('qtyVal').textContent=1;
   document.querySelectorAll('.del-opt').forEach(o=>o.classList.remove('selected'));
   document.getElementById('nextBtn').disabled=true;
@@ -754,8 +834,8 @@ function openModal(){
   document.getElementById('fphone').value='';
   document.getElementById('faddr').value='';
 }
-function closeModal(){ document.getElementById('modalOverlay').classList.remove('open'); }
-function showMS(n){ document.querySelectorAll('.form-step').forEach((s,i)=>s.classList.toggle('active',i===n-1)); }
+function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
+function showMS(n){document.querySelectorAll('.form-step').forEach((s,i)=>s.classList.toggle('active',i===n-1));}
 
 function selDel(t){
   selD=t;
@@ -766,33 +846,48 @@ function selDel(t){
 }
 
 function mStep2(){
-  if(!selD) return;
-  qty=1; document.getElementById('qtyVal').textContent=1;
-  const lbl={uz:{pickup:"🏪 Do'kondan olib ketish",local:"🛵 Qo'qon ichida yetkazib berish",region:"📦 Viloyatlarga yetkazib berish"},ru:{pickup:"🏪 Самовывоз",local:"🛵 Доставка по Коканду",region:"📦 Доставка по регионам"}};
-  document.getElementById('mDelivLabel').textContent = lbl[lang][selD];
-  const showA = selD!=='pickup';
-  document.getElementById('addrGrp').style.display = showA?'block':'none';
-  document.getElementById('faddr').placeholder = selD==='local'?(lang==='uz'?"Ko'cha, uy raqami":'Улица, дом'):(lang==='uz'?"Shahar, ko'cha, uy":'Город, улица, дом');
-  updateTotal();
-  showMS(2);
+  if(!selD)return;
+  qty=1;document.getElementById('qtyVal').textContent=1;
+  const lbl={uz:{pickup:"🏪 Do'kondan olib ketish",local:"🛵 Qo'qon ichida",region:"📦 Viloyatlarga"},ru:{pickup:"🏪 Самовывоз",local:"🛵 По Коканду",region:"📦 По регионам"}};
+  document.getElementById('mDelivLabel').textContent=lbl[lang][selD];
+  document.getElementById('addrGrp').style.display=selD!=='pickup'?'block':'none';
+  document.getElementById('faddr').placeholder=selD==='local'?(lang==='uz'?"Ko'cha, uy raqami":'Улица, дом'):(lang==='uz'?"Shahar, ko'cha, uy":'Город, улица, дом');
+  updateTotal();showMS(2);
 }
 
-function chQty(d){ qty=Math.max(1,qty+d); document.getElementById('qtyVal').textContent=qty; updateTotal(); }
-
+function chQty(d){qty=Math.max(1,qty+d);document.getElementById('qtyVal').textContent=qty;updateTotal();}
 function updateTotal(){
-  if(!selD) return;
-  const fee = {pickup:0,local:C.localFee,region:0}[selD]||0;
-  document.getElementById('totalVal').textContent = ((C.price*qty)+fee).toLocaleString()+' so\'m';
+  if(!selD)return;
+  const fee={pickup:0,local:C.localFee,region:0}[selD]||0;
+  document.getElementById('totalVal').textContent=((C.price*qty)+fee).toLocaleString()+' so\'m';
+}
+
+// ── SEND TO ALL GROUPS ──
+async function sendToAllGroups(text){
+  if(!C.groups.length){
+    // guruh yo'q — shaxsiy chatga yuborish
+    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:'47115138',text,parse_mode:'Markdown'})
+    });
+    return;
+  }
+  // barcha guruhlarga parallel yuborish
+  await Promise.all(C.groups.map(g=>
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:g.id,text,parse_mode:'Markdown'})
+    }).catch(e=>console.warn(`Guruhga yuborib bo'lmadi (${g.id}):`,e))
+  ));
 }
 
 async function submitOrder(){
   const name=document.getElementById('fname').value.trim();
   const phone=document.getElementById('fphone').value.trim();
   const addr=document.getElementById('faddr').value.trim();
-  const needAddr = selD!=='pickup';
+  const needAddr=selD!=='pickup';
   if(!name||!phone||(needAddr&&!addr)){
-    alert(lang==='uz'?"Iltimos, barcha maydonlarni to'ldiring":"Пожалуйста, заполните все поля");
-    return;
+    alert(lang==='uz'?"Iltimos, barcha maydonlarni to'ldiring":"Пожалуйста, заполните все поля");return;
   }
   const btn=document.getElementById('submitBtn');
   btn.disabled=true;
@@ -802,7 +897,7 @@ async function submitOrder(){
   const total=(C.price*qty)+fee;
   const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida yetkazib berish",region:"Viloyatlarga yetkazib berish"};
 
-  const tgMsg =
+  const tgMsg=
     `🛒 *YANGI BUYURTMA!*\n\n`+
     `📦 *Mahsulot:* ${C.nameUz}\n`+
     `🔢 *Miqdor:* ${qty} dona\n`+
@@ -813,16 +908,11 @@ async function submitOrder(){
     `💰 *Jami:* ${total.toLocaleString()} so'm\n`+
     `⏰ *Vaqt:* ${new Date().toLocaleString('uz-UZ')}`;
 
-  try{
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({chat_id:CHAT_ID, text:tgMsg, parse_mode:'Markdown'})
-    });
-  }catch(e){ console.warn('Telegram xato:',e); }
+  await sendToAllGroups(tgMsg);
 
   orders.push({id:Date.now(),name,phone,addr,delivery:selD,qty,total,time:new Date().toISOString()});
 
-  const sm={uz:`Hurmatli ${name}, buyurtmangiz qabul qilindi! 🎉\nTez orada siz bilan bog'lanamiz.\n📱 ${phone}`,ru:`Уважаемый(ая) ${name}, заказ принят! 🎉\nМы свяжемся с вами в ближайшее время.\n📱 ${phone}`};
+  const sm={uz:`Hurmatli ${name}, buyurtmangiz qabul qilindi! 🎉\nTez orada siz bilan bog'lanamiz.\n📱 ${phone}`,ru:`Уважаемый(ая) ${name}, заказ принят! 🎉\nМы свяжемся с вами.\n📱 ${phone}`};
   document.getElementById('successMsg').textContent=sm[lang];
   showMS(3);
   btn.disabled=false;
@@ -831,6 +921,7 @@ async function submitOrder(){
 
 // ── INIT ──
 render();
+checkAdminUrl();
 </script>
 </body>
 </html>
