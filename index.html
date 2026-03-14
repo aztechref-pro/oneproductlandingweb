@@ -10,62 +10,60 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dk)}
 
-/* ═══ ADMIN GATE ═══ */
+/* ── ADMIN GATE ── */
 #aGate{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;align-items:center;justify-content:center}
 #aGate.on{display:flex}
-.gate{background:#fff;border-radius:20px;padding:40px 32px;width:360px;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.35)}
+.gate{background:#fff;border-radius:20px;padding:40px 32px;width:340px;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,.35)}
 .gate h3{font-size:22px;font-weight:800;margin-bottom:6px}
-.gate p{font-size:13px;color:var(–gr);margin-bottom:24px}
-.gate input{width:100%;padding:14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:16px;text-align:center;letter-spacing:3px;outline:none;margin-bottom:12px;font-family:inherit}
+.gate p.sub{font-size:13px;color:var(–gr);margin-bottom:24px}
+.gate input{width:100%;padding:14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:16px;text-align:center;letter-spacing:3px;outline:none;margin-bottom:12px}
 .gate input:focus{border-color:var(–pr)}
-.gate button{width:100%;background:var(–pr);color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer}
-.gate button:hover{background:var(–pd)}
+.gate .gbtn{width:100%;background:var(–pr);color:#fff;border:none;padding:14px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer}
+.gate .gbtn:hover{background:var(–pd)}
 #gErr{color:var(–er);font-size:13px;margin-top:10px;display:none}
 
-/* ═══ ADMIN PANEL ═══ */
+/* ── ADMIN PANEL ── */
 #aPanel{display:none;position:fixed;inset:0;background:#f1f5f9;z-index:9000;overflow-y:auto}
 #aPanel.on{display:block}
 .ap-hd{background:var(–dk);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
 .ap-hd h1{font-size:17px;font-weight:800}
-.ap-hd-btn{background:var(–er);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px}
+.ap-hd-x{background:var(–er);color:#fff;border:none;padding:8px 18px;border-radius:8px;cursor:pointer;font-weight:700;font-size:14px}
 .ap-tabs{display:flex;padding:0 16px;background:#fff;border-bottom:2px solid #e2e8f0;position:sticky;top:53px;z-index:9;overflow-x:auto;gap:2px}
-.ap-tab{padding:12px 15px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(–gr);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .2s}
+.ap-tab{padding:12px 15px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:600;color:var(–gr);border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
 .ap-tab.on{color:var(–pr);border-color:var(–pr)}
 .ap-bd{padding:20px;max-width:900px;margin:0 auto}
 .ap-sec{display:none}.ap-sec.on{display:block}
 .card{background:#fff;border-radius:14px;padding:22px;margin-bottom:14px;box-shadow:0 1px 6px rgba(0,0,0,.07)}
-.card h3{font-size:15px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.card h3{font-size:15px;font-weight:700;margin-bottom:16px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:560px){.row2{grid-template-columns:1fr}}
 .fg{margin-bottom:12px}
 .fg label{font-size:11px;font-weight:700;color:var(–gr);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
-.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;outline:none;font-family:inherit;transition:border .2s;background:#fff}
+.fg input,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;outline:none;font-family:inherit;transition:border .2s;background:#fff}
 .fg input:focus,.fg textarea:focus{border-color:var(–pr)}
 .fg textarea{resize:vertical;min-height:72px}
-.btn-ok{background:var(–ok);color:#fff;border:none;padding:11px 26px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;transition:opacity .2s}
-.btn-ok:hover{opacity:.85}
-.btn-pr{background:var(–pr);color:#fff;border:none;padding:11px 26px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px;transition:background .2s}
-.btn-pr:hover{background:var(–pd)}
-.btn-dk{background:var(–dk);color:#fff;border:none;padding:11px 26px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
-.sm{display:none;font-size:13px;font-weight:600;margin-left:12px;vertical-align:middle}
+.btn-ok{background:var(–ok);color:#fff;border:none;padding:11px 26px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
+.btn-pr{background:var(–pr);color:#fff;border:none;padding:11px 20px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
+.btn-dk{background:var(–dk);color:#fff;border:none;padding:12px 28px;border-radius:8px;font-weight:700;cursor:pointer;font-size:14px}
+.sm{display:none;font-size:13px;font-weight:600;margin-left:12px}
 .sm.ok{color:var(–ok)}.sm.er{color:var(–er)}
 
 /* Image manager */
-.img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px;min-height:20px}
+.img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px}
 .img-item{position:relative;border-radius:10px;overflow:hidden;border:2px solid #e2e8f0;background:#f8fafc}
 .img-item img{width:100%;height:100px;object-fit:contain;display:block;background:#fff}
-.img-item-lbl{font-size:10px;color:var(–gr);padding:4px 6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.img-lbl{font-size:10px;color:var(–gr);padding:4px 6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .img-x{position:absolute;top:4px;right:4px;background:var(–er);color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;font-weight:700}
-.upload-area{border:2px dashed #cbd5e1;border-radius:10px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;background:#fff}
-.upload-area:hover,.upload-area.drag{border-color:var(–pr);background:#eff6ff}
-.upload-area input{display:none}
-.upload-area .ico{font-size:36px;margin-bottom:8px}
-.upload-area p{font-size:13px;color:var(–gr);line-height:1.6}
-.upload-area strong{color:var(–pr)}
 .itabs{display:flex;gap:6px;margin-bottom:14px}
-.itab{padding:7px 16px;border-radius:20px;border:1.5px solid #e2e8f0;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:var(–gr);transition:all .2s}
+.itab{padding:7px 16px;border-radius:20px;border:1.5px solid #e2e8f0;background:#fff;font-size:13px;font-weight:600;cursor:pointer;color:var(–gr)}
 .itab.on{background:var(–pr);color:#fff;border-color:var(–pr)}
 .ipanel{display:none}.ipanel.on{display:block}
+.upload-area{border:2px dashed #cbd5e1;border-radius:10px;padding:28px;text-align:center;cursor:pointer;transition:all .2s;background:#fff}
+.upload-area:hover{border-color:var(–pr);background:#eff6ff}
+.upload-area input{display:none}
+.upload-ico{font-size:36px;margin-bottom:8px}
+.upload-area p{font-size:13px;color:var(–gr);line-height:1.6}
+.upload-area strong{color:var(–pr)}
 .url-row{display:flex;gap:8px}
 .url-row input{flex:1;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:13px;outline:none}
 .url-row input:focus{border-color:var(–pr)}
@@ -74,132 +72,140 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#fff;color:var(--dk)
 /* Groups */
 .g-list{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
 .g-item{display:flex;align-items:center;justify-content:space-between;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px}
-.g-item-info h4{font-size:14px;font-weight:700}
-.g-item-info span{font-size:12px;color:var(–gr);font-family:monospace}
+.g-name{font-size:14px;font-weight:700}
+.g-id{font-size:12px;color:var(–gr);font-family:monospace}
 .g-del{background:var(–er);color:#fff;border:none;border-radius:6px;padding:5px 12px;cursor:pointer;font-size:12px;font-weight:700}
-.g-add{display:flex;gap:8px;flex-wrap:wrap}
-.g-add input{flex:1;min-width:140px;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;outline:none}
-.g-add input:focus{border-color:var(–pr)}
+.g-add-row{display:flex;gap:8px;flex-wrap:wrap}
+.g-add-row input{flex:1;min-width:140px;padding:10px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;outline:none}
+.g-add-row input:focus{border-color:var(–pr)}
 .note{font-size:12px;color:var(–gr);margin-top:12px;padding:12px 14px;background:#eff6ff;border-radius:8px;line-height:1.7;border:1px solid #bfdbfe}
 .note code{background:#dbeafe;padding:1px 5px;border-radius:4px;font-size:11px}
 
-/* GitHub sync */
-.gh-steps{counter-reset:s;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-.gh-step{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(–gr);line-height:1.6;background:#f8fafc;padding:10px 12px;border-radius:8px}
-.gh-step-n{min-width:22px;height:22px;border-radius:50%;background:var(–pr);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.gh-status{font-size:13px;margin-top:12px;padding:10px 14px;border-radius:8px;display:none}
-.gh-status.ok{display:block;background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
-.gh-status.er{display:block;background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
-.gh-status.ld{display:block;background:#f0f7ff;color:var(–pr);border:1px solid #bfdbfe}
+/* GitHub */
+.gh-step-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.gh-step{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(–gr);background:#f8fafc;padding:10px 12px;border-radius:8px;line-height:1.6}
+.gh-n{min-width:22px;height:22px;border-radius:50%;background:var(–pr);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.gh-st{font-size:13px;margin-top:12px;padding:12px 14px;border-radius:8px;display:none;line-height:1.6}
+.gh-st.ok{display:block;background:#d1fae5;color:#065f46;border:1px solid #6ee7b7}
+.gh-st.er{display:block;background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+.gh-st.ld{display:block;background:#eff6ff;color:var(–pr);border:1px solid #bfdbfe}
 
 /* Orders */
-.ow{overflow-x:auto}
-.ot{width:100%;border-collapse:collapse;font-size:13px;min-width:620px}
-.ot th{background:var(–dk);color:#fff;padding:10px 12px;text-align:left;font-weight:600}
-.ot td{padding:10px 12px;border-bottom:1px solid #f1f5f9;vertical-align:top}
-.ot tr:hover td{background:#f8fafc}
+.ord-wrap{overflow-x:auto}
+.ord-tbl{width:100%;border-collapse:collapse;font-size:13px;min-width:620px}
+.ord-tbl th{background:var(–dk);color:#fff;padding:10px 12px;text-align:left;font-weight:600}
+.ord-tbl td{padding:10px 12px;border-bottom:1px solid #f1f5f9;vertical-align:top}
+.ord-tbl tr:hover td{background:#f8fafc}
 .no-ord{text-align:center;padding:48px;color:var(–gr)}
 
-/* ═══ LANDING ═══ */
+/* ── LANDING ── */
 .lang-bar{background:var(–dk);padding:9px 20px;display:flex;justify-content:flex-end;gap:8px}
 .lb{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;padding:5px 16px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:600;transition:all .2s}
 .lb.on{background:var(–pr);border-color:var(–pr)}
+
 .hero{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 55%,#1a73e8 100%);padding:52px 20px 60px;text-align:center;color:#fff;position:relative;overflow:hidden}
 .badge{display:inline-block;background:var(–ac);color:#000;font-size:12px;font-weight:700;padding:5px 16px;border-radius:20px;margin-bottom:18px}
 .hero h1{font-size:clamp(22px,5vw,42px);font-weight:800;line-height:1.2;margin-bottom:16px}
 .hero h1 em{color:var(–ac);font-style:normal}
-.hero>p{font-size:clamp(14px,2vw,17px);opacity:.85;max-width:540px;margin:0 auto 30px;line-height:1.6}
+.hero-p{font-size:clamp(14px,2vw,17px);opacity:.85;max-width:540px;margin:0 auto 30px;line-height:1.6}
 .hcta{background:var(–ac);color:#000;font-weight:800;font-size:16px;padding:15px 40px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 22px rgba(245,158,11,.45);transition:transform .2s,box-shadow .2s}
 .hcta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(245,158,11,.5)}
+
 .sl-wrap{max-width:380px;margin:38px auto 0;position:relative}
 .sl-track{overflow:hidden;border-radius:14px;box-shadow:0 20px 56px rgba(0,0,0,.5);background:#fff}
 .sl-inner{display:flex;transition:transform .45s ease}
-.sl-inner .sl{min-width:100%;flex-shrink:0}
-.sl-inner .sl img{width:100%;height:264px;object-fit:contain;display:block;background:#fff}
+.sl-slide{min-width:100%;flex-shrink:0}
+.sl-slide img{width:100%;height:264px;object-fit:contain;display:block;background:#fff}
 .sl-dots{display:flex;justify-content:center;gap:8px;margin-top:12px}
 .sl-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:background .2s}
 .sl-dot.on{background:#fff}
-.sn{position:absolute;top:132px;background:rgba(0,0,0,.42);color:#fff;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s}
-.sn:hover{background:rgba(0,0,0,.7)}
-#snL{left:6px}#snR{right:6px}
-sec{display:block;padding:54px 20px}
+.sl-btn{position:absolute;top:132px;background:rgba(0,0,0,.42);color:#fff;border:none;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:2;transition:background .2s}
+.sl-btn:hover{background:rgba(0,0,0,.7)}
+#slL{left:6px}#slR{right:6px}
+
+.section{padding:54px 20px}
 .ctr{max-width:720px;margin:0 auto}
-.st{font-size:clamp(20px,3.5vw,28px);font-weight:800;text-align:center;margin-bottom:8px}
-.ss{text-align:center;color:var(–gr);margin-bottom:34px;font-size:14px}
-.pb{background:#fff5f5}
-.sb{background:var(–lt)}
-.xb{background:#f0f7ff}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-.pc{background:#fff;border:1px solid #fecaca;border-radius:13px;padding:18px;text-align:center}
-.pc .ic{font-size:30px;margin-bottom:8px}
-.pc h3{font-size:14px;font-weight:700;color:var(–er);margin-bottom:5px}
-.pc p{font-size:13px;color:var(–gr);line-height:1.5}
-.sc{background:#fff;border:1px solid #bbf7d0;border-radius:13px;padding:18px;text-align:center}
-.sc .ic{font-size:30px;margin-bottom:8px}
-.sc h3{font-size:14px;font-weight:700;color:var(–ok);margin-bottom:5px}
-.sc p{font-size:13px;color:var(–gr);line-height:1.5}
-.steps{display:flex;flex-direction:column;gap:14px}
-.step{display:flex;align-items:flex-start;gap:14px;background:var(–lt);border-radius:13px;padding:16px}
-.stn{min-width:34px;height:34px;border-radius:50%;background:var(–pr);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.stx h3{font-size:14px;font-weight:700;margin-bottom:4px}
-.stx p{font-size:13px;color:var(–gr);line-height:1.5}
-.spg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
-.spi{background:#fff;border-radius:11px;padding:14px;text-align:center;border:1px solid #bfdbfe}
-.spv{font-size:20px;font-weight:800;color:var(–pr)}
-.spl{font-size:11px;color:var(–gr);margin-top:3px}
-.prbg{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff}
-.prbox{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:34px;text-align:center;max-width:440px;margin:0 auto}
-.op{font-size:16px;text-decoration:line-through;opacity:.4;margin-bottom:4px}
-.np{font-size:50px;font-weight:900;color:var(–ac);line-height:1}
-.np span{font-size:18px}
-.pn{font-size:13px;opacity:.6;margin:8px 0 22px;line-height:1.5}
+.sec-title{font-size:clamp(20px,3.5vw,28px);font-weight:800;text-align:center;margin-bottom:8px}
+.sec-sub{text-align:center;color:var(–gr);margin-bottom:34px;font-size:14px}
+.bg-prob{background:#fff5f5}
+.bg-sol{background:var(–lt)}
+.bg-spec{background:#f0f7ff}
+.bg-price{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.prob-card{background:#fff;border:1px solid #fecaca;border-radius:13px;padding:18px;text-align:center}
+.prob-card .ic{font-size:30px;margin-bottom:8px}
+.prob-card h3{font-size:14px;font-weight:700;color:var(–er);margin-bottom:5px}
+.prob-card p{font-size:13px;color:var(–gr);line-height:1.5}
+.sol-card{background:#fff;border:1px solid #bbf7d0;border-radius:13px;padding:18px;text-align:center}
+.sol-card .ic{font-size:30px;margin-bottom:8px}
+.sol-card h3{font-size:14px;font-weight:700;color:var(–ok);margin-bottom:5px}
+.sol-card p{font-size:13px;color:var(–gr);line-height:1.5}
+
+.steps-list{display:flex;flex-direction:column;gap:14px}
+.step-item{display:flex;align-items:flex-start;gap:14px;background:var(–lt);border-radius:13px;padding:16px}
+.step-num{min-width:34px;height:34px;border-radius:50%;background:var(–pr);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-txt h3{font-size:14px;font-weight:700;margin-bottom:4px}
+.step-txt p{font-size:13px;color:var(–gr);line-height:1.5}
+
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.spec-item{background:#fff;border-radius:11px;padding:14px;text-align:center;border:1px solid #bfdbfe}
+.spec-val{font-size:20px;font-weight:800;color:var(–pr)}
+.spec-lbl{font-size:11px;color:var(–gr);margin-top:3px}
+
+.price-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:34px;text-align:center;max-width:440px;margin:0 auto}
+.old-pr{font-size:16px;text-decoration:line-through;opacity:.4;margin-bottom:4px}
+.new-pr{font-size:50px;font-weight:900;color:var(–ac);line-height:1}
+.new-pr span{font-size:18px}
+.pr-note{font-size:13px;opacity:.6;margin:8px 0 22px;line-height:1.5}
 .bcta{display:block;width:100%;background:var(–ac);color:#000;font-weight:800;font-size:17px;padding:16px;border-radius:50px;border:none;cursor:pointer;box-shadow:0 4px 22px rgba(245,158,11,.4);transition:transform .2s}
 .bcta:hover{transform:translateY(-2px)}
-.dbs{display:flex;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap}
-.db{background:rgba(255,255,255,.1);border-radius:20px;padding:5px 14px;font-size:12px}
+.del-badges{display:flex;justify-content:center;gap:10px;margin-top:18px;flex-wrap:wrap}
+.del-badge{background:rgba(255,255,255,.1);border-radius:20px;padding:5px 14px;font-size:12px}
+
 footer{background:var(–dk);color:#fff;padding:24px 20px;text-align:center}
 footer p{font-size:13px;opacity:.4}
 
-/* ═══ ORDER MODAL ═══ */
+/* ── ORDER MODAL ── */
 .mov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:5000;align-items:center;justify-content:center;padding:16px}
 .mov.on{display:flex}
 .mod{background:#fff;border-radius:18px;padding:28px;width:100%;max-width:420px;position:relative;max-height:92vh;overflow-y:auto}
 .mod h2{font-size:18px;font-weight:800;margin-bottom:5px}
-.mod .sub{font-size:13px;color:var(–gr);margin-bottom:18px}
-.mcl{position:absolute;top:12px;right:14px;background:none;border:none;font-size:24px;cursor:pointer;color:var(–gr);line-height:1}
+.mod-sub{font-size:13px;color:var(–gr);margin-bottom:18px}
+.mod-x{position:absolute;top:12px;right:14px;background:none;border:none;font-size:24px;cursor:pointer;color:var(–gr);line-height:1}
 .fst{display:none}.fst.on{display:block}
-.dops{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
-.dop{border:2px solid #e2e8f0;border-radius:11px;padding:13px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .2s}
-.dop:hover{border-color:var(–pr);background:#f0f7ff}
-.dop.on{border-color:var(–pr);background:#eff6ff}
-.dop-ic{font-size:22px}
-.dop h4{font-size:13px;font-weight:700}
-.dop p{font-size:12px;color:var(–gr)}
+.del-opts{display:flex;flex-direction:column;gap:9px;margin-bottom:18px}
+.del-opt{border:2px solid #e2e8f0;border-radius:11px;padding:13px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .2s}
+.del-opt:hover{border-color:var(–pr);background:#f0f7ff}
+.del-opt.on{border-color:var(–pr);background:#eff6ff}
+.del-ic{font-size:22px}
+.del-opt h4{font-size:13px;font-weight:700}
+.del-opt p{font-size:12px;color:var(–gr)}
 .mfg{margin-bottom:12px}
 .mfg label{font-size:13px;font-weight:600;display:block;margin-bottom:5px}
 .mfg input{width:100%;padding:12px 13px;border:1.5px solid #e2e8f0;border-radius:9px;font-size:14px;outline:none;font-family:inherit;transition:border .2s}
 .mfg input:focus{border-color:var(–pr)}
-.qr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.qb{width:34px;height:34px;border-radius:50%;border:1.5px solid #e2e8f0;background:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;transition:all .2s}
-.qb:hover{border-color:var(–pr);color:var(–pr)}
-.qv{font-size:17px;font-weight:800;min-width:24px;text-align:center}
-.tr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid #e2e8f0;margin-bottom:14px}
-.tv{font-size:21px;font-weight:800;color:var(–pr)}
+.qty-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.qty-btn{width:34px;height:34px;border-radius:50%;border:1.5px solid #e2e8f0;background:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;transition:all .2s}
+.qty-btn:hover{border-color:var(–pr);color:var(–pr)}
+.qty-val{font-size:17px;font-weight:800;min-width:24px;text-align:center}
+.total-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid #e2e8f0;margin-bottom:14px}
+.total-val{font-size:21px;font-weight:800;color:var(–pr)}
 .msb{width:100%;background:var(–pr);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:50px;border:none;cursor:pointer;transition:background .2s}
 .msb:hover{background:var(–pd)}
 .msb:disabled{background:#94a3b8;cursor:not-allowed}
-.succ{text-align:center;padding:20px 0}
-.succ .ck{font-size:54px;margin-bottom:12px}
-.succ h3{font-size:19px;font-weight:800;margin-bottom:8px}
-.succ p{color:var(–gr);font-size:13px;line-height:1.7}
+.succ-box{text-align:center;padding:20px 0}
+.succ-box .ck{font-size:54px;margin-bottom:12px}
+.succ-box h3{font-size:19px;font-weight:800;margin-bottom:8px}
+.succ-box p{color:var(–gr);font-size:13px;line-height:1.7}
 
-/* Lang */
-[data-r]{display:none}
-body.ru [data-u]{display:none}
-body.ru [data-r]{display:block}
-body.ru span[data-r]{display:inline}
-body.ru span[data-u]{display:none}
-span[data-r]{display:none}
+/* ── TIL — to’g’ri ishlaydigan usul ── */
+.uz{display:block}.ru{display:none}
+span.uz{display:inline}span.ru{display:none}
+body.lang-ru .uz{display:none}
+body.lang-ru .ru{display:block}
+body.lang-ru span.uz{display:none}
+body.lang-ru span.ru{display:inline}
 </style>
 
 </head>
@@ -210,9 +216,9 @@ span[data-r]{display:none}
 <div id="aGate">
   <div class="gate">
     <h3>🔐 Admin Panel</h3>
-    <p>AZTECH REF boshqaruv tizimi</p>
+    <p class="sub">AZTECH REF boshqaruv tizimi</p>
     <input type="password" id="pwIn" placeholder="Parol" onkeydown="if(event.key==='Enter')doPw()">
-    <button onclick="doPw()">Kirish →</button>
+    <button class="gbtn" onclick="doPw()">Kirish →</button>
     <p id="gErr">❌ Parol noto'g'ri</p>
   </div>
 </div>
@@ -221,16 +227,16 @@ span[data-r]{display:none}
 
 <div id="aPanel">
   <div class="ap-hd">
-    <h1>⚙️ Admin Panel — B-2188 Landing</h1>
-    <button class="ap-hd-btn" onclick="closeAP()">✕ Yopish</button>
+    <h1>⚙️ Admin Panel — B-2188</h1>
+    <button class="ap-hd-x" onclick="closeAP()">✕ Yopish</button>
   </div>
   <div class="ap-tabs">
-    <button class="ap-tab on"  onclick="apTab(0)">📦 Mahsulot</button>
-    <button class="ap-tab"     onclick="apTab(1)">📝 Matnlar</button>
-    <button class="ap-tab"     onclick="apTab(2)">🖼️ Rasmlar</button>
-    <button class="ap-tab"     onclick="apTab(3)">💬 Guruhlar</button>
-    <button class="ap-tab"     onclick="apTab(4)">🛒 Buyurtmalar</button>
-    <button class="ap-tab"     onclick="apTab(5)">🐙 GitHub</button>
+    <button class="ap-tab on" onclick="apTab(0)">📦 Mahsulot</button>
+    <button class="ap-tab"    onclick="apTab(1)">📝 Matnlar</button>
+    <button class="ap-tab"    onclick="apTab(2)">🖼️ Rasmlar</button>
+    <button class="ap-tab"    onclick="apTab(3)">💬 Guruhlar</button>
+    <button class="ap-tab"    onclick="apTab(4)">🛒 Buyurtmalar</button>
+    <button class="ap-tab"    onclick="apTab(5)">🐙 GitHub</button>
   </div>
   <div class="ap-bd">
 
@@ -288,32 +294,32 @@ span[data-r]{display:none}
   <div class="card">
     <h3>🖼️ Slider rasmlari</h3>
     <div class="img-grid" id="igrid"></div>
-    <div style="margin-bottom:16px">
-      <div class="itabs">
-        <button class="itab on" onclick="iTab(0)">📁 Qurilmadan yuklash</button>
-        <button class="itab"    onclick="iTab(1)">🔗 URL orqali</button>
-      </div>
-      <div class="ipanel on" id="ip0">
-        <div class="upload-area" id="dropZ"
-          onclick="document.getElementById('fInp').click()"
-          ondragover="ev.preventDefault();this.classList.add('drag')"
-          ondragleave="this.classList.remove('drag')"
-          ondrop="this.classList.remove('drag');ev.preventDefault();doFiles(ev.dataTransfer.files)">
-          <input type="file" id="fInp" accept="image/*" multiple onchange="doFiles(this.files)">
-          <div class="ico">📸</div>
-          <p><strong>Rasm tanlash uchun bosing</strong><br>yoki rasmni shu yerga tashlang<br><span style="font-size:11px;opacity:.6">JPG · PNG · WEBP — max 800KB</span></p>
-        </div>
-      </div>
-      <div class="ipanel" id="ip1">
-        <div class="url-row">
-          <input id="urlIn" placeholder="https://i.ibb.co/...jpg" oninput="prevUrl()">
-          <button class="btn-pr" onclick="addUrl()">Qo'shish</button>
-        </div>
-        <img id="urlPrev" class="url-prev" alt="Preview">
+    <div class="itabs">
+      <button class="itab on" onclick="iTab(0)">📁 Qurilmadan yuklash</button>
+      <button class="itab"    onclick="iTab(1)">🔗 URL orqali</button>
+    </div>
+    <div class="ipanel on" id="ip0">
+      <div class="upload-area"
+        onclick="document.getElementById('fInp').click()"
+        ondragover="event.preventDefault();this.style.borderColor='var(--pr)'"
+        ondragleave="this.style.borderColor=''"
+        ondrop="event.preventDefault();this.style.borderColor='';doFiles(event.dataTransfer.files)">
+        <input type="file" id="fInp" accept="image/*" multiple onchange="doFiles(this.files)">
+        <div class="upload-ico">📸</div>
+        <p><strong>Rasm tanlash uchun bosing</strong><br>yoki rasmni shu yerga tashlang<br><span style="font-size:11px;opacity:.6">JPG · PNG · WEBP — max 800KB</span></p>
       </div>
     </div>
-    <button class="btn-ok" onclick="saveSec(2)">💾 Saqlash</button>
-    <span class="sm" id="sm2"></span>
+    <div class="ipanel" id="ip1">
+      <div class="url-row">
+        <input id="urlIn" placeholder="https://i.ibb.co/...jpg" oninput="prevUrl()">
+        <button class="btn-pr" onclick="addUrl()">Qo'shish</button>
+      </div>
+      <img id="urlPrev" class="url-prev" alt="Preview">
+    </div>
+    <div style="margin-top:16px">
+      <button class="btn-ok" onclick="saveSec(2)">💾 Saqlash</button>
+      <span class="sm" id="sm2"></span>
+    </div>
   </div>
 </div>
 
@@ -323,17 +329,17 @@ span[data-r]{display:none}
     <h3>💬 Telegram guruhlar</h3>
     <p style="font-size:13px;color:var(--gr);margin-bottom:14px">Buyurtma kelganda quyidagi barcha guruhlarga xabar yuboriladi.</p>
     <div class="g-list" id="gList"></div>
-    <div class="g-add">
+    <div class="g-add-row">
       <input id="gId"   placeholder="Guruh ID: -1001234567890">
       <input id="gName" placeholder="Guruh nomi">
       <button class="btn-pr" onclick="addGroup()">➕ Qo'shish</button>
     </div>
     <div class="note">
-      💡 <strong>Guruh ID ni qanday topish:</strong><br>
+      💡 <strong>Guruh ID sini qanday topish:</strong><br>
       1. Botni guruhga qo'shing va <strong>admin</strong> qiling<br>
       2. Guruhga <code>/start</code> yozing<br>
-      3. Brauzerda: <code>api.telegram.org/bot<b>TOKEN</b>/getUpdates</code><br>
-      4. <code>"chat":{"id":-100xxxxxxxxx}</code> — shu raqam guruh ID si<br>
+      3. Brauzerda oching: <code>api.telegram.org/bot<b>TOKEN</b>/getUpdates</code><br>
+      4. <code>"chat":{"id":-100xxxxxxxxx}</code> — shu raqam<br>
       ⚠️ Guruh IDlari odatda <strong>manfiy</strong> raqam bo'ladi
     </div>
     <div style="margin-top:14px">
@@ -347,8 +353,8 @@ span[data-r]{display:none}
 <div class="ap-sec" id="s4">
   <div class="card">
     <h3>🛒 Buyurtmalar ro'yxati</h3>
-    <p style="font-size:13px;color:var(--gr);margin-bottom:14px" id="ordCnt"></p>
-    <div class="ow" id="ordWr"></div>
+    <p style="font-size:13px;color:var(--gr);margin-bottom:14px" id="ordCnt">Jami: 0 ta buyurtma</p>
+    <div class="ord-wrap" id="ordWr"></div>
   </div>
 </div>
 
@@ -357,228 +363,258 @@ span[data-r]{display:none}
   <div class="card">
     <h3>🐙 GitHub ga saqlash</h3>
     <p style="font-size:13px;color:var(--gr);margin-bottom:16px">O'zgartirishlarni GitHub ga yuklang — sayt 1–2 daqiqada yangilanadi.</p>
-    <div class="gh-steps">
-      <div class="gh-step"><div class="gh-step-n">1</div><span><a href="https://github.com/settings/tokens/new" target="_blank" style="color:var(--pr);font-weight:600">github.com/settings/tokens/new</a> ga kiring</span></div>
-      <div class="gh-step"><div class="gh-step-n">2</div><span>Note: <code style="background:#e2e8f0;padding:1px 5px;border-radius:4px">landing-editor</code> → Expiration: <strong>No expiration</strong></span></div>
-      <div class="gh-step"><div class="gh-step-n">3</div><span>✅ <strong>repo</strong> katagini belgilang → <strong>Generate token</strong></span></div>
-      <div class="gh-step"><div class="gh-step-n">4</div><span>Hosil bo'lgan <code style="background:#e2e8f0;padding:1px 5px;border-radius:4px">ghp_xxx...</code> tokenni quyiga kiriting</span></div>
+    <div class="gh-step-list">
+      <div class="gh-step"><div class="gh-n">1</div><span><a href="https://github.com/settings/tokens/new" target="_blank" style="color:var(--pr);font-weight:600">github.com/settings/tokens/new</a> — yangi token oching</span></div>
+      <div class="gh-step"><div class="gh-n">2</div><span>Note: <code>landing-editor</code> · Expiration: <strong>No expiration</strong></span></div>
+      <div class="gh-step"><div class="gh-n">3</div><span>✅ <strong>repo</strong> → <strong>Generate token</strong> → tokenni nusxalang</span></div>
+      <div class="gh-step"><div class="gh-n">4</div><span>Quyidagi maydonlarni to'ldiring va "Yuklash" tugmasini bosing</span></div>
     </div>
     <div class="row2">
       <div class="fg"><label>GitHub Username</label><input id="ghUser" placeholder="aztechref-pro"></div>
       <div class="fg"><label>Repository nomi</label><input id="ghRepo" placeholder="oneproductlandingweb"></div>
     </div>
     <div class="fg"><label>GitHub Token (ghp_...)</label><input id="ghTok" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off"></div>
-    <button class="btn-dk" onclick="pushToGitHub()" id="ghBtn">🐙 GitHub ga yuklash</button>
-    <div class="gh-status" id="ghSt"></div>
+    <button class="btn-dk" onclick="pushGH()" id="ghBtn">🐙 GitHub ga yuklash</button>
+    <div class="gh-st" id="ghSt"></div>
   </div>
 </div>
 ```
 
-  </div><!-- ap-bd -->
-</div><!-- aPanel -->
+  </div>
+</div>
 
-<!-- LANDING -->
+<!-- ═══════════ LANDING ═══════════ -->
 
 <div id="land">
-<div class="lang-bar">
-  <button class="lb on" onclick="setL('uz')">🇺🇿 O'zbek</button>
-  <button class="lb"    onclick="setL('ru')">🇷🇺 Русский</button>
-</div>
-
-<div class="hero">
-  <div class="badge" id="ldBadge"></div>
-  <h1 id="ldH1"></h1>
-  <p  id="ldP"></p>
-  <button class="hcta" onclick="openM()">
-    <span data-u>🛒 Hozir Xarid Qilish</span>
-    <span data-r>🛒 Купить Сейчас</span>
-  </button>
-  <div class="sl-wrap">
-    <div class="sl-track"><div class="sl-inner" id="slI"></div></div>
-    <button class="sn" id="snL" onclick="sNav(-1)">‹</button>
-    <button class="sn" id="snR" onclick="sNav(1)">›</button>
-    <div class="sl-dots" id="slD"></div>
+  <div class="lang-bar">
+    <button class="lb on" onclick="setLang('uz')">🇺🇿 O'zbek</button>
+    <button class="lb"    onclick="setLang('ru')">🇷🇺 Русский</button>
   </div>
-</div>
 
-<sec class="pb">
-  <div class="ctr">
-    <h2 class="st"><span data-u>😰 Bu muammolardan aziyat chekdingizmi?</span><span data-r>😰 Знакомые проблемы?</span></h2>
-    <p  class="ss"><span data-u>O'zbekistonda kuchlanish muammolari — kundalik hol</span><span data-r>Перепады напряжения — обычное явление</span></p>
-    <div class="grid" id="ldProb"></div>
-  </div>
-</sec>
-
-<sec class="sb">
-  <div class="ctr">
-    <h2 class="st"><span data-u>✅ B-2188 qanday himoya qiladi?</span><span data-r>✅ Как защищает B-2188?</span></h2>
-    <p  class="ss"><span data-u>4 qatlamli intellektual himoya tizimi</span><span data-r>4-уровневая система защиты</span></p>
-    <div class="grid" id="ldSol"></div>
-  </div>
-</sec>
-
-<sec class="xb">
-  <div class="ctr">
-    <h2 class="st"><span data-u>📊 Texnik xususiyatlar</span><span data-r>📊 Характеристики</span></h2>
-    <p  class="ss"><span data-u>Sertifikatlangan sifat — CCC</span><span data-r>Сертифицированное качество — CCC</span></p>
-    <div class="spg">
-      <div class="spi"><div class="spv">16A</div><div class="spl"><span data-u>Nominal tok</span><span data-r>Ток</span></div></div>
-      <div class="spi"><div class="spv">2500W</div><div class="spl"><span data-u>Max quvvat</span><span data-r>Мощность</span></div></div>
-      <div class="spi"><div class="spv">220V</div><div class="spl"><span data-u>Kuchlanish</span><span data-r>Напряжение</span></div></div>
-      <div class="spi"><div class="spv">175–260V</div><div class="spl"><span data-u>Himoya oralig'i</span><span data-r>Диапазон</span></div></div>
-      <div class="spi"><div class="spv">4–5 daq</div><div class="spl"><span data-u>Kechiktirish</span><span data-r>Задержка</span></div></div>
-      <div class="spi"><div class="spv">CCC</div><div class="spl"><span data-u>Sertifikat</span><span data-r>Сертификат</span></div></div>
+  <div class="hero">
+    <div class="badge" id="ldBadge">⚡ #1 Himoyachi</div>
+    <h1 id="ldH1">
+      <span class="uz">Texnikangizni <em>kuchlanish zarbasidan</em> himoya qiling!</span>
+      <span class="ru">Защитите технику от <em>скачков напряжения!</em></span>
+    </h1>
+    <p class="hero-p" id="ldP">
+      <span class="uz">B-2188 — Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.</span>
+      <span class="ru">B-2188 — умный протектор напряжения для холодильника, телевизора, компьютера и всей бытовой техники.</span>
+    </p>
+    <button class="hcta" onclick="openM()">
+      <span class="uz">🛒 Hozir Xarid Qilish</span>
+      <span class="ru">🛒 Купить Сейчас</span>
+    </button>
+    <div class="sl-wrap">
+      <div class="sl-track"><div class="sl-inner" id="slI"></div></div>
+      <button class="sl-btn" id="slL" onclick="sNav(-1)">‹</button>
+      <button class="sl-btn" id="slR" onclick="sNav(1)">›</button>
+      <div class="sl-dots" id="slD"></div>
     </div>
   </div>
-</sec>
 
-<sec>
-  <div class="ctr">
-    <h2 class="st"><span data-u>📋 Qanday ishlatiladi?</span><span data-r>📋 Как использовать?</span></h2>
-    <p  class="ss"><span data-u>3 qadamda — asbob-uskunasiz</span><span data-r>3 шага — без инструментов</span></p>
-    <div class="steps" id="ldStep"></div>
+  <div class="section bg-prob">
+    <div class="ctr">
+      <h2 class="sec-title"><span class="uz">😰 Bu muammolardan aziyat chekdingizmi?</span><span class="ru">😰 Знакомые проблемы?</span></h2>
+      <p class="sec-sub"><span class="uz">O'zbekistonda kuchlanish muammolari — kundalik hol</span><span class="ru">Перепады напряжения — обычное явление</span></p>
+      <div class="cards" id="ldProb"></div>
+    </div>
   </div>
-</sec>
 
-<sec class="prbg">
-  <div class="ctr">
-    <h2 class="st" style="color:#fff"><span data-u>💰 Narhi</span><span data-r>💰 Цена</span></h2>
-    <p  class="ss" style="color:rgba(255,255,255,.55)"><span data-u>Muzlatgich ta'miridan 10–30x arzon himoya</span><span data-r>В 10–30 раз дешевле ремонта</span></p>
-    <div class="prbox">
-      <div class="op" id="ldOP"></div>
-      <div class="np" id="ldNP"></div>
-      <div class="pn"><span data-u>🎁 Bugun buyurtma bering — maxsus narxda!</span><span data-r>🎁 Закажите сегодня — по спеццене!</span></div>
-      <button class="bcta" onclick="openM()"><span data-u>🛒 Harid Qilish</span><span data-r>🛒 Купить</span></button>
-      <div class="dbs">
-        <span class="db"><span data-u>🏪 Olib ketish</span><span data-r>🏪 Самовывоз</span></span>
-        <span class="db"><span data-u>🛵 Qo'qon ichida</span><span data-r>🛵 По Коканду</span></span>
-        <span class="db"><span data-u>📦 Viloyatlarga</span><span data-r>📦 По регионам</span></span>
+  <div class="section bg-sol">
+    <div class="ctr">
+      <h2 class="sec-title"><span class="uz">✅ B-2188 qanday himoya qiladi?</span><span class="ru">✅ Как защищает B-2188?</span></h2>
+      <p class="sec-sub"><span class="uz">4 qatlamli intellektual himoya tizimi</span><span class="ru">4-уровневая система защиты</span></p>
+      <div class="cards" id="ldSol"></div>
+    </div>
+  </div>
+
+  <div class="section bg-spec">
+    <div class="ctr">
+      <h2 class="sec-title"><span class="uz">📊 Texnik xususiyatlar</span><span class="ru">📊 Характеристики</span></h2>
+      <p class="sec-sub"><span class="uz">Sertifikatlangan sifat — CCC</span><span class="ru">Сертифицированное качество — CCC</span></p>
+      <div class="spec-grid">
+        <div class="spec-item"><div class="spec-val">16A</div><div class="spec-lbl"><span class="uz">Nominal tok</span><span class="ru">Ток</span></div></div>
+        <div class="spec-item"><div class="spec-val">2500W</div><div class="spec-lbl"><span class="uz">Max quvvat</span><span class="ru">Мощность</span></div></div>
+        <div class="spec-item"><div class="spec-val">220V</div><div class="spec-lbl"><span class="uz">Kuchlanish</span><span class="ru">Напряжение</span></div></div>
+        <div class="spec-item"><div class="spec-val">175–260V</div><div class="spec-lbl"><span class="uz">Himoya oralig'i</span><span class="ru">Диапазон</span></div></div>
+        <div class="spec-item"><div class="spec-val">4–5 daq</div><div class="spec-lbl"><span class="uz">Kechiktirish</span><span class="ru">Задержка</span></div></div>
+        <div class="spec-item"><div class="spec-val">CCC</div><div class="spec-lbl"><span class="uz">Sertifikat</span><span class="ru">Сертификат</span></div></div>
       </div>
     </div>
   </div>
-</sec>
-<footer><p>© 2025 AZTECH REF — Qo'qon, O'zbekiston</p></footer>
-</div><!-- land -->
+
+  <div class="section">
+    <div class="ctr">
+      <h2 class="sec-title"><span class="uz">📋 Qanday ishlatiladi?</span><span class="ru">📋 Как использовать?</span></h2>
+      <p class="sec-sub"><span class="uz">3 qadamda — asbob-uskunasiz</span><span class="ru">3 шага — без инструментов</span></p>
+      <div class="steps-list" id="ldStep"></div>
+    </div>
+  </div>
+
+  <div class="section bg-price">
+    <div class="ctr">
+      <h2 class="sec-title" style="color:#fff"><span class="uz">💰 Narhi</span><span class="ru">💰 Цена</span></h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,.55)"><span class="uz">Muzlatgich ta'miridan 10–30x arzon himoya</span><span class="ru">В 10–30 раз дешевле ремонта</span></p>
+      <div class="price-box">
+        <div class="old-pr" id="ldOP"></div>
+        <div class="new-pr" id="ldNP"></div>
+        <div class="pr-note"><span class="uz">🎁 Bugun buyurtma bering — maxsus narxda!</span><span class="ru">🎁 Закажите сегодня — по спеццене!</span></div>
+        <button class="bcta" onclick="openM()"><span class="uz">🛒 Harid Qilish</span><span class="ru">🛒 Купить</span></button>
+        <div class="del-badges">
+          <span class="del-badge"><span class="uz">🏪 Olib ketish</span><span class="ru">🏪 Самовывоз</span></span>
+          <span class="del-badge"><span class="uz">🛵 Qo'qon ichida</span><span class="ru">🛵 По Коканду</span></span>
+          <span class="del-badge"><span class="uz">📦 Viloyatlarga</span><span class="ru">📦 По регионам</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer><p>© 2025 AZTECH REF — Qo'qon, O'zbekiston</p></footer>
+</div>
 
 <!-- ORDER MODAL -->
 
 <div class="mov" id="mOv" onclick="if(event.target===this)closeM()">
   <div class="mod">
-    <button class="mcl" onclick="closeM()">×</button>
+    <button class="mod-x" onclick="closeM()">×</button>
     <div class="fst on" id="ms1">
-      <h2><span data-u>Yetkazib berish turini tanlang</span><span data-r>Способ доставки</span></h2>
-      <p class="sub" id="mPN"></p>
-      <div class="dops">
-        <div class="dop" id="d1" onclick="selD('pickup')">
-          <div class="dop-ic">🏪</div>
-          <div><h4><span data-u>Do'kondan olib ketish</span><span data-r>Самовывоз</span></h4>
-               <p id="dShUz" data-u></p><p id="dShRu" data-r></p></div>
+      <h2><span class="uz">Yetkazib berish turini tanlang</span><span class="ru">Способ доставки</span></h2>
+      <p class="mod-sub" id="mPN"></p>
+      <div class="del-opts">
+        <div class="del-opt" id="d1" onclick="selDel('pickup')">
+          <div class="del-ic">🏪</div>
+          <div><h4><span class="uz">Do'kondan olib ketish</span><span class="ru">Самовывоз</span></h4>
+               <p><span class="uz" id="dShUz"></span><span class="ru" id="dShRu"></span></p></div>
         </div>
-        <div class="dop" id="d2" onclick="selD('local')">
-          <div class="dop-ic">🛵</div>
-          <div><h4><span data-u>Qo'qon ichida yetkazib berish</span><span data-r>Доставка по Коканду</span></h4>
-               <p id="dLcUz" data-u></p><p id="dLcRu" data-r></p></div>
+        <div class="del-opt" id="d2" onclick="selDel('local')">
+          <div class="del-ic">🛵</div>
+          <div><h4><span class="uz">Qo'qon ichida yetkazib berish</span><span class="ru">Доставка по Коканду</span></h4>
+               <p><span class="uz" id="dLcUz"></span><span class="ru" id="dLcRu"></span></p></div>
         </div>
-        <div class="dop" id="d3" onclick="selD('region')">
-          <div class="dop-ic">📦</div>
-          <div><h4><span data-u>Viloyatlarga yetkazib berish</span><span data-r>По регионам</span></h4>
-               <p><span data-u>O'zbekiston bo'ylab • 1–3 kun</span><span data-r>По Узбекистану • 1–3 дня</span></p></div>
+        <div class="del-opt" id="d3" onclick="selDel('region')">
+          <div class="del-ic">📦</div>
+          <div><h4><span class="uz">Viloyatlarga yetkazib berish</span><span class="ru">По регионам</span></h4>
+               <p><span class="uz">O'zbekiston bo'ylab • 1–3 kun</span><span class="ru">По Узбекистану • 1–3 дня</span></p></div>
         </div>
       </div>
-      <button class="msb" id="nBtn" onclick="goMs2()" disabled><span data-u>Davom etish →</span><span data-r>Продолжить →</span></button>
+      <button class="msb" id="nBtn" onclick="goMs2()" disabled>
+        <span class="uz">Davom etish →</span><span class="ru">Продолжить →</span>
+      </button>
     </div>
     <div class="fst" id="ms2">
-      <h2><span data-u>Buyurtma ma'lumotlari</span><span data-r>Данные заказа</span></h2>
-      <p class="sub" id="mDL"></p>
-      <div class="qr">
-        <span style="font-size:14px;font-weight:600"><span data-u>Miqdor:</span><span data-r>Кол-во:</span></span>
-        <button class="qb" onclick="chQ(-1)">−</button>
-        <span class="qv" id="qV">1</span>
-        <button class="qb" onclick="chQ(1)">+</button>
+      <h2><span class="uz">Buyurtma ma'lumotlari</span><span class="ru">Данные заказа</span></h2>
+      <p class="mod-sub" id="mDL"></p>
+      <div class="qty-row">
+        <span style="font-size:14px;font-weight:600"><span class="uz">Miqdor:</span><span class="ru">Кол-во:</span></span>
+        <button class="qty-btn" onclick="chQ(-1)">−</button>
+        <span class="qty-val" id="qV">1</span>
+        <button class="qty-btn" onclick="chQ(1)">+</button>
       </div>
-      <div class="mfg"><label><span data-u>Ism Familiya *</span><span data-r>Имя Фамилия *</span></label><input id="fNm" placeholder="Abdullayev Jasur"></div>
-      <div class="mfg"><label><span data-u>Telefon *</span><span data-r>Телефон *</span></label><input id="fPh" type="tel" placeholder="+998 90 123 45 67"></div>
-      <div class="mfg" id="fAdW" style="display:none"><label><span data-u>Manzil *</span><span data-r>Адрес *</span></label><input id="fAd"></div>
-      <div class="tr">
-        <span style="font-size:14px;color:var(--gr)"><span data-u>Jami:</span><span data-r>Итого:</span></span>
-        <span class="tv" id="tV"></span>
+      <div class="mfg"><label><span class="uz">Ism Familiya *</span><span class="ru">Имя Фамилия *</span></label><input id="fNm" placeholder="Abdullayev Jasur"></div>
+      <div class="mfg"><label><span class="uz">Telefon *</span><span class="ru">Телефон *</span></label><input id="fPh" type="tel" placeholder="+998 90 123 45 67"></div>
+      <div class="mfg" id="fAdW" style="display:none"><label><span class="uz">Manzil *</span><span class="ru">Адрес *</span></label><input id="fAd"></div>
+      <div class="total-row">
+        <span style="font-size:14px;color:var(--gr)"><span class="uz">Jami:</span><span class="ru">Итого:</span></span>
+        <span class="total-val" id="tV"></span>
       </div>
-      <button class="msb" id="subBtn" onclick="doOrder()"><span data-u>✅ Buyurtma Berish</span><span data-r>✅ Оформить заказ</span></button>
+      <button class="msb" id="subBtn" onclick="doOrder()">
+        <span class="uz">✅ Buyurtma Berish</span><span class="ru">✅ Оформить заказ</span>
+      </button>
     </div>
     <div class="fst" id="ms3">
-      <div class="succ"><div class="ck">✅</div>
-        <h3><span data-u>Buyurtmangiz qabul qilindi!</span><span data-r>Заказ принят!</span></h3>
-        <p id="sucMsg"></p></div>
+      <div class="succ-box">
+        <div class="ck">✅</div>
+        <h3><span class="uz">Buyurtmangiz qabul qilindi!</span><span class="ru">Заказ принят!</span></h3>
+        <p id="sucMsg"></p>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-/* ═══════════════════════════════════════════
-   CONSTANTS
-═══════════════════════════════════════════ */
-const BOT   = '8727881862:AAHMxPRYVpG9R8ldB5T2az3q1_1T_nuXccM';
-const PW    = 'aztech2025';
-const FB64  = 800 * 1024; // max rasm hajmi (800 KB)
+/* ─── CONSTANTS ─── */
+const BOT_TOKEN = '8727881862:AAHMxPRYVpG9R8ldB5T2az3q1_1T_nuXccM';
+const ADMIN_PW  = 'aztech2025';
+const MAX_IMG   = 800 * 1024; // 800 KB
 
-/* ═══════════════════════════════════════════
-   DEFAULT CONFIG  —  bu ob'ekt GitHub ga saqlanadi
-═══════════════════════════════════════════ */
+/* ─── CONFIG ─── */
+/* __CONFIG_START__ */
 let C = {
   nUz:'Kuchlanish Himoyachisi B-2188', nRu:'Протектор напряжения B-2188',
   badge:'⚡ #1 Himoyachi',
   price:65000, oldP:90000, locFee:10000,
   shUz:"Qo'qon, AZTECH REF do'koni • Bepul", shRu:'Коканд, AZTECH REF • Бесплатно',
-  lcUz:"Bugun yoki ertaga • 10,000 so'm",     lcRu:'Сегодня или завтра • 10 000 сум',
+  lcUz:"Bugun yoki ertaga • 10,000 so'm", lcRu:'Сегодня или завтра • 10 000 сум',
   hHuz:"Texnikangizni kuchlanish zarbasidan himoya qiling!",
   hHru:"Защитите технику от скачков напряжения!",
   hPuz:"B-2188 — Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.",
   hPru:"B-2188 — умный протектор напряжения для холодильника, телевизора, компьютера и всей бытовой техники.",
   imgs:[],
-  groups:[{id:'47115138',name:'Shaxsiy (default)'}],
+  groups:[{id:'47115138', name:'Shaxsiy (default)'}],
   probs:[
-    {ic:'⚡',tu:"To'satdan kuchlanish sakrashi",tr:'Скачки напряжения',pu:"Elektr tarmog'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi",pr:'Резкие колебания в сети мгновенно выводят технику из строя'},
-    {ic:'🔌',tu:"Svet o'chib yonishi",tr:'Отключения электричества',pu:'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi',pr:'При восстановлении питания компрессор получает удар'},
-    {ic:'💸',tu:"Qimmat ta'mirlash",tr:'Дорогостоящий ремонт',pu:"Muzlatgich ta'miri 500,000–2,000,000 so'm. Oldini olish atigi 65,000 so'm",pr:'Ремонт холодильника от 500 000 сум. Защита стоит 65 000 сум'}
+    {ic:'⚡', tu:"To'satdan kuchlanish sakrashi", tr:'Скачки напряжения', pu:"Elektr tarmog'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi", pr:'Резкие колебания в сети мгновенно выводят технику из строя'},
+    {ic:'🔌', tu:"Svet o'chib yonishi", tr:'Отключения электричества', pu:'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi', pr:'При восстановлении питания компрессор получает удар'},
+    {ic:'💸', tu:"Qimmat ta'mirlash", tr:'Дорогостоящий ремонт', pu:"Muzlatgich ta'miri 500,000–2,000,000 so'm. Oldini olish atigi 65,000 so'm", pr:'Ремонт холодильника от 500 000 сум. Защита стоит 65 000 сум'}
   ],
   sols:[
-    {ic:'🛡️',tu:'Avtomatik uzish',tr:'Авто-отключение',pu:"175V pastga tushsa yoki 260V dan oshsa — darhol uzilib qoladi",pr:'При выходе за 175–260V мгновенно отключает питание'},
-    {ic:'⏱️',tu:"Aqlli kechiktirish",tr:'Умная задержка',pu:"Svet kelgandan 4–5 daqiqa o'tib ulaydi — kompressor uchun xavfsiz",pr:'Подключает питание через 4–5 мин — безопасно для компрессора'},
-    {ic:'💡',tu:"LED ko'rsatkichlar",tr:'LED индикаторы',pu:"3 rangli LED: himoya, kechiktirish, normal ishlash",pr:'3 цвета LED: защита, задержка, нормальная работа'},
-    {ic:'🔧',tu:'Kuchli quvvat',tr:'Высокая мощность',pu:'16A / 2500W — muzlatgich, konditsioner, suv pompasi uchun',pr:'16A / 2500W — для холодильника, кондиционера, насоса'}
+    {ic:'🛡️', tu:'Avtomatik uzish', tr:'Авто-отключение', pu:"175V pastga tushsa yoki 260V dan oshsa — darhol uzilib qoladi", pr:'При выходе за 175–260V мгновенно отключает питание'},
+    {ic:'⏱️', tu:"Aqlli kechiktirish", tr:'Умная задержка', pu:"Svet kelgandan 4–5 daqiqa o'tib ulaydi — kompressor uchun xavfsiz", pr:'Подключает питание через 4–5 мин — безопасно для компрессора'},
+    {ic:'💡', tu:"LED ko'rsatkichlar", tr:'LED индикаторы', pu:"3 rangli LED: himoya, kechiktirish, normal ishlash", pr:'3 цвета LED: защита, задержка, нормальная работа'},
+    {ic:'🔧', tu:'Kuchli quvvat', tr:'Высокая мощность', pu:'16A / 2500W — muzlatgich, konditsioner, suv pompasi uchun', pr:'16A / 2500W — для холодильника, кондиционера, насоса'}
   ],
   stps:[
-    {tu:'Rozetkaga ulang',tr:'Вставьте в розетку',pu:"B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang",pr:'Вставьте B-2188 напрямую в стандартную розетку 220V'},
-    {tu:'Texnikani ulang',tr:'Подключите технику',pu:"Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang",pr:'Вилку холодильника или другого устройства подключите к B-2188'},
-    {tu:"Ishlatavering — himoya avtomatik!",tr:'Пользуйтесь — защита автоматическая!',pu:"Yashil LED — normal ishlayapti. Qizil LED — himoya ishga tushgan",pr:'Зелёный LED — норма. Красный LED — защита активирована'}
+    {tu:'Rozetkaga ulang', tr:'Вставьте в розетку', pu:"B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang", pr:'Вставьте B-2188 напрямую в стандартную розетку 220V'},
+    {tu:'Texnikani ulang', tr:'Подключите технику', pu:"Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang", pr:'Вилку холодильника или другого устройства подключите к B-2188'},
+    {tu:"Ishlatavering — himoya avtomatik!", tr:'Пользуйтесь — защита автоматическая!', pu:"Yashil LED — normal ishlayapti. Qizil LED — himoya ishga tushgan", pr:'Зелёный LED — норма. Красный LED — защита активирована'}
   ]
 };
+/* __CONFIG_END__ */
 
-let orders=[], lang='uz', cur=0, slT;
+/* ─── STATE ─── */
+let orders = [];
+let curLang = 'uz';
+let curSlide = 0;
+let slTimer;
+let chosenDel = null;
+let qty = 1;
 
-/* ═══ LANG ═══ */
-function setL(l){
-  lang=l;
-  document.body.classList.toggle('ru',l==='ru');
-  document.querySelectorAll('.lb').forEach((b,i)=>b.classList.toggle('on',(i===0&&l==='uz')||(i===1&&l==='ru')));
+/* ─── HELPERS ─── */
+function x(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function gv(id){ return (document.getElementById(id)||{}).value || ''; }
+function flash(id, msg, cls){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.textContent = msg;
+  el.className = 'sm ' + cls;
+  el.style.display = 'inline';
+  setTimeout(()=>{ el.style.display='none'; }, 3500);
 }
 
-/* ═══ RENDER LANDING ═══ */
+/* ─── LANG ─── */
+function setLang(l){
+  curLang = l;
+  document.body.classList.toggle('lang-ru', l === 'ru');
+  document.querySelectorAll('.lb').forEach((b,i)=> b.classList.toggle('on', (i===0&&l==='uz')||(i===1&&l==='ru')));
+}
+
+/* ─── RENDER ─── */
 function render(){
-  // Hero
+  // Badge
   document.getElementById('ldBadge').textContent = C.badge;
-  document.getElementById('ldH1').innerHTML =
-    `<span data-u>${esc(C.hHuz).replace(/(kuchlanish zarbasidan)/,'<em>$1</em>')}</span>`+
-    `<span data-r>${esc(C.hHru).replace(/(скачков напряжения!?)/,'<em>$1</em>')}</span>`;
-  document.getElementById('ldP').innerHTML =
-    `<span data-u>${esc(C.hPuz)}</span><span data-r>${esc(C.hPru)}</span>`;
+
+  // Hero text — update span contents directly (keep structure)
+  document.querySelector('#ldH1 .uz').innerHTML = x(C.hHuz).replace(/(kuchlanish zarbasidan)/,'<em>$1</em>');
+  document.querySelector('#ldH1 .ru').innerHTML = x(C.hHru).replace(/(скачков напряжения!?)/,'<em>$1</em>');
+  document.querySelector('#ldP .uz').textContent = C.hPuz;
+  document.querySelector('#ldP .ru').textContent = C.hPru;
 
   // Price
-  document.getElementById('ldOP').textContent = `Bozor narxi: ${C.oldP.toLocaleString()} so'm`;
-  document.getElementById('ldNP').innerHTML   = `${C.price.toLocaleString()} <span>so'm</span>`;
+  document.getElementById('ldOP').textContent = 'Bozor narxi: ' + C.oldP.toLocaleString() + " so'm";
+  document.getElementById('ldNP').innerHTML    = C.price.toLocaleString() + ' <span>so\'m</span>';
 
-  // Modal static
-  document.getElementById('mPN').textContent  = `${C.nUz} — ${C.price.toLocaleString()} so'm`;
+  // Modal
+  document.getElementById('mPN').textContent  = C.nUz + ' — ' + C.price.toLocaleString() + " so'm";
   document.getElementById('dShUz').textContent = C.shUz;
   document.getElementById('dShRu').textContent = C.shRu;
   document.getElementById('dLcUz').textContent = C.lcUz;
@@ -586,81 +622,87 @@ function render(){
 
   // Problems
   document.getElementById('ldProb').innerHTML = C.probs.map(p=>
-    `<div class="pc"><div class="ic">${p.ic}</div>
-     <h3><span data-u>${esc(p.tu)}</span><span data-r>${esc(p.tr)}</span></h3>
-     <p><span data-u>${esc(p.pu)}</span><span data-r>${esc(p.pr)}</span></p></div>`).join('');
+    `<div class="prob-card"><div class="ic">${p.ic}</div>
+     <h3><span class="uz">${x(p.tu)}</span><span class="ru">${x(p.tr)}</span></h3>
+     <p><span class="uz">${x(p.pu)}</span><span class="ru">${x(p.pr)}</span></p></div>`
+  ).join('');
 
   // Solutions
   document.getElementById('ldSol').innerHTML = C.sols.map(s=>
-    `<div class="sc"><div class="ic">${s.ic}</div>
-     <h3><span data-u>${esc(s.tu)}</span><span data-r>${esc(s.tr)}</span></h3>
-     <p><span data-u>${esc(s.pu)}</span><span data-r>${esc(s.pr)}</span></p></div>`).join('');
+    `<div class="sol-card"><div class="ic">${s.ic}</div>
+     <h3><span class="uz">${x(s.tu)}</span><span class="ru">${x(s.tr)}</span></h3>
+     <p><span class="uz">${x(s.pu)}</span><span class="ru">${x(s.pr)}</span></p></div>`
+  ).join('');
 
   // Steps
   document.getElementById('ldStep').innerHTML = C.stps.map((s,i)=>
-    `<div class="step"><div class="stn">${i+1}</div>
-     <div class="stx"><h3><span data-u>${esc(s.tu)}</span><span data-r>${esc(s.tr)}</span></h3>
-     <p><span data-u>${esc(s.pu)}</span><span data-r>${esc(s.pr)}</span></p></div></div>`).join('');
+    `<div class="step-item"><div class="step-num">${i+1}</div>
+     <div class="step-txt"><h3><span class="uz">${x(s.tu)}</span><span class="ru">${x(s.tr)}</span></h3>
+     <p><span class="uz">${x(s.pu)}</span><span class="ru">${x(s.pr)}</span></p></div></div>`
+  ).join('');
 
   buildSlider();
-  setL(lang);
+  setLang(curLang);
   calcTotal();
 }
 
-function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-/* ═══ SLIDER ═══ */
+/* ─── SLIDER ─── */
 function buildSlider(){
-  clearInterval(slT);
-  const si=document.getElementById('slI'), sd=document.getElementById('slD');
+  clearInterval(slTimer);
+  const si = document.getElementById('slI');
+  const sd = document.getElementById('slD');
   if(!C.imgs.length){
-    si.innerHTML=`<div class="sl"><img src="https://via.placeholder.com/380x264/eff6ff/1a73e8?text=Rasm+yuklanmagan" alt="B-2188"></div>`;
-    sd.innerHTML=`<div class="sl-dot on"></div>`; return;
+    si.innerHTML = '<div class="sl-slide"><img src="https://via.placeholder.com/380x264/eff6ff/1a73e8?text=B-2188" alt="B-2188"></div>';
+    sd.innerHTML = '<div class="sl-dot on"></div>';
+    return;
   }
-  si.innerHTML = C.imgs.map(u=>`<div class="sl"><img src="${u}" alt="B-2188" onerror="this.src='https://via.placeholder.com/380x264/eff6ff/1a73e8?text=Rasm'"></div>`).join('');
-  sd.innerHTML = C.imgs.map((_,i)=>`<div class="sl-dot${i===0?' on':''}" onclick="gSl(${i})"></div>`).join('');
-  cur=0; apSl();
-  if(C.imgs.length>1) slT=setInterval(()=>sNav(1),3500);
+  si.innerHTML = C.imgs.map(u=>
+    `<div class="sl-slide"><img src="${u}" alt="B-2188" onerror="this.src='https://via.placeholder.com/380x264/eff6ff/1a73e8?text=Rasm'"></div>`
+  ).join('');
+  sd.innerHTML = C.imgs.map((_,i)=>
+    `<div class="sl-dot${i===0?' on':''}" onclick="gSl(${i})"></div>`
+  ).join('');
+  curSlide = 0; apSl();
+  if(C.imgs.length > 1) slTimer = setInterval(()=>sNav(1), 3500);
 }
 function apSl(){
-  document.getElementById('slI').style.transform=`translateX(-${cur*100}%)`;
-  document.querySelectorAll('.sl-dot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+  document.getElementById('slI').style.transform = `translateX(-${curSlide*100}%)`;
+  document.querySelectorAll('.sl-dot').forEach((d,i)=> d.classList.toggle('on', i===curSlide));
 }
-function gSl(n){ cur=(n+C.imgs.length)%C.imgs.length; apSl(); }
-function sNav(d){ gSl(cur+d); }
+function gSl(n){ curSlide=(n+C.imgs.length)%C.imgs.length; apSl(); }
+function sNav(d){ gSl(curSlide+d); }
 
-/* ═══ ADMIN GATE ═══ */
+/* ─── ADMIN GATE ─── */
 function openGate(){
-  document.getElementById('pwIn').value='';
-  document.getElementById('gErr').style.display='none';
+  document.getElementById('pwIn').value = '';
+  document.getElementById('gErr').style.display = 'none';
   document.getElementById('aGate').classList.add('on');
-  setTimeout(()=>document.getElementById('pwIn').focus(),120);
+  setTimeout(()=> document.getElementById('pwIn').focus(), 120);
 }
 function doPw(){
-  if(document.getElementById('pwIn').value===PW){
+  if(document.getElementById('pwIn').value === ADMIN_PW){
     document.getElementById('aGate').classList.remove('on');
     openAP();
   } else {
-    document.getElementById('gErr').style.display='block';
+    document.getElementById('gErr').style.display = 'block';
   }
 }
 
-/* ═══ ADMIN PANEL ═══ */
+/* ─── ADMIN PANEL ─── */
 function openAP(){
   loadFields(); renderIgrid(); renderGList(); renderOrders();
   document.getElementById('aPanel').classList.add('on');
 }
 function closeAP(){ document.getElementById('aPanel').classList.remove('on'); }
-
 function apTab(i){
-  document.querySelectorAll('.ap-tab').forEach((b,j)=>b.classList.toggle('on',j===i));
-  document.querySelectorAll('.ap-sec').forEach((s,j)=>s.classList.toggle('on',j===i));
+  document.querySelectorAll('.ap-tab').forEach((b,j)=> b.classList.toggle('on', j===i));
+  document.querySelectorAll('.ap-sec').forEach((s,j)=> s.classList.toggle('on', j===i));
   if(i===4) renderOrders();
 }
 
-/* ── Load fields ── */
+/* ─── LOAD FIELDS ─── */
 function loadFields(){
-  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v;};
+  const sv=(id,v)=>{ const e=document.getElementById(id); if(e) e.value=v; };
   sv('f-nUz',C.nUz); sv('f-nRu',C.nRu);
   sv('f-pr',C.price); sv('f-op',C.oldP); sv('f-lf',C.locFee); sv('f-bg',C.badge);
   sv('f-shUz',C.shUz); sv('f-shRu',C.shRu);
@@ -668,52 +710,48 @@ function loadFields(){
   sv('f-hHuz',C.hHuz); sv('f-hHru',C.hHru);
   sv('f-hPuz',C.hPuz); sv('f-hPru',C.hPru);
 
-  const probH = C.probs.map((p,i)=>`
+  document.getElementById('probEd').innerHTML = C.probs.map((p,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
       <div style="font-size:11px;font-weight:700;color:var(--gr);margin-bottom:8px">KARTA #${i+1} ${p.ic}</div>
       <div class="row2">
-        <div class="fg"><label>Sarlavha UZ</label><input id="pt${i}" value="${esc(p.tu)}"></div>
-        <div class="fg"><label>Sarlavha RU</label><input id="pr${i}" value="${esc(p.tr)}"></div>
+        <div class="fg"><label>Sarlavha UZ</label><input id="pt${i}" value="${x(p.tu)}"></div>
+        <div class="fg"><label>Sarlavha RU</label><input id="pr${i}" value="${x(p.tr)}"></div>
       </div>
       <div class="row2">
-        <div class="fg"><label>Matn UZ</label><input id="pp${i}" value="${esc(p.pu)}"></div>
-        <div class="fg"><label>Matn RU</label><input id="pq${i}" value="${esc(p.pr)}"></div>
+        <div class="fg"><label>Matn UZ</label><input id="pp${i}" value="${x(p.pu)}"></div>
+        <div class="fg"><label>Matn RU</label><input id="pq${i}" value="${x(p.pr)}"></div>
       </div>
     </div>`).join('');
-  document.getElementById('probEd').innerHTML=probH;
 
-  const solH = C.sols.map((s,i)=>`
+  document.getElementById('solEd').innerHTML = C.sols.map((s,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
       <div style="font-size:11px;font-weight:700;color:var(--gr);margin-bottom:8px">KARTA #${i+1} ${s.ic}</div>
       <div class="row2">
-        <div class="fg"><label>Sarlavha UZ</label><input id="st${i}" value="${esc(s.tu)}"></div>
-        <div class="fg"><label>Sarlavha RU</label><input id="sr${i}" value="${esc(s.tr)}"></div>
+        <div class="fg"><label>Sarlavha UZ</label><input id="st${i}" value="${x(s.tu)}"></div>
+        <div class="fg"><label>Sarlavha RU</label><input id="sr${i}" value="${x(s.tr)}"></div>
       </div>
       <div class="row2">
-        <div class="fg"><label>Matn UZ</label><input id="sp${i}" value="${esc(s.pu)}"></div>
-        <div class="fg"><label>Matn RU</label><input id="sq${i}" value="${esc(s.pr)}"></div>
+        <div class="fg"><label>Matn UZ</label><input id="sp${i}" value="${x(s.pu)}"></div>
+        <div class="fg"><label>Matn RU</label><input id="sq${i}" value="${x(s.pr)}"></div>
       </div>
     </div>`).join('');
-  document.getElementById('solEd').innerHTML=solH;
 
-  const stpH = C.stps.map((s,i)=>`
+  document.getElementById('stepEd').innerHTML = C.stps.map((s,i)=>`
     <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
       <div style="font-size:11px;font-weight:700;color:var(--gr);margin-bottom:8px">QADAM #${i+1}</div>
       <div class="row2">
-        <div class="fg"><label>Sarlavha UZ</label><input id="stu${i}" value="${esc(s.tu)}"></div>
-        <div class="fg"><label>Sarlavha RU</label><input id="str${i}" value="${esc(s.tr)}"></div>
+        <div class="fg"><label>Sarlavha UZ</label><input id="stu${i}" value="${x(s.tu)}"></div>
+        <div class="fg"><label>Sarlavha RU</label><input id="str${i}" value="${x(s.tr)}"></div>
       </div>
       <div class="row2">
-        <div class="fg"><label>Matn UZ</label><input id="spu${i}" value="${esc(s.pu)}"></div>
-        <div class="fg"><label>Matn RU</label><input id="spr${i}" value="${esc(s.pr)}"></div>
+        <div class="fg"><label>Matn UZ</label><input id="spu${i}" value="${x(s.pu)}"></div>
+        <div class="fg"><label>Matn RU</label><input id="spr${i}" value="${x(s.pr)}"></div>
       </div>
     </div>`).join('');
-  document.getElementById('stepEd').innerHTML=stpH;
 }
 
-/* ── Save section ── */
+/* ─── SAVE SECTION ─── */
 function saveSec(n){
-  const gv=id=>(document.getElementById(id)||{}).value||'';
   if(n===0){
     C.nUz=gv('f-nUz'); C.nRu=gv('f-nRu');
     C.price=+gv('f-pr')||65000; C.oldP=+gv('f-op')||90000;
@@ -729,289 +767,280 @@ function saveSec(n){
     C.stps.forEach((_,i)=>{ C.stps[i]={...C.stps[i],tu:gv(`stu${i}`),tr:gv(`str${i}`),pu:gv(`spu${i}`),pr:gv(`spr${i}`)}; });
   }
   render();
-  flash(`sm${n}`,'✅ Saqlandi — GitHub ga yuklashni unutmang!','ok');
+  flash(`sm${n}`, '✅ Saqlandi! GitHub ga yuklashni unutmang.', 'ok');
 }
 
-function flash(id,msg,cls){
-  const el=document.getElementById(id);
-  if(!el) return;
-  el.textContent=msg; el.className=`sm ${cls}`; el.style.display='inline';
-  setTimeout(()=>el.style.display='none',3500);
-}
-
-/* ═══ IMAGE MANAGER ═══ */
+/* ─── IMAGE MANAGER ─── */
 function renderIgrid(){
-  const g=document.getElementById('igrid');
-  g.innerHTML=C.imgs.length
+  const g = document.getElementById('igrid');
+  g.innerHTML = C.imgs.length
     ? C.imgs.map((u,i)=>`
         <div class="img-item">
           <img src="${u}" onerror="this.style.opacity='.2'">
-          <div class="img-item-lbl">${u.startsWith('data:')? '📁 Yuklangan':'🔗 '+u.split('/').pop().slice(0,18)}</div>
+          <div class="img-lbl">${u.startsWith('data:') ? '📁 Yuklangan' : '🔗 '+u.split('/').pop().slice(0,18)}</div>
           <button class="img-x" onclick="delImg(${i})">×</button>
         </div>`).join('')
     : '<p style="color:var(--gr);font-size:13px">Hali rasm yo\'q</p>';
 }
-
 function iTab(i){
   document.querySelectorAll('.itab').forEach((b,j)=>b.classList.toggle('on',j===i));
   document.querySelectorAll('.ipanel').forEach((p,j)=>p.classList.toggle('on',j===i));
 }
-
 function doFiles(files){
   Array.from(files).forEach(f=>{
-    if(!f.type.startsWith('image/')){alert(`${f.name} — rasm fayli emas`);return;}
-    if(f.size>FB64){alert(`${f.name} — hajmi 800KB dan katta. Iltimos kichraytiring.`);return;}
-    const r=new FileReader();
-    r.onload=e=>{C.imgs.push(e.target.result);renderIgrid();buildSlider();};
+    if(!f.type.startsWith('image/')){ alert(f.name + ' — rasm fayli emas'); return; }
+    if(f.size > MAX_IMG){ alert(f.name + ' — hajmi 800KB dan katta. Iltimos kichraytiring.'); return; }
+    const r = new FileReader();
+    r.onload = e => { C.imgs.push(e.target.result); renderIgrid(); buildSlider(); };
     r.readAsDataURL(f);
   });
 }
-
 function prevUrl(){
-  const u=document.getElementById('urlIn').value.trim();
-  const p=document.getElementById('urlPrev');
-  const ok=/^https?:\/\/.+\.(jpe?g|png|webp|gif)(\?.*)?$/i.test(u);
-  p.style.display = ok ? 'block':'none';
-  if(ok){p.src=u; p.onerror=()=>p.style.display='none';}
+  const u = document.getElementById('urlIn').value.trim();
+  const p = document.getElementById('urlPrev');
+  const ok = /^https?:\/\/.+\.(jpe?g|png|webp|gif)(\?.*)?$/i.test(u);
+  p.style.display = ok ? 'block' : 'none';
+  if(ok){ p.src=u; p.onerror=()=>{ p.style.display='none'; }; }
 }
-
 function addUrl(){
-  const u=document.getElementById('urlIn').value.trim();
-  if(!u.startsWith('http')){alert('To\'g\'ri URL kiriting (https://...)');return;}
+  const u = document.getElementById('urlIn').value.trim();
+  if(!u.startsWith('http')){ alert("To'g'ri URL kiriting (https://...)"); return; }
   C.imgs.push(u);
-  document.getElementById('urlIn').value='';
-  document.getElementById('urlPrev').style.display='none';
+  document.getElementById('urlIn').value = '';
+  document.getElementById('urlPrev').style.display = 'none';
   renderIgrid(); buildSlider();
 }
-
 function delImg(i){
-  if(C.imgs.length<=1){alert('Kamida 1 ta rasm bo\'lishi kerak!');return;}
+  if(C.imgs.length <= 1){ alert("Kamida 1 ta rasm bo'lishi kerak!"); return; }
   C.imgs.splice(i,1); renderIgrid(); buildSlider();
 }
 
-/* ═══ GROUPS ═══ */
+/* ─── GROUPS ─── */
 function renderGList(){
-  const el=document.getElementById('gList');
-  el.innerHTML=C.groups.length
+  const el = document.getElementById('gList');
+  el.innerHTML = C.groups.length
     ? C.groups.map((g,i)=>`
         <div class="g-item">
-          <div class="g-item-info"><h4>💬 ${esc(g.name)}</h4><span>${g.id}</span></div>
+          <div><div class="g-name">💬 ${x(g.name)}</div><div class="g-id">${g.id}</div></div>
           <button class="g-del" onclick="delGrp(${i})">O'chirish</button>
         </div>`).join('')
     : '<p style="font-size:13px;color:var(--gr)">Guruh qo\'shilmagan</p>';
 }
-
 function addGroup(){
-  const id=document.getElementById('gId').value.trim();
-  const nm=document.getElementById('gName').value.trim()||'Guruh';
-  if(!id){alert('Guruh ID sini kiriting');return;}
-  if(C.groups.find(g=>g.id===id)){alert('Bu guruh allaqachon mavjud');return;}
-  C.groups.push({id,name:nm});
-  document.getElementById('gId').value='';
-  document.getElementById('gName').value='';
+  const id = document.getElementById('gId').value.trim();
+  const nm = document.getElementById('gName').value.trim() || 'Guruh';
+  if(!id){ alert('Guruh ID sini kiriting'); return; }
+  if(C.groups.find(g=>g.id===id)){ alert('Bu guruh allaqachon mavjud'); return; }
+  C.groups.push({id, name:nm});
+  document.getElementById('gId').value = '';
+  document.getElementById('gName').value = '';
   renderGList();
 }
-
 function delGrp(i){
-  if(!confirm('Guruhni o\'chirishni tasdiqlaysizmi?'))return;
+  if(!confirm("Guruhni o'chirishni tasdiqlaysizmi?")) return;
   C.groups.splice(i,1); renderGList();
 }
 
-/* ═══ ORDERS ═══ */
+/* ─── ORDERS ─── */
 function renderOrders(){
-  const w=document.getElementById('ordWr');
-  document.getElementById('ordCnt').textContent=`Jami: ${orders.length} ta buyurtma`;
-  if(!orders.length){w.innerHTML='<div class="no-ord">📭 Hali buyurtmalar yo\'q</div>';return;}
-  const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida",region:"Viloyatlarga"};
-  w.innerHTML=`<table class="ot">
+  const w = document.getElementById('ordWr');
+  document.getElementById('ordCnt').textContent = 'Jami: ' + orders.length + ' ta buyurtma';
+  if(!orders.length){ w.innerHTML='<div class="no-ord">📭 Hali buyurtmalar yo\'q</div>'; return; }
+  const dn = {pickup:"Do'kondan olib ketish", local:"Qo'qon ichida", region:"Viloyatlarga"};
+  w.innerHTML = `<table class="ord-tbl">
     <thead><tr><th>#</th><th>Ism</th><th>Telefon</th><th>Yetkazib berish</th><th>Manzil</th><th>Miqdor</th><th>Jami</th><th>Vaqt</th></tr></thead>
     <tbody>${orders.map((o,i)=>`<tr>
-      <td>${i+1}</td><td>${esc(o.name)}</td><td>${esc(o.phone)}</td>
-      <td>${dn[o.del]||o.del}</td><td>${esc(o.addr||'—')}</td>
+      <td>${i+1}</td><td>${x(o.name)}</td><td>${x(o.phone)}</td>
+      <td>${dn[o.del]||o.del}</td><td>${x(o.addr||'—')}</td>
       <td>${o.qty} dona</td><td><strong>${o.total.toLocaleString()} so'm</strong></td>
       <td style="font-size:11px;color:var(--gr)">${new Date(o.time).toLocaleString('uz-UZ')}</td>
     </tr>`).join('')}</tbody></table>`;
 }
 
-/* ═══════════════════════════════════════════
-   GITHUB PUSH — faqat C ob'ektini o'zgartiradi
-   Butun HTML ni emas, faqat CONFIG qismini
-═══════════════════════════════════════════ */
-async function pushToGitHub(){
+/* ─── GITHUB PUSH ─── */
+async function pushGH(){
   const tok  = document.getElementById('ghTok').value.trim();
   const user = document.getElementById('ghUser').value.trim();
   const repo = document.getElementById('ghRepo').value.trim();
-  const st   = document.getElementById('ghSt');
   const btn  = document.getElementById('ghBtn');
 
   if(!tok||!user||!repo){
-    showGhSt('er','❌ Token, username va repo nomini to\'ldiring'); return;
+    setGhSt('er','❌ Token, username va repository nomini to\'ldiring'); return;
   }
 
-  btn.disabled=true;
-  showGhSt('ld','⏳ GitHub dan fayl o\'qilmoqda...');
+  btn.disabled = true;
+  setGhSt('ld','⏳ GitHub dan fayl o\'qilmoqda...');
 
   try{
-    const file = 'index.html';
-    const api  = `https://api.github.com/repos/${user}/${repo}/contents/${file}`;
-    const hdr  = {'Authorization':`Bearer ${tok}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
+    const url = `https://api.github.com/repos/${user}/${repo}/contents/index.html`;
+    const hdr = {
+      'Authorization': `Bearer ${tok}`,
+      'Accept': 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    };
 
-    // 1. Hozirgi faylni olish (SHA kerak)
-    const getR = await fetch(api,{headers:hdr});
-    if(!getR.ok && getR.status!==404) throw new Error(`Fayl o'qilmadi: ${getR.status}`);
+    // 1. Hozirgi faylni olish
+    const getR = await fetch(url, {headers:hdr});
+    if(!getR.ok && getR.status !== 404) throw new Error('Fayl o\'qilmadi: HTTP ' + getR.status);
     const getD = getR.ok ? await getR.json() : {};
-    const sha  = getD.sha||null;
+    const sha  = getD.sha || null;
 
-    showGhSt('ld','⏳ Fayl yangilanmoqda...');
+    setGhSt('ld','⏳ Konfiguratsiya yangilanmoqda...');
 
-    // 2. Faqat CONFIG qismini almashtirish
-    // Joriy sahifaning HTML ini olamiz va faqat C ob'ektini yangilaymiz
-    let html = getD.content
-      ? decodeURIComponent(escape(atob(getD.content.replace(/\n/g,''))))
-      : document.documentElement.outerHTML;
+    // 2. GitHub dagi HTML ni olish va faqat C ob'ektini almashtirish
+    let html;
+    if(getD.content){
+      html = decodeURIComponent(escape(atob(getD.content.replace(/\n/g,''))));
+    } else {
+      html = document.documentElement.outerHTML;
+    }
 
-    // C ob'ektini yangi qiymat bilan almashtirish
-    const newCStr = 'let C = ' + JSON.stringify(C, null, 2) + ';';
-    html = html.replace(/let C = \{[\s\S]*?\};\s*\n\s*\nlet orders/m, newCStr+'\n\nlet orders');
+    // C ob'ektini __CONFIG_START__ va __CONFIG_END__ orasida almashtirish
+    const newBlock = '/* __CONFIG_START__ */\nlet C = '
+      + JSON.stringify(C, null, 2)
+      + ';\n/* __CONFIG_END__ */';
+    html = html.replace(
+      /\/\* __CONFIG_START__ \*\/[\s\S]*?\/\* __CONFIG_END__ \*\//,
+      newBlock
+    );
 
-    // Base64 encode (UTF-8 xavfsiz)
-    const encoded = btoa(unescape(encodeURIComponent(html)));
+    // 3. UTF-8 xavfsiz Base64 encode
+    const encoded = btoa(
+      Array.from(new TextEncoder().encode(html))
+        .map(b => String.fromCharCode(b)).join('')
+    );
 
-    // 3. GitHub ga yuklash
-    const putR = await fetch(api,{
-      method:'PUT', headers:hdr,
-      body:JSON.stringify({
-        message:`🔧 Admin panel — ${new Date().toLocaleString('uz-UZ')}`,
-        content:encoded,
-        ...(sha?{sha}:{})
+    // 4. GitHub ga yuklash
+    const putR = await fetch(url, {
+      method: 'PUT', headers: hdr,
+      body: JSON.stringify({
+        message: '🔧 Admin panel yangiladi — ' + new Date().toLocaleString('uz-UZ'),
+        content: encoded,
+        ...(sha ? {sha} : {})
       })
     });
 
     if(putR.ok){
-      showGhSt('ok','✅ Muvaffaqiyatli yuklandi! Sayt 1–2 daqiqada yangilanadi.');
+      setGhSt('ok','✅ Muvaffaqiyatli yuklandi! Sayt 1–2 daqiqada yangilanadi.');
     } else {
-      const e=await putR.json();
-      throw new Error(e.message||`HTTP ${putR.status}`);
+      const e = await putR.json();
+      throw new Error(e.message || 'HTTP ' + putR.status);
     }
   } catch(e){
-    showGhSt('er','❌ Xatolik: '+e.message);
+    setGhSt('er','❌ Xatolik: ' + e.message);
   } finally {
-    btn.disabled=false;
+    btn.disabled = false;
   }
 }
-
-function showGhSt(cls,msg){
-  const el=document.getElementById('ghSt');
-  el.className='gh-status '+cls;
-  el.textContent=msg;
+function setGhSt(cls, msg){
+  const el = document.getElementById('ghSt');
+  el.className = 'gh-st ' + cls;
+  el.textContent = msg;
 }
 
-/* ═══ ORDER MODAL ═══ */
-let selD=null, qty=1;
-
+/* ─── ORDER MODAL ─── */
 function openM(){
   document.getElementById('mOv').classList.add('on');
-  goMs(1); selD=null; qty=1;
-  document.getElementById('qV').textContent=1;
-  document.querySelectorAll('.dop').forEach(d=>d.classList.remove('on'));
-  document.getElementById('nBtn').disabled=true;
-  ['fNm','fPh','fAd'].forEach(id=>document.getElementById(id).value='');
+  goMs(1);
+  chosenDel = null; qty = 1;
+  document.getElementById('qV').textContent = 1;
+  document.querySelectorAll('.del-opt').forEach(d=>d.classList.remove('on'));
+  document.getElementById('nBtn').disabled = true;
+  ['fNm','fPh','fAd'].forEach(id=>{ const e=document.getElementById(id); if(e) e.value=''; });
 }
 function closeM(){ document.getElementById('mOv').classList.remove('on'); }
 function goMs(n){ document.querySelectorAll('.fst').forEach((s,i)=>s.classList.toggle('on',i===n-1)); }
 
-function selD_(t){
-  selD=t;
-  document.querySelectorAll('.dop').forEach(d=>d.classList.remove('on'));
+function selDel(t){
+  chosenDel = t;
+  document.querySelectorAll('.del-opt').forEach(d=>d.classList.remove('on'));
   document.getElementById({pickup:'d1',local:'d2',region:'d3'}[t]).classList.add('on');
-  document.getElementById('nBtn').disabled=false;
+  document.getElementById('nBtn').disabled = false;
   calcTotal();
 }
-// Expose wrapper (avoid naming clash with var selD)
-function selD(t){ selD_(t); }
 
 function goMs2(){
-  if(!selD)return;
-  qty=1; document.getElementById('qV').textContent=1;
-  const lb={uz:{pickup:"🏪 Do'kondan olib ketish",local:"🛵 Qo'qon ichida",region:"📦 Viloyatlarga"},
-            ru:{pickup:"🏪 Самовывоз",local:"🛵 По Коканду",region:"📦 По регионам"}};
-  document.getElementById('mDL').textContent=lb[lang][selD];
-  const na=selD!=='pickup';
-  document.getElementById('fAdW').style.display=na?'block':'none';
-  document.getElementById('fAd').placeholder=
-    selD==='local'?(lang==='uz'?"Ko'cha, uy raqami":'Улица, дом'):(lang==='uz'?"Shahar, ko'cha, uy":'Город, улица, дом');
+  if(!chosenDel) return;
+  qty = 1; document.getElementById('qV').textContent = 1;
+  const lb = {
+    uz: {pickup:"🏪 Do'kondan olib ketish", local:"🛵 Qo'qon ichida", region:"📦 Viloyatlarga"},
+    ru: {pickup:"🏪 Самовывоз", local:"🛵 По Коканду", region:"📦 По регионам"}
+  };
+  document.getElementById('mDL').textContent = lb[curLang][chosenDel];
+  const na = chosenDel !== 'pickup';
+  document.getElementById('fAdW').style.display = na ? 'block' : 'none';
+  document.getElementById('fAd').placeholder =
+    chosenDel === 'local'
+      ? (curLang==='uz' ? "Ko'cha, uy raqami" : 'Улица, дом')
+      : (curLang==='uz' ? "Shahar, ko'cha, uy" : 'Город, улица, дом');
   calcTotal(); goMs(2);
 }
 
 function chQ(d){ qty=Math.max(1,qty+d); document.getElementById('qV').textContent=qty; calcTotal(); }
 
 function calcTotal(){
-  if(!selD) return;
-  const fee={pickup:0,local:C.locFee,region:0}[selD]||0;
-  document.getElementById('tV').textContent=((C.price*qty)+fee).toLocaleString()+' so\'m';
+  if(!chosenDel) return;
+  const fee = {pickup:0, local:C.locFee, region:0}[chosenDel] || 0;
+  document.getElementById('tV').textContent = ((C.price*qty)+fee).toLocaleString() + " so'm";
 }
 
 async function sendAll(txt){
-  if(!C.groups.length){
-    await fetch(`https://api.telegram.org/bot${BOT}/sendMessage`,{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({chat_id:'47115138',text:txt,parse_mode:'Markdown'})
-    }).catch(()=>{});
-    return;
-  }
-  await Promise.allSettled(C.groups.map(g=>
-    fetch(`https://api.telegram.org/bot${BOT}/sendMessage`,{
-      method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({chat_id:g.id,text:txt,parse_mode:'Markdown'})
+  const targets = C.groups.length ? C.groups : [{id:'47115138'}];
+  await Promise.allSettled(targets.map(g=>
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({chat_id:g.id, text:txt, parse_mode:'Markdown'})
     })
   ));
 }
 
 async function doOrder(){
-  const name=document.getElementById('fNm').value.trim();
-  const phone=document.getElementById('fPh').value.trim();
-  const addr=document.getElementById('fAd').value.trim();
-  const na=selD!=='pickup';
-  if(!name||!phone||(na&&!addr)){
-    alert(lang==='uz'?"Iltimos, barcha maydonlarni to'ldiring":"Пожалуйста, заполните все поля");return;
+  const name  = document.getElementById('fNm').value.trim();
+  const phone = document.getElementById('fPh').value.trim();
+  const addr  = document.getElementById('fAd').value.trim();
+  const na    = chosenDel !== 'pickup';
+  if(!name || !phone || (na && !addr)){
+    alert(curLang==='uz' ? "Iltimos, barcha maydonlarni to'ldiring" : "Пожалуйста, заполните все поля");
+    return;
   }
-  const btn=document.getElementById('subBtn');
-  btn.disabled=true;
-  btn.innerHTML=lang==='uz'?'⏳ Yuborilmoqda...':'⏳ Отправка...';
+  const btn = document.getElementById('subBtn');
+  btn.disabled = true;
+  btn.innerHTML = curLang==='uz' ? '⏳ Yuborilmoqda...' : '⏳ Отправка...';
 
-  const fee={pickup:0,local:C.locFee,region:0}[selD]||0;
-  const total=(C.price*qty)+fee;
-  const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida yetkazib berish",region:"Viloyatlarga yetkazib berish"};
+  const fee   = {pickup:0, local:C.locFee, region:0}[chosenDel] || 0;
+  const total = (C.price * qty) + fee;
+  const dn    = {pickup:"Do'kondan olib ketish", local:"Qo'qon ichida yetkazib berish", region:"Viloyatlarga yetkazib berish"};
 
-  const msg=`🛒 *YANGI BUYURTMA!*\n\n`+
-    `📦 *Mahsulot:* ${C.nUz}\n`+
-    `🔢 *Miqdor:* ${qty} dona\n`+
-    `🚚 *Yetkazib berish:* ${dn[selD]}\n`+
-    `👤 *Ism:* ${name}\n`+
-    `📱 *Telefon:* ${phone}\n`+
-    (addr?`📍 *Manzil:* ${addr}\n`:'')+
-    `💰 *Jami:* ${total.toLocaleString()} so'm\n`+
-    `⏰ ${new Date().toLocaleString('uz-UZ')}`;
+  const msg = `🛒 *YANGI BUYURTMA!*\n\n`
+    + `📦 *Mahsulot:* ${C.nUz}\n`
+    + `🔢 *Miqdor:* ${qty} dona\n`
+    + `🚚 *Yetkazib berish:* ${dn[chosenDel]}\n`
+    + `👤 *Ism:* ${name}\n`
+    + `📱 *Telefon:* ${phone}\n`
+    + (addr ? `📍 *Manzil:* ${addr}\n` : '')
+    + `💰 *Jami:* ${total.toLocaleString()} so'm\n`
+    + `⏰ ${new Date().toLocaleString('uz-UZ')}`;
 
   await sendAll(msg);
 
-  orders.push({id:Date.now(),name,phone,addr:addr||'',del:selD,qty,total,time:new Date().toISOString()});
+  orders.push({id:Date.now(), name, phone, addr:addr||'', del:chosenDel, qty, total, time:new Date().toISOString()});
 
-  const ok={uz:`Hurmatli ${name}, buyurtmangiz qabul qilindi! 🎉\nTez orada siz bilan bog'lanamiz.\n📱 ${phone}`,
-            ru:`Уважаемый(ая) ${name}, ваш заказ принят! 🎉\nМы свяжемся с вами в ближайшее время.\n📱 ${phone}`};
-  document.getElementById('sucMsg').textContent=ok[lang];
+  const ok = {
+    uz: `Hurmatli ${name}, buyurtmangiz qabul qilindi! 🎉\nTez orada siz bilan bog'lanamiz.\n📱 ${phone}`,
+    ru: `Уважаемый(ая) ${name}, заказ принят! 🎉\nМы свяжемся с вами в ближайшее время.\n📱 ${phone}`
+  };
+  document.getElementById('sucMsg').textContent = ok[curLang];
   goMs(3);
-  btn.disabled=false;
-  btn.innerHTML=lang==='uz'?'✅ Buyurtma Berish':'✅ Оформить заказ';
+  btn.disabled = false;
+  btn.innerHTML = curLang==='uz' ? '✅ Buyurtma Berish' : '✅ Оформить заказ';
 }
 
-/* ═══ INIT ═══ */
-document.addEventListener('DOMContentLoaded', ()=>{
+/* ─── INIT ─── */
+document.addEventListener('DOMContentLoaded', function(){
   render();
-  // URL orqali admin kirish
-  const p=new URLSearchParams(window.location.search);
-  if(p.get('admin')==='kirish'){
-    window.history.replaceState({},'',window.location.pathname);
+  const p = new URLSearchParams(window.location.search);
+  if(p.get('admin') === 'kirish'){
+    window.history.replaceState({}, '', window.location.pathname);
     openGate();
   }
 });
