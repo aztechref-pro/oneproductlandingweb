@@ -552,35 +552,99 @@ var MAX_IMG    = 800 * 1024;
 /* ═══ CONFIG ═══ */
 /* __CONFIG_START__ */
 var C = {
-  nUz: 'Kuchlanish Himoyachisi B-2188',
-  nRu: '\u041f\u0440\u043e\u0442\u0435\u043a\u0442\u043e\u0440 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f B-2188',
-  badge: '\u26a1 #1 Himoyachi',
-  price: 65000, oldP: 90000, locFee: 10000,
-  shUz: "Qo'qon, AZTECH REF do'koni \u2022 Bepul",
-  shRu: '\u041a\u043e\u043a\u0430\u043d\u0434, AZTECH REF \u2022 \u0411\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e',
-  lcUz: "Bugun yoki ertaga \u2022 10,000 so'm",
-  lcRu: '\u0421\u0435\u0433\u043e\u0434\u043d\u044f \u0438\u043b\u0438 \u0437\u0430\u0432\u0442\u0440\u0430 \u2022 10 000 \u0441\u0443\u043c',
-  hHuz: "Texnikangizni kuchlanish zarbasidan himoya qiling!",
-  hHru: "\u0417\u0430\u0449\u0438\u0442\u0438\u0442\u0435 \u0442\u0435\u0445\u043d\u0438\u043a\u0443 \u043e\u0442 \u0441\u043a\u0430\u0447\u043a\u043e\u0432 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f!",
-  hPuz: "B-2188 \u2014 Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.",
-  hPru: "B-2188 \u2014 \u0443\u043c\u043d\u044b\u0439 \u043f\u0440\u043e\u0442\u0435\u043a\u0442\u043e\u0440 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f \u0434\u043b\u044f \u0445\u043e\u043b\u043e\u0434\u0438\u043b\u044c\u043d\u0438\u043a\u0430, \u0442\u0435\u043b\u0435\u0432\u0438\u0437\u043e\u0440\u0430 \u0438 \u0432\u0441\u0435\u0439 \u0431\u044b\u0442\u043e\u0432\u043e\u0439 \u0442\u0435\u0445\u043d\u0438\u043a\u0438.",
-  imgs: [],
-  groups: [],
-  probs: [
-    { ic: '\u26a1', tu: "To'satdan kuchlanish sakrashi", tr: '\u0421\u043a\u0430\u0447\u043a\u0438 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f', pu: "Elektr tarmo\u011f'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi", pr: '\u0420\u0435\u0437\u043a\u0438\u0435 \u043a\u043e\u043b\u0435\u0431\u0430\u043d\u0438\u044f \u0432 \u0441\u0435\u0442\u0438 \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e \u0432\u044b\u0432\u043e\u0434\u044f\u0442 \u0442\u0435\u0445\u043d\u0438\u043a\u0443 \u0438\u0437 \u0441\u0442\u0440\u043e\u044f' },
-    { ic: '\ud83d\udd0c', tu: "Svet o'chib yonishi", tr: '\u041e\u0442\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u044d\u043b\u0435\u043a\u0442\u0440\u0438\u0447\u0435\u0441\u0442\u0432\u0430', pu: 'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi', pr: '\u041f\u0440\u0438 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0438 \u043f\u0438\u0442\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u043f\u0440\u0435\u0441\u0441\u043e\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0443\u0434\u0430\u0440' },
-    { ic: '\ud83d\udcb8', tu: "Qimmat ta'mirlash", tr: '\u0414\u043e\u0440\u043e\u0433\u043e\u0441\u0442\u043e\u044f\u0449\u0438\u0439 \u0440\u0435\u043c\u043e\u043d\u0442', pu: "Muzlatgich ta'miri 500,000-2,000,000 so'm. Oldini olish atigi 65,000 so'm", pr: '\u0420\u0435\u043c\u043e\u043d\u0442 \u0445\u043e\u043b\u043e\u0434\u0438\u043b\u044c\u043d\u0438\u043a\u0430 \u043e\u0442 500 000 \u0441\u0443\u043c. \u0417\u0430\u0449\u0438\u0442\u0430 \u0441\u0442\u043e\u0438\u0442 65 000 \u0441\u0443\u043c' }
+  "nUz": "Kuchlanish Himoyachisi B-2188",
+  "nRu": "Протектор напряжения B-2188",
+  "badge": "⚡ #1 Himoyachi",
+  "price": 65000,
+  "oldP": 90000,
+  "locFee": 10000,
+  "shUz": "Qo'qon, AZTECH REF do'koni • Bepul",
+  "shRu": "Коканд, AZTECH REF • Бесплатно",
+  "lcUz": "Bugun yoki ertaga • 10,000 so'm",
+  "lcRu": "Сегодня или завтра • 10 000 сум",
+  "hHuz": "Texnikangizni kuchlanish zarbasidan himoya qiling!",
+  "hHru": "Защитите технику от скачков напряжения!",
+  "hPuz": "B-2188 — Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.",
+  "hPru": "B-2188 — умный протектор напряжения для холодильника, телевизора и всей бытовой техники.",
+  "imgs": [],
+  "groups": [
+    {
+      "id": "-1003721108440",
+      "name": "TEST GROUP AZTECH REF"
+    }
   ],
-  sols: [
-    { ic: '\ud83d\udee1\ufe0f', tu: 'Avtomatik uzish', tr: '\u0410\u0432\u0442\u043e-\u043e\u0442\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435', pu: "175V pastga tushsa yoki 260V dan oshsa \u2014 darhol uzilib qoladi", pr: '\u041f\u0440\u0438 \u0432\u044b\u0445\u043e\u0434\u0435 \u0437\u0430 175-260V \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e \u043e\u0442\u043a\u043b\u044e\u0447\u0430\u0435\u0442 \u043f\u0438\u0442\u0430\u043d\u0438\u0435' },
-    { ic: '\u23f1\ufe0f', tu: "Aqlli kechiktirish", tr: '\u0423\u043c\u043d\u0430\u044f \u0437\u0430\u0434\u0435\u0440\u0436\u043a\u0430', pu: "Svet kelgandan 4-5 daqiqa o'tib ulaydi \u2014 kompressor uchun xavfsiz", pr: '\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0430\u0435\u0442 \u043f\u0438\u0442\u0430\u043d\u0438\u0435 \u0447\u0435\u0440\u0435\u0437 4-5 \u043c\u0438\u043d \u2014 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e' },
-    { ic: '\ud83d\udca1', tu: "LED ko'rsatkichlar", tr: 'LED \u0438\u043d\u0434\u0438\u043a\u0430\u0442\u043e\u0440\u044b', pu: "3 rangli LED: himoya, kechiktirish, normal ishlash", pr: '3 \u0446\u0432\u0435\u0442\u0430 LED: \u0437\u0430\u0449\u0438\u0442\u0430, \u0437\u0430\u0434\u0435\u0440\u0436\u043a\u0430, \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430' },
-    { ic: '\ud83d\udd27', tu: 'Kuchli quvvat', tr: '\u0412\u044b\u0441\u043e\u043a\u0430\u044f \u043c\u043e\u0449\u043d\u043e\u0441\u0442\u044c', pu: '16A / 2500W \u2014 muzlatgich, konditsioner, suv pompasi uchun', pr: '16A / 2500W \u2014 \u0434\u043b\u044f \u0445\u043e\u043b\u043e\u0434\u0438\u043b\u044c\u043d\u0438\u043a\u0430, \u043a\u043e\u043d\u0434\u0438\u0446\u0438\u043e\u043d\u0435\u0440\u0430, \u043d\u0430\u0441\u043e\u0441\u0430' }
+  "probs": [
+    {
+      "ic": "⚡",
+      "tu": "To'satdan kuchlanish sakrashi",
+      "tr": "Скачки напряжения",
+      "pu": "Elektr tarmoğ'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi",
+      "pr": "Резкие колебания в сети мгновенно выводят технику из строя"
+    },
+    {
+      "ic": "🔌",
+      "tu": "Svet o'chib yonishi",
+      "tr": "Отключения электричества",
+      "pu": "Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi",
+      "pr": "При восстановлении питания компрессор получает удар"
+    },
+    {
+      "ic": "💸",
+      "tu": "Qimmat ta'mirlash",
+      "tr": "Дорогостоящий ремонт",
+      "pu": "Muzlatgich ta'miri 500,000-2,000,000 so'm. Oldini olish atigi 65,000 so'm",
+      "pr": "Ремонт холодильника от 500 000 сум. Защита стоит 65 000 сум"
+    }
   ],
-  stps: [
-    { tu: 'Rozetkaga ulang', tr: '\u0412\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0432 \u0440\u043e\u0437\u0435\u0442\u043a\u0443', pu: "B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang", pr: '\u0412\u0441\u0442\u0430\u0432\u044c\u0442\u0435 B-2188 \u043d\u0430\u043f\u0440\u044f\u043c\u0443\u044e \u0432 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u0443\u044e \u0440\u043e\u0437\u0435\u0442\u043a\u0443 220V' },
-    { tu: 'Texnikani ulang', tr: '\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u0435 \u0442\u0435\u0445\u043d\u0438\u043a\u0443', pu: "Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang", pr: '\u0412\u0438\u043b\u043a\u0443 \u0445\u043e\u043b\u043e\u0434\u0438\u043b\u044c\u043d\u0438\u043a\u0430 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u0435 \u043a B-2188' },
-    { tu: "Ishlatavering \u2014 himoya avtomatik!", tr: '\u041f\u043e\u043b\u044c\u0437\u0443\u0439\u0442\u0435\u0441\u044c \u2014 \u0437\u0430\u0449\u0438\u0442\u0430 \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f!', pu: "Yashil LED \u2014 normal. Qizil LED \u2014 himoya ishga tushgan", pr: '\u0417\u0435\u043b\u0451\u043d\u044b\u0439 LED \u2014 \u043d\u043e\u0440\u043c\u0430. \u041a\u0440\u0430\u0441\u043d\u044b\u0439 LED \u2014 \u0437\u0430\u0449\u0438\u0442\u0430 \u0430\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u0430' }
+  "sols": [
+    {
+      "ic": "🛡️",
+      "tu": "Avtomatik uzish",
+      "tr": "Авто-отключение",
+      "pu": "175V pastga tushsa yoki 260V dan oshsa — darhol uzilib qoladi",
+      "pr": "При выходе за 175-260V мгновенно отключает питание"
+    },
+    {
+      "ic": "⏱️",
+      "tu": "Aqlli kechiktirish",
+      "tr": "Умная задержка",
+      "pu": "Svet kelgandan 4-5 daqiqa o'tib ulaydi — kompressor uchun xavfsiz",
+      "pr": "Подключает питание через 4-5 мин — безопасно"
+    },
+    {
+      "ic": "💡",
+      "tu": "LED ko'rsatkichlar",
+      "tr": "LED индикаторы",
+      "pu": "3 rangli LED: himoya, kechiktirish, normal ishlash",
+      "pr": "3 цвета LED: защита, задержка, нормальная работа"
+    },
+    {
+      "ic": "🔧",
+      "tu": "Kuchli quvvat",
+      "tr": "Высокая мощность",
+      "pu": "16A / 2500W — muzlatgich, konditsioner, suv pompasi uchun",
+      "pr": "16A / 2500W — для холодильника, кондиционера, насоса"
+    }
+  ],
+  "stps": [
+    {
+      "tu": "Rozetkaga ulang",
+      "tr": "Вставьте в розетку",
+      "pu": "B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang",
+      "pr": "Вставьте B-2188 напрямую в стандартную розетку 220V"
+    },
+    {
+      "tu": "Texnikani ulang",
+      "tr": "Подключите технику",
+      "pu": "Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang",
+      "pr": "Вилку холодильника подключите к B-2188"
+    },
+    {
+      "tu": "Ishlatavering — himoya avtomatik!",
+      "tr": "Пользуйтесь — защита автоматическая!",
+      "pu": "Yashil LED — normal. Qizil LED — himoya ishga tushgan",
+      "pr": "Зелёный LED — норма. Красный LED — защита активирована"
+    }
   ]
 };
 /* __CONFIG_END__ */
