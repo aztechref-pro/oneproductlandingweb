@@ -5,214 +5,214 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>B-2188 Kuchlanish Himoyachisi</title>
 <style>
-:root {
-  --pr: #1a73e8;
-  --pd: #1255cc;
-  --ac: #f59e0b;
-  --dk: #0f172a;
-  --gr: #64748b;
-  --lt: #f8fafc;
-  --ok: #10b981;
-  --er: #ef4444;
-}
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', system-ui, sans-serif; background: #fff; color: var(--dk); }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #ffffff; color: #0f172a; }
 
-/* ADMIN GATE */
-#aGate { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.8); z-index: 9999; align-items: center; justify-content: center; }
+/* ── ADMIN GATE ── */
+#aGate { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center; }
 #aGate.on { display: flex; }
-.gate { background: #fff; border-radius: 20px; padding: 40px 32px; width: 340px; text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,.35); }
+.gate { background: #ffffff; border-radius: 20px; padding: 40px 32px; width: 340px; text-align: center; box-shadow: 0 24px 64px rgba(0,0,0,0.35); }
 .gate h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
-.gate p.sub { font-size: 13px; color: var(--gr); margin-bottom: 24px; }
-.gate input { width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 16px; text-align: center; letter-spacing: 3px; outline: none; margin-bottom: 12px; }
-.gate input:focus { border-color: var(--pr); }
-.gate .gbtn { width: 100%; background: var(--pr); color: #fff; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
-.gate .gbtn:hover { background: var(--pd); }
-#gErr { color: var(--er); font-size: 13px; margin-top: 10px; display: none; }
+.gate .gate-sub { font-size: 13px; color: #64748b; margin-bottom: 24px; }
+.gate input { width: 100%; padding: 14px; border: 1.5px solid #e2e8f0; border-radius: 10px; font-size: 16px; text-align: center; letter-spacing: 3px; outline: none; margin-bottom: 12px; font-family: inherit; }
+.gate input:focus { border-color: #1a73e8; }
+.gate .gbtn { width: 100%; background: #1a73e8; color: #ffffff; border: none; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.gate .gbtn:hover { background: #1255cc; }
+#gErr { color: #ef4444; font-size: 13px; margin-top: 10px; display: none; }
 
-/* ADMIN PANEL */
+/* ── ADMIN PANEL ── */
 #aPanel { display: none; position: fixed; inset: 0; background: #f1f5f9; z-index: 9000; overflow-y: auto; }
 #aPanel.on { display: block; }
-.ap-hd { background: var(--dk); color: #fff; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+.ap-hd { background: #0f172a; color: #ffffff; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
 .ap-hd h1 { font-size: 17px; font-weight: 800; }
-.ap-hd-x { background: var(--er); color: #fff; border: none; padding: 8px 18px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 14px; }
-.ap-tabs { display: flex; padding: 0 16px; background: #fff; border-bottom: 2px solid #e2e8f0; position: sticky; top: 53px; z-index: 9; overflow-x: auto; gap: 2px; }
-.ap-tab { padding: 12px 15px; border: none; background: none; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--gr); border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; }
-.ap-tab.on { color: var(--pr); border-color: var(--pr); }
+.ap-hd-x { background: #ef4444; color: #ffffff; border: none; padding: 8px 18px; border-radius: 8px; cursor: pointer; font-weight: 700; font-size: 14px; }
+.ap-tabs { display: flex; padding: 0 16px; background: #ffffff; border-bottom: 2px solid #e2e8f0; position: sticky; top: 53px; z-index: 9; overflow-x: auto; gap: 2px; }
+.ap-tab { padding: 12px 15px; border: none; background: none; cursor: pointer; font-size: 13px; font-weight: 600; color: #64748b; border-bottom: 3px solid transparent; margin-bottom: -2px; white-space: nowrap; }
+.ap-tab.on { color: #1a73e8; border-color: #1a73e8; }
 .ap-bd { padding: 20px; max-width: 900px; margin: 0 auto; }
 .ap-sec { display: none; }
 .ap-sec.on { display: block; }
-.card { background: #fff; border-radius: 14px; padding: 22px; margin-bottom: 14px; box-shadow: 0 1px 6px rgba(0,0,0,.07); }
+.card { background: #ffffff; border-radius: 14px; padding: 22px; margin-bottom: 14px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
 .card h3 { font-size: 15px; font-weight: 700; margin-bottom: 16px; }
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media(max-width: 560px) { .row2 { grid-template-columns: 1fr; } }
 .fg { margin-bottom: 12px; }
-.fg label { font-size: 11px; font-weight: 700; color: var(--gr); display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: .5px; }
-.fg input, .fg textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; font-family: inherit; transition: border .2s; background: #fff; }
-.fg input:focus, .fg textarea:focus { border-color: var(--pr); }
+.fg label { font-size: 11px; font-weight: 700; color: #64748b; display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+.fg input, .fg textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; font-family: inherit; transition: border 0.2s; background: #ffffff; }
+.fg input:focus, .fg textarea:focus { border-color: #1a73e8; }
 .fg textarea { resize: vertical; min-height: 72px; }
-.btn-ok { background: var(--ok); color: #fff; border: none; padding: 11px 26px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
-.btn-pr { background: var(--pr); color: #fff; border: none; padding: 11px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
-.btn-dk { background: var(--dk); color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+.btn-ok { background: #10b981; color: #ffffff; border: none; padding: 11px 26px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+.btn-ok:hover { background: #059669; }
+.btn-pr { background: #1a73e8; color: #ffffff; border: none; padding: 11px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+.btn-pr:hover { background: #1255cc; }
+.btn-dk { background: #0f172a; color: #ffffff; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px; }
+.btn-dk:hover { background: #1e293b; }
 .sm { display: none; font-size: 13px; font-weight: 600; margin-left: 12px; }
-.sm.ok { color: var(--ok); }
-.sm.er { color: var(--er); }
+.sm.ok { color: #10b981; }
+.sm.er { color: #ef4444; }
 
 /* Image manager */
-.img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 16px; min-height: 10px; }
 .img-item { position: relative; border-radius: 10px; overflow: hidden; border: 2px solid #e2e8f0; background: #f8fafc; }
-.img-item img { width: 100%; height: 100px; object-fit: contain; display: block; background: #fff; }
-.img-lbl { font-size: 10px; color: var(--gr); padding: 4px 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.img-x { position: absolute; top: 4px; right: 4px; background: var(--er); color: #fff; border: none; border-radius: 50%; width: 22px; height: 22px; cursor: pointer; font-size: 13px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.img-item img { width: 100%; height: 100px; object-fit: contain; display: block; background: #ffffff; }
+.img-lbl { font-size: 10px; color: #64748b; padding: 4px 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.img-x { position: absolute; top: 4px; right: 4px; background: #ef4444; color: #ffffff; border: none; border-radius: 50%; width: 22px; height: 22px; cursor: pointer; font-size: 13px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 .itabs { display: flex; gap: 6px; margin-bottom: 14px; }
-.itab { padding: 7px 16px; border-radius: 20px; border: 1.5px solid #e2e8f0; background: #fff; font-size: 13px; font-weight: 600; cursor: pointer; color: var(--gr); }
-.itab.on { background: var(--pr); color: #fff; border-color: var(--pr); }
+.itab { padding: 7px 16px; border-radius: 20px; border: 1.5px solid #e2e8f0; background: #ffffff; font-size: 13px; font-weight: 600; cursor: pointer; color: #64748b; }
+.itab.on { background: #1a73e8; color: #ffffff; border-color: #1a73e8; }
 .ipanel { display: none; }
 .ipanel.on { display: block; }
-.upload-area { border: 2px dashed #cbd5e1; border-radius: 10px; padding: 28px; text-align: center; cursor: pointer; transition: all .2s; background: #fff; }
-.upload-area:hover { border-color: var(--pr); background: #eff6ff; }
+.upload-area { border: 2px dashed #cbd5e1; border-radius: 10px; padding: 28px; text-align: center; cursor: pointer; transition: all 0.2s; background: #ffffff; }
+.upload-area:hover { border-color: #1a73e8; background: #eff6ff; }
 .upload-area input { display: none; }
 .upload-ico { font-size: 36px; margin-bottom: 8px; }
-.upload-area p { font-size: 13px; color: var(--gr); line-height: 1.6; }
-.upload-area strong { color: var(--pr); }
+.upload-area p { font-size: 13px; color: #64748b; line-height: 1.6; }
+.upload-area strong { color: #1a73e8; }
 .url-row { display: flex; gap: 8px; }
-.url-row input { flex: 1; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 13px; outline: none; }
-.url-row input:focus { border-color: var(--pr); }
+.url-row input { flex: 1; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 13px; outline: none; font-family: inherit; }
+.url-row input:focus { border-color: #1a73e8; }
 .url-prev { width: 100%; max-height: 110px; object-fit: contain; border-radius: 8px; border: 1px solid #e2e8f0; display: none; margin-top: 10px; background: #f8fafc; }
 
 /* Groups */
-.g-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.g-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; min-height: 10px; }
 .g-item { display: flex; align-items: center; justify-content: space-between; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px; }
 .g-name { font-size: 14px; font-weight: 700; }
-.g-id { font-size: 12px; color: var(--gr); font-family: monospace; }
-.g-del { background: var(--er); color: #fff; border: none; border-radius: 6px; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; }
-.g-add-row { display: flex; gap: 8px; flex-wrap: wrap; }
-.g-add-row input { flex: 1; min-width: 140px; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; }
-.g-add-row input:focus { border-color: var(--pr); }
-.note { font-size: 12px; color: var(--gr); margin-top: 12px; padding: 12px 14px; background: #eff6ff; border-radius: 8px; line-height: 1.7; border: 1px solid #bfdbfe; }
+.g-id { font-size: 12px; color: #64748b; font-family: monospace; }
+.g-del { background: #ef4444; color: #ffffff; border: none; border-radius: 6px; padding: 5px 12px; cursor: pointer; font-size: 12px; font-weight: 700; }
+.g-add-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.g-add-row input { flex: 1; min-width: 140px; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-size: 14px; outline: none; font-family: inherit; }
+.g-add-row input:focus { border-color: #1a73e8; }
+.note { font-size: 12px; color: #64748b; margin-top: 12px; padding: 12px 14px; background: #eff6ff; border-radius: 8px; line-height: 1.7; border: 1px solid #bfdbfe; }
 .note code { background: #dbeafe; padding: 1px 5px; border-radius: 4px; font-size: 11px; }
+.detect-box { background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+.detect-box h4 { font-size: 14px; font-weight: 700; color: #166534; margin-bottom: 8px; }
+.detect-box p { font-size: 12px; color: #166534; margin-bottom: 12px; line-height: 1.6; }
+#detectResult { margin-top: 10px; }
+.detect-group-item { display: flex; align-items: center; justify-content: space-between; background: #ffffff; border: 1px solid #86efac; border-radius: 8px; padding: 10px 12px; margin-bottom: 6px; }
+.detect-add-btn { background: #10b981; color: #ffffff; border: none; padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+.detect-add-btn:disabled { background: #64748b; cursor: not-allowed; }
 
 /* GitHub */
 .gh-step-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.gh-step { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--gr); background: #f8fafc; padding: 10px 12px; border-radius: 8px; line-height: 1.6; }
-.gh-n { min-width: 22px; height: 22px; border-radius: 50%; background: var(--pr); color: #fff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.gh-step { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: #64748b; background: #f8fafc; padding: 10px 12px; border-radius: 8px; line-height: 1.6; }
+.gh-n { min-width: 22px; height: 22px; border-radius: 50%; background: #1a73e8; color: #ffffff; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
 .gh-st { font-size: 13px; margin-top: 12px; padding: 12px 14px; border-radius: 8px; display: none; line-height: 1.6; }
 .gh-st.ok { display: block; background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
 .gh-st.er { display: block; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
-.gh-st.ld { display: block; background: #eff6ff; color: var(--pr); border: 1px solid #bfdbfe; }
+.gh-st.ld { display: block; background: #eff6ff; color: #1a73e8; border: 1px solid #bfdbfe; }
 
 /* Orders */
 .ord-wrap { overflow-x: auto; }
 .ord-tbl { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 620px; }
-.ord-tbl th { background: var(--dk); color: #fff; padding: 10px 12px; text-align: left; font-weight: 600; }
+.ord-tbl th { background: #0f172a; color: #ffffff; padding: 10px 12px; text-align: left; font-weight: 600; }
 .ord-tbl td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
 .ord-tbl tr:hover td { background: #f8fafc; }
-.no-ord { text-align: center; padding: 48px; color: var(--gr); }
+.no-ord { text-align: center; padding: 48px; color: #64748b; }
 
-/* LANDING */
-.lang-bar { background: var(--dk); padding: 9px 20px; display: flex; justify-content: flex-end; gap: 8px; }
-.lb { background: transparent; border: 1px solid rgba(255,255,255,.25); color: #fff; padding: 5px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .2s; }
-.lb.on { background: var(--pr); border-color: var(--pr); }
+/* ── LANDING ── */
+.lang-bar { background: #0f172a; padding: 9px 20px; display: flex; justify-content: flex-end; gap: 8px; }
+.lb { background: transparent; border: 1px solid rgba(255,255,255,0.25); color: #ffffff; padding: 5px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.2s; }
+.lb.on { background: #1a73e8; border-color: #1a73e8; }
 
-.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #1a73e8 100%); padding: 52px 20px 60px; text-align: center; color: #fff; position: relative; overflow: hidden; }
-.badge { display: inline-block; background: var(--ac); color: #000; font-size: 12px; font-weight: 700; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; }
+.hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #1a73e8 100%); padding: 52px 20px 60px; text-align: center; color: #ffffff; position: relative; overflow: hidden; }
+.badge { display: inline-block; background: #f59e0b; color: #000000; font-size: 12px; font-weight: 700; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; }
 .hero h1 { font-size: clamp(22px, 5vw, 42px); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
-.hero h1 em { color: var(--ac); font-style: normal; }
-.hero-p { font-size: clamp(14px, 2vw, 17px); opacity: .85; max-width: 540px; margin: 0 auto 30px; line-height: 1.6; }
-.hcta { background: var(--ac); color: #000; font-weight: 800; font-size: 16px; padding: 15px 40px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 22px rgba(245,158,11,.45); transition: transform .2s; }
+.hero h1 em { color: #f59e0b; font-style: normal; }
+.hero-p { font-size: clamp(14px, 2vw, 17px); opacity: 0.85; max-width: 540px; margin: 0 auto 30px; line-height: 1.6; }
+.hcta { background: #f59e0b; color: #000000; font-weight: 800; font-size: 16px; padding: 15px 40px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 22px rgba(245,158,11,0.45); transition: transform 0.2s; }
 .hcta:hover { transform: translateY(-2px); }
 
 .sl-wrap { max-width: 380px; margin: 38px auto 0; position: relative; }
-.sl-track { overflow: hidden; border-radius: 14px; box-shadow: 0 20px 56px rgba(0,0,0,.5); background: #fff; }
-.sl-inner { display: flex; transition: transform .45s ease; }
+.sl-track { overflow: hidden; border-radius: 14px; box-shadow: 0 20px 56px rgba(0,0,0,0.5); background: #ffffff; }
+.sl-inner { display: flex; transition: transform 0.45s ease; }
 .sl-slide { min-width: 100%; flex-shrink: 0; }
-.sl-slide img { width: 100%; height: 264px; object-fit: contain; display: block; background: #fff; }
+.sl-slide img { width: 100%; height: 264px; object-fit: contain; display: block; background: #ffffff; }
 .sl-dots { display: flex; justify-content: center; gap: 8px; margin-top: 12px; }
-.sl-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.3); cursor: pointer; transition: background .2s; }
-.sl-dot.on { background: #fff; }
-.sl-btn { position: absolute; top: 132px; background: rgba(0,0,0,.42); color: #fff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background .2s; }
-.sl-btn:hover { background: rgba(0,0,0,.7); }
+.sl-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: background 0.2s; }
+.sl-dot.on { background: #ffffff; }
+.sl-btn { position: absolute; top: 132px; background: rgba(0,0,0,0.42); color: #ffffff; border: none; border-radius: 50%; width: 34px; height: 34px; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background 0.2s; }
+.sl-btn:hover { background: rgba(0,0,0,0.7); }
 #slL { left: 6px; }
 #slR { right: 6px; }
 
 .section { padding: 54px 20px; }
 .ctr { max-width: 720px; margin: 0 auto; }
 .sec-title { font-size: clamp(20px, 3.5vw, 28px); font-weight: 800; text-align: center; margin-bottom: 8px; }
-.sec-sub { text-align: center; color: var(--gr); margin-bottom: 34px; font-size: 14px; }
+.sec-sub { text-align: center; color: #64748b; margin-bottom: 34px; font-size: 14px; }
 .bg-prob { background: #fff5f5; }
-.bg-sol { background: var(--lt); }
+.bg-sol { background: #f8fafc; }
 .bg-spec { background: #f0f7ff; }
-.bg-price { background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #fff; }
+.bg-price { background: linear-gradient(135deg, #0f172a, #1e3a5f); color: #ffffff; }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
-.prob-card { background: #fff; border: 1px solid #fecaca; border-radius: 13px; padding: 18px; text-align: center; }
+.prob-card { background: #ffffff; border: 1px solid #fecaca; border-radius: 13px; padding: 18px; text-align: center; }
 .prob-card .ic { font-size: 30px; margin-bottom: 8px; }
-.prob-card h3 { font-size: 14px; font-weight: 700; color: var(--er); margin-bottom: 5px; }
-.prob-card p { font-size: 13px; color: var(--gr); line-height: 1.5; }
-.sol-card { background: #fff; border: 1px solid #bbf7d0; border-radius: 13px; padding: 18px; text-align: center; }
+.prob-card h3 { font-size: 14px; font-weight: 700; color: #ef4444; margin-bottom: 5px; }
+.prob-card p { font-size: 13px; color: #64748b; line-height: 1.5; }
+.sol-card { background: #ffffff; border: 1px solid #bbf7d0; border-radius: 13px; padding: 18px; text-align: center; }
 .sol-card .ic { font-size: 30px; margin-bottom: 8px; }
-.sol-card h3 { font-size: 14px; font-weight: 700; color: var(--ok); margin-bottom: 5px; }
-.sol-card p { font-size: 13px; color: var(--gr); line-height: 1.5; }
+.sol-card h3 { font-size: 14px; font-weight: 700; color: #10b981; margin-bottom: 5px; }
+.sol-card p { font-size: 13px; color: #64748b; line-height: 1.5; }
 
 .steps-list { display: flex; flex-direction: column; gap: 14px; }
-.step-item { display: flex; align-items: flex-start; gap: 14px; background: var(--lt); border-radius: 13px; padding: 16px; }
-.step-num { min-width: 34px; height: 34px; border-radius: 50%; background: var(--pr); color: #fff; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-item { display: flex; align-items: flex-start; gap: 14px; background: #f8fafc; border-radius: 13px; padding: 16px; }
+.step-num { min-width: 34px; height: 34px; border-radius: 50%; background: #1a73e8; color: #ffffff; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .step-txt h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-.step-txt p { font-size: 13px; color: var(--gr); line-height: 1.5; }
+.step-txt p { font-size: 13px; color: #64748b; line-height: 1.5; }
 
 .spec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
-.spec-item { background: #fff; border-radius: 11px; padding: 14px; text-align: center; border: 1px solid #bfdbfe; }
-.spec-val { font-size: 20px; font-weight: 800; color: var(--pr); }
-.spec-lbl { font-size: 11px; color: var(--gr); margin-top: 3px; }
+.spec-item { background: #ffffff; border-radius: 11px; padding: 14px; text-align: center; border: 1px solid #bfdbfe; }
+.spec-val { font-size: 20px; font-weight: 800; color: #1a73e8; }
+.spec-lbl { font-size: 11px; color: #64748b; margin-top: 3px; }
 
-.price-box { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 34px; text-align: center; max-width: 440px; margin: 0 auto; }
-.old-pr { font-size: 16px; text-decoration: line-through; opacity: .4; margin-bottom: 4px; }
-.new-pr { font-size: 50px; font-weight: 900; color: var(--ac); line-height: 1; }
+.price-box { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; padding: 34px; text-align: center; max-width: 440px; margin: 0 auto; }
+.old-pr { font-size: 16px; text-decoration: line-through; opacity: 0.4; margin-bottom: 4px; }
+.new-pr { font-size: 50px; font-weight: 900; color: #f59e0b; line-height: 1; }
 .new-pr span { font-size: 18px; }
-.pr-note { font-size: 13px; opacity: .6; margin: 8px 0 22px; line-height: 1.5; }
-.bcta { display: block; width: 100%; background: var(--ac); color: #000; font-weight: 800; font-size: 17px; padding: 16px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 22px rgba(245,158,11,.4); transition: transform .2s; }
+.pr-note { font-size: 13px; opacity: 0.6; margin: 8px 0 22px; line-height: 1.5; }
+.bcta { display: block; width: 100%; background: #f59e0b; color: #000000; font-weight: 800; font-size: 17px; padding: 16px; border-radius: 50px; border: none; cursor: pointer; box-shadow: 0 4px 22px rgba(245,158,11,0.4); transition: transform 0.2s; }
 .bcta:hover { transform: translateY(-2px); }
 .del-badges { display: flex; justify-content: center; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
-.del-badge { background: rgba(255,255,255,.1); border-radius: 20px; padding: 5px 14px; font-size: 12px; }
+.del-badge { background: rgba(255,255,255,0.1); border-radius: 20px; padding: 5px 14px; font-size: 12px; }
 
-footer { background: var(--dk); color: #fff; padding: 24px 20px; text-align: center; }
-footer p { font-size: 13px; opacity: .4; }
+footer { background: #0f172a; color: #ffffff; padding: 24px 20px; text-align: center; }
+footer p { font-size: 13px; opacity: 0.4; }
 
-/* ORDER MODAL */
-.mov { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.62); z-index: 5000; align-items: center; justify-content: center; padding: 16px; }
+/* ── ORDER MODAL ── */
+.mov { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.62); z-index: 5000; align-items: center; justify-content: center; padding: 16px; }
 .mov.on { display: flex; }
-.mod { background: #fff; border-radius: 18px; padding: 28px; width: 100%; max-width: 420px; position: relative; max-height: 92vh; overflow-y: auto; }
+.mod { background: #ffffff; border-radius: 18px; padding: 28px; width: 100%; max-width: 420px; position: relative; max-height: 92vh; overflow-y: auto; }
 .mod h2 { font-size: 18px; font-weight: 800; margin-bottom: 5px; }
-.mod-sub { font-size: 13px; color: var(--gr); margin-bottom: 18px; }
-.mod-x { position: absolute; top: 12px; right: 14px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--gr); line-height: 1; }
+.mod-sub { font-size: 13px; color: #64748b; margin-bottom: 18px; }
+.mod-x { position: absolute; top: 12px; right: 14px; background: none; border: none; font-size: 24px; cursor: pointer; color: #64748b; line-height: 1; }
 .fst { display: none; }
 .fst.on { display: block; }
 .del-opts { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
-.del-opt { border: 2px solid #e2e8f0; border-radius: 11px; padding: 13px; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: all .2s; }
-.del-opt:hover { border-color: var(--pr); background: #f0f7ff; }
-.del-opt.on { border-color: var(--pr); background: #eff6ff; }
+.del-opt { border: 2px solid #e2e8f0; border-radius: 11px; padding: 13px; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: all 0.2s; }
+.del-opt:hover { border-color: #1a73e8; background: #f0f7ff; }
+.del-opt.on { border-color: #1a73e8; background: #eff6ff; }
 .del-ic { font-size: 22px; }
 .del-opt h4 { font-size: 13px; font-weight: 700; }
-.del-opt p { font-size: 12px; color: var(--gr); }
+.del-opt p { font-size: 12px; color: #64748b; }
 .mfg { margin-bottom: 12px; }
 .mfg label { font-size: 13px; font-weight: 600; display: block; margin-bottom: 5px; }
-.mfg input { width: 100%; padding: 12px 13px; border: 1.5px solid #e2e8f0; border-radius: 9px; font-size: 14px; outline: none; font-family: inherit; transition: border .2s; }
-.mfg input:focus { border-color: var(--pr); }
+.mfg input { width: 100%; padding: 12px 13px; border: 1.5px solid #e2e8f0; border-radius: 9px; font-size: 14px; outline: none; font-family: inherit; transition: border 0.2s; }
+.mfg input:focus { border-color: #1a73e8; }
 .qty-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-.qty-btn { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid #e2e8f0; background: #fff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700; transition: all .2s; }
-.qty-btn:hover { border-color: var(--pr); color: var(--pr); }
+.qty-btn { width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid #e2e8f0; background: #ffffff; font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: 700; transition: all 0.2s; }
+.qty-btn:hover { border-color: #1a73e8; color: #1a73e8; }
 .qty-val { font-size: 17px; font-weight: 800; min-width: 24px; text-align: center; }
 .total-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid #e2e8f0; margin-bottom: 14px; }
-.total-val { font-size: 21px; font-weight: 800; color: var(--pr); }
-.msb { width: 100%; background: var(--pr); color: #fff; font-weight: 700; font-size: 15px; padding: 14px; border-radius: 50px; border: none; cursor: pointer; transition: background .2s; }
-.msb:hover { background: var(--pd); }
+.total-val { font-size: 21px; font-weight: 800; color: #1a73e8; }
+.msb { width: 100%; background: #1a73e8; color: #ffffff; font-weight: 700; font-size: 15px; padding: 14px; border-radius: 50px; border: none; cursor: pointer; transition: background 0.2s; }
+.msb:hover { background: #1255cc; }
 .msb:disabled { background: #94a3b8; cursor: not-allowed; }
 .succ-box { text-align: center; padding: 20px 0; }
 .succ-box .ck { font-size: 54px; margin-bottom: 12px; }
 .succ-box h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
-.succ-box p { color: var(--gr); font-size: 13px; line-height: 1.7; }
+.succ-box p { color: #64748b; font-size: 13px; line-height: 1.7; }
 
-/* TIL */
+/* ── TIL (Language) ── */
 .uz { display: block; }
 .ru { display: none; }
 span.uz { display: inline; }
@@ -228,33 +228,34 @@ body.lang-ru span.ru { display: inline; }
 <!-- ADMIN GATE -->
 <div id="aGate">
   <div class="gate">
-    <h3>🔐 Admin Panel</h3>
-    <p class="sub">AZTECH REF boshqaruv tizimi</p>
+    <h3>&#128272; Admin Panel</h3>
+    <p class="gate-sub">AZTECH REF boshqaruv tizimi</p>
     <input type="password" id="pwIn" placeholder="Parol" onkeydown="if(event.key==='Enter')doPw()">
-    <button class="gbtn" onclick="doPw()">Kirish →</button>
-    <p id="gErr">❌ Parol noto'g'ri</p>
+    <button class="gbtn" onclick="doPw()">Kirish &#8594;</button>
+    <p id="gErr">&#10060; Parol noto'g'ri</p>
   </div>
 </div>
 
 <!-- ADMIN PANEL -->
 <div id="aPanel">
   <div class="ap-hd">
-    <h1>⚙️ Admin Panel — B-2188</h1>
-    <button class="ap-hd-x" onclick="closeAP()">✕ Yopish</button>
+    <h1>&#9881; Admin Panel &#8212; B-2188</h1>
+    <button class="ap-hd-x" onclick="closeAP()">&#10005; Yopish</button>
   </div>
   <div class="ap-tabs">
-    <button class="ap-tab on" onclick="apTab(0)">📦 Mahsulot</button>
-    <button class="ap-tab"   onclick="apTab(1)">📝 Matnlar</button>
-    <button class="ap-tab"   onclick="apTab(2)">🖼️ Rasmlar</button>
-    <button class="ap-tab"   onclick="apTab(3)">💬 Guruhlar</button>
-    <button class="ap-tab"   onclick="apTab(4)">🛒 Buyurtmalar</button>
-    <button class="ap-tab"   onclick="apTab(5)">🐙 GitHub</button>
+    <button class="ap-tab on" onclick="apTab(0)">&#128230; Mahsulot</button>
+    <button class="ap-tab"   onclick="apTab(1)">&#128221; Matnlar</button>
+    <button class="ap-tab"   onclick="apTab(2)">&#128444; Rasmlar</button>
+    <button class="ap-tab"   onclick="apTab(3)">&#128172; Guruhlar</button>
+    <button class="ap-tab"   onclick="apTab(4)">&#128722; Buyurtmalar</button>
+    <button class="ap-tab"   onclick="apTab(5)">&#128025; GitHub</button>
   </div>
   <div class="ap-bd">
 
+    <!-- 0: MAHSULOT -->
     <div class="ap-sec on" id="s0">
       <div class="card">
-        <h3>💰 Narh va Mahsulot</h3>
+        <h3>&#128176; Narh va Mahsulot</h3>
         <div class="row2">
           <div class="fg"><label>Nomi (UZ)</label><input id="f-nUz"></div>
           <div class="fg"><label>Nomi (RU)</label><input id="f-nRu"></div>
@@ -269,7 +270,7 @@ body.lang-ru span.ru { display: inline; }
         </div>
       </div>
       <div class="card">
-        <h3>🏪 Yetkazib berish</h3>
+        <h3>&#127978; Yetkazib berish</h3>
         <div class="row2">
           <div class="fg"><label>Do'kon tavsifi (UZ)</label><input id="f-shUz"></div>
           <div class="fg"><label>Do'kon tavsifi (RU)</label><input id="f-shRu"></div>
@@ -279,42 +280,44 @@ body.lang-ru span.ru { display: inline; }
           <div class="fg"><label>Qo'qon delivery (RU)</label><input id="f-lcRu"></div>
         </div>
       </div>
-      <button class="btn-ok" onclick="saveSec(0)">💾 Saqlash</button>
+      <button class="btn-ok" onclick="saveSec(0)">&#128190; Saqlash</button>
       <span class="sm" id="sm0"></span>
     </div>
 
+    <!-- 1: MATNLAR -->
     <div class="ap-sec" id="s1">
       <div class="card">
-        <h3>🦸 Hero sektsiya</h3>
+        <h3>&#129464; Hero sektsiya</h3>
         <div class="fg"><label>Sarlavha (UZ)</label><input id="f-hHuz"></div>
         <div class="fg"><label>Sarlavha (RU)</label><input id="f-hHru"></div>
         <div class="fg"><label>Tavsif (UZ)</label><textarea id="f-hPuz"></textarea></div>
         <div class="fg"><label>Tavsif (RU)</label><textarea id="f-hPru"></textarea></div>
       </div>
-      <div class="card"><h3>😰 Muammo kartalari</h3><div id="probEd"></div></div>
-      <div class="card"><h3>✅ Yechim kartalari</h3><div id="solEd"></div></div>
-      <div class="card"><h3>📋 Foydalanish qadamlari</h3><div id="stepEd"></div></div>
-      <button class="btn-ok" onclick="saveSec(1)">💾 Saqlash</button>
+      <div class="card"><h3>&#128549; Muammo kartalari</h3><div id="probEd"></div></div>
+      <div class="card"><h3>&#9989; Yechim kartalari</h3><div id="solEd"></div></div>
+      <div class="card"><h3>&#128203; Foydalanish qadamlari</h3><div id="stepEd"></div></div>
+      <button class="btn-ok" onclick="saveSec(1)">&#128190; Saqlash</button>
       <span class="sm" id="sm1"></span>
     </div>
 
+    <!-- 2: RASMLAR -->
     <div class="ap-sec" id="s2">
       <div class="card">
-        <h3>🖼️ Slider rasmlari</h3>
+        <h3>&#128444; Slider rasmlari</h3>
         <div class="img-grid" id="igrid"></div>
         <div class="itabs">
-          <button class="itab on" onclick="iTab(0)">📁 Qurilmadan yuklash</button>
-          <button class="itab"    onclick="iTab(1)">🔗 URL orqali</button>
+          <button class="itab on" onclick="iTab(0)">&#128193; Qurilmadan yuklash</button>
+          <button class="itab"    onclick="iTab(1)">&#128279; URL orqali</button>
         </div>
         <div class="ipanel on" id="ip0">
           <div class="upload-area"
             onclick="document.getElementById('fInp').click()"
             ondragover="event.preventDefault();this.style.borderColor='#1a73e8'"
-            ondragleave="this.style.borderColor=''"
-            ondrop="event.preventDefault();this.style.borderColor='';doFiles(event.dataTransfer.files)">
+            ondragleave="this.style.borderColor='#cbd5e1'"
+            ondrop="event.preventDefault();this.style.borderColor='#cbd5e1';doFiles(event.dataTransfer.files)">
             <input type="file" id="fInp" accept="image/*" multiple onchange="doFiles(this.files)">
-            <div class="upload-ico">📸</div>
-            <p><strong>Rasm tanlash uchun bosing</strong><br>yoki rasmni shu yerga tashlang<br><span style="font-size:11px;opacity:.6">JPG · PNG · WEBP — max 800KB</span></p>
+            <div class="upload-ico">&#128247;</div>
+            <p><strong>Rasm tanlash uchun bosing</strong><br>yoki rasmni shu yerga tashlang<br><span style="font-size:11px;opacity:0.6">JPG, PNG, WEBP &#8212; max 800KB</span></p>
           </div>
         </div>
         <div class="ipanel" id="ip1">
@@ -325,61 +328,79 @@ body.lang-ru span.ru { display: inline; }
           <img id="urlPrev" class="url-prev" alt="Preview">
         </div>
         <div style="margin-top:16px">
-          <button class="btn-ok" onclick="saveSec(2)">💾 Saqlash</button>
+          <button class="btn-ok" onclick="saveSec(2)">&#128190; Saqlash</button>
           <span class="sm" id="sm2"></span>
         </div>
       </div>
     </div>
 
+    <!-- 3: GURUHLAR -->
     <div class="ap-sec" id="s3">
       <div class="card">
-        <h3>💬 Telegram guruhlar</h3>
-        <p style="font-size:13px;color:#64748b;margin-bottom:14px">Buyurtma kelganda quyidagi barcha guruhlarga xabar yuboriladi.</p>
-        <div class="g-list" id="gList"></div>
+        <h3>&#128172; Telegram guruhlar</h3>
+        <p style="font-size:13px;color:#64748b;margin-bottom:16px">Buyurtma kelganda quyidagi <strong>barcha guruhlarga</strong> xabar yuboriladi.</p>
+
+        <div class="detect-box">
+          <h4>&#128269; Avtomatik guruhlarni topish</h4>
+          <p>
+            1. Botni guruhga qo'shing va <strong>admin</strong> qiling<br>
+            2. Guruhga <code>/start</code> yozing<br>
+            3. Quyidagi tugmani bosing
+          </p>
+          <button class="btn-ok" style="width:100%" onclick="autoDetect()">&#128269; Guruhlarni Avtomatik Topish</button>
+          <div id="detectResult"></div>
+        </div>
+
+        <div style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:8px">Qo'lda qo'shish:</div>
         <div class="g-add-row">
           <input id="gId" placeholder="Guruh ID: -1001234567890">
-          <input id="gName" placeholder="Guruh nomi">
-          <button class="btn-pr" onclick="addGroup()">➕ Qo'shish</button>
+          <input id="gName" placeholder="Guruh nomi (ixtiyoriy)">
+          <button class="btn-pr" onclick="addGroup()">&#10133; Qo'shish</button>
         </div>
+
+        <div style="font-size:13px;font-weight:600;color:#64748b;margin-bottom:8px">Faol guruhlar:</div>
+        <div class="g-list" id="gList"></div>
+
         <div class="note">
-          💡 <strong>Guruh ID sini qanday topish:</strong><br>
-          1. Botni guruhga qo'shing va <strong>admin</strong> qiling<br>
-          2. Guruhga <code>/start</code> yozing<br>
-          3. Brauzerda: <code>api.telegram.org/botTOKEN/getUpdates</code><br>
-          4. <code>"chat":{"id":-100xxxxxxxxx}</code> — shu raqam<br>
-          ⚠️ Guruh IDlari odatda <strong>manfiy</strong> raqam
+          &#9888; <strong>BotFather sozlamalari (bir marta bajaring):</strong><br>
+          1. <code>@BotFather</code> &#8594; <code>/setprivacy</code> &#8594; botni tanlang &#8594; <strong>Disable</strong><br>
+          2. <code>@BotFather</code> &#8594; <code>/setjoingroups</code> &#8594; botni tanlang &#8594; <strong>Enable</strong><br>
+          3. Botni guruhdan chiqarib, qayta qo'shing
         </div>
+
         <div style="margin-top:14px">
-          <button class="btn-ok" onclick="saveSec(3)">💾 Saqlash</button>
+          <button class="btn-ok" onclick="saveSec(3)">&#128190; Saqlash</button>
           <span class="sm" id="sm3"></span>
         </div>
       </div>
     </div>
 
+    <!-- 4: BUYURTMALAR -->
     <div class="ap-sec" id="s4">
       <div class="card">
-        <h3>🛒 Buyurtmalar ro'yxati</h3>
+        <h3>&#128722; Buyurtmalar ro'yxati</h3>
         <p style="font-size:13px;color:#64748b;margin-bottom:14px" id="ordCnt">Jami: 0 ta buyurtma</p>
         <div class="ord-wrap" id="ordWr"></div>
       </div>
     </div>
 
+    <!-- 5: GITHUB -->
     <div class="ap-sec" id="s5">
       <div class="card">
-        <h3>🐙 GitHub ga saqlash</h3>
-        <p style="font-size:13px;color:#64748b;margin-bottom:16px">O'zgartirishlarni GitHub ga yuklang — sayt 1–2 daqiqada yangilanadi.</p>
+        <h3>&#128025; GitHub ga saqlash</h3>
+        <p style="font-size:13px;color:#64748b;margin-bottom:16px">O'zgartirishlarni GitHub ga yuklang &#8212; sayt 1&#8211;2 daqiqada yangilanadi.</p>
         <div class="gh-step-list">
-          <div class="gh-step"><div class="gh-n">1</div><span><a href="https://github.com/settings/tokens/new" target="_blank" style="color:#1a73e8;font-weight:600">github.com/settings/tokens/new</a> — yangi token oching</span></div>
-          <div class="gh-step"><div class="gh-n">2</div><span>Note: <code style="background:#e2e8f0;padding:1px 5px;border-radius:3px">landing-editor</code> · Expiration: <strong>No expiration</strong></span></div>
-          <div class="gh-step"><div class="gh-n">3</div><span>✅ <strong>repo</strong> ni belgilang → <strong>Generate token</strong> → nusxalang</span></div>
+          <div class="gh-step"><div class="gh-n">1</div><span><a href="https://github.com/settings/tokens/new" target="_blank" style="color:#1a73e8;font-weight:600">github.com/settings/tokens/new</a> &#8212; yangi token oching</span></div>
+          <div class="gh-step"><div class="gh-n">2</div><span>Note: <code style="background:#e2e8f0;padding:1px 5px;border-radius:3px">landing-editor</code> &#183; Expiration: <strong>No expiration</strong></span></div>
+          <div class="gh-step"><div class="gh-n">3</div><span>&#9989; <strong>repo</strong> ni belgilang &#8594; <strong>Generate token</strong> &#8594; nusxalang</span></div>
           <div class="gh-step"><div class="gh-n">4</div><span>Quyidagi maydonlarni to'ldiring va yuklash tugmasini bosing</span></div>
         </div>
         <div class="row2">
-          <div class="fg"><label>GitHub Username</label><input id="ghUser" placeholder="aztechref-pro"></div>
-          <div class="fg"><label>Repository nomi</label><input id="ghRepo" placeholder="oneproductlandingweb"></div>
+          <div class="fg"><label>GitHub Username</label><input id="ghUser" placeholder="aztechref-pro" value="aztechref-pro"></div>
+          <div class="fg"><label>Repository nomi</label><input id="ghRepo" placeholder="oneproductlandingweb" value="oneproductlandingweb"></div>
         </div>
         <div class="fg"><label>GitHub Token (ghp_...)</label><input id="ghTok" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off"></div>
-        <button class="btn-dk" onclick="pushGH()" id="ghBtn">🐙 GitHub ga yuklash</button>
+        <button class="btn-dk" onclick="pushGH()" id="ghBtn">&#128025; GitHub ga yuklash</button>
         <div class="gh-st" id="ghSt"></div>
       </div>
     </div>
@@ -387,147 +408,153 @@ body.lang-ru span.ru { display: inline; }
   </div>
 </div>
 
-<!-- LANDING -->
+<!-- ═══ LANDING ═══ -->
 <div id="land">
   <div class="lang-bar">
-    <button class="lb on" onclick="setLang('uz')">🇺🇿 O'zbek</button>
-    <button class="lb"   onclick="setLang('ru')">🇷🇺 Русский</button>
+    <button class="lb on" onclick="setLang('uz')">&#127795; O'zbek</button>
+    <button class="lb"    onclick="setLang('ru')">&#127479;&#127482; Русский</button>
   </div>
 
   <div class="hero">
-    <div class="badge" id="ldBadge">⚡ #1 Himoyachi</div>
+    <div class="badge" id="ldBadge">&#9889; #1 Himoyachi</div>
     <h1 id="ldH1">
       <span class="uz">Texnikangizni <em>kuchlanish zarbasidan</em> himoya qiling!</span>
-      <span class="ru">Защитите технику от <em>скачков напряжения!</em></span>
+      <span class="ru">&#1047;&#1072;&#1097;&#1080;&#1090;&#1080;&#1090;&#1077; &#1090;&#1077;&#1093;&#1085;&#1080;&#1082;&#1091; &#1086;&#1090; <em>&#1089;&#1082;&#1072;&#1095;&#1082;&#1086;&#1074; &#1085;&#1072;&#1087;&#1088;&#1103;&#1078;&#1077;&#1085;&#1080;&#1103;!</em></span>
     </h1>
     <p class="hero-p" id="ldP">
-      <span class="uz">B-2188 — Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.</span>
-      <span class="ru">B-2188 — умный протектор напряжения для холодильника, телевизора, компьютера и всей бытовой техники.</span>
+      <span class="uz">B-2188 &#8212; Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.</span>
+      <span class="ru">B-2188 &#8212; &#1091;&#1084;&#1085;&#1099;&#1081; &#1087;&#1088;&#1086;&#1090;&#1077;&#1082;&#1090;&#1086;&#1088; &#1085;&#1072;&#1087;&#1088;&#1103;&#1078;&#1077;&#1085;&#1080;&#1103; &#1076;&#1083;&#1103; &#1093;&#1086;&#1083;&#1086;&#1076;&#1080;&#1083;&#1100;&#1085;&#1080;&#1082;&#1072;, &#1090;&#1077;&#1083;&#1077;&#1074;&#1080;&#1079;&#1086;&#1088;&#1072;, &#1082;&#1086;&#1084;&#1087;&#1100;&#1102;&#1090;&#1077;&#1088;&#1072; &#1080; &#1074;&#1089;&#1077;&#1081; &#1073;&#1099;&#1090;&#1086;&#1074;&#1086;&#1081; &#1090;&#1077;&#1093;&#1085;&#1080;&#1082;&#1080;.</span>
     </p>
     <button class="hcta" onclick="openM()">
-      <span class="uz">🛒 Hozir Xarid Qilish</span>
-      <span class="ru">🛒 Купить Сейчас</span>
+      <span class="uz">&#128722; Hozir Xarid Qilish</span>
+      <span class="ru">&#128722; &#1050;&#1091;&#1087;&#1080;&#1090;&#1100; &#1057;&#1077;&#1081;&#1095;&#1072;&#1089;</span>
     </button>
     <div class="sl-wrap">
       <div class="sl-track"><div class="sl-inner" id="slI"></div></div>
-      <button class="sl-btn" id="slL" onclick="sNav(-1)">‹</button>
-      <button class="sl-btn" id="slR" onclick="sNav(1)">›</button>
+      <button class="sl-btn" id="slL" onclick="sNav(-1)">&#8249;</button>
+      <button class="sl-btn" id="slR" onclick="sNav(1)">&#8250;</button>
       <div class="sl-dots" id="slD"></div>
     </div>
   </div>
 
   <div class="section bg-prob">
     <div class="ctr">
-      <h2 class="sec-title"><span class="uz">😰 Bu muammolardan aziyat chekdingizmi?</span><span class="ru">😰 Знакомые проблемы?</span></h2>
-      <p class="sec-sub"><span class="uz">O'zbekistonda kuchlanish muammolari — kundalik hol</span><span class="ru">Перепады напряжения — обычное явление</span></p>
+      <h2 class="sec-title"><span class="uz">&#128549; Bu muammolardan aziyat chekdingizmi?</span><span class="ru">&#128549; &#1047;&#1085;&#1072;&#1082;&#1086;&#1084;&#1099;&#1077; &#1087;&#1088;&#1086;&#1073;&#1083;&#1077;&#1084;&#1099;?</span></h2>
+      <p class="sec-sub"><span class="uz">O'zbekistonda kuchlanish muammolari &#8212; kundalik hol</span><span class="ru">&#1055;&#1077;&#1088;&#1077;&#1087;&#1072;&#1076;&#1099; &#1085;&#1072;&#1087;&#1088;&#1103;&#1078;&#1077;&#1085;&#1080;&#1103; &#8212; &#1086;&#1073;&#1099;&#1095;&#1085;&#1086;&#1077; &#1103;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;</span></p>
       <div class="cards" id="ldProb"></div>
     </div>
   </div>
 
   <div class="section bg-sol">
     <div class="ctr">
-      <h2 class="sec-title"><span class="uz">✅ B-2188 qanday himoya qiladi?</span><span class="ru">✅ Как защищает B-2188?</span></h2>
-      <p class="sec-sub"><span class="uz">4 qatlamli intellektual himoya tizimi</span><span class="ru">4-уровневая система защиты</span></p>
+      <h2 class="sec-title"><span class="uz">&#9989; B-2188 qanday himoya qiladi?</span><span class="ru">&#9989; &#1050;&#1072;&#1082; &#1079;&#1072;&#1097;&#1080;&#1097;&#1072;&#1077;&#1090; B-2188?</span></h2>
+      <p class="sec-sub"><span class="uz">4 qatlamli intellektual himoya tizimi</span><span class="ru">4-&#1091;&#1088;&#1086;&#1074;&#1085;&#1077;&#1074;&#1072;&#1103; &#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1072; &#1079;&#1072;&#1097;&#1080;&#1090;&#1099;</span></p>
       <div class="cards" id="ldSol"></div>
     </div>
   </div>
 
   <div class="section bg-spec">
     <div class="ctr">
-      <h2 class="sec-title"><span class="uz">📊 Texnik xususiyatlar</span><span class="ru">📊 Характеристики</span></h2>
-      <p class="sec-sub"><span class="uz">Sertifikatlangan sifat — CCC</span><span class="ru">Сертифицированное качество — CCC</span></p>
+      <h2 class="sec-title"><span class="uz">&#128202; Texnik xususiyatlar</span><span class="ru">&#128202; &#1061;&#1072;&#1088;&#1072;&#1082;&#1090;&#1077;&#1088;&#1080;&#1089;&#1090;&#1080;&#1082;&#1080;</span></h2>
+      <p class="sec-sub"><span class="uz">Sertifikatlangan sifat &#8212; CCC</span><span class="ru">&#1057;&#1077;&#1088;&#1090;&#1080;&#1092;&#1080;&#1094;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1077; &#1082;&#1072;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#8212; CCC</span></p>
       <div class="spec-grid">
-        <div class="spec-item"><div class="spec-val">16A</div><div class="spec-lbl"><span class="uz">Nominal tok</span><span class="ru">Ток</span></div></div>
-        <div class="spec-item"><div class="spec-val">2500W</div><div class="spec-lbl"><span class="uz">Max quvvat</span><span class="ru">Мощность</span></div></div>
-        <div class="spec-item"><div class="spec-val">220V</div><div class="spec-lbl"><span class="uz">Kuchlanish</span><span class="ru">Напряжение</span></div></div>
-        <div class="spec-item"><div class="spec-val">175–260V</div><div class="spec-lbl"><span class="uz">Himoya oralig'i</span><span class="ru">Диапазон</span></div></div>
-        <div class="spec-item"><div class="spec-val">4–5 daq</div><div class="spec-lbl"><span class="uz">Kechiktirish</span><span class="ru">Задержка</span></div></div>
-        <div class="spec-item"><div class="spec-val">CCC</div><div class="spec-lbl"><span class="uz">Sertifikat</span><span class="ru">Сертификат</span></div></div>
+        <div class="spec-item"><div class="spec-val">16A</div><div class="spec-lbl"><span class="uz">Nominal tok</span><span class="ru">&#1058;&#1086;&#1082;</span></div></div>
+        <div class="spec-item"><div class="spec-val">2500W</div><div class="spec-lbl"><span class="uz">Max quvvat</span><span class="ru">&#1052;&#1086;&#1097;&#1085;&#1086;&#1089;&#1090;&#1100;</span></div></div>
+        <div class="spec-item"><div class="spec-val">220V</div><div class="spec-lbl"><span class="uz">Kuchlanish</span><span class="ru">&#1053;&#1072;&#1087;&#1088;&#1103;&#1078;&#1077;&#1085;&#1080;&#1077;</span></div></div>
+        <div class="spec-item"><div class="spec-val">175&#8211;260V</div><div class="spec-lbl"><span class="uz">Himoya oralig'i</span><span class="ru">&#1044;&#1080;&#1072;&#1087;&#1072;&#1079;&#1086;&#1085;</span></div></div>
+        <div class="spec-item"><div class="spec-val">4&#8211;5 daq</div><div class="spec-lbl"><span class="uz">Kechiktirish</span><span class="ru">&#1047;&#1072;&#1076;&#1077;&#1088;&#1078;&#1082;&#1072;</span></div></div>
+        <div class="spec-item"><div class="spec-val">CCC</div><div class="spec-lbl"><span class="uz">Sertifikat</span><span class="ru">&#1057;&#1077;&#1088;&#1090;&#1080;&#1092;&#1080;&#1082;&#1072;&#1090;</span></div></div>
       </div>
     </div>
   </div>
 
   <div class="section">
     <div class="ctr">
-      <h2 class="sec-title"><span class="uz">📋 Qanday ishlatiladi?</span><span class="ru">📋 Как использовать?</span></h2>
-      <p class="sec-sub"><span class="uz">3 qadamda — asbob-uskunasiz</span><span class="ru">3 шага — без инструментов</span></p>
+      <h2 class="sec-title"><span class="uz">&#128203; Qanday ishlatiladi?</span><span class="ru">&#128203; &#1050;&#1072;&#1082; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;?</span></h2>
+      <p class="sec-sub"><span class="uz">3 qadamda &#8212; asbob-uskunasiz</span><span class="ru">3 &#1096;&#1072;&#1075;&#1072; &#8212; &#1073;&#1077;&#1079; &#1080;&#1085;&#1089;&#1090;&#1088;&#1091;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074;</span></p>
       <div class="steps-list" id="ldStep"></div>
     </div>
   </div>
 
   <div class="section bg-price">
     <div class="ctr">
-      <h2 class="sec-title" style="color:#fff"><span class="uz">💰 Narhi</span><span class="ru">💰 Цена</span></h2>
-      <p class="sec-sub" style="color:rgba(255,255,255,.55)"><span class="uz">Muzlatgich ta'miridan 10–30x arzon himoya</span><span class="ru">В 10–30 раз дешевле ремонта</span></p>
+      <h2 class="sec-title" style="color:#ffffff"><span class="uz">&#128176; Narhi</span><span class="ru">&#128176; &#1062;&#1077;&#1085;&#1072;</span></h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,0.55)"><span class="uz">Muzlatgich ta'miridan 10&#8211;30x arzon himoya</span><span class="ru">&#1042; 10&#8211;30 &#1088;&#1072;&#1079; &#1076;&#1077;&#1096;&#1077;&#1074;&#1083;&#1077; &#1088;&#1077;&#1084;&#1086;&#1085;&#1090;&#1072;</span></p>
       <div class="price-box">
         <div class="old-pr" id="ldOP"></div>
         <div class="new-pr" id="ldNP"></div>
-        <div class="pr-note"><span class="uz">🎁 Bugun buyurtma bering — maxsus narxda!</span><span class="ru">🎁 Закажите сегодня — по спеццене!</span></div>
-        <button class="bcta" onclick="openM()"><span class="uz">🛒 Harid Qilish</span><span class="ru">🛒 Купить</span></button>
+        <div class="pr-note"><span class="uz">&#127873; Bugun buyurtma bering &#8212; maxsus narxda!</span><span class="ru">&#127873; &#1047;&#1072;&#1082;&#1072;&#1078;&#1080;&#1090;&#1077; &#1089;&#1077;&#1075;&#1086;&#1076;&#1085;&#1103; &#8212; &#1087;&#1086; &#1089;&#1087;&#1077;&#1094;&#1094;&#1077;&#1085;&#1077;!</span></div>
+        <button class="bcta" onclick="openM()"><span class="uz">&#128722; Harid Qilish</span><span class="ru">&#128722; &#1050;&#1091;&#1087;&#1080;&#1090;&#1100;</span></button>
         <div class="del-badges">
-          <span class="del-badge"><span class="uz">🏪 Olib ketish</span><span class="ru">🏪 Самовывоз</span></span>
-          <span class="del-badge"><span class="uz">🛵 Qo'qon ichida</span><span class="ru">🛵 По Коканду</span></span>
-          <span class="del-badge"><span class="uz">📦 Viloyatlarga</span><span class="ru">📦 По регионам</span></span>
+          <span class="del-badge"><span class="uz">&#127978; Olib ketish</span><span class="ru">&#127978; &#1057;&#1072;&#1084;&#1086;&#1074;&#1099;&#1074;&#1086;&#1079;</span></span>
+          <span class="del-badge"><span class="uz">&#128757; Qo'qon ichida</span><span class="ru">&#128757; &#1055;&#1086; &#1050;&#1086;&#1082;&#1072;&#1085;&#1076;&#1091;</span></span>
+          <span class="del-badge"><span class="uz">&#128230; Viloyatlarga</span><span class="ru">&#128230; &#1055;&#1086; &#1088;&#1077;&#1075;&#1080;&#1086;&#1085;&#1072;&#1084;</span></span>
         </div>
       </div>
     </div>
   </div>
 
-  <footer><p>© 2025 AZTECH REF — Qo'qon, O'zbekiston</p></footer>
+  <footer><p>&#169; 2025 AZTECH REF &#8212; Qo'qon, O'zbekiston</p></footer>
 </div>
 
 <!-- ORDER MODAL -->
 <div class="mov" id="mOv" onclick="if(event.target===this)closeM()">
   <div class="mod">
-    <button class="mod-x" onclick="closeM()">×</button>
+    <button class="mod-x" onclick="closeM()">&#215;</button>
     <div class="fst on" id="ms1">
-      <h2><span class="uz">Yetkazib berish turini tanlang</span><span class="ru">Способ доставки</span></h2>
+      <h2><span class="uz">Yetkazib berish turini tanlang</span><span class="ru">&#1057;&#1087;&#1086;&#1089;&#1086;&#1073; &#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1080;</span></h2>
       <p class="mod-sub" id="mPN"></p>
       <div class="del-opts">
         <div class="del-opt" id="d1" onclick="selDel('pickup')">
-          <div class="del-ic">🏪</div>
-          <div><h4><span class="uz">Do'kondan olib ketish</span><span class="ru">Самовывоз</span></h4>
-               <p><span class="uz" id="dShUz"></span><span class="ru" id="dShRu"></span></p></div>
+          <div class="del-ic">&#127978;</div>
+          <div>
+            <h4><span class="uz">Do'kondan olib ketish</span><span class="ru">&#1057;&#1072;&#1084;&#1086;&#1074;&#1099;&#1074;&#1086;&#1079;</span></h4>
+            <p><span class="uz" id="dShUz"></span><span class="ru" id="dShRu"></span></p>
+          </div>
         </div>
         <div class="del-opt" id="d2" onclick="selDel('local')">
-          <div class="del-ic">🛵</div>
-          <div><h4><span class="uz">Qo'qon ichida yetkazib berish</span><span class="ru">Доставка по Коканду</span></h4>
-               <p><span class="uz" id="dLcUz"></span><span class="ru" id="dLcRu"></span></p></div>
+          <div class="del-ic">&#128757;</div>
+          <div>
+            <h4><span class="uz">Qo'qon ichida yetkazib berish</span><span class="ru">&#1044;&#1086;&#1089;&#1090;&#1072;&#1074;&#1082;&#1072; &#1087;&#1086; &#1050;&#1086;&#1082;&#1072;&#1085;&#1076;&#1091;</span></h4>
+            <p><span class="uz" id="dLcUz"></span><span class="ru" id="dLcRu"></span></p>
+          </div>
         </div>
         <div class="del-opt" id="d3" onclick="selDel('region')">
-          <div class="del-ic">📦</div>
-          <div><h4><span class="uz">Viloyatlarga yetkazib berish</span><span class="ru">По регионам</span></h4>
-               <p><span class="uz">O'zbekiston bo'ylab • 1–3 kun</span><span class="ru">По Узбекистану • 1–3 дня</span></p></div>
+          <div class="del-ic">&#128230;</div>
+          <div>
+            <h4><span class="uz">Viloyatlarga yetkazib berish</span><span class="ru">&#1055;&#1086; &#1088;&#1077;&#1075;&#1080;&#1086;&#1085;&#1072;&#1084;</span></h4>
+            <p><span class="uz">O'zbekiston bo'ylab &#8226; 1&#8211;3 kun</span><span class="ru">&#1055;&#1086; &#1059;&#1079;&#1073;&#1077;&#1082;&#1080;&#1089;&#1090;&#1072;&#1085;&#1091; &#8226; 1&#8211;3 &#1076;&#1085;&#1103;</span></p>
+          </div>
         </div>
       </div>
       <button class="msb" id="nBtn" onclick="goMs2()" disabled>
-        <span class="uz">Davom etish →</span><span class="ru">Продолжить →</span>
+        <span class="uz">Davom etish &#8594;</span><span class="ru">&#1055;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1080;&#1090;&#1100; &#8594;</span>
       </button>
     </div>
     <div class="fst" id="ms2">
-      <h2><span class="uz">Buyurtma ma'lumotlari</span><span class="ru">Данные заказа</span></h2>
+      <h2><span class="uz">Buyurtma ma'lumotlari</span><span class="ru">&#1044;&#1072;&#1085;&#1085;&#1099;&#1077; &#1079;&#1072;&#1082;&#1072;&#1079;&#1072;</span></h2>
       <p class="mod-sub" id="mDL"></p>
       <div class="qty-row">
-        <span style="font-size:14px;font-weight:600"><span class="uz">Miqdor:</span><span class="ru">Кол-во:</span></span>
-        <button class="qty-btn" onclick="chQ(-1)">−</button>
+        <span style="font-size:14px;font-weight:600"><span class="uz">Miqdor:</span><span class="ru">&#1050;&#1086;&#1083;-&#1074;&#1086;:</span></span>
+        <button class="qty-btn" onclick="chQ(-1)">&#8722;</button>
         <span class="qty-val" id="qV">1</span>
-        <button class="qty-btn" onclick="chQ(1)">+</button>
+        <button class="qty-btn" onclick="chQ(1)">&#43;</button>
       </div>
-      <div class="mfg"><label><span class="uz">Ism Familiya *</span><span class="ru">Имя Фамилия *</span></label><input id="fNm" placeholder="Abdullayev Jasur"></div>
-      <div class="mfg"><label><span class="uz">Telefon *</span><span class="ru">Телефон *</span></label><input id="fPh" type="tel" placeholder="+998 90 123 45 67"></div>
-      <div class="mfg" id="fAdW" style="display:none"><label><span class="uz">Manzil *</span><span class="ru">Адрес *</span></label><input id="fAd"></div>
+      <div class="mfg"><label><span class="uz">Ism Familiya *</span><span class="ru">&#1048;&#1084;&#1103; &#1060;&#1072;&#1084;&#1080;&#1083;&#1080;&#1103; *</span></label><input id="fNm" placeholder="Abdullayev Jasur"></div>
+      <div class="mfg"><label><span class="uz">Telefon *</span><span class="ru">&#1058;&#1077;&#1083;&#1077;&#1092;&#1086;&#1085; *</span></label><input id="fPh" type="tel" placeholder="+998 90 123 45 67"></div>
+      <div class="mfg" id="fAdW" style="display:none"><label><span class="uz">Manzil *</span><span class="ru">&#1040;&#1076;&#1088;&#1077;&#1089; *</span></label><input id="fAd"></div>
       <div class="total-row">
-        <span style="font-size:14px;color:#64748b"><span class="uz">Jami:</span><span class="ru">Итого:</span></span>
+        <span style="font-size:14px;color:#64748b"><span class="uz">Jami:</span><span class="ru">&#1048;&#1090;&#1086;&#1075;&#1086;:</span></span>
         <span class="total-val" id="tV"></span>
       </div>
       <button class="msb" id="subBtn" onclick="doOrder()">
-        <span class="uz">✅ Buyurtma Berish</span><span class="ru">✅ Оформить заказ</span>
+        <span class="uz">&#9989; Buyurtma Berish</span><span class="ru">&#9989; &#1054;&#1092;&#1086;&#1088;&#1084;&#1080;&#1090;&#1100; &#1079;&#1072;&#1082;&#1072;&#1079;</span>
       </button>
     </div>
     <div class="fst" id="ms3">
       <div class="succ-box">
-        <div class="ck">✅</div>
-        <h3><span class="uz">Buyurtmangiz qabul qilindi!</span><span class="ru">Заказ принят!</span></h3>
+        <div class="ck">&#9989;</div>
+        <h3><span class="uz">Buyurtmangiz qabul qilindi!</span><span class="ru">&#1047;&#1072;&#1082;&#1072;&#1079; &#1087;&#1088;&#1080;&#1085;&#1103;&#1090;!</span></h3>
         <p id="sucMsg"></p>
       </div>
     </div>
@@ -535,230 +562,597 @@ body.lang-ru span.ru { display: inline; }
 </div>
 
 <script>
-const BOT_TOKEN = '8727881862:AAHMxPRYVpG9R8ldB5T2az3q1_1T_nuXccM';
-const ADMIN_PW  = 'aztech2025';
-const MAX_IMG   = 800 * 1024;
+var BOT_TOKEN = '8727881862:AAHMxPRYVpG9R8ldB5T2az3q1_1T_nuXccM';
+var ADMIN_PW  = 'aztech2025';
+var MAX_IMG   = 800 * 1024;
 
 /* __CONFIG_START__ */
-let C = {
-  nUz:'Kuchlanish Himoyachisi B-2188', nRu:'Протектор напряжения B-2188',
-  badge:'⚡ #1 Himoyachi',
-  price:65000, oldP:90000, locFee:10000,
-  shUz:"Qo'qon, AZTECH REF do'koni • Bepul", shRu:'Коканд, AZTECH REF • Бесплатно',
-  lcUz:"Bugun yoki ertaga • 10,000 so'm", lcRu:'Сегодня или завтра • 10 000 сум',
-  hHuz:"Texnikangizni kuchlanish zarbasidan himoya qiling!",
-  hHru:"Защитите технику от скачков напряжения!",
-  hPuz:"B-2188 — Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.",
-  hPru:"B-2188 — умный протектор напряжения для холодильника, телевизора, компьютера и всей бытовой техники.",
-  imgs:[],
-  groups:[{id:'47115138', name:'Shaxsiy (default)'}],
-  probs:[
-    {ic:'⚡',tu:"To'satdan kuchlanish sakrashi",tr:'Скачки напряжения',pu:"Elektr tarmog'idagi keskin o'zgarishlar texnikangizni bir onda yoqib yuboradi",pr:'Резкие колебания в сети мгновенно выводят технику из строя'},
-    {ic:'🔌',tu:"Svet o'chib yonishi",tr:'Отключения электричества',pu:'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi',pr:'При восстановлении питания компрессор получает удар'},
-    {ic:'💸',tu:"Qimmat ta'mirlash",tr:'Дорогостоящий ремонт',pu:"Muzlatgich ta'miri 500,000–2,000,000 so'm. Oldini olish atigi 65,000 so'm",pr:'Ремонт холодильника от 500 000 сум. Защита стоит 65 000 сум'}
+var C = {
+  nUz: 'Kuchlanish Himoyachisi B-2188',
+  nRu: '\u041f\u0440\u043e\u0442\u0435\u043a\u0442\u043e\u0440 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f B-2188',
+  badge: '\u26a1 #1 Himoyachi',
+  price: 65000,
+  oldP: 90000,
+  locFee: 10000,
+  shUz: "Qo'qon, AZTECH REF do'koni \u2022 Bepul",
+  shRu: '\u041a\u043e\u043a\u0430\u043d\u0434, AZTECH REF \u2022 \u0411\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e',
+  lcUz: "Bugun yoki ertaga \u2022 10,000 so'm",
+  lcRu: '\u0421\u0435\u0433\u043e\u0434\u043d\u044f \u0438\u043b\u0438 \u0437\u0430\u0432\u0442\u0440\u0430 \u2022 10 000 \u0441\u0443\u043c',
+  hHuz: "Texnikangizni kuchlanish zarbasidan himoya qiling!",
+  hHru: "\u0417\u0430\u0449\u0438\u0442\u0438\u0442\u0435 \u0442\u0435\u0445\u043d\u0438\u043a\u0443 \u043e\u0442 \u0441\u043a\u0430\u0447\u043a\u043e\u0432 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f!",
+  hPuz: "B-2188 \u2014 Muzlatgich, televizor, kompyuter va boshqa barcha elektr jihozlari uchun aqlli kuchlanish himoyachisi.",
+  hPru: "B-2188 \u2014 \u0443\u043c\u043d\u044b\u0439 \u043f\u0440\u043e\u0442\u0435\u043a\u0442\u043e\u0440 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f \u0434\u043b\u044f \u0445\u043e\u043b\u043e\u0434\u0438\u043b\u044c\u043d\u0438\u043a\u0430, \u0442\u0435\u043b\u0435\u0432\u0438\u0437\u043e\u0440\u0430, \u043a\u043e\u043c\u043f\u044c\u044e\u0442\u0435\u0440\u0430 \u0438 \u0432\u0441\u0435\u0439 \u0431\u044b\u0442\u043e\u0432\u043e\u0439 \u0442\u0435\u0445\u043d\u0438\u043a\u0438.",
+  imgs: [],
+  groups: [{ id: '47115138', name: 'Shaxsiy (default)' }],
+  probs: [
+    { ic: '\u26a1', tu: "To'satdan kuchlanish sakrashi", tr: '\u0421\u043a\u0430\u0447\u043a\u0438 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f', pu: "Elektr tarmo\u0121'idagi keskin o'\u0437\u0433\u0430rishlr texnikangizni bir onda yoqib yuboradi", pr: '\u0420\u0435\u0437\u043a\u0438\u0435 \u043a\u043e\u043b\u0435\u0431\u0430\u043d\u0438\u044f \u0432 \u0441\u0435\u0442\u0438 \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e \u0432\u044b\u0432\u043e\u0434\u044f\u0442 \u0442\u0435\u0445\u043d\u0438\u043a\u0443 \u0438\u0437 \u0441\u0442\u0440\u043e\u044f' },
+    { ic: '\ud83d\udd0c', tu: "Svet o'chib yonishi", tr: '\u041e\u0442\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f \u044d\u043b\u0435\u043a\u0442\u0440\u0438\u0447\u0435\u0441\u0442\u0432\u0430', pu: 'Qayta ulanganda kompressor zarba oladi va tez eskirib ketadi', pr: '\u041f\u0440\u0438 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0438 \u043f\u0438\u0442\u0430\u043d\u0438\u044f \u043a\u043e\u043c\u043f\u0440\u0435\u0441\u0441\u043e\u0440 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442 \u0443\u0434\u0430\u0440' },
+    { ic: '\ud83d\udcb8', tu: "Qimmat ta'mirlash", tr: '\u0414\u043e\u0440\u043e\u0433\u043e\u0441\u0442\u043e\u044f\u0449\u0438\u0439 \u0440\u0435\u043c\u043e\u043d\u0442', pu: "Muzlatgich ta'miri 500,000-2,000,000 so'm. Oldini olish atigi 65,000 so'm", pr: '\u0420\u0435\u043c\u043e\u043d\u0442 \u0445\u043e\u043b\u043e\u0434\u0438\u043b\u044c\u043d\u0438\u043a\u0430 \u043e\u0442 500 000 \u0441\u0443\u043c. \u0417\u0430\u0449\u0438\u0442\u0430 \u0441\u0442\u043e\u0438\u0442 65 000 \u0441\u0443\u043c' }
   ],
-  sols:[
-    {ic:'🛡️',tu:'Avtomatik uzish',tr:'Авто-отключение',pu:"175V pastga tushsa yoki 260V dan oshsa — darhol uzilib qoladi",pr:'При выходе за 175–260V мгновенно отключает питание'},
-    {ic:'⏱️',tu:"Aqlli kechiktirish",tr:'Умная задержка',pu:"Svet kelgandan 4–5 daqiqa o'tib ulaydi — kompressor uchun xavfsiz",pr:'Подключает питание через 4–5 мин — безопасно для компрессора'},
-    {ic:'💡',tu:"LED ko'rsatkichlar",tr:'LED индикаторы',pu:"3 rangli LED: himoya, kechiktirish, normal ishlash",pr:'3 цвета LED: защита, задержка, нормальная работа'},
-    {ic:'🔧',tu:'Kuchli quvvat',tr:'Высокая мощность',pu:'16A / 2500W — muzlatgich, konditsioner, suv pompasi uchun',pr:'16A / 2500W — для холодильника, кондиционера, насоса'}
+  sols: [
+    { ic: '\ud83d\udee1\ufe0f', tu: 'Avtomatik uzish', tr: '\u0410\u0432\u0442\u043e-\u043e\u0442\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435', pu: "175V pastga tushsa yoki 260V dan oshsa \u2014 darhol uzilib qoladi", pr: '\u041f\u0440\u0438 \u0432\u044b\u0445\u043e\u0434\u0435 \u0437\u0430 175-260V \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u043d\u043e \u043e\u0442\u043a\u043b\u044e\u0447\u0430\u0435\u0442 \u043f\u0438\u0442\u0430\u043d\u0438\u0435' },
+    { ic: '\u23f1\ufe0f', tu: "Aqlli kechiktirish", tr: '\u0423\u043c\u043d\u0430\u044f \u0437\u0430\u0434\u0435\u0440\u0436\u043a\u0430', pu: "Svet kelgandan 4-5 daqiqa o'tib ulaydi", pr: '\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0430\u0435\u0442 \u043f\u0438\u0442\u0430\u043d\u0438\u0435 \u0447\u0435\u0440\u0435\u0437 4-5 \u043c\u0438\u043d' },
+    { ic: '\ud83d\udca1', tu: "LED ko'rsatkichlar", tr: 'LED \u0438\u043d\u0434\u0438\u043a\u0430\u0442\u043e\u0440\u044b', pu: "3 rangli LED: himoya, kechiktirish, normal ishlash", pr: '3 \u0446\u0432\u0435\u0442\u0430 LED: \u0437\u0430\u0449\u0438\u0442\u0430, \u0437\u0430\u0434\u0435\u0440\u0436\u043a\u0430, \u043d\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430' },
+    { ic: '\ud83d\udd27', tu: 'Kuchli quvvat', tr: '\u0412\u044b\u0441\u043e\u043a\u0430\u044f \u043c\u043e\u0449\u043d\u043e\u0441\u0442\u044c', pu: '16A / 2500W \u2014 muzlatgich, konditsioner, suv pompasi uchun', pr: '16A / 2500W \u2014 \u0434\u043b\u044f \u0445\u043e\u043b\u043e\u0434\u0438\u043b\u044c\u043d\u0438\u043a\u0430, \u043a\u043e\u043d\u0434\u0438\u0446\u0438\u043e\u043d\u0435\u0440\u0430, \u043d\u0430\u0441\u043e\u0441\u0430' }
   ],
-  stps:[
-    {tu:'Rozetkaga ulang',tr:'Вставьте в розетку',pu:"B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang",pr:'Вставьте B-2188 напрямую в стандартную розетку 220V'},
-    {tu:'Texnikani ulang',tr:'Подключите технику',pu:"Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang",pr:'Вилку холодильника или другого устройства подключите к B-2188'},
-    {tu:"Ishlatavering — himoya avtomatik!",tr:'Пользуйтесь — защита автоматическая!',pu:"Yashil LED — normal ishlayapti. Qizil LED — himoya ishga tushgan",pr:'Зелёный LED — норма. Красный LED — защита активирована'}
+  stps: [
+    { tu: 'Rozetkaga ulang', tr: '\u0412\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0432 \u0440\u043e\u0437\u0435\u0442\u043a\u0443', pu: "B-2188 ni odatiy 220V rozetkaga to'g'ridan-to'g'ri ulang", pr: '\u0412\u0441\u0442\u0430\u0432\u044c\u0442\u0435 B-2188 \u043d\u0430\u043f\u0440\u044f\u043c\u0443\u044e \u0432 \u0441\u0442\u0430\u043d\u0434\u0430\u0440\u0442\u043d\u0443\u044e \u0440\u043e\u0437\u0435\u0442\u043a\u0443 220V' },
+    { tu: 'Texnikani ulang', tr: '\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u0435 \u0442\u0435\u0445\u043d\u0438\u043a\u0443', pu: "Muzlatgich yoki boshqa jihoz vilkasini B-2188 ga ulang", pr: '\u0412\u0438\u043b\u043a\u0443 \u0445\u043e\u043b\u043e\u0434\u0438\u043b\u044c\u043d\u0438\u043a\u0430 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u0435 \u043a B-2188' },
+    { tu: "Ishlatavering \u2014 himoya avtomatik!", tr: '\u041f\u043e\u043b\u044c\u0437\u0443\u0439\u0442\u0435\u0441\u044c \u2014 \u0437\u0430\u0449\u0438\u0442\u0430 \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0430\u044f!', pu: "Yashil LED \u2014 normal. Qizil LED \u2014 himoya ishga tushgan", pr: '\u0417\u0435\u043b\u0451\u043d\u044b\u0439 LED \u2014 \u043d\u043e\u0440\u043c\u0430. \u041a\u0440\u0430\u0441\u043d\u044b\u0439 LED \u2014 \u0437\u0430\u0449\u0438\u0442\u0430 \u0430\u043a\u0442\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u0430' }
   ]
 };
 /* __CONFIG_END__ */
 
-let orders=[], curLang='uz', curSlide=0, slTimer, chosenDel=null, qty=1;
+var orders   = [];
+var curLang  = 'uz';
+var curSlide = 0;
+var slTimer  = null;
+var chosenDel = null;
+var qty = 1;
 
-function x(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function gv(id){ return (document.getElementById(id)||{}).value||''; }
-function flash(id,msg,cls){ const el=document.getElementById(id); if(!el)return; el.textContent=msg; el.className='sm '+cls; el.style.display='inline'; setTimeout(()=>el.style.display='none',3500); }
-
-function setLang(l){
-  curLang=l;
-  document.body.classList.toggle('lang-ru',l==='ru');
-  document.querySelectorAll('.lb').forEach((b,i)=>b.classList.toggle('on',(i===0&&l==='uz')||(i===1&&l==='ru')));
+/* ── HELPERS ── */
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function gv(id) {
+  var el = document.getElementById(id);
+  return el ? el.value : '';
+}
+function flash(id, msg, cls) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = msg;
+  el.className = 'sm ' + cls;
+  el.style.display = 'inline';
+  setTimeout(function(){ el.style.display = 'none'; }, 3500);
 }
 
-function render(){
-  document.getElementById('ldBadge').textContent=C.badge;
-  document.querySelector('#ldH1 .uz').innerHTML=x(C.hHuz).replace(/(kuchlanish zarbasidan)/,'<em>$1</em>');
-  document.querySelector('#ldH1 .ru').innerHTML=x(C.hHru).replace(/(скачков напряжения!?)/,'<em>$1</em>');
-  document.querySelector('#ldP .uz').textContent=C.hPuz;
-  document.querySelector('#ldP .ru').textContent=C.hPru;
-  document.getElementById('ldOP').textContent='Bozor narxi: '+C.oldP.toLocaleString()+" so'm";
-  document.getElementById('ldNP').innerHTML=C.price.toLocaleString()+" <span>so'm</span>";
-  document.getElementById('mPN').textContent=C.nUz+' — '+C.price.toLocaleString()+" so'm";
-  document.getElementById('dShUz').textContent=C.shUz;
-  document.getElementById('dShRu').textContent=C.shRu;
-  document.getElementById('dLcUz').textContent=C.lcUz;
-  document.getElementById('dLcRu').textContent=C.lcRu;
-
-  document.getElementById('ldProb').innerHTML=C.probs.map(p=>
-    `<div class="prob-card"><div class="ic">${p.ic}</div>
-     <h3><span class="uz">${x(p.tu)}</span><span class="ru">${x(p.tr)}</span></h3>
-     <p><span class="uz">${x(p.pu)}</span><span class="ru">${x(p.pr)}</span></p></div>`).join('');
-
-  document.getElementById('ldSol').innerHTML=C.sols.map(s=>
-    `<div class="sol-card"><div class="ic">${s.ic}</div>
-     <h3><span class="uz">${x(s.tu)}</span><span class="ru">${x(s.tr)}</span></h3>
-     <p><span class="uz">${x(s.pu)}</span><span class="ru">${x(s.pr)}</span></p></div>`).join('');
-
-  document.getElementById('ldStep').innerHTML=C.stps.map((s,i)=>
-    `<div class="step-item"><div class="step-num">${i+1}</div>
-     <div class="step-txt"><h3><span class="uz">${x(s.tu)}</span><span class="ru">${x(s.tr)}</span></h3>
-     <p><span class="uz">${x(s.pu)}</span><span class="ru">${x(s.pr)}</span></p></div></div>`).join('');
-
-  buildSlider(); setLang(curLang); calcTotal();
+/* ── LANGUAGE ── */
+function setLang(l) {
+  curLang = l;
+  document.body.classList.toggle('lang-ru', l === 'ru');
+  var btns = document.querySelectorAll('.lb');
+  btns[0].classList.toggle('on', l === 'uz');
+  btns[1].classList.toggle('on', l === 'ru');
 }
 
-function buildSlider(){
+/* ── RENDER LANDING ── */
+function render() {
+  document.getElementById('ldBadge').textContent = C.badge;
+
+  var h1uz = document.querySelector('#ldH1 .uz');
+  var h1ru = document.querySelector('#ldH1 .ru');
+  if (h1uz) h1uz.innerHTML = esc(C.hHuz).replace(/(kuchlanish zarbasidan)/, '<em>$1</em>');
+  if (h1ru) h1ru.innerHTML = esc(C.hHru).replace(/(\u0441\u043a\u0430\u0447\u043a\u043e\u0432 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f!?)/, '<em>$1</em>');
+
+  var puz = document.querySelector('#ldP .uz');
+  var pru = document.querySelector('#ldP .ru');
+  if (puz) puz.textContent = C.hPuz;
+  if (pru) pru.textContent = C.hPru;
+
+  document.getElementById('ldOP').textContent = 'Bozor narxi: ' + C.oldP.toLocaleString() + " so'm";
+  document.getElementById('ldNP').innerHTML   = C.price.toLocaleString() + " <span>so'm</span>";
+
+  document.getElementById('mPN').textContent  = C.nUz + ' \u2014 ' + C.price.toLocaleString() + " so'm";
+  document.getElementById('dShUz').textContent = C.shUz;
+  document.getElementById('dShRu').textContent = C.shRu;
+  document.getElementById('dLcUz').textContent = C.lcUz;
+  document.getElementById('dLcRu').textContent = C.lcRu;
+
+  document.getElementById('ldProb').innerHTML = C.probs.map(function(p){
+    return '<div class="prob-card"><div class="ic">' + p.ic + '</div>' +
+      '<h3><span class="uz">' + esc(p.tu) + '</span><span class="ru">' + esc(p.tr) + '</span></h3>' +
+      '<p><span class="uz">' + esc(p.pu) + '</span><span class="ru">' + esc(p.pr) + '</span></p></div>';
+  }).join('');
+
+  document.getElementById('ldSol').innerHTML = C.sols.map(function(s){
+    return '<div class="sol-card"><div class="ic">' + s.ic + '</div>' +
+      '<h3><span class="uz">' + esc(s.tu) + '</span><span class="ru">' + esc(s.tr) + '</span></h3>' +
+      '<p><span class="uz">' + esc(s.pu) + '</span><span class="ru">' + esc(s.pr) + '</span></p></div>';
+  }).join('');
+
+  document.getElementById('ldStep').innerHTML = C.stps.map(function(s, i){
+    return '<div class="step-item"><div class="step-num">' + (i+1) + '</div>' +
+      '<div class="step-txt"><h3><span class="uz">' + esc(s.tu) + '</span><span class="ru">' + esc(s.tr) + '</span></h3>' +
+      '<p><span class="uz">' + esc(s.pu) + '</span><span class="ru">' + esc(s.pr) + '</span></p></div></div>';
+  }).join('');
+
+  buildSlider();
+  setLang(curLang);
+  calcTotal();
+}
+
+/* ── SLIDER ── */
+function buildSlider() {
   clearInterval(slTimer);
-  const si=document.getElementById('slI'), sd=document.getElementById('slD');
-  if(!C.imgs.length){
-    si.innerHTML='<div class="sl-slide"><img src="https://via.placeholder.com/380x264/eff6ff/1a73e8?text=B-2188" alt="B-2188"></div>';
-    sd.innerHTML='<div class="sl-dot on"></div>'; return;
+  var si = document.getElementById('slI');
+  var sd = document.getElementById('slD');
+  if (!C.imgs.length) {
+    si.innerHTML = '<div class="sl-slide"><img src="https://via.placeholder.com/380x264/eff6ff/1a73e8?text=B-2188" alt="B-2188"></div>';
+    sd.innerHTML = '<div class="sl-dot on"></div>';
+    return;
   }
-  si.innerHTML=C.imgs.map(u=>`<div class="sl-slide"><img src="${u}" alt="B-2188" onerror="this.src='https://via.placeholder.com/380x264/eff6ff/1a73e8?text=Rasm'"></div>`).join('');
-  sd.innerHTML=C.imgs.map((_,i)=>`<div class="sl-dot${i===0?' on':''}" onclick="gSl(${i})"></div>`).join('');
-  curSlide=0; apSl();
-  if(C.imgs.length>1) slTimer=setInterval(()=>sNav(1),3500);
+  si.innerHTML = C.imgs.map(function(u){
+    return '<div class="sl-slide"><img src="' + u + '" alt="B-2188" onerror="this.src=\'https://via.placeholder.com/380x264/eff6ff/1a73e8?text=Rasm\'"></div>';
+  }).join('');
+  sd.innerHTML = C.imgs.map(function(_, i){
+    return '<div class="sl-dot' + (i===0?' on':'') + '" onclick="gSl(' + i + ')"></div>';
+  }).join('');
+  curSlide = 0;
+  apSl();
+  if (C.imgs.length > 1) slTimer = setInterval(function(){ sNav(1); }, 3500);
 }
-function apSl(){ document.getElementById('slI').style.transform=`translateX(-${curSlide*100}%)`; document.querySelectorAll('.sl-dot').forEach((d,i)=>d.classList.toggle('on',i===curSlide)); }
-function gSl(n){ curSlide=(n+C.imgs.length)%C.imgs.length; apSl(); }
-function sNav(d){ gSl(curSlide+d); }
+function apSl() {
+  document.getElementById('slI').style.transform = 'translateX(-' + (curSlide*100) + '%)';
+  var dots = document.querySelectorAll('.sl-dot');
+  for (var i=0; i<dots.length; i++) dots[i].classList.toggle('on', i===curSlide);
+}
+function gSl(n) { curSlide = (n + C.imgs.length) % C.imgs.length; apSl(); }
+function sNav(d) { gSl(curSlide + d); }
 
-function openGate(){ document.getElementById('pwIn').value=''; document.getElementById('gErr').style.display='none'; document.getElementById('aGate').classList.add('on'); setTimeout(()=>document.getElementById('pwIn').focus(),120); }
-function doPw(){ if(document.getElementById('pwIn').value===ADMIN_PW){ document.getElementById('aGate').classList.remove('on'); openAP(); } else { document.getElementById('gErr').style.display='block'; } }
-
-function openAP(){ loadFields(); renderIgrid(); renderGList(); renderOrders(); document.getElementById('aPanel').classList.add('on'); }
-function closeAP(){ document.getElementById('aPanel').classList.remove('on'); }
-function apTab(i){ document.querySelectorAll('.ap-tab').forEach((b,j)=>b.classList.toggle('on',j===i)); document.querySelectorAll('.ap-sec').forEach((s,j)=>s.classList.toggle('on',j===i)); if(i===4)renderOrders(); }
-
-function loadFields(){
-  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v;};
-  sv('f-nUz',C.nUz);sv('f-nRu',C.nRu);sv('f-pr',C.price);sv('f-op',C.oldP);sv('f-lf',C.locFee);sv('f-bg',C.badge);
-  sv('f-shUz',C.shUz);sv('f-shRu',C.shRu);sv('f-lcUz',C.lcUz);sv('f-lcRu',C.lcRu);
-  sv('f-hHuz',C.hHuz);sv('f-hHru',C.hHru);sv('f-hPuz',C.hPuz);sv('f-hPru',C.hPru);
-
-  document.getElementById('probEd').innerHTML=C.probs.map((p,i)=>`
-    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">KARTA #${i+1} ${p.ic}</div>
-      <div class="row2">
-        <div class="fg"><label>Sarlavha UZ</label><input id="pt${i}" value="${x(p.tu)}"></div>
-        <div class="fg"><label>Sarlavha RU</label><input id="pr${i}" value="${x(p.tr)}"></div>
-      </div>
-      <div class="row2">
-        <div class="fg"><label>Matn UZ</label><input id="pp${i}" value="${x(p.pu)}"></div>
-        <div class="fg"><label>Matn RU</label><input id="pq${i}" value="${x(p.pr)}"></div>
-      </div>
-    </div>`).join('');
-
-  document.getElementById('solEd').innerHTML=C.sols.map((s,i)=>`
-    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">KARTA #${i+1} ${s.ic}</div>
-      <div class="row2">
-        <div class="fg"><label>Sarlavha UZ</label><input id="st${i}" value="${x(s.tu)}"></div>
-        <div class="fg"><label>Sarlavha RU</label><input id="sr${i}" value="${x(s.tr)}"></div>
-      </div>
-      <div class="row2">
-        <div class="fg"><label>Matn UZ</label><input id="sp${i}" value="${x(s.pu)}"></div>
-        <div class="fg"><label>Matn RU</label><input id="sq${i}" value="${x(s.pr)}"></div>
-      </div>
-    </div>`).join('');
-
-  document.getElementById('stepEd').innerHTML=C.stps.map((s,i)=>`
-    <div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">
-      <div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">QADAM #${i+1}</div>
-      <div class="row2">
-        <div class="fg"><label>Sarlavha UZ</label><input id="stu${i}" value="${x(s.tu)}"></div>
-        <div class="fg"><label>Sarlavha RU</label><input id="str${i}" value="${x(s.tr)}"></div>
-      </div>
-      <div class="row2">
-        <div class="fg"><label>Matn UZ</label><input id="spu${i}" value="${x(s.pu)}"></div>
-        <div class="fg"><label>Matn RU</label><input id="spr${i}" value="${x(s.pr)}"></div>
-      </div>
-    </div>`).join('');
+/* ── ADMIN GATE ── */
+function openGate() {
+  document.getElementById('pwIn').value = '';
+  document.getElementById('gErr').style.display = 'none';
+  document.getElementById('aGate').classList.add('on');
+  setTimeout(function(){ document.getElementById('pwIn').focus(); }, 120);
+}
+function doPw() {
+  if (document.getElementById('pwIn').value === ADMIN_PW) {
+    document.getElementById('aGate').classList.remove('on');
+    openAP();
+  } else {
+    document.getElementById('gErr').style.display = 'block';
+  }
 }
 
-function saveSec(n){
-  if(n===0){ C.nUz=gv('f-nUz');C.nRu=gv('f-nRu');C.price=+gv('f-pr')||65000;C.oldP=+gv('f-op')||90000;C.locFee=+gv('f-lf')||10000;C.badge=gv('f-bg');C.shUz=gv('f-shUz');C.shRu=gv('f-shRu');C.lcUz=gv('f-lcUz');C.lcRu=gv('f-lcRu'); }
-  if(n===1){ C.hHuz=gv('f-hHuz');C.hHru=gv('f-hHru');C.hPuz=gv('f-hPuz');C.hPru=gv('f-hPru'); C.probs.forEach((_,i)=>{C.probs[i]={...C.probs[i],tu:gv(`pt${i}`),tr:gv(`pr${i}`),pu:gv(`pp${i}`),pr:gv(`pq${i}`)}}); C.sols.forEach((_,i)=>{C.sols[i]={...C.sols[i],tu:gv(`st${i}`),tr:gv(`sr${i}`),pu:gv(`sp${i}`),pr:gv(`sq${i}`)}}); C.stps.forEach((_,i)=>{C.stps[i]={...C.stps[i],tu:gv(`stu${i}`),tr:gv(`str${i}`),pu:gv(`spu${i}`),pr:gv(`spr${i}`)}}); }
+/* ── ADMIN PANEL ── */
+function openAP() {
+  loadFields();
+  renderIgrid();
+  renderGList();
+  renderOrders();
+  document.getElementById('aPanel').classList.add('on');
+}
+function closeAP() { document.getElementById('aPanel').classList.remove('on'); }
+function apTab(i) {
+  var tabs = document.querySelectorAll('.ap-tab');
+  var secs = document.querySelectorAll('.ap-sec');
+  for (var j=0; j<tabs.length; j++) tabs[j].classList.toggle('on', j===i);
+  for (var j=0; j<secs.length; j++) secs[j].classList.toggle('on', j===i);
+  if (i === 4) renderOrders();
+}
+
+/* ── LOAD FIELDS ── */
+function loadFields() {
+  function sv(id, v) { var e=document.getElementById(id); if(e) e.value=v; }
+  sv('f-nUz', C.nUz); sv('f-nRu', C.nRu);
+  sv('f-pr', C.price); sv('f-op', C.oldP);
+  sv('f-lf', C.locFee); sv('f-bg', C.badge);
+  sv('f-shUz', C.shUz); sv('f-shRu', C.shRu);
+  sv('f-lcUz', C.lcUz); sv('f-lcRu', C.lcRu);
+  sv('f-hHuz', C.hHuz); sv('f-hHru', C.hHru);
+  sv('f-hPuz', C.hPuz); sv('f-hPru', C.hPru);
+
+  document.getElementById('probEd').innerHTML = C.probs.map(function(p,i){
+    return '<div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">' +
+      '<div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">KARTA #'+(i+1)+' '+p.ic+'</div>' +
+      '<div class="row2">' +
+        '<div class="fg"><label>Sarlavha UZ</label><input id="pt'+i+'" value="'+esc(p.tu)+'"></div>' +
+        '<div class="fg"><label>Sarlavha RU</label><input id="pr'+i+'" value="'+esc(p.tr)+'"></div>' +
+      '</div><div class="row2">' +
+        '<div class="fg"><label>Matn UZ</label><input id="pp'+i+'" value="'+esc(p.pu)+'"></div>' +
+        '<div class="fg"><label>Matn RU</label><input id="pq'+i+'" value="'+esc(p.pr)+'"></div>' +
+      '</div></div>';
+  }).join('');
+
+  document.getElementById('solEd').innerHTML = C.sols.map(function(s,i){
+    return '<div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">' +
+      '<div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">KARTA #'+(i+1)+' '+s.ic+'</div>' +
+      '<div class="row2">' +
+        '<div class="fg"><label>Sarlavha UZ</label><input id="st'+i+'" value="'+esc(s.tu)+'"></div>' +
+        '<div class="fg"><label>Sarlavha RU</label><input id="sr'+i+'" value="'+esc(s.tr)+'"></div>' +
+      '</div><div class="row2">' +
+        '<div class="fg"><label>Matn UZ</label><input id="sp'+i+'" value="'+esc(s.pu)+'"></div>' +
+        '<div class="fg"><label>Matn RU</label><input id="sq'+i+'" value="'+esc(s.pr)+'"></div>' +
+      '</div></div>';
+  }).join('');
+
+  document.getElementById('stepEd').innerHTML = C.stps.map(function(s,i){
+    return '<div style="border:1px solid #e2e8f0;border-radius:10px;padding:14px;margin-bottom:10px">' +
+      '<div style="font-size:11px;font-weight:700;color:#64748b;margin-bottom:8px">QADAM #'+(i+1)+'</div>' +
+      '<div class="row2">' +
+        '<div class="fg"><label>Sarlavha UZ</label><input id="stu'+i+'" value="'+esc(s.tu)+'"></div>' +
+        '<div class="fg"><label>Sarlavha RU</label><input id="str'+i+'" value="'+esc(s.tr)+'"></div>' +
+      '</div><div class="row2">' +
+        '<div class="fg"><label>Matn UZ</label><input id="spu'+i+'" value="'+esc(s.pu)+'"></div>' +
+        '<div class="fg"><label>Matn RU</label><input id="spr'+i+'" value="'+esc(s.pr)+'"></div>' +
+      '</div></div>';
+  }).join('');
+}
+
+/* ── SAVE SECTION ── */
+function saveSec(n) {
+  if (n === 0) {
+    C.nUz    = gv('f-nUz'); C.nRu  = gv('f-nRu');
+    C.price  = parseInt(gv('f-pr'))  || 65000;
+    C.oldP   = parseInt(gv('f-op'))  || 90000;
+    C.locFee = parseInt(gv('f-lf'))  || 10000;
+    C.badge  = gv('f-bg');
+    C.shUz   = gv('f-shUz'); C.shRu = gv('f-shRu');
+    C.lcUz   = gv('f-lcUz'); C.lcRu = gv('f-lcRu');
+  }
+  if (n === 1) {
+    C.hHuz = gv('f-hHuz'); C.hHru = gv('f-hHru');
+    C.hPuz = gv('f-hPuz'); C.hPru = gv('f-hPru');
+    C.probs.forEach(function(_,i){ C.probs[i] = Object.assign({}, C.probs[i], { tu:gv('pt'+i), tr:gv('pr'+i), pu:gv('pp'+i), pr:gv('pq'+i) }); });
+    C.sols.forEach(function(_,i){  C.sols[i]  = Object.assign({}, C.sols[i],  { tu:gv('st'+i), tr:gv('sr'+i), pu:gv('sp'+i), pr:gv('sq'+i) }); });
+    C.stps.forEach(function(_,i){ C.stps[i]  = Object.assign({}, C.stps[i],  { tu:gv('stu'+i), tr:gv('str'+i), pu:gv('spu'+i), pr:gv('spr'+i) }); });
+  }
   render();
-  flash(`sm${n}`,'✅ Saqlandi! GitHub ga yuklashni unutmang.','ok');
+  flash('sm'+n, '\u2705 Saqlandi! GitHub ga yuklashni unutmang.', 'ok');
 }
 
-function renderIgrid(){
-  const g=document.getElementById('igrid');
-  g.innerHTML=C.imgs.length?C.imgs.map((u,i)=>`<div class="img-item"><img src="${u}" onerror="this.style.opacity='.2'"><div class="img-lbl">${u.startsWith('data:')? '📁 Yuklangan':'🔗 '+u.split('/').pop().slice(0,18)}</div><button class="img-x" onclick="delImg(${i})">×</button></div>`).join(''):'<p style="color:#64748b;font-size:13px">Hali rasm yo\'q</p>';
+/* ── IMAGE MANAGER ── */
+function renderIgrid() {
+  var g = document.getElementById('igrid');
+  if (!C.imgs.length) {
+    g.innerHTML = '<p style="color:#64748b;font-size:13px">Hali rasm yo\'q</p>';
+    return;
+  }
+  g.innerHTML = C.imgs.map(function(u, i){
+    var lbl = u.indexOf('data:') === 0 ? '\ud83d\udcc1 Yuklangan' : '\ud83d\udd17 ' + u.split('/').pop().slice(0,18);
+    return '<div class="img-item">' +
+      '<img src="'+u+'" onerror="this.style.opacity=\'0.2\'">' +
+      '<div class="img-lbl">'+lbl+'</div>' +
+      '<button class="img-x" onclick="delImg('+i+')">\u00d7</button>' +
+      '</div>';
+  }).join('');
 }
-function iTab(i){ document.querySelectorAll('.itab').forEach((b,j)=>b.classList.toggle('on',j===i)); document.querySelectorAll('.ipanel').forEach((p,j)=>p.classList.toggle('on',j===i)); }
-function doFiles(files){ Array.from(files).forEach(f=>{ if(!f.type.startsWith('image/')){alert(f.name+' — rasm fayli emas');return;} if(f.size>MAX_IMG){alert(f.name+' — 800KB dan katta');return;} const r=new FileReader(); r.onload=e=>{C.imgs.push(e.target.result);renderIgrid();buildSlider();}; r.readAsDataURL(f); }); }
-function prevUrl(){ const u=document.getElementById('urlIn').value.trim(),p=document.getElementById('urlPrev'),ok=/^https?:\/\/.+\.(jpe?g|png|webp|gif)(\?.*)?$/i.test(u); p.style.display=ok?'block':'none'; if(ok){p.src=u;p.onerror=()=>p.style.display='none';} }
-function addUrl(){ const u=document.getElementById('urlIn').value.trim(); if(!u.startsWith('http')){alert("To'g'ri URL kiriting");return;} C.imgs.push(u); document.getElementById('urlIn').value=''; document.getElementById('urlPrev').style.display='none'; renderIgrid();buildSlider(); }
-function delImg(i){ if(C.imgs.length<=1){alert("Kamida 1 ta rasm!");return;} C.imgs.splice(i,1);renderIgrid();buildSlider(); }
-
-function renderGList(){ const el=document.getElementById('gList'); el.innerHTML=C.groups.length?C.groups.map((g,i)=>`<div class="g-item"><div><div class="g-name">💬 ${x(g.name)}</div><div class="g-id">${g.id}</div></div><button class="g-del" onclick="delGrp(${i})">O'chirish</button></div>`).join(''):'<p style="font-size:13px;color:#64748b">Guruh qo\'shilmagan</p>'; }
-function addGroup(){ const id=document.getElementById('gId').value.trim(),nm=document.getElementById('gName').value.trim()||'Guruh'; if(!id){alert('ID kiriting');return;} if(C.groups.find(g=>g.id===id)){alert('Allaqachon mavjud');return;} C.groups.push({id,name:nm}); document.getElementById('gId').value=''; document.getElementById('gName').value=''; renderGList(); }
-function delGrp(i){ if(!confirm("O'chirishni tasdiqlaysizmi?"))return; C.groups.splice(i,1);renderGList(); }
-
-function renderOrders(){ const w=document.getElementById('ordWr'); document.getElementById('ordCnt').textContent='Jami: '+orders.length+' ta buyurtma'; if(!orders.length){w.innerHTML='<div class="no-ord">📭 Hali buyurtmalar yo\'q</div>';return;} const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida",region:"Viloyatlarga"}; w.innerHTML=`<table class="ord-tbl"><thead><tr><th>#</th><th>Ism</th><th>Telefon</th><th>Yetkazib berish</th><th>Manzil</th><th>Miqdor</th><th>Jami</th><th>Vaqt</th></tr></thead><tbody>${orders.map((o,i)=>`<tr><td>${i+1}</td><td>${x(o.name)}</td><td>${x(o.phone)}</td><td>${dn[o.del]||o.del}</td><td>${x(o.addr||'—')}</td><td>${o.qty} dona</td><td><strong>${o.total.toLocaleString()} so'm</strong></td><td style="font-size:11px;color:#64748b">${new Date(o.time).toLocaleString('uz-UZ')}</td></tr>`).join('')}</tbody></table>`; }
-
-async function pushGH(){
-  const tok=document.getElementById('ghTok').value.trim(),user=document.getElementById('ghUser').value.trim(),repo=document.getElementById('ghRepo').value.trim(),btn=document.getElementById('ghBtn');
-  if(!tok||!user||!repo){setGhSt('er',"❌ Barcha maydonlarni to'ldiring");return;}
-  btn.disabled=true; setGhSt('ld',"⏳ GitHub dan o'qilmoqda...");
-  try{
-    const url=`https://api.github.com/repos/${user}/${repo}/contents/index.html`;
-    const hdr={'Authorization':`Bearer ${tok}`,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'};
-    const getR=await fetch(url,{headers:hdr});
-    if(!getR.ok&&getR.status!==404) throw new Error('Fayl o\'qilmadi: '+getR.status);
-    const getD=getR.ok?await getR.json():{};
-    const sha=getD.sha||null;
-    setGhSt('ld','⏳ Konfiguratsiya yangilanmoqda...');
-    let html=getD.content?decodeURIComponent(escape(atob(getD.content.replace(/\n/g,'')))):document.documentElement.outerHTML;
-    const newBlock='/* __CONFIG_START__ */\nlet C = '+JSON.stringify(C,null,2)+';\n/* __CONFIG_END__ */';
-    html=html.replace(/\/\* __CONFIG_START__ \*\/[\s\S]*?\/\* __CONFIG_END__ \*\//,newBlock);
-    const encoded=btoa(Array.from(new TextEncoder().encode(html)).map(b=>String.fromCharCode(b)).join(''));
-    const putR=await fetch(url,{method:'PUT',headers:hdr,body:JSON.stringify({message:'Admin panel — '+new Date().toLocaleString('uz-UZ'),content:encoded,...(sha?{sha}:{})})});
-    if(putR.ok){ setGhSt('ok','✅ Yuklandi! Sayt 1–2 daqiqada yangilanadi.'); }
-    else{ const e=await putR.json(); throw new Error(e.message||'HTTP '+putR.status); }
-  }catch(e){ setGhSt('er','❌ Xatolik: '+e.message); }
-  finally{ btn.disabled=false; }
+function iTab(i) {
+  var btns   = document.querySelectorAll('.itab');
+  var panels = document.querySelectorAll('.ipanel');
+  for (var j=0; j<btns.length; j++)   btns[j].classList.toggle('on', j===i);
+  for (var j=0; j<panels.length; j++) panels[j].classList.toggle('on', j===i);
 }
-function setGhSt(cls,msg){ const el=document.getElementById('ghSt'); el.className='gh-st '+cls; el.textContent=msg; }
-
-function openM(){ document.getElementById('mOv').classList.add('on'); goMs(1); chosenDel=null;qty=1; document.getElementById('qV').textContent=1; document.querySelectorAll('.del-opt').forEach(d=>d.classList.remove('on')); document.getElementById('nBtn').disabled=true; ['fNm','fPh','fAd'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';}); }
-function closeM(){ document.getElementById('mOv').classList.remove('on'); }
-function goMs(n){ document.querySelectorAll('.fst').forEach((s,i)=>s.classList.toggle('on',i===n-1)); }
-function selDel(t){ chosenDel=t; document.querySelectorAll('.del-opt').forEach(d=>d.classList.remove('on')); document.getElementById({pickup:'d1',local:'d2',region:'d3'}[t]).classList.add('on'); document.getElementById('nBtn').disabled=false; calcTotal(); }
-function goMs2(){ if(!chosenDel)return; qty=1;document.getElementById('qV').textContent=1; const lb={uz:{pickup:"🏪 Do'kondan olib ketish",local:"🛵 Qo'qon ichida",region:"📦 Viloyatlarga"},ru:{pickup:"🏪 Самовывоз",local:"🛵 По Коканду",region:"📦 По регионам"}}; document.getElementById('mDL').textContent=lb[curLang][chosenDel]; const na=chosenDel!=='pickup'; document.getElementById('fAdW').style.display=na?'block':'none'; document.getElementById('fAd').placeholder=chosenDel==='local'?(curLang==='uz'?"Ko'cha, uy raqami":'Улица, дом'):(curLang==='uz'?"Shahar, ko'cha, uy":'Город, улица, дом'); calcTotal();goMs(2); }
-function chQ(d){ qty=Math.max(1,qty+d);document.getElementById('qV').textContent=qty;calcTotal(); }
-function calcTotal(){ if(!chosenDel)return; const fee={pickup:0,local:C.locFee,region:0}[chosenDel]||0; document.getElementById('tV').textContent=((C.price*qty)+fee).toLocaleString()+" so'm"; }
-
-async function sendAll(txt){ const targets=C.groups.length?C.groups:[{id:'47115138'}]; await Promise.allSettled(targets.map(g=>fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:g.id,text:txt,parse_mode:'Markdown'})}))); }
-
-async function doOrder(){
-  const name=document.getElementById('fNm').value.trim(),phone=document.getElementById('fPh').value.trim(),addr=document.getElementById('fAd').value.trim(),na=chosenDel!=='pickup';
-  if(!name||!phone||(na&&!addr)){alert(curLang==='uz'?"Barcha maydonlarni to'ldiring":"Заполните все поля");return;}
-  const btn=document.getElementById('subBtn'); btn.disabled=true; btn.innerHTML=curLang==='uz'?'⏳ Yuborilmoqda...':'⏳ Отправка...';
-  const fee={pickup:0,local:C.locFee,region:0}[chosenDel]||0,total=(C.price*qty)+fee;
-  const dn={pickup:"Do'kondan olib ketish",local:"Qo'qon ichida yetkazib berish",region:"Viloyatlarga yetkazib berish"};
-  const msg=`🛒 *YANGI BUYURTMA!*\n\n📦 *Mahsulot:* ${C.nUz}\n🔢 *Miqdor:* ${qty} dona\n🚚 *Yetkazib berish:* ${dn[chosenDel]}\n👤 *Ism:* ${name}\n📱 *Telefon:* ${phone}\n${addr?`📍 *Manzil:* ${addr}\n`:''}💰 *Jami:* ${total.toLocaleString()} so'm\n⏰ ${new Date().toLocaleString('uz-UZ')}`;
-  await sendAll(msg);
-  orders.push({id:Date.now(),name,phone,addr:addr||'',del:chosenDel,qty,total,time:new Date().toISOString()});
-  const ok={uz:`Hurmatli ${name}, buyurtmangiz qabul qilindi! 🎉\nTez orada siz bilan bog'lanamiz.\n📱 ${phone}`,ru:`Уважаемый(ая) ${name}, заказ принят! 🎉\nСвяжемся в ближайшее время.\n📱 ${phone}`};
-  document.getElementById('sucMsg').textContent=ok[curLang];
-  goMs(3); btn.disabled=false; btn.innerHTML=curLang==='uz'?'✅ Buyurtma Berish':'✅ Оформить заказ';
+function doFiles(files) {
+  Array.from(files).forEach(function(f){
+    if (!f.type.startsWith('image/')) { alert(f.name + ' \u2014 rasm fayli emas'); return; }
+    if (f.size > MAX_IMG) { alert(f.name + ' \u2014 hajmi 800KB dan katta'); return; }
+    var r = new FileReader();
+    r.onload = function(e){ C.imgs.push(e.target.result); renderIgrid(); buildSlider(); };
+    r.readAsDataURL(f);
+  });
+}
+function prevUrl() {
+  var u  = document.getElementById('urlIn').value.trim();
+  var pr = document.getElementById('urlPrev');
+  var ok = /^https?:\/\/.+\.(jpe?g|png|webp|gif)(\?.*)?$/i.test(u);
+  pr.style.display = ok ? 'block' : 'none';
+  if (ok) { pr.src = u; pr.onerror = function(){ pr.style.display='none'; }; }
+}
+function addUrl() {
+  var u = document.getElementById('urlIn').value.trim();
+  if (!u.startsWith('http')) { alert("To'g'ri URL kiriting (https://...)"); return; }
+  C.imgs.push(u);
+  document.getElementById('urlIn').value = '';
+  document.getElementById('urlPrev').style.display = 'none';
+  renderIgrid(); buildSlider();
+}
+function delImg(i) {
+  if (C.imgs.length <= 1) { alert("Kamida 1 ta rasm bo'lishi kerak!"); return; }
+  C.imgs.splice(i, 1); renderIgrid(); buildSlider();
 }
 
-document.addEventListener('DOMContentLoaded',function(){
+/* ── GROUPS ── */
+function renderGList() {
+  var el = document.getElementById('gList');
+  if (!C.groups.length) {
+    el.innerHTML = '<p style="font-size:13px;color:#64748b;padding:8px 0">Guruh qo\'shilmagan</p>';
+    return;
+  }
+  el.innerHTML = C.groups.map(function(g, i){
+    return '<div class="g-item">' +
+      '<div><div class="g-name">\ud83d\udcac ' + esc(g.name) + '</div><div class="g-id">' + g.id + '</div></div>' +
+      '<button class="g-del" onclick="delGrp('+i+')">' + "O'chirish" + '</button>' +
+      '</div>';
+  }).join('');
+}
+function addGroup() {
+  var id = document.getElementById('gId').value.trim();
+  var nm = document.getElementById('gName').value.trim() || 'Guruh';
+  if (!id) { alert('Guruh ID kiriting'); return; }
+  if (C.groups.some(function(g){ return g.id === id; })) { alert('Bu guruh allaqachon mavjud'); return; }
+  C.groups.push({ id: id, name: nm });
+  document.getElementById('gId').value   = '';
+  document.getElementById('gName').value = '';
+  renderGList();
+}
+function delGrp(i) {
+  if (!confirm("Guruhni o'chirishni tasdiqlaysizmi?")) return;
+  C.groups.splice(i, 1); renderGList();
+}
+
+/* ── AUTO DETECT GROUPS ── */
+function autoDetect() {
+  var res = document.getElementById('detectResult');
+  res.innerHTML = '<div style="color:#1a73e8;font-size:13px;padding:8px 0">\u23f3 Guruhlar qidirilmoqda...</div>';
+
+  fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/getUpdates?limit=100&offset=-100')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if (!d.ok) throw new Error(d.description || 'API xatosi');
+
+      var found = {};
+      (d.result || []).forEach(function(u){
+        var chat = (u.message && u.message.chat) || (u.my_chat_member && u.my_chat_member.chat);
+        if (chat && (chat.type === 'group' || chat.type === 'supergroup')) {
+          found[String(chat.id)] = { id: String(chat.id), name: chat.title || 'Nomsiz guruh' };
+        }
+      });
+
+      var list    = Object.values(found);
+      var newOnes = list.filter(function(g){ return !C.groups.some(function(e){ return e.id === g.id; }); });
+      var already = list.filter(function(g){ return  C.groups.some(function(e){ return e.id === g.id; }); });
+
+      if (!list.length) {
+        res.innerHTML = '<div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:8px;padding:12px;font-size:12px;color:#9a3412;line-height:1.6">' +
+          '\u26a0\ufe0f Guruh topilmadi.<br>1. Botni guruhga qo\'shing va <strong>admin</strong> qiling<br>2. Guruhga <strong>/start</strong> yozing<br>3. Qayta urinib ko\'ring</div>';
+        return;
+      }
+
+      var html = '';
+      if (newOnes.length) {
+        html += '<div style="font-size:12px;font-weight:700;color:#166534;margin-bottom:8px">\u2705 ' + newOnes.length + ' ta yangi guruh topildi:</div>';
+        newOnes.forEach(function(g){
+          html += '<div class="detect-group-item">' +
+            '<div><div style="font-size:13px;font-weight:700">\ud83d\udcac ' + esc(g.name) + '</div>' +
+            '<div style="font-size:11px;color:#64748b;font-family:monospace">' + g.id + '</div></div>' +
+            '<button class="detect-add-btn" id="dab-'+g.id+'" onclick="addDetected(\''+g.id+'\',\''+esc(g.name)+'\')">\u2795 Qo\'shish</button>' +
+            '</div>';
+        });
+        if (newOnes.length > 1) {
+          html += '<button onclick="addAllDetected()" style="width:100%;margin-top:10px;background:#1a73e8;color:#fff;border:none;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer">' +
+            '\u2795 Hammasini qo\'shish (' + newOnes.length + ' ta)</button>';
+        }
+      }
+      if (already.length) {
+        html += '<div style="font-size:12px;color:#64748b;margin-top:8px">\u2139\ufe0f ' + already.length + ' ta guruh allaqachon ro\'yxatda</div>';
+      }
+
+      res.innerHTML = html;
+      res._newOnes = newOnes;
+    })
+    .catch(function(e){
+      res.innerHTML = '<div style="color:#ef4444;font-size:13px">\u274c Xatolik: ' + e.message + '</div>';
+    });
+}
+
+function addDetected(id, name) {
+  if (C.groups.some(function(g){ return g.id === id; })) return;
+  C.groups.push({ id: id, name: name });
+  renderGList();
+  var btn = document.getElementById('dab-' + id);
+  if (btn) { btn.textContent = '\u2705 Qo\'shildi'; btn.disabled = true; }
+}
+
+function addAllDetected() {
+  var res = document.getElementById('detectResult');
+  var list = res._newOnes || [];
+  list.forEach(function(g){
+    if (!C.groups.some(function(e){ return e.id === g.id; })) {
+      C.groups.push({ id: g.id, name: g.name });
+    }
+  });
+  renderGList();
+  res.innerHTML = '<div style="color:#10b981;font-size:13px;font-weight:600;padding:8px 0">\u2705 ' + list.length + " ta guruh qo'shildi! \"Saqlash\" tugmasini bosing.</div>";
+}
+
+/* ── ORDERS ── */
+function renderOrders() {
+  var w   = document.getElementById('ordWr');
+  var cnt = document.getElementById('ordCnt');
+  cnt.textContent = 'Jami: ' + orders.length + ' ta buyurtma';
+  if (!orders.length) { w.innerHTML = '<div class="no-ord">\ud83d\udced Hali buyurtmalar yo\'q</div>'; return; }
+  var dn = { pickup: "Do'kondan olib ketish", local: "Qo'qon ichida", region: "Viloyatlarga" };
+  w.innerHTML = '<table class="ord-tbl"><thead><tr>' +
+    '<th>#</th><th>Ism</th><th>Telefon</th><th>Yetkazib berish</th><th>Manzil</th><th>Miqdor</th><th>Jami</th><th>Vaqt</th>' +
+    '</tr></thead><tbody>' +
+    orders.map(function(o, i){
+      return '<tr>' +
+        '<td>'+(i+1)+'</td><td>'+esc(o.name)+'</td><td>'+esc(o.phone)+'</td>' +
+        '<td>'+(dn[o.del]||o.del)+'</td><td>'+esc(o.addr||'—')+'</td>' +
+        '<td>'+o.qty+' dona</td><td><strong>'+o.total.toLocaleString()+" so'm</strong></td>" +
+        '<td style="font-size:11px;color:#64748b">'+new Date(o.time).toLocaleString('uz-UZ')+'</td>' +
+        '</tr>';
+    }).join('') +
+    '</tbody></table>';
+}
+
+/* ── GITHUB PUSH ── */
+function pushGH() {
+  var tok  = document.getElementById('ghTok').value.trim();
+  var user = document.getElementById('ghUser').value.trim();
+  var repo = document.getElementById('ghRepo').value.trim();
+  var btn  = document.getElementById('ghBtn');
+
+  if (!tok || !user || !repo) { setGhSt('er', "\u274c Barcha maydonlarni to'ldiring"); return; }
+
+  btn.disabled = true;
+  setGhSt('ld', "\u23f3 GitHub dan o'qilmoqda...");
+
+  var apiUrl = 'https://api.github.com/repos/' + user + '/' + repo + '/contents/index.html';
+  var hdr = {
+    'Authorization': 'Bearer ' + tok,
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json'
+  };
+
+  fetch(apiUrl, { headers: hdr })
+    .then(function(r){ return r.ok ? r.json() : {}; })
+    .then(function(getD){
+      var sha  = getD.sha || null;
+      var html = '';
+
+      if (getD.content) {
+        try { html = decodeURIComponent(escape(atob(getD.content.replace(/\n/g,'')))); }
+        catch(e) { html = document.documentElement.outerHTML; }
+      } else {
+        html = document.documentElement.outerHTML;
+      }
+
+      setGhSt('ld', "\u23f3 Konfiguratsiya yangilanmoqda...");
+
+      var newBlock = '/* __CONFIG_START__ */\nvar C = ' + JSON.stringify(C, null, 2) + ';\n/* __CONFIG_END__ */';
+      html = html.replace(/\/\* __CONFIG_START__ \*\/[\s\S]*?\/\* __CONFIG_END__ \*\//, newBlock);
+
+      var bytes   = new TextEncoder().encode(html);
+      var encoded = btoa(Array.from(bytes).map(function(b){ return String.fromCharCode(b); }).join(''));
+
+      var body = { message: 'Admin panel \u2014 ' + new Date().toLocaleString('uz-UZ'), content: encoded };
+      if (sha) body.sha = sha;
+
+      return fetch(apiUrl, { method: 'PUT', headers: hdr, body: JSON.stringify(body) });
+    })
+    .then(function(putR){
+      if (putR && putR.ok) {
+        setGhSt('ok', '\u2705 Muvaffaqiyatli yuklandi! Sayt 1\u20132 daqiqada yangilanadi.');
+      } else {
+        return putR.json().then(function(e){ throw new Error(e.message || 'HTTP ' + putR.status); });
+      }
+    })
+    .catch(function(e){ setGhSt('er', '\u274c Xatolik: ' + e.message); })
+    .finally(function(){ btn.disabled = false; });
+}
+function setGhSt(cls, msg) {
+  var el = document.getElementById('ghSt');
+  el.className   = 'gh-st ' + cls;
+  el.textContent = msg;
+}
+
+/* ── ORDER MODAL ── */
+function openM() {
+  document.getElementById('mOv').classList.add('on');
+  goMs(1);
+  chosenDel = null; qty = 1;
+  document.getElementById('qV').textContent = 1;
+  document.querySelectorAll('.del-opt').forEach(function(d){ d.classList.remove('on'); });
+  document.getElementById('nBtn').disabled = true;
+  ['fNm','fPh','fAd'].forEach(function(id){ var e=document.getElementById(id); if(e) e.value=''; });
+}
+function closeM() { document.getElementById('mOv').classList.remove('on'); }
+function goMs(n) {
+  document.querySelectorAll('.fst').forEach(function(s, i){ s.classList.toggle('on', i === n-1); });
+}
+function selDel(t) {
+  chosenDel = t;
+  document.querySelectorAll('.del-opt').forEach(function(d){ d.classList.remove('on'); });
+  var map = { pickup:'d1', local:'d2', region:'d3' };
+  document.getElementById(map[t]).classList.add('on');
+  document.getElementById('nBtn').disabled = false;
+  calcTotal();
+}
+function goMs2() {
+  if (!chosenDel) return;
+  qty = 1; document.getElementById('qV').textContent = 1;
+  var lb = {
+    uz: { pickup: "\ud83c\udfea Do'kondan olib ketish", local: "\ud83d\udef5 Qo'qon ichida", region: "\ud83d\udce6 Viloyatlarga" },
+    ru: { pickup: "\ud83c\udfea \u0421\u0430\u043c\u043e\u0432\u044b\u0432\u043e\u0437", local: "\ud83d\udef5 \u041f\u043e \u041a\u043e\u043a\u0430\u043d\u0434\u0443", region: "\ud83d\udce6 \u041f\u043e \u0440\u0435\u0433\u0438\u043e\u043d\u0430\u043c" }
+  };
+  document.getElementById('mDL').textContent = lb[curLang][chosenDel];
+  var showA = chosenDel !== 'pickup';
+  document.getElementById('fAdW').style.display = showA ? 'block' : 'none';
+  document.getElementById('fAd').placeholder = chosenDel === 'local'
+    ? (curLang==='uz' ? "Ko'cha, uy raqami" : '\u0423\u043b\u0438\u0446\u0430, \u0434\u043e\u043c')
+    : (curLang==='uz' ? "Shahar, ko'cha, uy" : '\u0413\u043e\u0440\u043e\u0434, \u0443\u043b\u0438\u0446\u0430, \u0434\u043e\u043c');
+  calcTotal(); goMs(2);
+}
+function chQ(d) { qty = Math.max(1, qty + d); document.getElementById('qV').textContent = qty; calcTotal(); }
+function calcTotal() {
+  if (!chosenDel) return;
+  var fee = { pickup:0, local:C.locFee, region:0 }[chosenDel] || 0;
+  document.getElementById('tV').textContent = ((C.price * qty) + fee).toLocaleString() + " so'm";
+}
+
+function sendAll(txt) {
+  var targets = C.groups.length ? C.groups : [{ id:'47115138' }];
+  return Promise.allSettled(targets.map(function(g){
+    return fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: g.id, text: txt, parse_mode: 'Markdown' })
+    });
+  }));
+}
+
+function doOrder() {
+  var name  = document.getElementById('fNm').value.trim();
+  var phone = document.getElementById('fPh').value.trim();
+  var addr  = document.getElementById('fAd').value.trim();
+  var needA = chosenDel !== 'pickup';
+  if (!name || !phone || (needA && !addr)) {
+    alert(curLang === 'uz' ? "Barcha maydonlarni to'ldiring" : "\u0417\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u0435 \u0432\u0441\u0435 \u043f\u043e\u043b\u044f");
+    return;
+  }
+  var btn = document.getElementById('subBtn');
+  btn.disabled = true;
+  btn.innerHTML = curLang==='uz' ? '\u23f3 Yuborilmoqda...' : '\u23f3 \u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430...';
+
+  var fee   = { pickup:0, local:C.locFee, region:0 }[chosenDel] || 0;
+  var total = (C.price * qty) + fee;
+  var dn    = { pickup:"Do'kondan olib ketish", local:"Qo'qon ichida yetkazib berish", region:"Viloyatlarga yetkazib berish" };
+
+  var msg = '\ud83d\uded2 *YANGI BUYURTMA!*\n\n' +
+    '\ud83d\udce6 *Mahsulot:* ' + C.nUz + '\n' +
+    '\ud83d\udd22 *Miqdor:* ' + qty + ' dona\n' +
+    '\ud83d\ude9a *Yetkazib berish:* ' + dn[chosenDel] + '\n' +
+    '\ud83d\udc64 *Ism:* ' + name + '\n' +
+    '\ud83d\udcf1 *Telefon:* ' + phone + '\n' +
+    (addr ? '\ud83d\udccd *Manzil:* ' + addr + '\n' : '') +
+    '\ud83d\udcb0 *Jami:* ' + total.toLocaleString() + " so'm\n" +
+    '\u23f0 ' + new Date().toLocaleString('uz-UZ');
+
+  sendAll(msg).then(function(){
+    orders.push({ id: Date.now(), name:name, phone:phone, addr:addr||'', del:chosenDel, qty:qty, total:total, time:new Date().toISOString() });
+    var ok = {
+      uz: 'Hurmatli ' + name + ", buyurtmangiz qabul qilindi! \ud83c\udf89\nTez orada siz bilan bog'lanamiz.\n\ud83d\udcf1 " + phone,
+      ru: '\u0423\u0432\u0430\u0436\u0430\u0435\u043c\u044b\u0439(\u0430\u044f) ' + name + ", \u0437\u0430\u043a\u0430\u0437 \u043f\u0440\u0438\u043d\u044f\u0442! \ud83c\udf89\n\u0421\u0432\u044f\u0436\u0435\u043c\u0441\u044f \u0432 \u0431\u043b\u0438\u0436\u0430\u0439\u0448\u0435\u0435 \u0432\u0440\u0435\u043c\u044f.\n\ud83d\udcf1 " + phone
+    };
+    document.getElementById('sucMsg').textContent = ok[curLang];
+    goMs(3);
+    btn.disabled = false;
+    btn.innerHTML = curLang==='uz' ? '\u2705 Buyurtma Berish' : '\u2705 \u041e\u0444\u043e\u0440\u043c\u0438\u0442\u044c \u0437\u0430\u043a\u0430\u0437';
+  });
+}
+
+/* ── INIT ── */
+document.addEventListener('DOMContentLoaded', function(){
   render();
-  const p=new URLSearchParams(window.location.search);
-  if(p.get('admin')==='kirish'){ window.history.replaceState({},'',window.location.pathname); openGate(); }
+  var p = new URLSearchParams(window.location.search);
+  if (p.get('admin') === 'kirish') {
+    window.history.replaceState({}, '', window.location.pathname);
+    openGate();
+  }
 });
 </script>
 </body>
