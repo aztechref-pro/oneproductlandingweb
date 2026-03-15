@@ -563,7 +563,7 @@ body.lang-ru span.ru { display: inline; }
 
 <script>
 var BOT_TOKEN = '8452117718:AAFd3Ubgxx07FFjCjjqoyqw3Ph1vHZmjtJ4';
-var ADMIN_PW  = 'aztech2025';
+var ADMIN_HASH = '1a3bef8ba4bbc2d4fe3e48042f1d0d162006d4e04a9aabed38e5124305ae1c2d';
 var MAX_IMG   = 800 * 1024;
 
 /* __CONFIG_START__ */
@@ -792,14 +792,18 @@ function openGate() {
   setTimeout(function(){ document.getElementById('pwIn').focus(); }, 120);
 }
 function doPw() {
-  if (document.getElementById('pwIn').value === ADMIN_PW) {
-    document.getElementById('aGate').classList.remove('on');
-    openAP();
-  } else {
-    document.getElementById('gErr').style.display = 'block';
-  }
+  var pw = document.getElementById('pwIn').value;
+  crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw))
+    .then(function(buf){
+      var hash = Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2,'0'); }).join('');
+      if (hash === ADMIN_HASH) {
+        document.getElementById('aGate').classList.remove('on');
+        openAP();
+      } else {
+        document.getElementById('gErr').style.display = 'block';
+      }
+    });
 }
-
 /* ── ADMIN PANEL ── */
 function openAP() {
   loadFields();
