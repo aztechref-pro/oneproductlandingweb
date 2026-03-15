@@ -589,10 +589,6 @@ var C = {
   ],
   "groups": [
     {
-      "id": "47115138",
-      "name": "Shaxsiy (default)"
-    },
-    {
       "id": "-4261554742",
       "name": "TEST GROUP AZTECH REF"
     },
@@ -1173,7 +1169,8 @@ function calcTotal() {
 }
 
 function sendAll(txt) {
-  var targets = C.groups.length ? C.groups : [{ id:'47115138' }];
+  var targets = C.groups;
+if (!targets.length) return Promise.resolve();
   return Promise.allSettled(targets.map(function(g){
     return fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
       method: 'POST',
